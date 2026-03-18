@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDG University Impact Scorer — THE Rankings × AACSB × BGA × EQUIS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --ink: #0f1923;
+  --ink2: #3a4a5c;
+  --ink3: #6b7c8d;
+  --surface: #f8f6f1;
+  --card: #ffffff;
+  --border: #e2ddd6;
+  --gold: #c9922a;
+  --gold-lt: #fdf5e6;
+  --teal: #0f7c6e;
+  --teal-lt: #e8f5f3;
+  --blue: #1a5fa8;
+  --blue-lt: #e8f0fb;
+  --coral: #c84b31;
+  --coral-lt: #faeae6;
+  --purple: #6b3fa0;
+  --purple-lt: #f2ecfa;
+  --green: #2d7a2d;
+  --green-lt: #eaf5ea;
+  --radius: 12px;
+  --radius-sm: 7px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); line-height: 1.6; }
+
+/* ── NAV ── */
+nav {
+  background: var(--ink);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff; letter-spacing: 0.01em; }
+.nav-logo span { color: var(--gold); }
+.nav-pills { display: flex; gap: 6px; }
+.nav-pill { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); color: #fff; background: transparent; transition: all 0.2s; }
+.nav-pill:hover, .nav-pill.active { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.nav-score { font-size: 13px; color: #fff; opacity: 0.7; }
+.nav-score strong { color: var(--gold); opacity: 1; font-size: 16px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 56px 32px 40px;
+  text-align: center;
+}
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 48px); color: #fff; line-height: 1.15; margin-bottom: 14px; }
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 640px; margin: 0 auto 28px; line-height: 1.7; }
+.mode-toggle { display: inline-flex; background: rgba(255,255,255,0.08); border-radius: 30px; padding: 4px; gap: 2px; margin-bottom: 12px; }
+.mode-btn { padding: 8px 22px; border-radius: 24px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; color: rgba(255,255,255,0.6); background: transparent; transition: all 0.2s; }
+.mode-btn.on { background: var(--gold); color: var(--ink); font-weight: 600; }
+.acc-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.acc-badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+.badge-the { background: #0d3b6b; color: #7bbfff; }
+.badge-aacsb { background: #001a4d; color: #8fa8e0; }
+.badge-bga { background: #3d1460; color: #c89fe0; }
+.badge-equis { background: #003d2a; color: #6fcfaa; }
+
+/* ── SCORE DASHBOARD ── */
+.dashboard {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.dash-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+}
+.dash-card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 6px; }
+.dash-card-val { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--ink); line-height: 1; }
+.dash-card-val sup { font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink3); }
+.dash-card-sub { font-size: 12px; color: var(--ink3); margin-top: 4px; }
+.dash-card.highlight { background: var(--ink); border-color: var(--ink); }
+.dash-card.highlight .dash-card-label { color: rgba(255,255,255,0.5); }
+.dash-card.highlight .dash-card-val { color: var(--gold); }
+.dash-card.highlight .dash-card-sub { color: rgba(255,255,255,0.4); }
+
+/* ── MATURITY SELECTOR ── */
+.maturity-bar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.maturity-label { font-size: 13px; font-weight: 600; color: var(--ink2); white-space: nowrap; }
+.maturity-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.mat-btn { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 1.5px solid var(--border); background: transparent; cursor: pointer; color: var(--ink2); transition: all 0.2s; }
+.mat-btn:hover { border-color: var(--teal); color: var(--teal); }
+.mat-btn.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+/* ── SDG GRID ── */
+.sdg-section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.sdg-section-sub { font-size: 13px; color: var(--ink3); margin-bottom: 20px; }
+.sdg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.sdg-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+.sdg-card:hover { border-color: var(--ink2); transform: translateY(-2px); }
+.sdg-card.open { border-color: var(--ink); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.sdg-card-top {
+  padding: 14px 14px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.sdg-num {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.sdg-name { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.sdg-score-row { padding: 0 14px 12px; display: flex; align-items: center; gap: 8px; }
+.sdg-score-num { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); }
+.sdg-score-max { font-size: 11px; color: var(--ink3); }
+.sdg-prog-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.sdg-prog-fill { height: 100%; border-radius: 2px; transition: width 0.5s cubic-bezier(.4,0,.2,1); }
+.sdg-status { padding: 4px 14px 12px; }
+.sdg-status-dot { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ── SDG DETAIL PANEL ── */
+.sdg-detail {
+  display: none;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 20px;
+}
+.sdg-card.open .sdg-detail { display: block; }
+.detail-tabs { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
+.dtab { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1.5px solid var(--border); cursor: pointer; background: var(--card); color: var(--ink3); transition: all 0.15s; }
+.dtab.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* ── INDICATORS ── */
+.indicator-list { display: flex; flex-direction: column; gap: 10px; }
+.indicator-item {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.ind-header {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; cursor: pointer;
+}
+.ind-check {
+  width: 20px; height: 20px; border-radius: 5px;
+  border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; background: var(--card);
+}
+.ind-check.done { background: var(--green); border-color: var(--green); }
+.ind-check.done::after { content: "✓"; font-size: 12px; color: #fff; font-weight: 700; }
+.ind-body { flex: 1; }
+.ind-ref { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 2px; }
+.ind-name { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.ind-pts { margin-left: auto; flex-shrink: 0; text-align: right; }
+.ind-pts-val { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--gold); }
+.ind-pts-lbl { font-size: 9px; color: var(--ink3); display: block; text-align: right; }
+.ind-expand {
+  display: none; padding: 0 14px 14px 44px;
+}
+.ind-expand.show { display: block; }
+.exp-section { margin-bottom: 10px; }
+.exp-section-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 5px; }
+.exp-body { font-size: 12px; color: var(--ink2); line-height: 1.65; }
+.mode-tip-box {
+  border-radius: 6px; padding: 8px 12px; margin-top: 6px;
+  font-size: 12px; line-height: 1.6;
+}
+.tip-online { background: var(--blue-lt); color: var(--blue); border-left: 3px solid var(--blue); border-radius: 0; }
+.tip-campus { background: var(--teal-lt); color: var(--teal); border-left: 3px solid var(--teal); border-radius: 0; }
+.acc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px; }
+.acc-box { border-radius: 6px; padding: 8px 10px; }
+.acc-box-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+.acc-box-body { font-size: 11px; line-height: 1.5; }
+.acc-aacsb { background: #e8ebf5; color: #00205b; }
+.acc-bga { background: #f4ecf7; color: #7b2d8b; }
+.acc-equis { background: #e6f5f0; color: #006e51; }
+
+/* ── REPORT ── */
+#reportSection { display: none; }
+.report-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.report-header {
+  background: var(--ink);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.report-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: #fff; }
+.report-title span { color: var(--gold); }
+.report-meta { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+.report-scores { display: flex; gap: 20px; flex-wrap: wrap; }
+.rep-score { text-align: center; }
+.rep-score-val { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--gold); display: block; }
+.rep-score-lbl { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+.report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.rep-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.rep-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.rep-sdg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.rep-card-title { font-weight: 600; font-size: 14px; color: var(--ink); }
+.rep-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.rep-bar-label { font-size: 11px; color: var(--ink3); min-width: 55px; }
+.rep-bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.rep-bar-fill { height: 100%; border-radius: 3px; transition: width 0.8s ease; }
+.rep-bar-val { font-size: 11px; font-weight: 600; color: var(--ink); min-width: 30px; text-align: right; }
+.gap-list { margin-top: 10px; }
+.gap-item { font-size: 11px; color: var(--coral); padding: 3px 0; border-top: 1px solid var(--border); }
+.gap-item::before { content: "→ "; font-weight: 600; }
+
+.priority-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.priority-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--ink); margin-bottom: 14px; }
+.priority-list { display: flex; flex-direction: column; gap: 10px; }
+.priority-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border-radius: 8px; background: var(--surface); }
+.priority-rank { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--ink); flex-shrink: 0; }
+.priority-body { flex: 1; }
+.priority-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.priority-reason { font-size: 12px; color: var(--ink3); margin-top: 2px; line-height: 1.5; }
+.priority-gain { font-size: 11px; font-weight: 600; color: var(--teal); margin-top: 3px; }
+
+/* ── BUTTONS ── */
+.btn { padding: 10px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+.btn-primary { background: var(--gold); color: var(--ink); }
+.btn-primary:hover { background: #b8831f; }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--ink); }
+.btn-row { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+
+/* ── SECTIONS ── */
+#scoreSection { display: block; }
+.section-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section-header { margin-bottom: 28px; padding-top: 28px; }
+
+.footnote { font-size: 11px; color: var(--ink3); margin-top: 40px; padding: 14px; border-top: 1px solid var(--border); line-height: 1.7; }
+
+@media (max-width: 600px) {
+  nav { padding: 10px 16px; }
+  .hero { padding: 36px 16px 28px; }
+  .dashboard, .section-wrap, .report-wrap { padding: 0 14px; }
+  .acc-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SDG <span>Impact</span> Scorer</div>
+  <div class="nav-pills">
+    <button class="nav-pill active" onclick="showSection('score')">Self-Assess</button>
+    <button class="nav-pill" onclick="showSection('report')">My Report</button>
+  </div>
+  <div class="nav-score">Total Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">World-first SDG scoring tool for universities</div>
+  <h1>Your SDG Journey.<br><em>Scored. Ranked. Actionable.</em></h1>
+  <div class="hero-sub">Self-assess each of the 17 UN SDGs individually. Instantly see your THE Impact Ranking score potential, AACSB Standard 9 evidence strength, BGA CIM metrics, and EQUIS ERS readiness — for online or campus education.</div>
+  <div class="mode-toggle">
+    <button class="mode-btn on" id="modeOnline" onclick="setMode('online')">Online / Distance</button>
+    <button class="mode-btn" id="modeCampus" onclick="setMode('campus')">Campus / Regular</button>
+    <button class="mode-btn" id="modeBoth" onclick="setMode('both')">Blended / Both</button>
+  </div>
+  <div class="acc-badges">
+    <span class="acc-badge badge-the">THE Impact Rankings 2024</span>
+    <span class="acc-badge badge-aacsb">AACSB Standard 9</span>
+    <span class="acc-badge badge-bga">BGA / CIM</span>
+    <span class="acc-badge badge-equis">EQUIS ERS</span>
+  </div>
+</div>
+
+<!-- SCORE SECTION -->
+<div id="scoreSection">
+  <div class="dashboard">
+    <!-- Maturity selector -->
+    <div class="maturity-bar">
+      <span class="maturity-label">University stage:</span>
+      <div class="maturity-opts">
+        <button class="mat-btn on" id="mat0" onclick="setMaturity(0)">Just starting (0–2 yrs)</button>
+        <button class="mat-btn" id="mat1" onclick="setMaturity(1)">Developing (2–5 yrs)</button>
+        <button class="mat-btn" id="mat2" onclick="setMaturity(2)">Established (5–10 yrs)</button>
+        <button class="mat-btn" id="mat3" onclick="setMaturity(3)">Mature / Top 200</button>
+      </div>
+    </div>
+
+    <!-- Score cards -->
+    <div class="dash-grid">
+      <div class="dash-card highlight">
+        <div class="dash-card-label">THE overall score</div>
+        <div class="dash-card-val" id="dcTHE">0<sup>/100</sup></div>
+        <div class="dash-card-sub" id="dcTHEsub">SDG 17 + best 3 SDGs</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">AACSB Std 9 strength</div>
+        <div class="dash-card-val" id="dcAACSSB">0<sup>%</sup></div>
+        <div class="dash-card-sub">Evidence portfolio</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">BGA CIM metrics</div>
+        <div class="dash-card-val" id="dcBGA">0<sup>/10</sup></div>
+        <div class="dash-card-sub">Recommended: 10 metrics, 3 SDG-linked</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">EQUIS ERS readiness</div>
+        <div class="dash-card-val" id="dcEQUIS">0<sup>%</sup></div>
+        <div class="dash-card-sub">Chapter 9 evidence</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">SDGs with data</div>
+        <div class="dash-card-val" id="dcSDGs">0<sup>/17</sup></div>
+        <div class="dash-card-sub">Min. 4 needed for THE</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Actions checked</div>
+        <div class="dash-card-val" id="dcActions">0</div>
+        <div class="dash-card-sub" id="dcActionsSub">of <span id="dcActTotal">0</span> total</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">Generate my readiness report →</button>
+      <button class="btn btn-outline" onclick="resetAll()">Reset scores</button>
+    </div>
+  </div>
+
+  <!-- SDG Grid -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="sdg-section-title">Assess each SDG individually</div>
+      <div class="sdg-section-sub">Click any SDG to expand. Check off what your university does. Scores update in real time. Tip: start with SDG 17 — it is mandatory for THE ranking.</div>
+    </div>
+    <div class="sdg-grid" id="sdgGrid"></div>
+    <div class="footnote">
+      THE Impact Rankings scores are estimates based on publicly available 2024 methodology. AACSB / BGA / EQUIS indicators are derived from published accreditation criteria. This tool is for self-assessment and planning purposes only — it does not constitute official scores. All content is original and copyright-free for educational use.
+    </div>
+  </div>
+</div>
+
+<!-- REPORT SECTION -->
+<div id="reportSection">
+  <div class="report-wrap">
+    <div id="reportContent"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// DATA ENGINE
+// ═══════════════════════════════════════════════════════════
+
+const SDG_META = [
+  {n:1, name:'No Poverty', hex:'#E5243B', theWeight:26, mandatory:false,
+   theDesc:'Research (40%) + Financial aid % students (27%) + Anti-poverty programmes (18.4%) + Community programmes (14.6%)',
+   aacsb:'Economy layer — financial aid, anti-poverty programmes and community enterprise directly evidence Standard 9.',
+   bga:'SDG 1 is one of the most commonly chosen BGA CIM SDGs. Financial aid data and community poverty programmes are key metrics.',
+   equis:'Student access, living wage employment and community poverty work are assessed in ERS and Corporate Connections chapters.',
+   indicators:[
+     {ref:'1.2.1', name:'Financial aid for low-income students', pts:27, aacsb:2, bga:2, equis:2,
+      action:'Track % of students receiving significant financial aid due to poverty. Publish data annually.',
+      online:'Offer income-based fee waivers, device grants and data subsidies. Publish % of students supported.',
+      campus:'Establish scholarship office. Reserve 5–15% intake from bottom income quintile. Hostel/food support.'},
+     {ref:'1.3.1', name:'Bottom quintile admission target', pts:4.6, aacsb:1, bga:2, equis:1,
+      action:'Set and publish a formal admission quota for students in the bottom 20% of household income.',
+      online:'Partner with government databases to verify income. Use digital application assistance for low-income applicants.',
+      campus:'Designate reserved seats. Run outreach to low-income schools. Offer bridge programmes.'},
+     {ref:'1.3.2', name:'Bottom quintile student success / completion', pts:4.6, aacsb:1, bga:2, equis:1,
+      action:'Track graduation rate for bottom-quintile students vs institutional average. Publish results.',
+      online:'Provide tutoring chatbots, asynchronous support, and peer mentoring via virtual platforms.',
+      campus:'Peer mentoring, academic advisors, exam prep support for low-income students.'},
+     {ref:'1.3.3', name:'Low-income student welfare support', pts:4.6, aacsb:1, bga:2, equis:2,
+      action:'Provide food, housing, transport and legal support for poorest students. Document and publish.',
+      online:'Emergency cash grants, digital access subsidies, virtual legal/health helplines.',
+      campus:'Food pantry, free hostel allocation, transport passes, legal aid clinic.'},
+     {ref:'1.3.4', name:'Bottom quintile student support programmes', pts:4.6, aacsb:1, bga:1, equis:1,
+      action:'Formal programmes to assist bottom-quintile students to complete their studies.',
+      online:'Online mentoring, study skills modules, virtual tutoring accessible 24/7.',
+      campus:'Bridge courses, career counselling, on-campus financial literacy workshops.'},
+     {ref:'1.4.1', name:'Local start-up and enterprise support', pts:7, aacsb:2, bga:2, equis:1,
+      action:'Support local community start-ups through incubation, mentoring, or seed funding.',
+      online:'Virtual incubator, online pitch competitions, digital mentoring for community entrepreneurs.',
+      campus:'On-campus incubator with community access, seed grant scheme, start-up fairs.'},
+     {ref:'1.4.4', name:'Policy engagement on poverty', pts:4.6, aacsb:2, bga:1, equis:2,
+      action:'Participate in local, regional or national policy-making on poverty. Publish evidence.',
+      online:'Publish policy papers, host online policy forums, contribute to government consultations.',
+      campus:'Engage with local council, submit to government consultations, host in-person policy roundtables.'},
+   ]},
+  {n:2, name:'Zero Hunger', hex:'#DDA63A', theWeight:26, mandatory:false,
+   theDesc:'Research (30%) + Food waste tracking (19.2%) + Hunger interventions (19.2%) + Sustainable food (15%) + National hunger (16.6%)',
+   aacsb:'Biosphere/Society layer — campus food waste, student hunger programmes and agricultural education qualify.',
+   bga:'Student welfare and sustainable campus operations are BGA CIM measurable metrics. Food security outreach counts.',
+   equis:'Sustainable campus food operations and community food outreach assessed in ERS chapter.',
+   indicators:[
+     {ref:'2.2.1', name:'Campus food waste tracking system', pts:19.2, aacsb:1, bga:2, equis:2,
+      action:'Implement digital food waste monitoring in all cafeterias. Measure in metric tonnes. Publish data.',
+      online:'For online universities: track waste at any physical premises; run virtual food literacy modules.',
+      campus:'Install IoT food waste bins, digital dashboards in each cafeteria, two audits per year.'},
+     {ref:'2.2.2', name:'Campus food waste reduction', pts:10, aacsb:1, bga:2, equis:2,
+      action:'Reduce food waste by 10%+ annually. Implement composting. Publish year-on-year reduction data.',
+      online:'Promote composting at student residences. Online awareness campaigns with waste pledge.',
+      campus:'Composting facility on campus, food donation partnerships, waste segregation at source.'},
+     {ref:'2.3.1', name:'Student food insecurity / hunger programme', pts:19.2, aacsb:2, bga:2, equis:2,
+      action:'Establish a formal campus Food Assistance Programme supporting 50–100 students/year.',
+      online:'Partner with local food banks for off-campus students. Confidential meal voucher scheme.',
+      campus:'Campus food pantry, subsidised meal cards, confidential emergency food grants.'},
+     {ref:'2.3.3', name:'Sustainable food choices on campus', pts:8, aacsb:1, bga:1, equis:1,
+      action:'Ensure 30%+ of campus food menu options are sustainable or plant-based. Publish commitment.',
+      online:'Procure sustainable food at physical facilities. Promote sustainable eating in curriculum.',
+      campus:'Work with caterers to redesign menus. Label sustainable options. Annual audit.'},
+     {ref:'2.5.2', name:'Knowledge events for local farmers', pts:8, aacsb:2, bga:1, equis:1,
+      action:'Host 2+ events/year for local farmers and food producers. Share agricultural knowledge.',
+      online:'Virtual farmer seminars, webinars on sustainable agriculture open to local communities.',
+      campus:'On-campus farm days, community outreach events, demonstration kitchen.'},
+     {ref:'2.5.4', name:'Sustainable food procurement', pts:8, aacsb:1, bga:2, equis:1,
+      action:'Procure 25%+ of food from local sustainable suppliers. Publish procurement data.',
+      online:'Source all physical premises food sustainably. Document supplier credentials.',
+      campus:'Preferred supplier list of local farms, quarterly sustainability audits, annual report.'},
+   ]},
+  {n:3, name:'Good Health & Well-being', hex:'#4C9F38', theWeight:26, mandatory:false,
+   theDesc:'Research (30%) + Health graduates (15.4%) + Health collaborations (30%) + Mental health (15%) + Outreach (9.6%)',
+   aacsb:'Society layer — mental health, well-being services and graduate health data all qualify under Standard 9.',
+   bga:'Student welfare and health partnerships are measurable CIM metrics. Positive Impact Rating explicitly assesses well-being.',
+   equis:'Student and staff well-being, health collaborations and smoke-free policy assessed in ERS chapter.',
+   indicators:[
+     {ref:'3.3.1', name:'Collaborations with health institutions', pts:15, aacsb:2, bga:2, equis:2,
+      action:'Establish 3+ formal partnerships with hospitals, health NGOs or public health agencies.',
+      online:'Virtual clinical placements, telehealth partnerships, online health research collaborations.',
+      campus:'MoUs with local hospitals, community clinics; joint health camps; student placements.'},
+     {ref:'3.3.2', name:'Health outreach programmes', pts:10, aacsb:2, bga:2, equis:1,
+      action:'Conduct 2+ community health awareness and screening programmes per year.',
+      online:'Host virtual health camps, online screening referral programmes, webinar health series.',
+      campus:'On-campus/off-campus health camps, free check-up days, outreach to local communities.'},
+     {ref:'3.3.4', name:'Sexual and reproductive health services', pts:8, aacsb:1, bga:1, equis:1,
+      action:'Provide confidential sexual/reproductive health counselling and awareness for students.',
+      online:'Anonymous online counselling, digital resource hub, virtual referral to health providers.',
+      campus:'On-campus confidential clinic, awareness week events, trained welfare officers.'},
+     {ref:'3.3.5', name:'Mental health support services', pts:15, aacsb:2, bga:2, equis:2,
+      action:'Provide counselling, crisis support and mental health awareness programmes — min. 2/year.',
+      online:'24/7 digital counselling platform, AI-assisted mental health triage, online CBT courses.',
+      campus:'On-campus counselling centre, trained resident advisors, peer support networks.'},
+     {ref:'3.3.6', name:'Smoke-free campus policy', pts:7, aacsb:1, bga:1, equis:1,
+      action:'Implement and enforce a 100% smoke-free campus policy. Publish and monitor compliance.',
+      online:'Policy for all physical premises and events. Publish commitment publicly.',
+      campus:'Signage, enforcement procedure, designated zones (if transition), cessation support.'},
+   ]},
+  {n:4, name:'Quality Education', hex:'#C5192D', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + Lifelong learning access (30.8%) + First-generation students (15.4%) + Outreach (10%) + Policy (16.8%)',
+   aacsb:'Directly aligned — SDG 4 is the most-cited SDG by AACSB schools. Lifelong learning is a Standard 9 core deliverable.',
+   bga:'Lifelong learning is a BGA accreditation pillar. Community access, vocational training and outreach are assessed.',
+   equis:'Programme portfolio, public access, teaching quality and education outreach assessed across multiple chapters.',
+   indicators:[
+     {ref:'4.2.1', name:'Proportion of graduates with teaching qualification', pts:15.4, aacsb:1, bga:1, equis:1,
+      action:'Track and report % of graduates qualified to teach at primary/secondary level. Publish annually.',
+      online:'Track graduates from education-focused online programmes. Report in annual disclosure.',
+      campus:'Maintain graduate database by subject. Partner with schools for teaching practice.'},
+     {ref:'4.3.1', name:'Public access to learning resources', pts:10, aacsb:2, bga:2, equis:2,
+      action:'Open university library, digital platforms and online courses to the public. Formalise access policy.',
+      online:'Publish open courseware. Offer free audit track for public. Open access to e-library.',
+      campus:'Community library card scheme, public access days, shared learning spaces.'},
+     {ref:'4.3.2', name:'Public learning events', pts:10, aacsb:2, bga:2, equis:1,
+      action:'Host 2+ public lectures, seminars or educational events open to the community per year.',
+      online:'Livestream all public lectures. Create YouTube/podcast channel for public content.',
+      campus:'Public lecture series, open days, community seminars in local schools/libraries.'},
+     {ref:'4.3.3', name:'Vocational training programmes', pts:10, aacsb:2, bga:2, equis:1,
+      action:'Offer 2+ skill-based short courses or vocational certifications per year for community.',
+      online:'Micro-credentials, bootcamps, digital skill certification via LMS for public enrolment.',
+      campus:'On-campus executive education, skills workshops, CPD programmes.'},
+     {ref:'4.3.4', name:'Education outreach to schools', pts:10, aacsb:2, bga:2, equis:1,
+      action:'Conduct 2+ outreach visits or activities to local schools/communities per year.',
+      online:'Virtual school talks, online mentoring for secondary students, digital study skills camps.',
+      campus:'School visits, campus open days for school groups, student ambassador programme.'},
+     {ref:'4.3.5', name:'Lifelong learning access policy', pts:8, aacsb:2, bga:2, equis:2,
+      action:'Publish a formal institutional Lifelong Learning Access Policy. Review annually.',
+      online:'Publish policy on website. Include digital access provisions, pricing and eligibility.',
+      campus:'Board-approved policy, published on website, annual compliance review.'},
+     {ref:'4.4.1', name:'Proportion of first-generation students', pts:15.4, aacsb:2, bga:2, equis:1,
+      action:'Track % of students who are first in their family to attend university. Publish and set growth target.',
+      online:'Track via application data. Set 5–10% growth target. Publish in annual report.',
+      campus:'Application form question, dedicated support programme, annual disclosure.'},
+   ]},
+  {n:5, name:'Gender Equality', hex:'#FF3A21', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Female access tracking (10%) + Gender policy (9.2%) + Pay equity (9.2%) + Maternity policy (9.2%) + Female academics (15.4%)',
+   aacsb:'Society layer — gender equity in admissions, leadership and pay is a top Standard 9 evidence area.',
+   bga:'Gender equality is directly referenced in BGA responsible management criteria — pay equity, maternity and access schemes all assessed.',
+   equis:'Gender balance across faculty, governance and student body assessed across multiple EQUIS chapters.',
+   indicators:[
+     {ref:'5.3.1', name:'Tracking women’s access and enrolment', pts:10, aacsb:2, bga:2, equis:2,
+      action:'Publish real-time data on women’s application, acceptance and enrolment rates by programme.',
+      online:'Dashboard on LMS/website. Automated tracking per intake. Published in annual report.',
+      campus:'Gender disaggregated admissions data published annually. Live dashboard for administrators.'},
+     {ref:'5.3.2', name:'Gender access and participation policy', pts:9.2, aacsb:2, bga:2, equis:2,
+      action:'Develop and publish a Gender Access & Participation Policy. Review annually.',
+      online:'Publish on institutional website. Include digital accessibility and online learning equity.',
+      campus:'Board-level policy, annual review, programme-wise gender targets.'},
+     {ref:'5.3.3', name:'Women’s access schemes', pts:9.2, aacsb:2, bga:2, equis:2,
+      action:'Provide mentoring, scholarships or access schemes covering min. 10% of female students.',
+      online:'Virtual mentoring network, online scholarship portal, digital career support for women.',
+      campus:'Women’s resource centre, campus mentoring programme, targeted scholarship fund.'},
+     {ref:'5.5.1', name:'Proportion of senior female academics', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Track % of women in senior academic roles. Set increase target. Publish annually.',
+      online:'Publish faculty diversity data. Set targets in strategic plan. Annual report.',
+      campus:'Faculty equity committee, promotion equity audit, transparent appointment procedures.'},
+     {ref:'5.6.1', name:'Maternity and paternity policies', pts:9.2, aacsb:1, bga:2, equis:2,
+      action:'Publish formal maternity and paternity policies supporting staff with caring responsibilities.',
+      online:'Publish on HR portal. Include provisions for remote-working parents during leave transitions.',
+      campus:'Policy published, enforced and reviewed. Provision for breastfeeding facilities.'},
+     {ref:'5.6.2', name:'Gender pay equity tracking', pts:9.2, aacsb:2, bga:2, equis:2,
+      action:'Conduct and publish an annual gender pay gap audit. Implement equal pay policy.',
+      online:'Include all staff including remote workers. Publish gap data on website annually.',
+      campus:'Annual pay equity report, HR dashboard, commitment to close gap within defined years.'},
+   ]},
+  {n:6, name:'Clean Water & Sanitation', hex:'#26BDE2', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + Water consumption per person (15.4%) + Wastewater treatment (18.4%) + Water reuse policy (9.6%) + Community education (9.6%) + Pollution prevention (10%)',
+   aacsb:'Biosphere layer — campus water management, reuse and community education all qualify under Standard 9.',
+   bga:'Water conservation operations are measurable CIM metrics. Community water education adds positive impact evidence.',
+   equis:'Water management strategy and community water education assessed in ERS chapter.',
+   indicators:[
+     {ref:'6.2.1', name:'Total campus water consumption tracking', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Install smart meters. Track total water from all sources. Publish annual consumption report.',
+      online:'Track consumption at all physical premises. Publish sustainability data annually.',
+      campus:'Smart meter network, centralised dashboard, monthly reporting to facilities management.'},
+     {ref:'6.3.1', name:'100% wastewater treatment', pts:18.4, aacsb:1, bga:1, equis:2,
+      action:'Install or partner for Sewage Treatment Plant. Reuse treated water for landscaping/flushing.',
+      online:'For physical premises: install STP. For virtual: disclose and offset water operations.',
+      campus:'On-site STP, treated water reuse system, monthly performance monitoring.'},
+     {ref:'6.3.2', name:'Pollution prevention in water systems', pts:10, aacsb:1, bga:1, equis:1,
+      action:'Implement processes to prevent polluted/chemical water entering natural systems. Zero incidents target.',
+      online:'Audit all physical facilities for chemical discharge. Annual compliance report.',
+      campus:'Chemical waste protocols, lab discharge monitoring, annual environmental audit.'},
+     {ref:'6.3.3', name:'Free safe drinking water on campus', pts:8, aacsb:1, bga:2, equis:1,
+      action:'Provide free, safe drinking water access across all campus areas. Test quality regularly.',
+      online:'At all physical locations: water dispensers, bottle-fill stations. Publish quality data.',
+      campus:'Water stations in every building, annual water quality tests, zero plastic bottle policy.'},
+     {ref:'6.4.1', name:'Water reuse policy', pts:9.6, aacsb:1, bga:2, equis:2,
+      action:'Publish a formal policy to maximise water reuse across the institution.',
+      online:'Policy published on website. Include all physical premises operations.',
+      campus:'Board-approved water reuse policy, implementation plan, annual report.'},
+     {ref:'6.5.1', name:'Water management education for community', pts:9.6, aacsb:2, bga:1, equis:1,
+      action:'Provide 2+ community educational programmes on water management/conservation per year.',
+      online:'Online water conservation courses, community webinars, open-access e-modules.',
+      campus:'Community workshops, field visits to campus water systems, school outreach.'},
+   ]},
+  {n:7, name:'Affordable & Clean Energy', hex:'#FCC30B', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Energy efficiency policy (9.2%) + Carbon management (9.2%) + Renewable energy % (15.4%) + Energy per sqm (15.4%) + Community outreach (10%)',
+   aacsb:'Biosphere layer — most-cited SDG for Biosphere evidence. Carbon neutrality and renewable energy are flagship Standard 9 initiatives.',
+   bga:'Clean energy and divestment from fossil fuels reflect responsible operational management under BGA.',
+   equis:'Energy policy, carbon neutrality commitments and clean energy outreach prominently assessed in ERS chapter.',
+   indicators:[
+     {ref:'7.2.1', name:'Energy-efficient building policy (new builds)', pts:9.2, aacsb:1, bga:2, equis:2,
+      action:'Publish policy requiring all new buildings to meet GRIHA/LEED or equivalent energy standard.',
+      online:'Policy for any physical premises. Include energy standards in all property leases.',
+      campus:'Board-approved Green Building Policy, applied to all new construction and major renovation.'},
+     {ref:'7.2.2', name:'Upgrade existing buildings to higher efficiency', pts:9.2, aacsb:1, bga:1, equis:2,
+      action:'Retrofit existing buildings with LED, energy-efficient HVAC and building automation. Target 15–20% reduction.',
+      online:'Audit and retrofit any owned/long-leased physical premises.',
+      campus:'Phased retrofit programme, Building Management System (BMS), LED replacement plan.'},
+     {ref:'7.2.3', name:'Carbon management and reduction process', pts:9.2, aacsb:2, bga:2, equis:2,
+      action:'Develop institutional carbon footprint assessment. Publish annual carbon reduction targets and progress.',
+      online:'Measure Scope 1, 2 and 3 emissions. Include digital infrastructure energy. Annual report.',
+      campus:'Scope 1, 2, 3 carbon audit, carbon management plan, annual progress report.'},
+     {ref:'7.2.5', name:'Energy waste identification / audits', pts:7, aacsb:1, bga:1, equis:1,
+      action:'Conduct annual energy audits. Install smart meters to identify high-consumption areas.',
+      online:'Audit all physical premises. Include data centre energy. Publish findings.',
+      campus:'Annual campus energy audit, smart meter dashboard, departmental energy reports.'},
+     {ref:'7.3.1', name:'Energy use per square metre', pts:15.4, aacsb:1, bga:1, equis:2,
+      action:'Calculate and publish energy consumption per sqm annually. Benchmark against sector.',
+      online:'Measure all physical premises energy intensity. Include in annual sustainability report.',
+      campus:'Automated metering per building, annual intensity report, improvement targets.'},
+     {ref:'7.4.1', name:'Renewable energy use / pledge', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Track % of energy from low-carbon sources. Commit to public renewable energy pledge.',
+      online:'Green energy procurement for data centres and physical premises. Publish % annually.',
+      campus:'Rooftop solar installation, renewable energy procurement, 100% target year declared.'},
+     {ref:'7.5.1', name:'Community clean energy outreach', pts:10, aacsb:2, bga:1, equis:1,
+      action:'Provide 2+ energy efficiency or clean energy education programmes for local community per year.',
+      online:'Online clean energy literacy courses, virtual workshops for community groups.',
+      campus:'Community solar workshops, school energy education, energy efficiency advisory.'},
+   ]},
+  {n:8, name:'Decent Work & Economic Growth', hex:'#A21942', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Living wage (9.6%) + Anti-discrimination policy (9.6%) + Pay equity (9.6%) + Secure contracts (15.4%) + Placements (15.4%) + Expenditure/employee (10%)',
+   aacsb:'Economy layer — ethical employment, pay equity and student placements are flagship Standard 9 evidence areas.',
+   bga:'Decent work is embedded in BGA responsible management criteria — living wage, unions and pay equity are assessed.',
+   equis:'Staff practices, pay equity, anti-discrimination and placement rates assessed across multiple EQUIS chapters.',
+   indicators:[
+     {ref:'8.2.1', name:'Living wage for all staff', pts:9.6, aacsb:2, bga:2, equis:2,
+      action:'Pay all staff — including contractual and outsourced — at least the local living wage. Publish commitment.',
+      online:'Include all remote and contract staff. Publish in HR policy. Annual compliance check.',
+      campus:'Annual salary benchmark, living wage employer accreditation, contractual staff inclusion.'},
+     {ref:'8.2.3', name:'Anti-discrimination employment policy', pts:9.6, aacsb:2, bga:2, equis:2,
+      action:'Publish zero-tolerance anti-discrimination policy covering gender, religion, age, sexuality, disability.',
+      online:'Publish on website. Include remote hiring practices. Annual diversity data.',
+      campus:'Policy on website, staff training, confidential reporting mechanism, annual report.'},
+     {ref:'8.2.4', name:'Modern slavery policy', pts:7, aacsb:1, bga:2, equis:1,
+      action:'Publish commitment against forced labour, human trafficking and child labour. Include supply chain.',
+      online:'Supply chain audit for tech vendors and service providers. Annual statement.',
+      campus:'Published statement, vendor compliance clauses, annual supply chain audit.'},
+     {ref:'8.2.6', name:'Gender pay equity policy and tracking', pts:9.6, aacsb:2, bga:2, equis:2,
+      action:'Publish gender pay gap data annually. Implement equal pay policy with reduction targets.',
+      online:'Include all remote and contract staff. Publish on public website annually.',
+      campus:'Annual audit, published report, committed reduction target, transparent pay bands.'},
+     {ref:'8.3.1', name:'Proportion of students with work placements', pts:15.4, aacsb:2, bga:2, equis:2,
+      action:'Track % of students completing work placements. Publish data. Set annual increase target.',
+      online:'Virtual/remote placements, digital internship portals, industry project modules.',
+      campus:'Dedicated placements office, industry partner network, placement data in annual report.'},
+     {ref:'8.4.1', name:'Proportion of employees on secure contracts', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Track % of employees on contracts >24 months. Publish data. Set improvement target.',
+      online:'Include all remote staff. Track permanent vs freelance ratio. Annual HR report.',
+      campus:'HR database tracking, annual secure contract ratio report, improvement commitment.'},
+   ]},
+  {n:9, name:'Industry, Innovation & Infrastructure', hex:'#FD6925', theWeight:26, mandatory:false,
+   theDesc:'Research (11.6%) + Patents (18.4%) + Spin-offs (19.2%) + Research income (19.2%) + Academic staff (11.6%) + Infrastructure support (10%)',
+   aacsb:'Economy layer — spin-offs, research income and innovation infrastructure are central Standard 9 Economy evidence.',
+   bga:'Innovation and entrepreneurship reflect BGA’s responsible management and lifelong learning pillars.',
+   equis:'Research income, spin-offs and industry connections are assessed in Research, Corporate Connections and ERS chapters.',
+   indicators:[
+     {ref:'9.3.1', name:'University spin-offs per year', pts:19.2, aacsb:2, bga:2, equis:2,
+      action:'Target 2–3 spin-offs annually. Provide incubation, IP support and seed funding. Publish data.',
+      online:'Virtual incubator, online IP support, digital pitch competitions with investor access.',
+      campus:'On-campus incubator, IP office, seed funding programme, annual spin-off report.'},
+     {ref:'9.4.1', name:'Research income from industry per academic staff', pts:19.2, aacsb:2, bga:1, equis:2,
+      action:'Track and publish research income from industry per FTE academic staff. Benchmark annually.',
+      online:'Pursue online consultancy, virtual research contracts, e-learning industry partnerships.',
+      campus:'Research office, industry liaison team, contract research tracking in annual report.'},
+     {ref:'9.4.2', name:'Patents and intellectual property', pts:18.4, aacsb:1, bga:1, equis:1,
+      action:'Track number of patents applied for and granted. Publish IP portfolio. Set annual targets.',
+      online:'Establish IP policy for all staff and students. Online patent tracking system.',
+      campus:'IP office, patent filing support, commercialisation pathways, annual IP report.'},
+     {ref:'9.5.1', name:'Innovation infrastructure support', pts:10, aacsb:2, bga:2, equis:1,
+      action:'Provide dedicated innovation infrastructure: labs, maker spaces, or virtual innovation platforms.',
+      online:'Virtual labs, simulation software, online collaboration tools, digital maker environments.',
+      campus:'Fab labs, maker spaces, innovation centres, open-access research infrastructure.'},
+   ]},
+  {n:10, name:'Reduced Inequalities', hex:'#DD1367', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + First-generation students (15.4%) + International from developing countries (15.4%) + Disability access (15.4%) + Anti-discrimination policy (8%) + Diversity officer (9%)',
+   aacsb:'Society layer — first-generation, disability inclusion and anti-discrimination policies are Standard 9 Society priorities.',
+   bga:'BGA explicitly assesses inclusive access, disability support and diversity in responsible management criteria.',
+   equis:'Student diversity, disability infrastructure and non-discriminatory policies assessed throughout EQUIS framework.',
+   indicators:[
+     {ref:'10.2.1', name:'First-generation student tracking', pts:15.4, aacsb:2, bga:2, equis:1,
+      action:'Track % of students first in family to attend university. Publish data. Set 5–10% growth target.',
+      online:'Application form question. Dedicate support modules. Annual disclosure report.',
+      campus:'Data collection at admission. Dedicated first-gen programme. Annual report.'},
+     {ref:'10.3.1', name:'International students from developing countries', pts:15.4, aacsb:1, bga:1, equis:2,
+      action:'Track and grow % of international students from low/lower-middle income countries. Scholarships.',
+      online:'Virtual international recruitment, online scholarship portal for developing countries.',
+      campus:'International recruitment strategy, targeted scholarships, support services.'},
+     {ref:'10.4.1', name:'Students with disabilities — enrolment tracking', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Track % of students with disabilities. Publish data. Provide dedicated support services.',
+      online:'Accessible LMS design (WCAG 2.1), captioned videos, screen reader compatibility.',
+      campus:'Physical accessibility audit, disability support office, assistive technology.'},
+     {ref:'10.5.1', name:'Non-discriminatory admissions policy', pts:8, aacsb:2, bga:2, equis:2,
+      action:'Publish a formal non-discriminatory admissions policy. Review annually.',
+      online:'Publish on website. Audit online application process for hidden bias.',
+      campus:'Policy on website, staff training, annual admissions equity audit.'},
+     {ref:'10.5.5', name:'Diversity and equality officer or committee', pts:9, aacsb:2, bga:2, equis:2,
+      action:'Appoint a dedicated Diversity & Equality Officer or Committee. Publish terms of reference.',
+      online:'Named officer with public contact. Online diversity reporting portal.',
+      campus:'D&E Office with dedicated staff, annual action plan, public reporting.'},
+   ]},
+  {n:11, name:'Sustainable Cities', hex:'#FD9D24', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Arts and heritage (15%) + Commuting policy (10%) + Remote work (9.2%) + Affordable housing (9.2%) + Sustainable buildings (9.2%) + Community access (7.4%)',
+   aacsb:'Biosphere/Society layer — community access, sustainable commuting and arts contribution all qualify.',
+   bga:'Campus sustainability and community access demonstrate positive community impact in BGA CIM model.',
+   equis:'Campus sustainability, community engagement and planning are assessed in ERS and Corporate Connections chapters.',
+   indicators:[
+     {ref:'11.2.1', name:'Public access to campus buildings and spaces', pts:7.4, aacsb:2, bga:2, equis:2,
+      action:'Publish formal policy for public access to buildings, green spaces, library and museum. Implement.',
+      online:'Virtual tours, open digital resources, online cultural programmes for public.',
+      campus:'Designated public access hours, heritage tours, community events in campus venues.'},
+     {ref:'11.3.1', name:'Sustainable commuting targets', pts:10, aacsb:1, bga:1, equis:2,
+      action:'Set and publish sustainable commuting targets. Promote cycling, public transport and walking.',
+      online:'Sustainable travel policy for any required in-person events. Carbon offset for travel.',
+      campus:'Cycle storage, shuttle service, travel survey, annual commuting report.'},
+     {ref:'11.3.2', name:'Remote working policy for employees', pts:9.2, aacsb:1, bga:1, equis:1,
+      action:'Publish remote/hybrid working policy for all eligible staff. Include eligibility criteria.',
+      online:'All staff inherently remote — publish formal policy covering working conditions and expectations.',
+      campus:'Board-approved hybrid work policy, published eligibility criteria, annual review.'},
+     {ref:'11.3.3', name:'Affordable housing for students', pts:9.2, aacsb:1, bga:2, equis:1,
+      action:'Provide or subsidise affordable housing for students. Publish housing support policy.',
+      online:'Guidance on affordable accommodation for any required residencies. Online housing portal.',
+      campus:'On-campus affordable hostel, housing subsidy scheme, rent-cap policy for off-campus partners.'},
+     {ref:'11.5.1', name:'Sustainable standards for new buildings', pts:9.2, aacsb:1, bga:1, equis:2,
+      action:'Commit to sustainable construction standards for all new builds. Publish policy.',
+      online:'Policy for any physical premises. Include energy, water and materials criteria.',
+      campus:'Green Building Policy applied to all new construction. Local planning collaboration.'},
+     {ref:'11.2.2', name:'Arts, heritage and cultural contribution', pts:15, aacsb:2, bga:2, equis:1,
+      action:'Contribute to local arts and cultural heritage. Host 2+ events/year. Publish expenditure.',
+      online:'Virtual cultural exhibitions, online arts engagement, digital heritage programmes.',
+      campus:'Gallery, concerts, heritage tours, arts sponsorship, community cultural events.'},
+   ]},
+  {n:12, name:'Responsible Consumption', hex:'#BF8B2E', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Ethical sourcing (9.6%) + Waste policies (24%) + Plastic reduction (9.6%) + Recycling % (15.4%) + Sustainability report (11.4%)',
+   aacsb:'Biosphere/Economy layer — ethical sourcing, waste reduction and sustainability reporting are direct Standard 9 evidence.',
+   bga:'Responsible operations are measurable CIM metrics. Supply chain ethics is a key BGA evidence dimension.',
+   equis:'Waste management, ethical procurement and annual sustainability reporting assessed in EQUIS ERS chapter.',
+   indicators:[
+     {ref:'12.2.1', name:'Ethical sourcing policy (food and supplies)', pts:9.6, aacsb:2, bga:2, equis:2,
+      action:'Publish ethical sourcing policy covering all food, equipment and supplies. Include supplier criteria.',
+      online:'Apply to all physical premises and digital service procurement. Publish policy online.',
+      campus:'Procurement policy, preferred supplier list, annual ethical sourcing audit.'},
+     {ref:'12.2.4', name:'Landfill waste reduction policy', pts:9, aacsb:1, bga:2, equis:2,
+      action:'Track total waste and % to landfill. Set annual reduction targets. Publish data.',
+      online:'Track all physical premises waste. Paperless operations policy. Annual report.',
+      campus:'Waste segregation, digital waste tracking, annual reduction targets, public report.'},
+     {ref:'12.2.5', name:'Single-use plastic elimination policy', pts:9.6, aacsb:1, bga:1, equis:1,
+      action:'Ban single-use plastics across all campus operations. Publish plastic-free target date.',
+      online:'Plastic-free policy for all physical events and premises. Publish commitment.',
+      campus:'Campus-wide ban, reusable alternatives in cafeterias, annual compliance audit.'},
+     {ref:'12.3.1', name:'Waste tracking and recycling rate', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Measure waste generated and % recycled. Publish annually. Set increase target.',
+      online:'Track waste at all physical locations. Publish sustainability data annually.',
+      campus:'Waste weighing stations, recycling data dashboard, annual public report.'},
+     {ref:'12.4.1', name:'Annual sustainability report', pts:11.4, aacsb:2, bga:2, equis:2,
+      action:'Publish a comprehensive annual sustainability report covering all 17 SDGs and operations.',
+      online:'Online sustainability report, publicly accessible, with quantitative data.',
+      campus:'Annual sustainability report, published on website, approved by governing board.'},
+     {ref:'12.2.7', name:'Sustainability policies extended to suppliers', pts:11, aacsb:1, bga:2, equis:2,
+      action:'Extend all sustainability policies to outsourced suppliers and contractors. Audit compliance.',
+      online:'Sustainability clauses in all tech vendor and service provider contracts.',
+      campus:'Vendor sustainability audit, contract compliance clauses, annual supplier review.'},
+   ]},
+  {n:13, name:'Climate Action', hex:'#3F7E44', theWeight:26, mandatory:false,
+   theDesc:'Research (20%) + Low-carbon energy tracking (9.2%) + Carbon neutrality commitment (13.8%) + Climate Action Plan (13.8%) + Community education (18.4%) + NGO collaboration (9.6%)',
+   aacsb:'The #1 most cited Biosphere layer SDG in AACSB accreditation. Carbon neutrality and Climate Action Plans are flagship evidence.',
+   bga:'Climate action, carbon reduction and community climate education directly evidence BGA responsible management.',
+   equis:'Climate Action Plans and carbon neutrality commitments are prominently assessed in EQUIS ERS chapter.',
+   indicators:[
+     {ref:'13.2.1', name:'Low-carbon energy tracking system', pts:9.2, aacsb:1, bga:1, equis:2,
+      action:'Measure and publish % of energy from low-carbon sources. Track Scope 1, 2 and 3 emissions.',
+      online:'Track data centre energy sources. Procure renewable energy for all physical premises.',
+      campus:'Smart energy monitoring system, renewable energy tracking, annual energy report.'},
+     {ref:'13.2.2', name:'Commitment to carbon neutrality (with target year)', pts:13.8, aacsb:2, bga:2, equis:2,
+      action:'Formally declare a carbon neutrality target year. Align with Greenhouse Gas Protocol. Publish.',
+      online:'Declare net-zero target covering Scope 1, 2 and 3 including digital infrastructure.',
+      campus:'Board-level commitment, published target year, annual Scope 1+2+3 audit.'},
+     {ref:'13.3.1', name:'Community climate education programmes', pts:9.2, aacsb:2, bga:2, equis:1,
+      action:'Conduct 2+ community climate awareness programmes or campaigns per year.',
+      online:'Online climate literacy courses, virtual awareness campaigns, open-access climate modules.',
+      campus:'Community workshops, school outreach, public climate lectures, awareness events.'},
+     {ref:'13.3.2', name:'Climate Action Plan (published)', pts:13.8, aacsb:2, bga:2, equis:2,
+      action:'Publish a university Climate Action Plan shared with local government and community.',
+      online:'Publish plan on website. Include digital operations carbon reduction roadmap.',
+      campus:'Climate Action Plan, shared with local council, reviewed annually, public document.'},
+     {ref:'13.3.3', name:'Co-operative planning for climate disasters', pts:4.6, aacsb:1, bga:1, equis:1,
+      action:'Participate in local/national planning for climate-related disasters and displacement.',
+      online:'Partner with local authority on digital disaster resilience plans.',
+      campus:'Formal agreement with local emergency planners. Campus emergency climate plan.'},
+     {ref:'13.3.5', name:'NGO collaboration on climate', pts:9.6, aacsb:2, bga:2, equis:1,
+      action:'Collaborate with 2+ NGOs on climate adaptation, mitigation or education.',
+      online:'Virtual NGO partnership platforms, co-developed online climate content.',
+      campus:'Signed MoUs with climate NGOs, joint field programmes, shared research projects.'},
+   ]},
+  {n:14, name:'Life Below Water', hex:'#0A97D9', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + Aquatic ecosystem education (18%) + Water quality standards (15.4%) + Plastic action plan (9.6%) + Watershed management (10%) + Monitoring (10%)',
+   aacsb:'Biosphere layer — aquatic research, plastic reduction and water quality qualify. Major evidence gap to exploit.',
+   bga:'Marine and freshwater conservation education and outreach demonstrate sustainable campus responsibility.',
+   equis:'Water quality standards, plastic policies and aquatic research assessed in ERS and Research chapters.',
+   indicators:[
+     {ref:'14.2.1', name:'Freshwater ecosystem education', pts:9, aacsb:2, bga:1, equis:1,
+      action:'Offer 2+ educational programmes on freshwater ecosystems and water conservation for communities.',
+      online:'Online watershed modules, virtual water conservation courses, community webinars.',
+      campus:'Community water workshops, field visits to local rivers/lakes, school outreach.'},
+     {ref:'14.4.1', name:'Marine plastic waste action plan', pts:9.6, aacsb:1, bga:1, equis:2,
+      action:'Publish action plan to reduce plastic waste entering waterways. Set annual targets.',
+      online:'Plastic-free operations policy. Community awareness campaign. Annual targets.',
+      campus:'Campus plastic reduction plan, waterway monitoring near campus, awareness events.'},
+     {ref:'14.5.1', name:'Aquatic ecosystem research and conservation', pts:12, aacsb:2, bga:1, equis:2,
+      action:'Conduct or support direct research/work to maintain aquatic ecosystems and biodiversity.',
+      online:'Commission or publish aquatic ecosystem research. Partner with marine research institutes.',
+      campus:'Marine biology research, biodiversity monitoring, conservation partnerships.'},
+     {ref:'14.6.1', name:'Watershed management strategy', pts:10, aacsb:1, bga:1, equis:1,
+      action:'Implement a watershed management strategy. Minimise physical alteration of local water bodies.',
+      online:'Water impact assessment for any physical premises. Publish water management approach.',
+      campus:'Watershed plan, stormwater management system, local river/lake conservation.'},
+     {ref:'14.7.1', name:'Water discharge guidelines and compliance', pts:15.4, aacsb:1, bga:1, equis:2,
+      action:'Publish water quality standards and guidelines. Ensure 100% compliance. Monitor and report.',
+      online:'Audit physical premises for all water discharge. Annual compliance statement.',
+      campus:'Lab and facility discharge monitoring, annual quality testing, compliance report.'},
+   ]},
+  {n:15, name:'Life On Land', hex:'#56C02B', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + Biodiversity conservation (18%) + Sustainable land policy (15.4%) + Ecosystem education (9.6%) + Species monitoring (10%) + Land sensitive waste (10%)',
+   aacsb:'Biosphere layer — biodiversity zones, sustainable food sourcing and conservation research qualify.',
+   bga:'Land conservation, sustainable food and biodiversity education reflect BGA responsible management criteria.',
+   equis:'Campus biodiversity strategy, sustainable procurement and land conservation research assessed in ERS.',
+   indicators:[
+     {ref:'15.2.1', name:'Sustainable land use events', pts:9.6, aacsb:2, bga:1, equis:1,
+      action:'Support or organise 2+ events/year promoting sustainable land use and conservation.',
+      online:'Virtual seminars on land conservation, online biodiversity events, community webinars.',
+      campus:'Campus conservation days, sustainability festivals, community land management events.'},
+     {ref:'15.2.3', name:'Campus biodiversity conservation', pts:18, aacsb:2, bga:2, equis:2,
+      action:'Develop campus biodiversity zones, green corridors and conservation research. Publish plans.',
+      online:'Commission biodiversity assessment of campus grounds. Partner with conservation NGOs.',
+      campus:'Biodiversity zone mapping, wildlife corridors, conservation planting, annual survey.'},
+     {ref:'15.2.4', name:'Community ecosystem education', pts:9.6, aacsb:2, bga:1, equis:1,
+      action:'Offer free community educational programmes on ecosystems and biodiversity.',
+      online:'Free online biodiversity courses, virtual nature walks, open-access ecology content.',
+      campus:'Campus nature trails, community eco-education events, school biodiversity programmes.'},
+     {ref:'15.3.1', name:'Sustainable land use policy', pts:15.4, aacsb:1, bga:2, equis:2,
+      action:'Publish policy on sustainable use, conservation and restoration of land and natural habitats.',
+      online:'Publish land use policy for all physical premises. Include biodiversity impact assessment.',
+      campus:'Board-approved land policy, biodiversity impact assessment for all development plans.'},
+     {ref:'15.4.1', name:'IUCN / biodiversity species monitoring', pts:10, aacsb:1, bga:1, equis:2,
+      action:'Implement a policy to identify and monitor IUCN and other conservation species on campus.',
+      online:'Remote biodiversity monitoring. Partner with field researchers for data collection.',
+      campus:'Annual species survey, IUCN status monitoring, biodiversity management plan.'},
+   ]},
+  {n:16, name:'Peace, Justice & Institutions', hex:'#00689D', theWeight:26, mandatory:false,
+   theDesc:'Research (27%) + Elected governance (13.8%) + Students’ union (9.2%) + Ethics policy (9.2%) + Financial transparency (9.2%) + Academic freedom (9.2%) + Law graduates (9%)',
+   aacsb:'Society layer — governance, academic freedom, financial transparency and policy engagement qualify.',
+   bga:'Governance, anti-corruption and transparent reporting are core BGA responsible management pillars.',
+   equis:'Governance quality assessed in Chapter 1 (Context & Strategy) and throughout EQUIS framework.',
+   indicators:[
+     {ref:'16.2.1', name:'Elected representation on governing body', pts:13.8, aacsb:2, bga:2, equis:2,
+      action:'Ensure elected representation from students, faculty and staff on highest governing body.',
+      online:'Digital election process. Published terms of reference. Annual governance report.',
+      campus:'Formal constitution, election procedures, annual governance report.'},
+     {ref:'16.2.2', name:'Independent students’ union', pts:9.2, aacsb:1, bga:2, equis:2,
+      action:'Formally recognise an independent students’ union with defined governance and support role.',
+      online:'Virtual students’ union with online democratic processes and welfare functions.',
+      campus:'Recognised union, formal constitution, autonomy, funding and governance role.'},
+     {ref:'16.2.5', name:'Anti-corruption and ethics policy', pts:9.2, aacsb:2, bga:2, equis:2,
+      action:'Publish institutional principles on corruption, bribery and academic integrity. Annual review.',
+      online:'Publish on website. Include AI integrity and digital academic honesty provisions.',
+      campus:'Published ethics policy, staff training, annual review, confidential reporting line.'},
+     {ref:'16.2.6', name:'Academic freedom policy', pts:9.2, aacsb:2, bga:1, equis:2,
+      action:'Publish a formal academic freedom policy. Protect staff from political or commercial interference.',
+      online:'Publish on website. Include provisions for online teaching and research independence.',
+      campus:'Board-approved policy, Senate oversight, published case resolution process.'},
+     {ref:'16.2.7', name:'Financial data published transparently', pts:9.2, aacsb:1, bga:2, equis:2,
+      action:'Publish institutional financial data — income, expenditure and surplus/deficit — annually.',
+      online:'Annual financial report published on website. Include breakdown by programme.',
+      campus:'Annual audited accounts, public financial report, governing body approval.'},
+     {ref:'16.3.2', name:'Expert advice to government', pts:8, aacsb:2, bga:1, equis:1,
+      action:'Provide documented expert advice to local, regional or national government. Publish examples.',
+      online:'Publish policy submissions and government advisory engagements on website.',
+      campus:'Government advisory roles, policy submissions, published consultancy engagements.'},
+   ]},
+  {n:17, name:'Partnerships for the Goals', hex:'#19486A', theWeight:22, mandatory:true,
+   theDesc:'[MANDATORY] International co-authorship (13.55%) + SDG research volume (13.55%) + NGO collaboration (3.7%) + SDG reporting (36.2%) + SDG courses (9.06%) + Community outreach (9.06%)',
+   aacsb:'Standard 9 cross-cutting — SDG partnerships, NGO collaboration and community outreach are direct evidence.',
+   bga:'Partnerships are assessed under all three BGA pillars — positive impact, responsible management and lifelong learning.',
+   equis:'International partnerships, SDG research and community outreach assessed in Internationalisation, Research and Corporate Connections.',
+   indicators:[
+     {ref:'17.2.1', name:'NGO and government SDG policy relationships', pts:3.7, aacsb:2, bga:2, equis:2,
+      action:'Sign 3–5 MoUs with NGOs and government agencies. Participate in SDG policy consultations.',
+      online:'Virtual MoU signing, online policy forums, digital collaboration platforms with NGOs.',
+      campus:'Formal MoUs, joint policy events, government advisory seats, annual partnership report.'},
+     {ref:'17.2.2', name:'Cross-sectoral SDG dialogue events', pts:5, aacsb:2, bga:2, equis:1,
+      action:'Organise 2–3 cross-sectoral SDG dialogue events per year (conferences, roundtables).',
+      online:'Virtual SDG summit, online stakeholder roundtables, digital SDG dialogue series.',
+      campus:'Annual SDG conference, stakeholder roundtables, sector forums hosted on campus.'},
+     {ref:'17.2.3', name:'International SDG data collaboration', pts:13.55, aacsb:1, bga:1, equis:2,
+      action:'Collaborate internationally on SDG data. Co-author with researchers from developing countries.',
+      online:'Global research networks, online SDG data sharing platforms, virtual co-authorship.',
+      campus:'International research partnerships, developing-country co-authorship, joint data projects.'},
+     {ref:'17.5.1', name:'SDG progress reporting — all 17 goals', pts:36.2, aacsb:2, bga:2, equis:2,
+      action:'Publish annual SDG progress reports for all 17 goals. Make public. Award extra credit for open data.',
+      online:'Online SDG dashboard, annual public report, open data download, version history.',
+      campus:'Annual published SDG report, website dashboard, governing board approval.'},
+     {ref:'17.6.1', name:'Dedicated SDG / sustainability courses', pts:9.06, aacsb:2, bga:2, equis:2,
+      action:'Offer 2–3 dedicated courses or significant electives addressing sustainability and the SDGs.',
+      online:'Online SDG certification, blended sustainability modules, open-access SDG course.',
+      campus:'Dedicated SDG module, sustainability electives, interdisciplinary courses.'},
+     {ref:'17.6.2', name:'Community outreach on SDGs', pts:9.06, aacsb:2, bga:2, equis:1,
+      action:'Provide dedicated SDG outreach to the wider community — alumni, local residents, schools.',
+      online:'Online community SDG events, alumni webinars, open SDG learning resources.',
+      campus:'Community SDG workshops, alumni engagement events, school SDG programmes.'},
+   ]},
+];
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let mode = 'online';
+let maturity = 0;
+let checked = {};
+let openSDG = null;
+let openInd = null;
+let openTab = {};
+
+const MATURITY_LABELS = ['Just starting','Developing','Established','Mature / Top 200'];
+
+function setMode(m) {
+  mode = m;
+  ['Online','Campus','Both'].forEach(x => {
+    document.getElementById('mode'+x).classList.toggle('on', m === x.toLowerCase().replace('/','') || (m==='both' && x==='Both') || (m==='online' && x==='Online') || (m==='campus' && x==='Campus'));
+  });
+  document.getElementById('modeOnline').classList.toggle('on', m==='online');
+  document.getElementById('modeCampus').classList.toggle('on', m==='campus');
+  document.getElementById('modeBoth').classList.toggle('on', m==='both');
+  if (openSDG !== null) renderDetail(openSDG);
+}
+
+function setMaturity(m) {
+  maturity = m;
+  for (let i=0; i<4; i++) document.getElementById('mat'+i).classList.toggle('on', i===m);
+  updateDashboard();
+}
+
+function showSection(s) {
+  document.getElementById('scoreSection').style.display = s==='score' ? 'block' : 'none';
+  document.getElementById('reportSection').style.display = s==='report' ? 'block' : 'none';
+  document.querySelectorAll('.nav-pill').forEach((p,i) => p.classList.toggle('active', (i===0&&s==='score')||(i===1&&s==='report')));
+  if (s==='report') buildReport();
+}
+
+function resetAll() {
+  checked = {};
+  openSDG = null;
+  openInd = null;
+  buildGrid();
+  updateDashboard();
+}
+
+// ═══════════════════════════════════════════════════════════
+// SCORING
+// ═══════════════════════════════════════════════════════════
+function getSDGScore(n) {
+  const sdg = SDG_META.find(s => s.n === n);
+  if (!sdg) return { raw: 0, max: 0, pct: 0 };
+  let raw = 0, max = 0;
+  sdg.indicators.forEach(ind => {
+    max += ind.pts;
+    if (checked[n + '_' + ind.ref]) raw += ind.pts;
+  });
+  return { raw: Math.round(raw*10)/10, max: Math.round(max*10)/10, pct: max > 0 ? Math.round(raw/max*100) : 0 };
+}
+
+function getTHEScore() {
+  const sdg17 = getSDGScore(17);
+  const others = SDG_META.filter(s => !s.mandatory).map(s => ({ n: s.n, pct: getSDGScore(s.n).pct }));
+  others.sort((a,b) => b.pct - a.pct);
+  const best3 = others.slice(0, 3);
+  const sdg17Weight = 0.22, otherWeight = 0.26;
+  let score = sdg17.pct * sdg17Weight;
+  best3.forEach(s => { score += s.pct * otherWeight; });
+  return { score: Math.round(score), best3, sdg17pct: sdg17.pct };
+}
+
+function getAACSSBScore() {
+  let total = 0, max = 0;
+  SDG_META.forEach(sdg => {
+    sdg.indicators.forEach(ind => {
+      max += ind.aacsb;
+      if (checked[sdg.n + '_' + ind.ref]) total += ind.aacsb;
+    });
+  });
+  return max > 0 ? Math.round(total/max*100) : 0;
+}
+
+function getBGAScore() {
+  let count = 0;
+  SDG_META.forEach(sdg => {
+    sdg.indicators.forEach(ind => {
+      if (checked[sdg.n + '_' + ind.ref] && ind.bga >= 2) count++;
+    });
+  });
+  return Math.min(count, 10);
+}
+
+function getEQUISScore() {
+  let total = 0, max = 0;
+  SDG_META.forEach(sdg => {
+    sdg.indicators.forEach(ind => {
+      max += ind.equis;
+      if (checked[sdg.n + '_' + ind.ref]) total += ind.equis;
+    });
+  });
+  return max > 0 ? Math.round(total/max*100) : 0;
+}
+
+function countSDGsWithData() {
+  return SDG_META.filter(s => s.indicators.some(ind => checked[s.n + '_' + ind.ref])).length;
+}
+
+function countChecked() {
+  return Object.values(checked).filter(Boolean).length;
+}
+
+function countTotal() {
+  return SDG_META.reduce((a,s) => a + s.indicators.length, 0);
+}
+
+function updateDashboard() {
+  const the = getTHEScore();
+  const aacsb = getAACSSBScore();
+  const bga = getBGAScore();
+  const equis = getEQUISScore();
+  const sdgs = countSDGsWithData();
+  const acts = countChecked();
+
+  document.getElementById('navScore').textContent = the.score;
+  document.getElementById('dcTHE').innerHTML = the.score + '<sup>/100</sup>';
+  document.getElementById('dcTHEsub').textContent = the.best3.length > 0 ? 'Best 3: SDG ' + the.best3.map(s=>s.n).join(', ') : 'Add data to 4+ SDGs';
+  document.getElementById('dcAACSSB').innerHTML = aacsb + '<sup>%</sup>';
+  document.getElementById('dcBGA').innerHTML = bga + '<sup>/10</sup>';
+  document.getElementById('dcEQUIS').innerHTML = equis + '<sup>%</sup>';
+  document.getElementById('dcSDGs').innerHTML = sdgs + '<sup>/17</sup>';
+  document.getElementById('dcActions').textContent = acts;
+  document.getElementById('dcActTotal').textContent = countTotal();
+
+  // Update tile progress bars
+  SDG_META.forEach(sdg => {
+    const prog = document.getElementById('prog_' + sdg.n);
+    const scoreEl = document.getElementById('score_' + sdg.n);
+    const statusEl = document.getElementById('status_' + sdg.n);
+    if (!prog) return;
+    const sc = getSDGScore(sdg.n);
+    prog.style.width = sc.pct + '%';
+    scoreEl.textContent = Math.round(sc.raw);
+    const done = sc.pct === 100;
+    const started = sc.pct > 0;
+    statusEl.innerHTML = done
+      ? '<span class="sdg-status-dot"><span class="dot" style="background:#2d7a2d"></span>Complete</span>'
+      : started
+      ? '<span class="sdg-status-dot"><span class="dot" style="background:#E8A020"></span>In progress (' + sc.pct + '%)</span>'
+      : '<span class="sdg-status-dot"><span class="dot" style="background:#6b7c8d"></span>Not started</span>';
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// GRID
+// ═══════════════════════════════════════════════════════════
+function buildGrid() {
+  const grid = document.getElementById('sdgGrid');
+  grid.innerHTML = '';
+  SDG_META.forEach(sdg => {
+    const card = document.createElement('div');
+    card.className = 'sdg-card' + (sdg.mandatory ? ' mandatory' : '');
+    card.id = 'sdgcard_' + sdg.n;
+    card.innerHTML = `
+      <div class="sdg-card-top" onclick="toggleSDG(${sdg.n})">
+        <div class="sdg-num" style="background:${sdg.hex}">${sdg.n}</div>
+        <div>
+          <div class="sdg-name">${sdg.name}</div>
+          ${sdg.mandatory ? '<div style="font-size:10px;color:'+sdg.hex+';font-weight:600;margin-top:2px">★ Mandatory for THE</div>' : ''}
+        </div>
+      </div>
+      <div class="sdg-score-row">
+        <div class="sdg-score-num" id="score_${sdg.n}">0</div>
+        <div class="sdg-score-max">pts</div>
+        <div class="sdg-prog-wrap"><div class="sdg-prog-fill" id="prog_${sdg.n}" style="background:${sdg.hex};width:0%"></div></div>
+      </div>
+      <div class="sdg-status" id="status_${sdg.n}">
+        <span class="sdg-status-dot"><span class="dot" style="background:#6b7c8d"></span>Not started</span>
+      </div>
+      <div class="sdg-detail" id="detail_${sdg.n}">
+        <div class="detail-tabs">
+          <button class="dtab on" id="tab_${sdg.n}_ind" onclick="switchTab(${sdg.n},'ind')">Indicators & scoring</button>
+          <button class="dtab" id="tab_${sdg.n}_acc" onclick="switchTab(${sdg.n},'acc')">Accreditation links</button>
+          <button class="dtab" id="tab_${sdg.n}_the" onclick="switchTab(${sdg.n},'the')">THE scoring formula</button>
+        </div>
+        <div id="tabcontent_${sdg.n}_ind" class="tab-content"></div>
+        <div id="tabcontent_${sdg.n}_acc" class="tab-content" style="display:none"></div>
+        <div id="tabcontent_${sdg.n}_the" class="tab-content" style="display:none"></div>
+      </div>
+    `;
+    grid.appendChild(card);
+    renderTabContent(sdg);
+  });
+}
+
+function toggleSDG(n) {
+  const card = document.getElementById('sdgcard_' + n);
+  const detail = document.getElementById('detail_' + n);
+  if (openSDG === n) {
+    card.classList.remove('open');
+    detail.style.display = 'none';
+    openSDG = null;
+  } else {
+    if (openSDG !== null) {
+      document.getElementById('sdgcard_' + openSDG).classList.remove('open');
+      document.getElementById('detail_' + openSDG).style.display = 'none';
+    }
+    card.classList.add('open');
+    detail.style.display = 'block';
+    openSDG = n;
+    if (!openTab[n]) openTab[n] = 'ind';
+  }
+}
+
+function switchTab(n, tab) {
+  const tabs = ['ind','acc','the'];
+  tabs.forEach(t => {
+    document.getElementById('tab_'+n+'_'+t).classList.toggle('on', t===tab);
+    document.getElementById('tabcontent_'+n+'_'+t).style.display = t===tab ? 'block' : 'none';
+  });
+  openTab[n] = tab;
+}
+
+function renderTabContent(sdg) {
+  // TAB 1: Indicators
+  let ind_html = '<div class="indicator-list">';
+  sdg.indicators.forEach(ind => {
+    const key = sdg.n + '_' + ind.ref;
+    ind_html += `
+      <div class="indicator-item" id="item_${key}">
+        <div class="ind-header" onclick="toggleInd('${key}')">
+          <div class="ind-check ${checked[key]?'done':''}" id="chk_${key}" onclick="event.stopPropagation();toggleCheck('${key}',${sdg.n})"></div>
+          <div class="ind-body">
+            <div class="ind-ref">${ind.ref}</div>
+            <div class="ind-name">${ind.name}</div>
+          </div>
+          <div class="ind-pts">
+            <div class="ind-pts-val">+${ind.pts}</div>
+            <span class="ind-pts-lbl">THE pts</span>
+          </div>
+        </div>
+        <div class="ind-expand" id="exp_${key}">
+          <div class="exp-section">
+            <div class="exp-section-title">What to do</div>
+            <div class="exp-body">${ind.action}</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Mode-specific guidance</div>
+            <div class="mode-tip-box tip-online"><strong>Online / distance:</strong> ${ind.online}</div>
+            <div class="mode-tip-box tip-campus" style="margin-top:6px"><strong>Campus / regular:</strong> ${ind.campus}</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Accreditation value</div>
+            <div class="acc-grid">
+              <div class="acc-box acc-aacsb"><div class="acc-box-title">AACSB Std 9</div><div class="acc-box-body">Evidence weight: ${'★'.repeat(ind.aacsb)}${'☆'.repeat(3-ind.aacsb)}</div></div>
+              <div class="acc-box acc-bga"><div class="acc-box-title">BGA / CIM</div><div class="acc-box-body">CIM metric strength: ${'★'.repeat(ind.bga)}${'☆'.repeat(3-ind.bga)}</div></div>
+              <div class="acc-box acc-equis"><div class="acc-box-title">EQUIS ERS</div><div class="acc-box-body">ERS evidence: ${'★'.repeat(ind.equis)}${'☆'.repeat(3-ind.equis)}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+  ind_html += '</div>';
+  document.getElementById('tabcontent_'+sdg.n+'_ind').innerHTML = ind_html;
+
+  // TAB 2: Accreditation
+  document.getElementById('tabcontent_'+sdg.n+'_acc').innerHTML = `
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="acc-box acc-aacsb" style="padding:12px 14px">
+        <div class="acc-box-title" style="font-size:12px;margin-bottom:6px">AACSB Standard 9 — Engagement & Societal Impact</div>
+        <div class="acc-box-body" style="font-size:12px;line-height:1.65">${sdg.aacsb}</div>
+      </div>
+      <div class="acc-box acc-bga" style="padding:12px 14px">
+        <div class="acc-box-title" style="font-size:12px;margin-bottom:6px">BGA / AMBA — Continuous Impact Model (CIM)</div>
+        <div class="acc-box-body" style="font-size:12px;line-height:1.65">${sdg.bga}</div>
+      </div>
+      <div class="acc-box acc-equis" style="padding:12px 14px">
+        <div class="acc-box-title" style="font-size:12px;margin-bottom:6px">EQUIS — Ethics, Responsibility & Sustainability (ERS)</div>
+        <div class="acc-box-body" style="font-size:12px;line-height:1.65">${sdg.equis}</div>
+      </div>
+    </div>`;
+
+  // TAB 3: THE formula
+  document.getElementById('tabcontent_'+sdg.n+'_the').innerHTML = `
+    <div style="background:var(--card);border-radius:8px;padding:14px;border:1px solid var(--border)">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:8px">THE Impact Rankings 2024 — SDG ${sdg.n} scoring breakdown</div>
+      <div style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:10px">${sdg.theDesc}</div>
+      <div style="font-size:11px;color:var(--ink3);padding:8px;background:var(--surface);border-radius:6px;line-height:1.6">
+        <strong>Overall formula:</strong> SDG 17 (22%) + Best 3 other SDGs (26% each) = Total score (average of last 2 years)<br>
+        ${sdg.mandatory ? '<strong style="color:var(--coral)">⚑ SDG 17 is mandatory</strong> — universities must submit SDG 17 + at least 3 other SDGs to appear in the overall ranking.' : ''}
+      </div>
+    </div>`;
+}
+
+function toggleInd(key) {
+  const exp = document.getElementById('exp_' + key);
+  if (!exp) return;
+  const showing = exp.classList.contains('show');
+  // Close all
+  document.querySelectorAll('.ind-expand').forEach(e => e.classList.remove('show'));
+  if (!showing) exp.classList.add('show');
+}
+
+function toggleCheck(key, sdgN) {
+  checked[key] = !checked[key];
+  const chk = document.getElementById('chk_' + key);
+  if (chk) chk.classList.toggle('done', checked[key]);
+  updateDashboard();
+}
+
+// ═══════════════════════════════════════════════════════════
+// REPORT
+// ═══════════════════════════════════════════════════════════
+function buildReport() {
+  const the = getTHEScore();
+  const aacsb = getAACSSBScore();
+  const bga = getBGAScore();
+  const equis = getEQUISScore();
+  const sdgs = countSDGsWithData();
+  const acts = countChecked();
+  const matLabel = MATURITY_LABELS[maturity];
+  const modeLabel = mode === 'online' ? 'Online / Distance' : mode === 'campus' ? 'Campus / Regular' : 'Blended / Both';
+
+  // Gaps: find indicators not checked sorted by impact
+  let gaps = [];
+  SDG_META.forEach(sdg => {
+    sdg.indicators.forEach(ind => {
+      const key = sdg.n + '_' + ind.ref;
+      if (!checked[key]) {
+        gaps.push({ sdgN: sdg.n, sdgName: sdg.name, hex: sdg.hex, ...ind, key });
+      }
+    });
+  });
+  gaps.sort((a,b) => (b.pts + b.aacsb*3 + b.bga*3 + b.equis*3) - (a.pts + a.aacsb*3 + a.bga*3 + a.equis*3));
+  const top10 = gaps.slice(0, 10);
+
+  let html = `
+    <div class="report-header">
+      <div>
+        <div class="report-title">SDG Readiness Report — <span>${modeLabel}</span></div>
+        <div class="report-meta">Stage: ${matLabel} · Generated: ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div>
+      </div>
+      <div class="report-scores">
+        <div class="rep-score"><span class="rep-score-val">${the.score}</span><span class="rep-score-lbl">THE score</span></div>
+        <div class="rep-score"><span class="rep-score-val">${aacsb}%</span><span class="rep-score-lbl">AACSB Std 9</span></div>
+        <div class="rep-score"><span class="rep-score-val">${bga}/10</span><span class="rep-score-lbl">BGA CIM</span></div>
+        <div class="rep-score"><span class="rep-score-val">${equis}%</span><span class="rep-score-lbl">EQUIS ERS</span></div>
+      </div>
+    </div>`;
+
+  // Priority actions
+  html += `<div class="priority-section">
+    <div class="priority-title">Top 10 highest-impact actions you haven’t taken yet</div>
+    <div class="priority-list">`;
+  top10.forEach((gap, i) => {
+    const totalVal = gap.pts + gap.aacsb * 3 + gap.bga * 3 + gap.equis * 3;
+    const tip = mode === 'campus' ? gap.campus : (mode === 'online' ? gap.online : gap.action);
+    html += `
+      <div class="priority-item">
+        <div class="priority-rank">${i+1}</div>
+        <div class="priority-body">
+          <div class="priority-name" style="display:flex;align-items:center;gap:8px">
+            <span style="width:10px;height:10px;border-radius:50%;background:${gap.hex};display:inline-block;flex-shrink:0"></span>
+            SDG ${gap.sdgN} · ${gap.name}
+          </div>
+          <div class="priority-reason">${tip}</div>
+          <div class="priority-gain">+${gap.pts} THE pts · AACSB ${'★'.repeat(gap.aacsb)} · BGA ${'★'.repeat(gap.bga)} · EQUIS ${'★'.repeat(gap.equis)}</div>
+        </div>
+      </div>`;
+  });
+  html += '</div></div>';
+
+  // Per-SDG breakdown
+  html += '<div class="report-grid">';
+  SDG_META.forEach(sdg => {
+    const sc = getSDGScore(sdg.n);
+    const unchecked = sdg.indicators.filter(ind => !checked[sdg.n + '_' + ind.ref]);
+    const aMax = sdg.indicators.reduce((a,i)=>a+i.aacsb,0);
+    const aDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.aacsb,0);
+    const bMax = sdg.indicators.length * 2;
+    const bDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.bga,0);
+    const eMax = sdg.indicators.reduce((a,i)=>a+i.equis,0);
+    const eDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.equis,0);
+
+    html += `
+      <div class="rep-card">
+        <div class="rep-card-head">
+          <div class="rep-sdg-dot" style="background:${sdg.hex}"></div>
+          <div class="rep-card-title">SDG ${sdg.n} — ${sdg.name} ${sdg.mandatory?'<span style="color:'+sdg.hex+';font-size:10px">★ Mandatory</span>':''}</div>
+        </div>
+        <div class="rep-bar-row"><span class="rep-bar-label">THE</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${sc.pct}%;background:${sdg.hex}"></div></div><span class="rep-bar-val">${sc.pct}%</span></div>
+        <div class="rep-bar-row"><span class="rep-bar-label">AACSB</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${aMax?Math.round(aDone/aMax*100):0}%;background:#00205b"></div></div><span class="rep-bar-val">${aMax?Math.round(aDone/aMax*100):0}%</span></div>
+        <div class="rep-bar-row"><span class="rep-bar-label">BGA</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${bMax?Math.round(bDone/bMax*100):0}%;background:#7b2d8b"></div></div><span class="rep-bar-val">${bMax?Math.round(bDone/bMax*100):0}%</span></div>
+        <div class="rep-bar-row"><span class="rep-bar-label">EQUIS</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${eMax?Math.round(eDone/eMax*100):0}%;background:#006e51"></div></div><span class="rep-bar-val">${eMax?Math.round(eDone/eMax*100):0}%</span></div>
+        ${unchecked.length > 0 ? '<div class="gap-list">' + unchecked.slice(0,3).map(i=>'<div class="gap-item">'+i.name+'</div>').join('') + (unchecked.length>3?'<div class="gap-item" style="color:var(--ink3)">+'+(unchecked.length-3)+' more</div>':'') + '</div>' : '<div style="font-size:11px;color:var(--green);margin-top:8px;font-weight:600">✓ All indicators checked</div>'}
+      </div>`;
+  });
+  html += '</div>';
+
+  html += `<div class="footnote">
+    Scores are estimates based on the THE Impact Rankings 2024 published methodology, AACSB 2020 Business Accreditation Standards, BGA Continuous Impact Model criteria, and EQUIS published accreditation criteria. This tool is for self-assessment and planning purposes. It does not constitute official ranking or accreditation scores. All content is original and copyright-free for educational use. Created using publicly available information from THE, AACSB, AMBA-BGA and EFMD.
+  </div>`;
+
+  document.getElementById('reportContent').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+buildGrid();
+updateDashboard();
+</script>
+
+</body>
+</html>
