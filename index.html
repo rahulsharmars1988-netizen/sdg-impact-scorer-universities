@@ -393,6 +393,235 @@ nav {
 .roadmap-items { display: flex; flex-direction: column; gap: 6px; padding-left: 32px; }
 .roadmap-item { font-size: 12px; color: var(--ink2); line-height: 1.6; padding: 7px 12px; background: var(--surface); border-radius: 6px; border-left: 3px solid var(--gold); }
 .roadmap-item strong { color: var(--ink); }
+
+/* ── QS SUSTAINABILITY ── */
+.qs-wrap { padding: 0 24px 48px; max-width: 1100px; margin: 0 auto; }
+.qs-hero {
+  background: var(--ink); border-radius: var(--radius);
+  padding: 28px 32px; margin-bottom: 24px;
+}
+.qs-hero-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: #fff; margin-bottom: 6px; }
+.qs-hero-title span { color: #7ec8e3; }
+.qs-hero-sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 700px; }
+.qs-score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.qs-score-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+.qs-score-card.highlight { background: var(--ink); border-color: var(--ink); }
+.qs-score-card.highlight .dash-card-label { color: rgba(255,255,255,0.5); }
+.qs-score-card.highlight .dash-card-val { color: #7ec8e3; }
+.qs-score-card.highlight .dash-card-sub { color: rgba(255,255,255,0.4); }
+.qs-cat-section { margin-bottom: 28px; }
+.qs-cat-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border-radius: var(--radius) var(--radius) 0 0;
+  margin-bottom: 1px;
+}
+.qs-cat-env { background: #e8f5e9; border: 1px solid #a5d6a7; }
+.qs-cat-soc { background: #e3f2fd; border: 1px solid #90caf9; }
+.qs-cat-gov { background: #f3e5f5; border: 1px solid #ce93d8; }
+.qs-cat-title { font-size: 15px; font-weight: 600; }
+.qs-cat-env .qs-cat-title { color: #1b5e20; }
+.qs-cat-soc .qs-cat-title { color: #0d47a1; }
+.qs-cat-gov .qs-cat-title { color: #4a148c; }
+.qs-cat-weight { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-left: auto; }
+.qs-cat-env .qs-cat-weight { background: #1b5e20; color: #fff; }
+.qs-cat-soc .qs-cat-weight { background: #0d47a1; color: #fff; }
+.qs-cat-gov .qs-cat-weight { background: #4a148c; color: #fff; }
+.qs-cat-prog { flex: 1; max-width: 120px; height: 5px; background: rgba(0,0,0,0.1); border-radius: 3px; overflow: hidden; }
+.qs-cat-prog-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+
+.qs-lens { background: var(--card); border: 1px solid var(--border); margin-bottom: 2px; border-radius: var(--radius-sm); overflow: hidden; }
+.qs-lens-header { padding: 10px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.qs-lens-header:hover { background: var(--surface); }
+.qs-lens-name { font-size: 13px; font-weight: 600; color: var(--ink); flex: 1; }
+.qs-lens-weight { font-size: 11px; color: var(--ink3); }
+.qs-lens-pct { font-size: 12px; font-weight: 600; color: var(--ink2); min-width: 36px; text-align: right; }
+.qs-lens-bar { width: 80px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.qs-lens-bar-fill { height: 100%; border-radius: 2px; transition: width 0.4s; }
+
+.qs-indicators { display: none; padding: 4px 0 10px 16px; background: var(--surface); }
+.qs-lens.open .qs-indicators { display: block; }
+.qs-ind {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 12px 9px 0; border-top: 1px solid var(--border);
+}
+.qs-ind-check {
+  width: 20px; height: 20px; border-radius: 5px;
+  border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; background: var(--card);
+}
+.qs-ind-check.done { background: var(--green); border-color: var(--green); }
+.qs-ind-check.done::after { content: "✓"; font-size: 12px; color: #fff; font-weight: 700; }
+.qs-ind-body { flex: 1; }
+.qs-ind-code { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 2px; }
+.qs-ind-name { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 3px; }
+.qs-ind-desc { font-size: 12px; color: var(--ink2); line-height: 1.6; }
+.qs-ind-pts { margin-left: auto; flex-shrink: 0; text-align: right; }
+.qs-ind-pts-val { font-family: 'DM Serif Display', serif; font-size: 15px; color: #7ec8e3; }
+.qs-ind-pts-lbl { font-size: 9px; color: var(--ink3); display: block; }
+.qs-ind-tip { font-size: 11px; color: var(--teal); margin-top: 4px; padding: 5px 8px; background: var(--teal-lt); border-radius: 4px; border-radius:0; border-left: 2px solid var(--teal); line-height: 1.5; }
+
+/* ── QS I-GAUGE ── */
+.ig-wrap { padding: 0 24px 48px; max-width: 1100px; margin: 0 auto; }
+.ig-hero {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%);
+  border-radius: var(--radius); padding: 28px 32px; margin-bottom: 24px;
+}
+.ig-hero-top { display:flex; align-items:center; gap:14px; margin-bottom:10px; flex-wrap:wrap; }
+.ig-hero-title { font-family:'DM Serif Display',serif; font-size:26px; color:#fff; }
+.ig-hero-title span { color:#FFC107; }
+.ig-hero-sub { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6; max-width:700px; }
+.ig-badge { padding:4px 12px; border-radius:12px; font-size:11px; font-weight:700; letter-spacing:0.05em; }
+.ig-badge-india { background:#FF9800; color:#fff; }
+.ig-badge-global { background:rgba(255,255,255,0.15); color:#fff; }
+
+.ig-region-bar {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px 20px; margin-bottom:20px;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.ig-region-label { font-size:13px; font-weight:600; color:var(--ink2); }
+.ig-region-opts { display:flex; gap:8px; flex-wrap:wrap; }
+.ig-rbn { padding:6px 16px; border-radius:20px; font-size:12px; font-weight:500; border:1.5px solid var(--border); background:transparent; cursor:pointer; color:var(--ink2); transition:all 0.2s; }
+.ig-rbn:hover { border-color:#1a237e; color:#1a237e; }
+.ig-rbn.on { background:#1a237e; border-color:#1a237e; color:#fff; }
+.ig-type-bar {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px 20px; margin-bottom:20px;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.ig-type-label { font-size:13px; font-weight:600; color:var(--ink2); }
+
+.ig-score-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:20px; }
+.ig-score-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; }
+.ig-score-card.main { background:#1a237e; border-color:#1a237e; }
+.ig-score-card.main .dash-card-label { color:rgba(255,255,255,0.5); }
+.ig-score-card.main .dash-card-val { color:#FFC107; }
+.ig-score-card.main .dash-card-sub { color:rgba(255,255,255,0.4); }
+
+.ig-rating-band {
+  border-radius:var(--radius); padding:16px 20px; margin-bottom:20px;
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap; border:2px solid;
+}
+.ig-rating-bronze  { background:#fdf3e7; border-color:#CD7F32; }
+.ig-rating-silver  { background:#f5f5f5; border-color:#A0A0A0; }
+.ig-rating-gold    { background:#fffde7; border-color:#FFD700; }
+.ig-rating-diamond { background:#e3f2fd; border-color:#00BCD4; }
+.ig-rating-platinum{ background:#f3e5f5; border-color:#9C27B0; }
+.ig-rating-none    { background:var(--surface); border-color:var(--border); }
+.ig-medal { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.ig-medal-bronze   { background:#CD7F32; }
+.ig-medal-silver   { background:#A0A0A0; }
+.ig-medal-gold     { background:#FFD700; }
+.ig-medal-diamond  { background:#00BCD4; }
+.ig-medal-platinum { background:#9C27B0; }
+.ig-medal-none     { background:var(--border); }
+.ig-rating-title { font-family:'DM Serif Display',serif; font-size:20px; }
+.ig-rating-desc { font-size:13px; line-height:1.65; flex:1; }
+
+.ig-cat { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:14px; overflow:hidden; }
+.ig-cat-header { padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; }
+.ig-cat-header:hover { background:var(--surface); }
+.ig-cat-stripe { width:6px; height:36px; border-radius:3px; flex-shrink:0; }
+.ig-cat-name { font-size:14px; font-weight:600; color:var(--ink); flex:1; }
+.ig-cat-code { font-size:11px; color:var(--ink3); }
+.ig-cat-pts { font-family:'DM Serif Display',serif; font-size:18px; color:var(--ink); min-width:60px; text-align:right; }
+.ig-cat-max { font-size:10px; color:var(--ink3); }
+.ig-cat-medal { font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; }
+.ig-cat-bar { width:80px; height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+.ig-cat-bar-fill { height:100%; border-radius:3px; transition:width 0.4s; }
+
+.ig-indicators { display:none; padding:4px 18px 14px; background:var(--surface); }
+.ig-cat.open .ig-indicators { display:block; }
+.ig-ind { display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-top:1px solid var(--border); }
+.ig-ind-check {
+  width:20px; height:20px; border-radius:5px; border:1.5px solid var(--border);
+  flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all 0.2s; background:var(--card);
+}
+.ig-ind-check.done { background:#1a237e; border-color:#1a237e; }
+.ig-ind-check.done::after { content:"✓"; font-size:12px; color:#fff; font-weight:700; }
+.ig-ind-body { flex:1; }
+.ig-ind-code { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink3); margin-bottom:2px; }
+.ig-ind-name { font-size:13px; font-weight:600; color:var(--ink); line-height:1.35; margin-bottom:3px; }
+.ig-ind-desc { font-size:12px; color:var(--ink2); line-height:1.6; margin-bottom:4px; }
+.ig-ind-tip { font-size:11px; padding:5px 8px; border-left:2px solid #1a237e; background:#e8eaf6; color:#1a237e; border-radius:0; line-height:1.5; }
+.ig-ind-pts { margin-left:auto; flex-shrink:0; text-align:right; }
+.ig-ind-pts-val { font-family:'DM Serif Display',serif; font-size:16px; color:#1a237e; }
+.ig-ind-pts-lbl { font-size:9px; color:var(--ink3); display:block; }
+.ig-sdg-link { font-size:10px; color:#1a237e; margin-top:3px; font-style:italic; }
+
+/* ── NIRF ── */
+.nirf-wrap { padding: 0 24px 48px; max-width: 1100px; margin: 0 auto; }
+.nirf-hero { background: #b71c1c; border-radius: var(--radius); padding: 28px 32px; margin-bottom: 20px; }
+.nirf-hero-title { font-family:'DM Serif Display',serif; font-size:26px; color:#fff; margin-bottom:6px; }
+.nirf-hero-title span { color:#FFEB3B; }
+.nirf-hero-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; max-width:700px; }
+.nirf-cat-bar { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px 20px; margin-bottom:16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.nirf-cat-label { font-size:13px; font-weight:600; color:var(--ink2); }
+.nirf-cat-opts { display:flex; gap:6px; flex-wrap:wrap; }
+.nirf-cbn { padding:5px 12px; border-radius:16px; font-size:11px; font-weight:600; border:1.5px solid var(--border); background:transparent; cursor:pointer; color:var(--ink2); transition:all 0.2s; }
+.nirf-cbn:hover { border-color:#b71c1c; color:#b71c1c; }
+.nirf-cbn.on { background:#b71c1c; border-color:#b71c1c; color:#fff; }
+.nirf-score-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-bottom:16px; }
+.nirf-score-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.nirf-score-card.main { background:#b71c1c; border-color:#b71c1c; }
+.nirf-score-card.main .dash-card-label { color:rgba(255,255,255,0.5); }
+.nirf-score-card.main .dash-card-val { color:#FFEB3B; font-size:28px; }
+.nirf-score-card.main .dash-card-sub { color:rgba(255,255,255,0.5); }
+.nirf-param { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; }
+.nirf-param-header { padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; }
+.nirf-param-header:hover { background:var(--surface); }
+.nirf-param-stripe { width:6px; height:36px; border-radius:3px; flex-shrink:0; }
+.nirf-param-info { flex:1; }
+.nirf-param-name { font-size:14px; font-weight:600; color:var(--ink); }
+.nirf-param-formula { font-size:11px; color:var(--ink3); margin-top:2px; font-family:var(--font-mono); }
+.nirf-param-weight { font-size:12px; font-weight:700; padding:3px 10px; border-radius:12px; background:#b71c1c; color:#fff; flex-shrink:0; }
+.nirf-param-score { font-family:'DM Serif Display',serif; font-size:20px; min-width:70px; text-align:right; }
+.nirf-param-bar { width:80px; height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+.nirf-param-bar-fill { height:100%; border-radius:3px; transition:width 0.4s; }
+.nirf-sub-list { display:none; padding:6px 18px 14px; background:var(--surface); }
+.nirf-param.open .nirf-sub-list { display:block; }
+.nirf-sub { display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-top:1px solid var(--border); }
+.nirf-sub-check { width:20px; height:20px; border-radius:5px; border:1.5px solid var(--border); flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.2s; background:var(--card); }
+.nirf-sub-check.done { background:#b71c1c; border-color:#b71c1c; }
+.nirf-sub-check.done::after { content:"✓"; font-size:12px; color:#fff; font-weight:700; }
+.nirf-sub-body { flex:1; }
+.nirf-sub-code { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink3); margin-bottom:2px; }
+.nirf-sub-name { font-size:13px; font-weight:600; color:var(--ink); line-height:1.35; margin-bottom:3px; }
+.nirf-sub-desc { font-size:12px; color:var(--ink2); line-height:1.6; }
+.nirf-sub-tip { font-size:11px; padding:5px 8px; border-left:2px solid #b71c1c; background:#ffebee; color:#b71c1c; line-height:1.5; margin-top:4px; }
+.nirf-sub-sdg { font-size:10px; color:#b71c1c; margin-top:3px; font-style:italic; }
+.nirf-sub-external { font-size:9px; color:#e57373; font-weight:700; }
+.nirf-sub-pts { margin-left:auto; flex-shrink:0; text-align:right; }
+.nirf-sub-pts-val { font-family:'DM Serif Display',serif; font-size:16px; color:#b71c1c; }
+.nirf-sub-pts-lbl { font-size:9px; color:var(--ink3); display:block; }
+.nirf-score-band { border-radius:var(--radius); padding:14px 18px; margin-bottom:16px; border:2px solid; display:flex; align-items:center; gap:14px; }
+
+/* ── CALCULATOR INPUTS (shared across all frameworks) ── */
+.calc-field-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; margin:8px 0 6px; }
+.calc-field label { font-size:11px; color:var(--ink3); display:block; margin-bottom:3px; }
+.calc-field input[type=number], .calc-field select {
+  width:100%; padding:6px 8px; border-radius:6px;
+  border:1px solid var(--border); font-size:12px;
+  background:var(--card); color:var(--ink); outline:none;
+  transition:border-color 0.15s;
+}
+.calc-field input:focus, .calc-field select:focus { border-color:#1a237e; }
+.calc-result {
+  display:flex; align-items:center; gap:8px; margin-top:6px;
+  padding:6px 10px; background:var(--surface); border-radius:6px;
+}
+.calc-result-val { font-family:'DM Serif Display',serif; font-size:18px; font-weight:500; }
+.calc-result-label { font-size:11px; color:var(--ink3); }
+.calc-result-bar { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.calc-result-fill { height:100%; border-radius:2px; transition:width 0.4s; }
+.yn-group { display:flex; gap:6px; flex-wrap:wrap; margin-top:4px; }
+.yn-btn { padding:4px 12px; border-radius:12px; font-size:11px; font-weight:600;
+  border:1px solid var(--border); cursor:pointer; background:var(--card); color:var(--ink2); transition:all 0.15s; }
+.yn-btn.sel-yes { background:#e8f5e9; border-color:#4caf50; color:#1b5e20; }
+.yn-btn.sel-partial { background:#fff9c4; border-color:#ffc107; color:#f57f17; }
+.yn-btn.sel-no { background:#ffebee; border-color:#ef9a9a; color:#b71c1c; }
 </style>
 </head>
 <body>
@@ -401,7 +630,10 @@ nav {
 <nav>
   <div class="nav-logo">SDG <span>Impact</span> Scorer <span style="font-size:10px;opacity:0.4;font-family:var(--font-sans);font-weight:400;letter-spacing:0.04em">v2025.1</span></div>
   <div class="nav-pills">
-    <button class="nav-pill active" onclick="showSection('score')">Self-Assess</button>
+    <button class="nav-pill active" onclick="showSection('score')">THE / SDGs</button>
+    <button class="nav-pill" onclick="showSection('qs')">QS Sustainability</button>
+    <button class="nav-pill" onclick="showSection('igauge')">QS I-GAUGE</button>
+    <button class="nav-pill" onclick="showSection('nirf')">NIRF</button>
     <button class="nav-pill" onclick="showSection('report')">My Report</button>
   </div>
   <div class="nav-score" id="navScoreWrap">THE Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span> &nbsp;<span id="navBand" style="font-size:11px;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.1);color:#fff"></span></div>
@@ -410,7 +642,7 @@ nav {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       <span style="display:none" class="nav-link-label">LinkedIn</span>
     </a>
-    <a href="mailto:rahulsharma.rs1988@gmail.com" title="Email" style="display:flex;align-items:center;gap:5px;text-decoration:none;color:rgba(255,255,255,0.6);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#c9922a'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+    <a href="/cdn-cgi/l/email-protection#c3b1a2abb6afb0aba2b1aea2edb1b0f2fafbfb83a4aea2aaafeda0acae" title="Email" style="display:flex;align-items:center;gap:5px;text-decoration:none;color:rgba(255,255,255,0.6);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#c9922a'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
     </a>
   </div>
@@ -428,9 +660,9 @@ nav {
       Rahul Sharma
     </a>
     <span style="color:rgba(255,255,255,0.2)">|</span>
-    <a href="mailto:rahulsharma.rs1988@gmail.com" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">rahulsharma.rs1988@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#ff8d9e978a938c979e8d929ed18d8ccec6c7c7bf98929e9693d19c9092" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none"><span class="__cf_email__" data-cfemail="e99b88819c859a81889b8488c79b9ad8d0d1d1a98e84888085c78a8684">[email&#160;protected]</span></a>
   </div>
-  <div class="hero-sub">Self-assess each of the 17 UN SDGs individually. Instantly see your THE Impact Ranking score potential, AACSB Standard 9 evidence strength, BGA CIM metrics, and EQUIS ERS readiness — for online or campus education.</div>
+  <div class="hero-sub">Self-assess each of the 17 UN SDGs individually. Instantly see your THE Impact Ranking score potential, AACSB Standard 9 evidence strength, BGA / AMBA CIM, and EQUIS / EFMD ERS — for online or campus education.</div>
   <div class="mode-toggle">
     <button class="mode-btn on" id="modeOnline" onclick="setMode('online')">Online / Distance</button>
     <button class="mode-btn" id="modeCampus" onclick="setMode('campus')">Campus / Regular</button>
@@ -466,19 +698,19 @@ nav {
         <div class="dash-card-sub" id="dcTHEsub">SDG 17 + best 3 SDGs</div>
       </div>
       <div class="dash-card">
-        <div class="dash-card-label">AACSB Std 9 strength</div>
+        <div class="dash-card-label">AACSB Standard 9</div>
         <div class="dash-card-val" id="dcAACSSB">0<sup>%</sup></div>
-        <div class="dash-card-sub">Evidence portfolio</div>
+        <div class="dash-card-sub">Societal impact evidence (SDGs optional)</div>
       </div>
       <div class="dash-card">
-        <div class="dash-card-label">BGA CIM metrics</div>
+        <div class="dash-card-label">BGA / AMBA CIM</div>
         <div class="dash-card-val" id="dcBGA">0<sup>/10</sup></div>
-        <div class="dash-card-sub">Recommended: 10 metrics, 3 SDG-linked</div>
+        <div class="dash-card-sub">Min 1 SDG metric; 3 of 10 recommended</div>
       </div>
       <div class="dash-card">
-        <div class="dash-card-label">EQUIS ERS readiness</div>
+        <div class="dash-card-label">EQUIS / EFMD ERS</div>
         <div class="dash-card-val" id="dcEQUIS">0<sup>%</sup></div>
-        <div class="dash-card-sub">Chapter 9 evidence</div>
+        <div class="dash-card-sub">Transversal — all 10 EQUIS chapters</div>
       </div>
       <div class="dash-card">
         <div class="dash-card-label">SDGs with data</div>
@@ -508,7 +740,177 @@ nav {
     <div class="sdg-grid" id="sdgGrid"></div>
     <div class="footnote">
       THE Impact Rankings scores are estimates based on publicly available 2024/25 methodology. AACSB / BGA / EQUIS indicators are derived from published accreditation criteria. This tool is for self-assessment and planning purposes only — it does not constitute official scores.<br>
-      &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 &mdash; free for educational use with attribution.<br><a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:rahulsharma.rs1988@gmail.com" style="color:var(--blue);text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
+      &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 &mdash; free for educational use with attribution.<br><a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/cdn-cgi/l/email-protection#681a09001d041b00091a0509461a1b59515050280f05090104460b0705" style="color:var(--blue);text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="d2a0b3baa7bea1bab3a0bfb3fca0a1e3ebeaea92b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- NIRF SECTION -->
+<div id="nirfSection" style="display:none">
+  <div class="nirf-wrap">
+    <div class="nirf-hero">
+      <div class="nirf-hero-title">NIRF <span>India Rankings 2025</span></div>
+      <div class="nirf-hero-sub">National Institutional Ranking Framework · Ministry of Education, Government of India · 5 parameters · Overall score out of 100 · Select your category below to see exact weightings.</div>
+    </div>
+
+    <div class="nirf-cat-bar">
+      <span class="nirf-cat-label">Select your NIRF category:</span>
+      <div class="nirf-cat-opts" id="nirfCatOpts"></div>
+    </div>
+
+    <div class="nirf-score-grid">
+      <div class="nirf-score-card main">
+        <div class="dash-card-label">NIRF overall score</div>
+        <div class="dash-card-val" id="nirfTotal">0<sup>/100</sup></div>
+        <div class="dash-card-sub" id="nirfRankBand">Select indicators</div>
+      </div>
+      <div class="nirf-score-card"><div class="dash-card-label">TLR score</div><div class="dash-card-val" id="nirfTLR">0<sup>/100</sup></div><div class="dash-card-sub" id="nirfTLRw">Weight: 30%</div></div>
+      <div class="nirf-score-card"><div class="dash-card-label">RP score</div><div class="dash-card-val" id="nirfRP">0<sup>/100</sup></div><div class="dash-card-sub" id="nirfRPw">Weight: 30%</div></div>
+      <div class="nirf-score-card"><div class="dash-card-label">GO score</div><div class="dash-card-val" id="nirfGO">0<sup>/100</sup></div><div class="dash-card-sub" id="nirfGOw">Weight: 20%</div></div>
+      <div class="nirf-score-card"><div class="dash-card-label">OI score</div><div class="dash-card-val" id="nirfOI">0<sup>/100</sup></div><div class="dash-card-sub" id="nirfOIw">Weight: 10%</div></div>
+      <div class="nirf-score-card"><div class="dash-card-label">Perception</div><div class="dash-card-val" id="nirfPR">0<sup>/100</sup></div><div class="dash-card-sub">Weight: 10% (external)</div></div>
+    </div>
+
+    <div id="nirfBandDisplay" class="nirf-score-band" style="background:#fff3e0;border-color:#FF9800">
+      <div style="font-size:24px">📊</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#e65100">Select a category and check indicators to see your NIRF readiness score</div>
+        <div style="font-size:12px;color:#bf360c;margin-top:3px">NIRF ranks institutions from 1–100 overall score. Top 10 typically score above 70. Median ranked institution scores around 45–55.</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetNIRF()">Reset NIRF</button>
+    </div>
+
+    <div id="nirfGrid"></div>
+
+    <div class="footnote" style="margin-top:28px">
+      NIRF India Rankings 2025 methodology sourced from Ministry of Education, Government of India public documents. Scores are self-assessed readiness estimates — not official NIRF scores. Perception (PR) parameter is externally assessed via employer/academic surveys and cannot be self-scored. Official participation requires registration at nirfindia.org. &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0.<br>
+      <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#b71c1c;text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a> &nbsp;|&nbsp;
+      <a href="/cdn-cgi/l/email-protection#3745565f425b445f56455a56194544060e0f0f77505a565e5b1954585a" style="color:#b71c1c;text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="e89a89809d849b80899a8589c69a9bd9d1d0d0a88f85898184c68b8785">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- QS I-GAUGE SECTION -->
+<div id="igaugeSection" style="display:none">
+  <div class="ig-wrap">
+
+    <div class="ig-hero">
+      <div class="ig-hero-top">
+        <div class="ig-hero-title">QS <span>I-GAUGE</span> Rating</div>
+        <span class="ig-badge ig-badge-india">India-focused</span>
+        <span class="ig-badge ig-badge-global">Also: Global equivalent mapping</span>
+      </div>
+      <div class="ig-hero-sub">University & College Rating across 6 categories · Bronze → Silver → Gold → Diamond → Platinum · Works for STEM, Mixed and Non-STEM institutions · Select your institution type below.</div>
+    </div>
+
+    <div class="ig-region-bar">
+      <span class="ig-region-label">Your region:</span>
+      <div class="ig-region-opts">
+        <button class="ig-rbn on" id="igRegIndia" onclick="setIGRegion('india')">Indian university / college</button>
+        <button class="ig-rbn" id="igRegGlobal" onclick="setIGRegion('global')">Global equivalent</button>
+      </div>
+    </div>
+
+    <div class="ig-type-bar">
+      <span class="ig-type-label">Institution type:</span>
+      <div class="ig-region-opts">
+        <button class="ig-rbn on" id="igTypeStem" onclick="setIGType('stem')">STEM (&gt;65% STEM enrolment)</button>
+        <button class="ig-rbn" id="igTypeMixed" onclick="setIGType('mixed')">Mixed (50–65% STEM)</button>
+        <button class="ig-rbn" id="igTypeNonstem" onclick="setIGType('nonstem')">Non-STEM (&lt;50% STEM)</button>
+      </div>
+    </div>
+
+    <div class="ig-score-grid">
+      <div class="ig-score-card main">
+        <div class="dash-card-label">Overall I-GAUGE score</div>
+        <div class="dash-card-val" id="igTotalScore">0<sup>/900</sup></div>
+        <div class="dash-card-sub" id="igRatingLabel">Check indicators to score</div>
+      </div>
+      <div class="ig-score-card"><div class="dash-card-label">Teaching & Learning</div><div class="dash-card-val" id="igTLP">0<sup>/200</sup></div><div class="dash-card-sub" id="igTLPmed">Not started</div></div>
+      <div class="ig-score-card"><div class="dash-card-label">Research & Innovation</div><div class="dash-card-val" id="igRI">0<sup>/150</sup></div><div class="dash-card-sub" id="igRImed">Not started</div></div>
+      <div class="ig-score-card"><div class="dash-card-label">Graduate Outcomes</div><div class="dash-card-val" id="igGO">0<sup>/150</sup></div><div class="dash-card-sub" id="igGOmed">Not started</div></div>
+      <div class="ig-score-card"><div class="dash-card-label">Facilities</div><div class="dash-card-val" id="igFC">0<sup>/150</sup></div><div class="dash-card-sub" id="igFCmed">Not started</div></div>
+      <div class="ig-score-card"><div class="dash-card-label">Social Responsibility</div><div class="dash-card-val" id="igSR">0<sup>/150</sup></div><div class="dash-card-sub" id="igSRmed">Not started</div></div>
+      <div class="ig-score-card"><div class="dash-card-label">Governance</div><div class="dash-card-val" id="igGM">0<sup>/100</sup></div><div class="dash-card-sub" id="igGMmed">Not started</div></div>
+    </div>
+
+    <div id="igRatingBand" class="ig-rating-band ig-rating-none">
+      <div class="ig-medal ig-medal-none">—</div>
+      <div>
+        <div class="ig-rating-title" id="igBandTitle">No rating yet</div>
+        <div class="ig-rating-desc" id="igBandDesc">Start checking indicators to see your I-GAUGE rating band.</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetIG()">Reset I-GAUGE</button>
+    </div>
+
+    <div id="igGrid"></div>
+
+    <div class="footnote" style="margin-top:28px">
+      QS I-GAUGE framework based on publicly available QS I-GAUGE University and College Rating Methodology v2.1. Scores are self-assessed readiness estimates — not official QS I-GAUGE ratings. Official rating requires formal QS submission with independent surveys (Student ≥30%, Faculty ≥60%, Alumni ≥10% response rates). &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0.<br>
+      <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#1a237e;text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a> &nbsp;|&nbsp;
+      <a href="/cdn-cgi/l/email-protection#e496858c9188978c85968985ca9697d5dddcdca48389858d88ca878b89" style="color:#1a237e;text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="4331222b362f302b22312e226d3130727a7b7b03242e222a2f6d202c2e">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- QS SUSTAINABILITY SECTION -->
+<div id="qsSection" style="display:none">
+  <div class="qs-wrap">
+    <div class="qs-hero">
+      <div class="qs-hero-title">QS <span>Sustainability</span> Rankings — Self-Assessment</div>
+      <div class="qs-hero-sub">52 indicators across 9 lenses · Environmental Impact (45%) + Social Impact (45%) + Governance (10%) · Check off what your university does to see your estimated readiness score.</div>
+    </div>
+
+    <div class="qs-score-grid">
+      <div class="qs-score-card highlight">
+        <div class="dash-card-label">QS overall readiness</div>
+        <div class="dash-card-val" id="qsTotalScore">0<sup>%</sup></div>
+        <div class="dash-card-sub" id="qsTotalSub">Check indicators to score</div>
+      </div>
+      <div class="qs-score-card">
+        <div class="dash-card-label">Environmental (45%)</div>
+        <div class="dash-card-val" id="qsEnvScore">0<sup>%</sup></div>
+        <div class="dash-card-sub">EE + ER + ES lenses</div>
+      </div>
+      <div class="qs-score-card">
+        <div class="dash-card-label">Social Impact (45%)</div>
+        <div class="dash-card-val" id="qsSocScore">0<sup>%</sup></div>
+        <div class="dash-card-sub">EO + EQ + HW + IE + KE</div>
+      </div>
+      <div class="qs-score-card">
+        <div class="dash-card-label">Governance (10%)</div>
+        <div class="dash-card-val" id="qsGovScore">0<sup>%</sup></div>
+        <div class="dash-card-sub">GG lens</div>
+      </div>
+      <div class="qs-score-card">
+        <div class="dash-card-label">Indicators checked</div>
+        <div class="dash-card-val" id="qsChecked">0<sup>/52</sup></div>
+        <div class="dash-card-sub">of 52 total</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetQS()">Reset QS scores</button>
+    </div>
+
+    <div id="qsGrid"></div>
+
+    <div class="footnote" style="margin-top:28px">
+      QS Sustainability Rankings framework based on publicly available QS methodology documentation. Scores are self-assessed readiness estimates — not official QS scores. Some indicators (Academic Reputation, Alumni Impact, National Statistics) are externally sourced by QS and cannot be self-assessed; these are marked accordingly. &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0.<br>
+      <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none">LinkedIn: Rahul Sharma</a> &nbsp;|&nbsp;
+      <a href="/cdn-cgi/l/email-protection#c7b5a6afb2abb4afa6b5aaa6e9b5b4f6feffff87a0aaa6aeabe9a4a8aa" style="color:var(--blue);text-decoration:none"><span class="__cf_email__" data-cfemail="7a081b120f1609121b08171b5408094b4342423a1d171b131654191517">[email&#160;protected]</span></a>
     </div>
   </div>
 </div>
@@ -520,7 +922,7 @@ nav {
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════════════════════
 // DATA ENGINE
 // ═══════════════════════════════════════════════════════════
@@ -1074,9 +1476,16 @@ function setMaturity(m) {
 
 function showSection(s) {
   document.getElementById('scoreSection').style.display = s==='score' ? 'block' : 'none';
+  document.getElementById('qsSection').style.display = s==='qs' ? 'block' : 'none';
+  document.getElementById('igaugeSection').style.display = s==='igauge' ? 'block' : 'none';
+  document.getElementById('nirfSection').style.display = s==='nirf' ? 'block' : 'none';
   document.getElementById('reportSection').style.display = s==='report' ? 'block' : 'none';
-  document.querySelectorAll('.nav-pill').forEach((p,i) => p.classList.toggle('active', (i===0&&s==='score')||(i===1&&s==='report')));
+  document.querySelectorAll('.nav-pill').forEach((p,i) => p.classList.toggle('active',
+    (i===0&&s==='score')||(i===1&&s==='qs')||(i===2&&s==='igauge')||(i===3&&s==='nirf')||(i===4&&s==='report')));
   if (s==='report') buildReport();
+  if (s==='qs' && !document.getElementById('qsGrid').innerHTML) { buildQSGrid(); updateQSScores(); }
+  if (s==='igauge' && !document.getElementById('igGrid').innerHTML) { buildIGGrid(); updateIGScores(); }
+  if (s==='nirf' && !document.getElementById('nirfGrid').innerHTML) { buildNIRFGrid(); updateNIRFScores(); }
 }
 
 function resetAll() {
@@ -1096,7 +1505,8 @@ function getSDGScore(n) {
   let raw = 0, max = 0;
   sdg.indicators.forEach(ind => {
     max += ind.pts;
-    if (checked[n + '_' + ind.ref]) raw += ind.pts;
+    const v = checked[n + '_' + ind.ref];
+    raw += typeof v === 'number' ? v : (v ? ind.pts : 0);
   });
   return { raw: Math.round(raw*10)/10, max: Math.round(max*10)/10, pct: max > 0 ? Math.round(raw/max*100) : 0 };
 }
@@ -1117,7 +1527,9 @@ function getAACSSBScore() {
   SDG_META.forEach(sdg => {
     sdg.indicators.forEach(ind => {
       max += ind.aacsb;
-      if (checked[sdg.n + '_' + ind.ref]) total += ind.aacsb;
+      const v = checked[sdg.n + '_' + ind.ref];
+      const score = typeof v === 'number' ? (v / ind.pts) : (v ? 1 : 0);
+      total += ind.aacsb * score;
     });
   });
   return max > 0 ? Math.round(total/max*100) : 0;
@@ -1127,7 +1539,9 @@ function getBGAScore() {
   let count = 0;
   SDG_META.forEach(sdg => {
     sdg.indicators.forEach(ind => {
-      if (checked[sdg.n + '_' + ind.ref] && ind.bga >= 2) count++;
+      const v = checked[sdg.n + '_' + ind.ref];
+      const score = typeof v === 'number' ? (v / ind.pts) : (v ? 1 : 0);
+      if (score >= 0.5 && ind.bga >= 2) count++;
     });
   });
   return Math.min(count, 10);
@@ -1138,7 +1552,9 @@ function getEQUISScore() {
   SDG_META.forEach(sdg => {
     sdg.indicators.forEach(ind => {
       max += ind.equis;
-      if (checked[sdg.n + '_' + ind.ref]) total += ind.equis;
+      const v = checked[sdg.n + '_' + ind.ref];
+      const score = typeof v === 'number' ? (v / ind.pts) : (v ? 1 : 0);
+      total += ind.equis * score;
     });
   });
   return max > 0 ? Math.round(total/max*100) : 0;
@@ -1149,7 +1565,7 @@ function countSDGsWithData() {
 }
 
 function countChecked() {
-  return Object.values(checked).filter(Boolean).length;
+  return Object.values(checked).filter(v => v === true || (typeof v === 'number' && v > 0)).length;
 }
 
 function countTotal() {
@@ -1264,25 +1680,175 @@ function switchTab(n, tab) {
   openTab[n] = tab;
 }
 
+const THE_INPUT_MAP = {
+  '1.2.1': {type:'pct', cfg:{"label": "% students receiving financial aid due to poverty", "unit": "%"}},
+  '1.3.1': {type:'ypn', cfg:{"label": "Formal admission quota for bottom income quintile — published"}},
+  '1.3.2': {type:'ypn', cfg:{"label": "Graduation/completion tracking for bottom quintile — published"}},
+  '1.3.3': {type:'ypn', cfg:{"label": "Welfare support (food, housing, transport, legal) for low-income students"}},
+  '1.3.4': {type:'ypn', cfg:{"label": "Formal bridge/support programmes for bottom quintile students"}},
+  '1.3.5': {type:'ypn', cfg:{"label": "Scholarship/support scheme for low/lower-middle income country students"}},
+  '1.4.1': {type:'ypn', cfg:{"label": "Local community start-up assistance programme — operational"}},
+  '1.4.2': {type:'ypn', cfg:{"label": "Financial assistance / seed funding for local start-ups"}},
+  '1.4.3': {type:'ypn', cfg:{"label": "Programmes to improve community access to services — active"}},
+  '1.4.4': {type:'ypn', cfg:{"label": "Policy engagement on poverty at local/regional/national level — documented"}},
+  '2.2.1': {type:'ypn', cfg:{"label": "Digital food waste monitoring system — operational in all cafeterias"}},
+  '2.2.2': {type:'ypn', cfg:{"label": "Food waste reduction programme — composting and segregation in place"}},
+  '2.3.1': {type:'ypn', cfg:{"label": "Student Food Assistance Programme — 50–100 students/year supported"}},
+  '2.3.3': {type:'ypn', cfg:{"label": "30%+ of campus menu options sustainable or plant-based"}},
+  '2.5.2': {type:'ypn', cfg:{"label": "Knowledge events for local farmers/food producers — 2+/year"}},
+  '2.5.4': {type:'pct', cfg:{"label": "% of food procurement from local sustainable suppliers", "unit": "%"}},
+  '3.3.1': {type:'num', cfg:{"label": "Active formal collaborations with health institutions", "unit": "partnerships", "target": 3}},
+  '3.3.2': {type:'num', cfg:{"label": "Community health outreach programmes conducted", "unit": "per year", "target": 2}},
+  '3.3.4': {type:'ypn', cfg:{"label": "Confidential sexual/reproductive health counselling available for students"}},
+  '3.3.5': {type:'ypn', cfg:{"label": "Mental health counselling and crisis support — operational"}},
+  '3.3.6': {type:'yn', cfg:{"label": "Smoke-free campus policy — published and enforced"}},
+  '4.2.1': {type:'pct', cfg:{"label": "% graduates with teaching qualification (education programmes)", "unit": "%"}},
+  '4.3.1': {type:'ypn', cfg:{"label": "Public access to library and digital learning platforms — formalised"}},
+  '4.3.2': {type:'num', cfg:{"label": "Public learning events / lectures open to community", "unit": "per year", "target": 2}},
+  '4.3.3': {type:'num', cfg:{"label": "Vocational training / certification programmes for community", "unit": "per year", "target": 2}},
+  '4.3.4': {type:'num', cfg:{"label": "Education outreach activities to local schools / communities", "unit": "per year", "target": 2}},
+  '4.3.5': {type:'yn', cfg:{"label": "Lifelong Learning Access Policy — published and reviewed annually"}},
+  '4.4.1': {type:'pct', cfg:{"label": "% of students who are first in family to attend university", "unit": "%"}},
+  '5.3.1': {type:'ypn', cfg:{"label": "Real-time gender access dashboard — applications, acceptance, enrolment tracked"}},
+  '5.3.2': {type:'yn', cfg:{"label": "Gender Access and Participation Policy — published and reviewed annually"}},
+  '5.3.3': {type:'pct', cfg:{"label": "% female students covered by mentoring/scholarship access schemes", "unit": "%"}},
+  '5.5.1': {type:'pct', cfg:{"label": "% women in senior academic / leadership roles", "unit": "%"}},
+  '5.6.1': {type:'yn', cfg:{"label": "Maternity and paternity policies — published and operational"}},
+  '5.6.2': {type:'ypn', cfg:{"label": "Annual gender pay gap audit — conducted and published"}},
+  '6.2.1': {type:'ypn', cfg:{"label": "Smart water metering — 100% campus coverage — annual report published"}},
+  '6.2.2': {type:'ypn', cfg:{"label": "Per capita water consumption calculated and benchmarked — published"}},
+  '6.3.1': {type:'ypn', cfg:{"label": "100% wastewater treated — Sewage Treatment Plant operational"}},
+  '6.3.2': {type:'yn', cfg:{"label": "Zero chemical pollution incidents — annual target — compliance monitored"}},
+  '6.3.3': {type:'yn', cfg:{"label": "Free safe drinking water available across all campus areas"}},
+  '6.4.1': {type:'yn', cfg:{"label": "Water reuse policy — published and implemented"}},
+  '6.5.1': {type:'num', cfg:{"label": "Community water management education programmes", "unit": "per year", "target": 2}},
+  '7.2.1': {type:'yn', cfg:{"label": "Green Building Policy (GRIHA/LEED standard) — all new builds compliant"}},
+  '7.2.2': {type:'ypn', cfg:{"label": "Building retrofit programme — LED, HVAC, BMS — 15–20% reduction targeted"}},
+  '7.2.3': {type:'ypn', cfg:{"label": "Annual carbon footprint assessment and reduction targets — published"}},
+  '7.2.4': {type:'yn', cfg:{"label": "Campus-wide Energy Management Plan — published and active"}},
+  '7.2.5': {type:'yn', cfg:{"label": "Annual energy audit — conducted and published"}},
+  '7.3.1': {type:'num', cfg:{"label": "Energy use per sqm (kWh/m²/year)", "unit": "kWh/m²", "target_label": "Sector benchmark (kWh/m²)", "invert": true}},
+  '7.4.1': {type:'pct', cfg:{"label": "% of energy from low-carbon / renewable sources", "unit": "%"}},
+  '7.5.1': {type:'num', cfg:{"label": "Community clean energy education programmes", "unit": "per year", "target": 2}},
+  '8.2.1': {type:'yn', cfg:{"label": "Living wage commitment for ALL staff including contractual — published"}},
+  '8.2.3': {type:'yn', cfg:{"label": "Zero-tolerance anti-discrimination policy — published and enforced"}},
+  '8.2.4': {type:'yn', cfg:{"label": "Modern slavery and forced labour policy — published"}},
+  '8.2.6': {type:'ypn', cfg:{"label": "Annual gender pay gap audit — conducted and published"}},
+  '8.3.1': {type:'pct', cfg:{"label": "% students with formal work placements", "unit": "%"}},
+  '8.4.1': {type:'pct', cfg:{"label": "% employees on secure contracts (>24 months)", "unit": "%"}},
+  '9.3.1': {type:'num', cfg:{"label": "University spin-offs supported per year", "unit": "spin-offs/year", "target": 3}},
+  '9.4.1': {type:'ypn', cfg:{"label": "Research income from industry per faculty — tracked and growing annually"}},
+  '9.4.2': {type:'ypn', cfg:{"label": "Published research output in STEM aligned to industry needs"}},
+  '9.5.1': {type:'ypn', cfg:{"label": "Innovation infrastructure — labs, maker spaces or virtual platforms — operational"}},
+  '10.2.1': {type:'pct', cfg:{"label": "% of students who are first-generation university students", "unit": "%"}},
+  '10.3.1': {type:'pct', cfg:{"label": "% international students from developing/low-income countries", "unit": "%"}},
+  '10.4.1': {type:'pct', cfg:{"label": "% students with disabilities — enrolled and tracked", "unit": "%"}},
+  '10.5.1': {type:'yn', cfg:{"label": "Non-discriminatory admissions policy — published and audited annually"}},
+  '10.5.5': {type:'yn', cfg:{"label": "Dedicated Diversity and Equality Officer or Committee — operational"}},
+  '11.2.1': {type:'ypn', cfg:{"label": "Public access policy for buildings, library, green spaces — formalised"}},
+  '11.3.1': {type:'ypn', cfg:{"label": "Sustainable commuting targets — set, published and monitored"}},
+  '11.3.2': {type:'yn', cfg:{"label": "Remote/hybrid working policy — published for all eligible staff"}},
+  '11.3.3': {type:'ypn', cfg:{"label": "Affordable student housing — provided or subsidised"}},
+  '11.5.1': {type:'yn', cfg:{"label": "Sustainable building standards policy — all new builds compliant"}},
+  '11.2.2': {type:'num', cfg:{"label": "Annual expenditure on arts, heritage and community events", "unit": "events/year", "target": 2}},
+  '12.2.1': {type:'yn', cfg:{"label": "Ethical sourcing policy — covers all food, supplies and vendors"}},
+  '12.2.4': {type:'ypn', cfg:{"label": "Landfill waste reduction — tracked, targets set, data published"}},
+  '12.2.5': {type:'yn', cfg:{"label": "Single-use plastics banned across all campus operations"}},
+  '12.3.1': {type:'pct', cfg:{"label": "% of total waste recycled", "unit": "%"}},
+  '12.4.1': {type:'yn', cfg:{"label": "Annual sustainability report — published covering all 17 SDGs"}},
+  '12.2.7': {type:'ypn', cfg:{"label": "Sustainability policies extended to all suppliers and contractors — audited"}},
+  '13.2.1': {type:'ypn', cfg:{"label": "Low-carbon energy tracking system — Scope 1, 2, 3 monitored"}},
+  '13.2.2': {type:'yn', cfg:{"label": "Carbon neutrality target year — formally declared and published"}},
+  '13.3.1': {type:'num', cfg:{"label": "Community climate awareness programmes conducted", "unit": "per year", "target": 2}},
+  '13.3.2': {type:'yn', cfg:{"label": "Climate Action Plan — published and shared with stakeholders"}},
+  '13.3.3': {type:'ypn', cfg:{"label": "Co-operative climate disaster planning — formal agreement with local authority"}},
+  '13.3.5': {type:'num', cfg:{"label": "Active NGO collaborations on climate", "unit": "partnerships", "target": 2}},
+  '14.2.1': {type:'num', cfg:{"label": "Community freshwater ecosystem education programmes", "unit": "per year", "target": 2}},
+  '14.4.1': {type:'yn', cfg:{"label": "Marine plastic waste action plan — published with annual targets"}},
+  '14.5.1': {type:'ypn', cfg:{"label": "Aquatic ecosystem research or conservation work — active"}},
+  '14.6.1': {type:'yn', cfg:{"label": "Watershed management strategy — implemented and monitored"}},
+  '14.7.1': {type:'yn', cfg:{"label": "Water discharge standards — published with 100% compliance monitored"}},
+  '15.2.1': {type:'num', cfg:{"label": "Sustainable land use community events organised", "unit": "per year", "target": 2}},
+  '15.2.3': {type:'ypn', cfg:{"label": "Campus biodiversity zones / green corridors — established"}},
+  '15.2.4': {type:'num', cfg:{"label": "Free community ecosystem education programmes", "unit": "per year", "target": 2}},
+  '15.3.1': {type:'yn', cfg:{"label": "Sustainable land use policy — published"}},
+  '15.4.1': {type:'yn', cfg:{"label": "IUCN biodiversity monitoring system — operational"}},
+  '16.2.1': {type:'yn', cfg:{"label": "Elected student, faculty and staff representation on governing body"}},
+  '16.2.2': {type:'yn', cfg:{"label": "Independent students union — formally recognised with constitution"}},
+  '16.2.5': {type:'yn', cfg:{"label": "Anti-corruption and ethics policy — published and reviewed annually"}},
+  '16.2.6': {type:'yn', cfg:{"label": "Academic freedom policy — published and enforced"}},
+  '16.2.7': {type:'ypn', cfg:{"label": "Annual financial data — published with full income/expenditure breakdown"}},
+  '16.3.2': {type:'num', cfg:{"label": "Documented expert advice to government engagements", "unit": "per year", "target": 1}},
+  '17.2.1': {type:'num', cfg:{"label": "Active MoUs with NGOs/government for SDG policy", "unit": "MoUs", "target": 3}},
+  '17.2.2': {type:'num', cfg:{"label": "Cross-sectoral SDG dialogue events organised", "unit": "per year", "target": 2}},
+  '17.2.3': {type:'ypn', cfg:{"label": "International SDG data collaboration — active participation"}},
+  '17.5.1': {type:'ypn', cfg:{"label": "Annual SDG progress report for all 17 goals — published publicly"}},
+  '17.6.1': {type:'num', cfg:{"label": "Dedicated SDG/sustainability courses or significant modules", "unit": "courses", "target": 2}},
+  '17.6.2': {type:'num', cfg:{"label": "Community SDG outreach programmes", "unit": "per year", "target": 2}},
+};
+
+function buildTHEInputField(key, ref, pts) {
+  const im = THE_INPUT_MAP[ref];
+  if (!im) return `<div class="calc-field-grid"><div class="calc-field"><label>Implemented / In place</label>
+    <select id="the_inp_${key}_ypn" onchange="calcTHE('${key}',0,${pts},'ypn')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+      <option value="No">No</option><option value="Partial">Partial</option><option value="Yes">Yes</option>
+    </select></div></div>`;
+  const {type, cfg} = im;
+  const onch = `calcTHE('${key}',0,${pts},'${type}')`;
+  const oninp = `calcTHE('${key}',0,${pts},'${type}')`;
+  if (type === 'yn') return `<div class="calc-field-grid"><div class="calc-field"><label>${cfg.label}</label>
+    <select id="the_inp_${key}_yn" onchange="${onch}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+      <option value="No">No</option><option value="Yes">Yes</option>
+    </select></div></div>`;
+  if (type === 'ypn') return `<div class="calc-field-grid"><div class="calc-field"><label>${cfg.label}</label>
+    <select id="the_inp_${key}_ypn" onchange="${onch}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+      <option value="No">No — not in place</option><option value="Partial">Partial — in progress</option><option value="Yes">Yes — fully implemented</option>
+    </select></div></div>`;
+  if (type === 'pct') return `<div class="calc-field-grid"><div class="calc-field"><label>${cfg.label} <span style="color:#1a237e;font-size:10px">(${cfg.unit||'%'})</span></label>
+    <input type="number" id="the_inp_${key}_pct" placeholder="e.g. 15" min="0" max="100" oninput="${oninp}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+    </div></div>`;
+  if (type === 'num') return `<div class="calc-field-grid">
+    <div class="calc-field"><label>${cfg.label} <span style="color:#1a237e;font-size:10px">(${cfg.unit||'value'})</span></label>
+      <input type="number" id="the_inp_${key}_num" placeholder="Enter value" min="0" oninput="${oninp}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+    </div>
+    <div class="calc-field"><label>Target / benchmark</label>
+      <input type="number" id="the_inp_${key}_target" value="${cfg.target||2}" min="1" oninput="${oninp}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+    </div></div>`;
+  return '';
+}
+
 function renderTabContent(sdg) {
   // TAB 1: Indicators
   let ind_html = '<div class="indicator-list">';
   sdg.indicators.forEach(ind => {
     const key = sdg.n + '_' + ind.ref;
+    const currentScore = typeof checked[key] === 'number' ? checked[key] : (checked[key] ? ind.pts : 0);
+    const pct = Math.round(currentScore / ind.pts * 100);
+    const inputField = buildTHEInputField(key, ind.ref, ind.pts);
     ind_html += `
       <div class="indicator-item" id="item_${key}">
         <div class="ind-header" onclick="toggleInd('${key}')">
-          <div class="ind-check ${checked[key]?'done':''}" id="chk_${key}" onclick="event.stopPropagation();toggleCheck('${key}',${sdg.n})"></div>
           <div class="ind-body">
             <div class="ind-ref">${ind.ref}</div>
             <div class="ind-name">${ind.name}</div>
           </div>
           <div class="ind-pts">
-            <div class="ind-pts-val">+${ind.pts}</div>
+            <div class="ind-pts-val" id="theval_${key}">${currentScore > 0 ? currentScore.toFixed(1) : '+' + ind.pts}</div>
             <span class="ind-pts-lbl">THE pts</span>
           </div>
         </div>
-        <div class="ind-expand" id="exp_${key}">
+        <div class="ind-expand show" id="exp_${key}" style="display:block;padding:0 14px 14px 14px">
+          <div style="margin-bottom:8px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:6px">Score this indicator</div>
+            ${inputField}
+            <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+              <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+                <div id="thebar_${key}" style="height:100%;border-radius:2px;background:${sdg.hex};width:${pct}%;transition:width 0.4s"></div>
+              </div>
+              <div style="font-size:11px;font-weight:600;min-width:30px;text-align:right" id="thepct_${key}" style="color:${sdg.hex}">${pct}%</div>
+              <div style="font-size:11px;color:var(--ink3)">of ${ind.pts} pts</div>
+            </div>
+          </div>
           <div class="exp-section">
             <div class="exp-section-title">What to do</div>
             <div class="exp-body">${ind.action}</div>
@@ -1295,9 +1861,9 @@ function renderTabContent(sdg) {
           <div class="exp-section">
             <div class="exp-section-title">Accreditation value</div>
             <div class="acc-grid">
-              <div class="acc-box acc-aacsb"><div class="acc-box-title">AACSB Std 9</div><div class="acc-box-body">Evidence weight: ${'★'.repeat(ind.aacsb)}${'☆'.repeat(3-ind.aacsb)}</div></div>
-              <div class="acc-box acc-bga"><div class="acc-box-title">BGA / CIM</div><div class="acc-box-body">CIM metric strength: ${'★'.repeat(ind.bga)}${'☆'.repeat(3-ind.bga)}</div></div>
-              <div class="acc-box acc-equis"><div class="acc-box-title">EQUIS ERS</div><div class="acc-box-body">ERS evidence: ${'★'.repeat(ind.equis)}${'☆'.repeat(3-ind.equis)}</div></div>
+              <div class="acc-box acc-aacsb"><div class="acc-box-title">AACSB Std 9</div><div class="acc-box-body">Societal impact evidence: ${'★'.repeat(ind.aacsb)}${'☆'.repeat(3-ind.aacsb)}</div></div>
+              <div class="acc-box acc-bga"><div class="acc-box-title">BGA / CIM</div><div class="acc-box-body">CIM metric relevance: ${'★'.repeat(ind.bga)}${'☆'.repeat(3-ind.bga)}</div></div>
+              <div class="acc-box acc-equis"><div class="acc-box-title">EQUIS ERS</div><div class="acc-box-body">ERS evidence (transversal): ${'★'.repeat(ind.equis)}${'☆'.repeat(3-ind.equis)}</div></div>
             </div>
           </div>
         </div>
@@ -1351,6 +1917,46 @@ function toggleCheck(key, sdgN) {
   updateDashboard();
 }
 
+function calcTHE(key, sdgN, maxPts, inputType) {
+  let score = 0;
+  if (inputType === 'yn') {
+    const el = document.getElementById('the_inp_' + key + '_yn');
+    score = el && el.value === 'Yes' ? maxPts : 0;
+  } else if (inputType === 'ypn') {
+    const el = document.getElementById('the_inp_' + key + '_ypn');
+    score = el ? (el.value === 'Yes' ? maxPts : el.value === 'Partial' ? maxPts * 0.5 : 0) : 0;
+  } else if (inputType === 'pct') {
+    const el = document.getElementById('the_inp_' + key + '_pct');
+    const pct = parseFloat(el ? el.value : 0) || 0;
+    score = Math.min(maxPts * (pct / 100), maxPts);
+  } else if (inputType === 'num') {
+    const el = document.getElementById('the_inp_' + key + '_num');
+    const val = parseFloat(el ? el.value : 0) || 0;
+    const targetEl = document.getElementById('the_inp_' + key + '_target');
+    const target = parseFloat(targetEl ? targetEl.value : 100) || 100;
+    score = Math.min(maxPts * (val / target), maxPts);
+  } else if (inputType === 'multi') {
+    // handled per-indicator by custom logic
+    const items = document.querySelectorAll('[data-the-key="' + key + '"]');
+    let total = 0, max = 0;
+    items.forEach(el => {
+      max += parseFloat(el.dataset.pts || 0);
+      total += el.value === 'Yes' ? parseFloat(el.dataset.pts || 0) : 0;
+    });
+    score = max > 0 ? (total / max) * maxPts : 0;
+  }
+  score = Math.round(score * 10) / 10;
+  checked[key] = score;
+  const pct = Math.round(score / maxPts * 100);
+  const barEl = document.getElementById('thebar_' + key);
+  const valEl = document.getElementById('theval_' + key);
+  const pctEl = document.getElementById('thepct_' + key);
+  if (barEl) barEl.style.width = pct + '%';
+  if (valEl) valEl.textContent = score.toFixed(1);
+  if (pctEl) pctEl.textContent = pct + '%';
+  updateDashboard();
+}
+
 // ═══════════════════════════════════════════════════════════
 // REPORT
 // ═══════════════════════════════════════════════════════════
@@ -1395,27 +2001,27 @@ function updateRankBand() {
 }
 
 function getAACSSBVerdict(pct) {
-  if (pct === 0) return 'No evidence collected yet. AACSB Standard 9 requires a documented Societal Impact plan with measurable outcomes. Start by identifying 3 SDGs as your focus areas.';
-  if (pct < 25) return 'Early-stage evidence. You need a formal Societal Impact Plan approved by your dean. Identify your SDG focus areas and begin documenting baselines. AACSB peer reviewers look for intentionality — even small programmes count if they are measured.';
-  if (pct < 50) return 'Developing evidence portfolio. You have some programmes in place but need stronger measurement and published outcomes. Focus on data — AACSB rewards schools that can demonstrate impact with numbers, not just activities.';
-  if (pct < 75) return 'Strong evidence portfolio. You are well-positioned for AACSB Standard 9. Ensure all initiatives have published outcome data and are linked to your school mission. Consider an annual Societal Impact Report.';
-  return 'Comprehensive evidence. Your AACSB Standard 9 portfolio is strong. Focus on longitudinal data — showing improvement over 5+ years — and cross-SDG integration to demonstrate systemic impact.';
+  if (pct === 0) return 'No societal impact evidence collected yet. AACSB Standard 9 requires a Societal Impact Plan covering curriculum, scholarship and engagement. SDGs are optional — schools choose their own focus areas. Use AACSB Table 9-1 SDG Tracker to document activities.';
+  if (pct < 25) return 'Early stage. AACSB Standard 9 is principles-based. Schools choose 1–3 SDG focus areas and document measurable outcomes. Peer reviewers press schools to focus on a few SDGs deeply. Define your focus areas and establish measurement systems.';
+  if (pct < 50) return 'Developing evidence portfolio. AACSB 2024 update clarified that Standard 9 expects outcomes of chosen focus areas — not just activity lists. Create an annual Societal Impact Report linking initiatives to measurable outputs.';
+  if (pct < 75) return 'Strong evidence portfolio. Well-positioned for AACSB Standard 9. Demonstrate improvement trends across the full 6-year accreditation cycle. Consider benchmarking against THE Impact Rankings for external validation.';
+  return 'Comprehensive evidence. AACSB Standard 9 portfolio is strong. Focus on longitudinal impact data (5+ years), cross-disciplinary integration, and external stakeholder stories. The 2026 Global Standards exposure draft signals continued emphasis on measurable societal outcomes.';
 }
 
 function getBGAVerdict(score) {
-  if (score === 0) return 'No CIM metrics collected. BGA requires schools to choose a minimum of 3 SDGs as commitment areas and report on at least 10 measurable impact metrics. Start by choosing your 3 SDGs and defining one metric per indicator.';
-  if (score < 3) return 'Early CIM stage. You need to choose 3 SDGs and define measurable metrics for each. BGA awards Bronze, Silver and Gold impact ratings — Bronze is achievable quickly with basic data on 3 SDGs.';
-  if (score < 6) return 'Developing CIM portfolio. You are on track for BGA Bronze or Silver impact rating. Focus on publishing annual data for your chosen SDGs and engaging your student community in SDG projects.';
-  if (score < 9) return 'Strong CIM portfolio. You are well-positioned for BGA Silver or Gold impact rating. Ensure your metrics are externally verified and your SDG commitment is embedded in your institutional strategy.';
-  return 'Comprehensive CIM portfolio. You are positioned for BGA Gold impact rating. Your SDG commitment is systemic and measurable. Consider becoming a BGA SDG Champion School.';
+  if (score === 0) return 'No CIM metrics collected yet. BGA CIM requires 10 measurable impact metrics with 3 years of data. At minimum, 1 metric must reference SDGs; 3 of 10 are recommended to reference SDGs. Metrics must cover a wide range of stakeholder categories.';
+  if (score < 3) return 'Early CIM stage. BGA assigns an Accreditation Director and mentor to support CIM development. Ensure at least 1 metric explicitly references SDGs. Develop a narrative for each metric explaining trends and what has been learned.';
+  if (score < 6) return 'Developing CIM portfolio. BGA requires at least 3 years of data per metric. Build longitudinal data trails. The BGA Self-Assessment Framework and Self-Assessment Report must also be completed alongside the CIM.';
+  if (score < 9) return 'Strong CIM portfolio. Well-positioned for BGA accreditation. Ensure SDG-linked metrics show measurable improvement. BGA also assesses Lifelong Learning — confirm upskilling opportunities are offered beyond traditional degree programmes.';
+  return 'Comprehensive CIM portfolio. Strong evidence across all three BGA pillars: Positive Impact (CIM), Responsible Management (SDG commitment in teaching and operations) and Lifelong Learning. Ensure narrative explains what has been learned and changed as a result of metric trends.';
 }
 
 function getEQUISVerdict(pct) {
-  if (pct === 0) return 'No ERS evidence collected. EQUIS Chapter 9 (Ethics, Responsibility & Sustainability) has been mandatory since 2013. Start with publishing an ethics policy, a gender equity statement and a sustainability report.';
-  if (pct < 25) return 'Early ERS stage. EQUIS peer reviewers will look for evidence that ERS is embedded in your institutional strategy — not just a standalone activity. Publish an ethics policy and a sustainability report as immediate priorities.';
-  if (pct < 50) return 'Developing ERS evidence. You have some ERS foundations. EQUIS requires ERS to be visible across ALL 10 assessment chapters — not just Chapter 9. Ensure gender equity, governance and environmental practices are documented across your submission.';
-  if (pct < 75) return 'Strong ERS evidence. You are well-positioned for EQUIS. Ensure your ERS evidence is cross-referenced throughout your submission document — governance, faculty, programmes, research and corporate connections should all reflect ERS values.';
-  return 'Comprehensive ERS evidence. Your EQUIS ERS portfolio is strong. Focus on international ERS benchmarking and publishing your sustainability methodology as sector best practice.';
+  if (pct === 0) return 'No ERS evidence collected. EQUIS (managed by EFMD) embeds Ethics, Responsibility and Sustainability across all 10 chapters — it is transversal, not confined to Chapter 9. Schools must act as globally responsible organisations. Start with: ethics policy, ERS in mission statement, annual sustainability report.';
+  if (pct < 25) return 'Early ERS stage. EQUIS assesses ERS across strategy (Ch.1), programmes (Ch.2), students (Ch.3), faculty (Ch.4), research (Ch.5), executive education (Ch.6), operations (Ch.7), corporate connections (Ch.8), internationalisation (Ch.9) and quality (Ch.10). Embed ERS into mission and programme design first.';
+  if (pct < 50) return 'Developing ERS evidence. Schools must demonstrate ERS embedded across ALL chapters of the Self-Assessment Report — not just Chapter 9. Ensure gender equity, environmental policies, ethics training and corporate responsibility appear throughout your institutional narrative.';
+  if (pct < 75) return 'Strong ERS evidence. Well-positioned for EQUIS. Cross-reference ERS throughout your SAR. EFMD Programme Accreditation (formerly EPAS) is also available for individual programmes — ERS is a transversal pillar there too.';
+  return 'Comprehensive ERS evidence. EQUIS awards 3-year or 5-year accreditation — strong ERS integration typically earns 5-year accreditation. Focus on international benchmarking and consider EFMD Programme Accreditation for flagship programmes as a strategic next step.';
 }
 
 function buildReport() {
@@ -1423,6 +2029,9 @@ function buildReport() {
   const aacsb = getAACSSBScore();
   const bga = getBGAScore();
   const equis = getEQUISScore();
+  const qsTotals = getQSTotals();
+  const igTotals = getIGTotals();
+  const nirfTotals = getNIRFTotals();
   const sdgs = countSDGsWithData();
   const acts = countChecked();
   const matLabel = MATURITY_LABELS[maturity];
@@ -1466,6 +2075,9 @@ function buildReport() {
     </div>
     <div class="report-scores">
       <div class="rep-score"><span class="rep-score-val">${the.score}</span><span class="rep-score-lbl">THE score /100</span></div>
+      <div class="rep-score"><span class="rep-score-val">${qsTotals.overall}%</span><span class="rep-score-lbl">QS Sustainability</span></div>
+      <div class="rep-score"><span class="rep-score-val">${igTotals.rating}</span><span class="rep-score-lbl">QS I-GAUGE</span></div>
+      <div class="rep-score"><span class="rep-score-val">${nirfTotals.overall}</span><span class="rep-score-lbl">NIRF /100</span></div>
       <div class="rep-score"><span class="rep-score-val">${aacsb}%</span><span class="rep-score-lbl">AACSB Std 9</span></div>
       <div class="rep-score"><span class="rep-score-val">${bga}/10</span><span class="rep-score-lbl">BGA CIM</span></div>
       <div class="rep-score"><span class="rep-score-val">${equis}%</span><span class="rep-score-lbl">EQUIS ERS</span></div>
@@ -1482,6 +2094,99 @@ function buildReport() {
        style="padding:7px 16px;background:var(--blue);color:#fff;border-radius:var(--radius-sm);font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0">
       THE official rankings →
     </a>
+  </div>
+
+  <!-- QS SUMMARY IN REPORT -->
+  <div class="rep-section" id="qsReportSection">
+    <div class="rep-section-title">QS Sustainability readiness</div>
+    <div class="acc-readiness-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div class="acc-readiness-card" style="background:#e8f5e9;border-left:4px solid #1b5e20">
+        <div class="acc-readiness-title" style="color:#1b5e20">Environmental (45%)</div>
+        <div class="acc-readiness-score" style="color:#1b5e20">${qsTotals.env}%</div>
+        <div class="acc-readiness-verdict" style="color:#2e7d32">EE + ER + ES lenses. Focus on net-zero commitment, renewable energy, emissions tracking and climate curriculum.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e3f2fd;border-left:4px solid #0d47a1">
+        <div class="acc-readiness-title" style="color:#0d47a1">Social Impact (45%)</div>
+        <div class="acc-readiness-score" style="color:#0d47a1">${qsTotals.soc}%</div>
+        <div class="acc-readiness-verdict" style="color:#1565c0">EO + EQ + HW + IE + KE lenses. Gender ratios, EDI policy, disability support and community engagement are key self-assessment areas.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#f3e5f5;border-left:4px solid #4a148c">
+        <div class="acc-readiness-title" style="color:#4a148c">Governance (10%)</div>
+        <div class="acc-readiness-score" style="color:#4a148c">${qsTotals.gov}%</div>
+        <div class="acc-readiness-verdict" style="color:#6a1b9a">GG lens. Ethics policy, dedicated sustainability staff, transparent financial reporting, student union and governance minutes are immediate wins.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#fff8e1;border-left:4px solid #f57f17">
+        <div class="acc-readiness-title" style="color:#f57f17">Overall QS readiness</div>
+        <div class="acc-readiness-score" style="color:#e65100">${qsTotals.overall}%</div>
+        <div class="acc-readiness-verdict" style="color:#bf360c">${qsTotals.overall < 30 ? 'Foundation stage. Focus on self-assessable indicators first: net-zero commitment, EDI policy, governance minutes and sustainability staff.' : qsTotals.overall < 55 ? 'Developing. Strong foundation in some areas. Push Environmental Sustainability and Governance indicators to build overall score.' : qsTotals.overall < 75 ? 'Competitive. Well positioned for QS Sustainability Rankings. Strengthen research output in environmental and social SDGs.' : 'Strong. You are competitive in QS Sustainability Rankings. Focus on externally-sourced indicators: research output and reputation metrics.'}</div>
+      </div>
+    </div>
+    <div class="insight-card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--ink2);line-height:1.75">
+        <strong>Note:</strong> Several QS indicators are <strong>externally sourced</strong> — Academic Reputation, Alumni Impact, Research Output (Elsevier), National Statistics — and cannot be self-assessed here. These carry significant weight (~60% of the total score). Your readiness score above reflects only the <strong>self-assessable indicators</strong> (~40% of total). To improve externally-sourced scores: publish more research in relevant SDGs, build employer relationships, and engage with QS survey processes.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- I-GAUGE IN REPORT -->
+  <div class="rep-section">
+    <div class="rep-section-title">QS I-GAUGE readiness (India & equivalent)</div>
+    <div class="acc-readiness-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div class="acc-readiness-card" style="background:#e8eaf6;border-left:4px solid #1a237e">
+        <div class="acc-readiness-title" style="color:#1a237e">Overall I-GAUGE</div>
+        <div class="acc-readiness-score" style="color:#1a237e">${igTotals.total} / 900</div>
+        <div class="acc-readiness-verdict" style="color:#283593">Rating: <strong>${igTotals.rating}</strong> (${igTotals.pct}%). Bronze≥240 · Silver≥360 · Gold≥510 · Diamond≥690 · Platinum≥810</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e8f5e9;border-left:4px solid #1b5e20">
+        <div class="acc-readiness-title" style="color:#1b5e20">Social Responsibility</div>
+        <div class="acc-readiness-score" style="color:#1b5e20">${getIGCatScore('SR')} / 150</div>
+        <div class="acc-readiness-verdict" style="color:#2e7d32">Directly maps to SDGs 1, 2, 3, 6, 7, 12, 13. SR4 (Environmental policies, 50 pts) is the highest-value single indicator in the entire I-GAUGE framework.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#fff8e1;border-left:4px solid #f57f17">
+        <div class="acc-readiness-title" style="color:#f57f17">Teaching & Learning</div>
+        <div class="acc-readiness-score" style="color:#e65100">${getIGCatScore('TLP')} / 200</div>
+        <div class="acc-readiness-verdict" style="color:#bf360c">Largest category (200 pts). Student and faculty surveys are mandatory for TLP1 and TLP2. Ensure 30% student and 60% faculty response rates.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#fce4ec;border-left:4px solid #b71c1c">
+        <div class="acc-readiness-title" style="color:#b71c1c">Governance</div>
+        <div class="acc-readiness-score" style="color:#b71c1c">${getIGCatScore('GM')} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#880e4f">GM2 (financial transparency) and GM3 (anti-corruption) are policy-based quick wins. All 6 governance indicators are directly achievable without capital investment.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- NIRF IN REPORT -->
+  <div class="rep-section">
+    <div class="rep-section-title">NIRF India Rankings readiness</div>
+    <div class="acc-readiness-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div class="acc-readiness-card" style="background:#ffebee;border-left:4px solid #b71c1c">
+        <div class="acc-readiness-title" style="color:#b71c1c">Overall NIRF score</div>
+        <div class="acc-readiness-score" style="color:#b71c1c">${nirfTotals.overall} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#880e4f">Category: ${nirfTotals.cat} · Band: ${nirfTotals.band}. Top 10 institutions score 70+. Median ranked institution scores 45–55.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e3f2fd;border-left:4px solid #1565c0">
+        <div class="acc-readiness-title" style="color:#1565c0">TLR — Teaching & Resources</div>
+        <div class="acc-readiness-score" style="color:#1565c0">${nirfTotals.tlr} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#0d47a1">Faculty-Student Ratio (FSR) and Faculty PhD qualifications (FQE) are the highest-impact self-assessable indicators in this parameter.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e8f5e9;border-left:4px solid #1b5e20">
+        <div class="acc-readiness-title" style="color:#1b5e20">RP — Research & Practice</div>
+        <div class="acc-readiness-score" style="color:#1b5e20">${nirfTotals.rp} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#1b5e20">Publications (PU) and Citation quality (QP) are externally sourced. Focus on Scopus/WoS indexed journals and avoiding retractions.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#f3e5f5;border-left:4px solid #6a1b9a">
+        <div class="acc-readiness-title" style="color:#6a1b9a">OI — Outreach & Inclusivity</div>
+        <div class="acc-readiness-score" style="color:#6a1b9a">${nirfTotals.oi} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#4a148c">Women Diversity (WD) and Economically Challenged Students (ESCS) are fully self-assessable and directly map to SDG 5 and SDG 10.</div>
+      </div>
+    </div>
+    <div class="insight-card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--ink2);line-height:1.75">
+        <strong>NIRF eligibility reminder:</strong> Minimum 1,000 total sanctioned/enrolled students required for Overall ranking. Minimum 3 batches of graduates in full-time UG/PG programmes (min. 3 years UG, 2 years PG). Data must be published on institutional website. Registration at <strong>nirfindia.org</strong> required by announced deadline each year.
+      </div>
+    </div>
   </div>
 
   <!-- RANKING BAND -->
@@ -1656,12 +2361,1682 @@ function buildReport() {
 }
 
 
-// ═══════════════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════════════
-buildGrid();
-updateDashboard();
-</script>
 
-</body>
-</html>
+
+
+// ═══════════════════════════════════════════════════════════
+// NIRF DATA
+// ═══════════════════════════════════════════════════════════
+
+const NIRF_CATEGORIES = {
+  overall:     { name:'Overall',           tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  engineering: { name:'Engineering',       tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  management:  { name:'Management',        tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  law:         { name:'Law',               tlr:0.40, rp:0.15, go:0.25, oi:0.10, pr:0.10 },
+  medical:     { name:'Medical',           tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  pharmacy:    { name:'Pharmacy',          tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  dental:      { name:'Dental',            tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  architecture:{ name:'Architecture',      tlr:0.40, rp:0.20, go:0.20, oi:0.10, pr:0.10 },
+  colleges:    { name:'Colleges',          tlr:0.40, rp:0.15, go:0.25, oi:0.10, pr:0.10 },
+  agriculture: { name:'Agriculture',       tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  research:    { name:'Research Inst.',    tlr:0.30, rp:0.30, go:0.20, oi:0.10, pr:0.10 },
+  innovation:  { name:'Innovation',        tlr:0.25, rp:0.30, go:0.15, oi:0.10, pr:0.10 },
+  skill:       { name:'Skill University',  tlr:0.40, rp:0.15, go:0.25, oi:0.10, pr:0.10 },
+  open:        { name:'Open University',   tlr:0.40, rp:0.15, go:0.25, oi:0.10, pr:0.10 },
+};
+
+const NIRF_PARAMS = [
+  { code:'TLR', name:'Teaching, Learning & Resources', color:'#1565c0', maxPts:100,
+    formula:'SS + FSR + FQE + FRU (+ OE + MIRS for Overall)',
+    sdgLink:'SDG 4, SDG 8',
+    subs:[
+      { code:'SS', name:'Student Strength incl. Doctoral Students', pts:20, external:false,
+        formula: 'f(NT,NE)×15 + f(NP)×5',
+        desc:'NT = Total sanctioned intake | NE = Total enrolled students | NP = Doctoral students enrolled',
+        tip:'Maximise enrolment to sanctioned intake. Increase PhD enrolment.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'NT', label:'Total sanctioned intake (NT)', type:'number', placeholder:'e.g. 5000', unit:'students' },
+          { id:'NE', label:'Total enrolled students (NE)', type:'number', placeholder:'e.g. 4800', unit:'students' },
+          { id:'NP', label:'Doctoral (PhD) students enrolled (NP)', type:'number', placeholder:'e.g. 150', unit:'students' },
+        ],
+        calc: function(v) {
+          const NT = parseFloat(v.NT)||0, NE = parseFloat(v.NE)||0, NP = parseFloat(v.NP)||0;
+          if(NT===0) return 0;
+          const fNTNE = Math.min(NE/NT, 1);
+          const fNP = Math.min(NP/(NT*0.1), 1);
+          return Math.min(fNTNE*15 + fNP*5, 20);
+        }
+      },
+      { code:'FSR', name:'Faculty-Student Ratio (permanent faculty)', pts:30, external:false,
+        formula:'30 × min[15×(F/N), 1] where N = NT + NP',
+        desc:'F = Full-time permanent faculty | N = Total students (NT+NP) | Target ratio 1:15 | Below 1:50 = zero',
+        tip:'Target 1:15 faculty-student ratio. Hire permanent faculty. Only permanent/regular faculty counted.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'F', label:'Full-time permanent faculty (F)', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+          { id:'N_FSR', label:'Total students NT + NP (N)', type:'number', placeholder:'e.g. 4950', unit:'students' },
+        ],
+        calc: function(v) {
+          const F = parseFloat(v.F)||0, N = parseFloat(v.N_FSR)||1;
+          const ratio = F/N;
+          if(ratio < 1/50) return 0;
+          return Math.min(30 * 15 * ratio, 30);
+        }
+      },
+      { code:'FQE', name:'Faculty with PhD and Experience', pts:20, external:false,
+        formula:'FQ (10 pts: PhD%) + FE (10 pts: experience bands)',
+        desc:'FRA = % faculty with PhD | F1 = fraction <8yrs | F2 = fraction 8-15yrs | F3 = fraction >15yrs',
+        tip:'Target 95%+ PhD-qualified faculty. Maintain balanced experience across junior, mid and senior levels.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'FRA', label:'% faculty with PhD / equivalent (FRA)', type:'number', placeholder:'e.g. 78', unit:'%', max:100 },
+          { id:'F1', label:'% faculty with experience <8 years (F1)', type:'number', placeholder:'e.g. 33', unit:'%', max:100 },
+          { id:'F2', label:'% faculty with experience 8–15 years (F2)', type:'number', placeholder:'e.g. 33', unit:'%', max:100 },
+          { id:'F3', label:'% faculty with experience >15 years (F3)', type:'number', placeholder:'e.g. 34', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const FRA = parseFloat(v.FRA)||0;
+          const F1 = (parseFloat(v.F1)||0)/100, F2 = (parseFloat(v.F2)||0)/100, F3 = (parseFloat(v.F3)||0)/100;
+          const FQ = FRA>=95 ? 10 : 10*(FRA/95);
+          const FE = 3*Math.min(3*F1,1) + 3*Math.min(3*F2,1) + 4*Math.min(3*F3,1);
+          return Math.min(FQ + FE, 20);
+        }
+      },
+      { code:'FRU', name:'Financial Resources and Utilisation', pts:20, external:false,
+        formula:'5×f(BC) + 15×f(BO) — averaged over 3 years',
+        desc:'BC = Annual capital expenditure per student (excl. new buildings) | BO = Annual operational expenditure per student',
+        tip:'Increase operational spend per student. Document 3-year averages. Exclude hostel maintenance and new construction.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'BC', label:'Avg annual capital expenditure per student — 3 yr avg (₹)', type:'number', placeholder:'e.g. 15000', unit:'₹/student' },
+          { id:'BO', label:'Avg annual operational expenditure per student — 3 yr avg (₹)', type:'number', placeholder:'e.g. 45000', unit:'₹/student' },
+        ],
+        calc: function(v) {
+          const BC = parseFloat(v.BC)||0, BO = parseFloat(v.BO)||0;
+          const fBC = Math.min(BC/50000, 1);
+          const fBO = Math.min(BO/150000, 1);
+          return Math.min(5*fBC + 15*fBO, 20);
+        }
+      },
+      { code:'OE', name:'Online Education — Swayam & Online Completion', pts:10, external:false,
+        formula:'Score based on % Swayam credits + online syllabus completion rate',
+        desc:'Applicable mainly for Overall category. Swayam course integration and online exam completion.',
+        tip:'Integrate Swayam MOOCs. Track online completion rates per programme.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'SWAYAM', label:'% of courses with Swayam integration', type:'number', placeholder:'e.g. 40', unit:'%', max:100 },
+          { id:'ONLINE_COMP', label:'% of online syllabus completed on time', type:'number', placeholder:'e.g. 75', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const sw = (parseFloat(v.SWAYAM)||0)/100, oc = (parseFloat(v.ONLINE_COMP)||0)/100;
+          return Math.min((sw*5 + oc*5), 10);
+        }
+      },
+      { code:'MIRS', name:'Multiple Entry/Exit, IKS, Regional Language, Sustainable Living', pts:5, external:false,
+        formula:'1.25 pts each: MEE + IKS + Regional Language + Sustainable Living',
+        desc:'NEP 2020 implementation indicators. Binary: implemented or not.',
+        tip:'Implement all 4 for full 5 marks. Start with Multiple Entry/Exit under NEP 2020.',
+        sdg:'SDG 4, SDG 11',
+        inputs:[
+          { id:'MEE', label:'Multiple Entry/Exit implemented (NEP 2020)', type:'select', options:['No','Yes'] },
+          { id:'IKS', label:'Indian Knowledge System courses offered', type:'select', options:['No','Yes'] },
+          { id:'RL', label:'Courses offered in Regional Languages', type:'select', options:['No','Yes'] },
+          { id:'SLP', label:'Sustainable Living Practices integrated', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v) {
+          const pts = ['MEE','IKS','RL','SLP'].reduce((s,k)=>s+(v[k]==='Yes'?1.25:0), 0);
+          return Math.min(pts, 5);
+        }
+      },
+    ]},
+  { code:'RP', name:'Research & Professional Practice', color:'#1b5e20', maxPts:100,
+    formula:'PU + QP + IPR + FPPP',
+    sdgLink:'SDG 9, SDG 17',
+    subs:[
+      { code:'PU', name:'Publications — Scopus/WoS indexed', pts:35, external:true,
+        formula:'PU = 35 × f(P/FRQ) — penalised for retractions',
+        desc:'P = weighted Scopus/WoS publications | FRQ = faculty required at 1:15 ratio | Third-party sourced',
+        tip:'Increase Scopus/WoS publications per faculty. Avoid retractions. Target high-impact journals.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'PUB', label:'Total Scopus/WoS publications (last 3 yrs)', type:'number', placeholder:'e.g. 450', unit:'papers' },
+          { id:'FRQ_PU', label:'Faculty required (at 1:15 ratio) or actual, whichever higher', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+          { id:'RETRACTED', label:'Retracted publications (last 3 yrs)', type:'number', placeholder:'e.g. 0', unit:'papers' },
+        ],
+        calc: function(v) {
+          const P = parseFloat(v.PUB)||0, FRQ = parseFloat(v.FRQ_PU)||1, R = parseFloat(v.RETRACTED)||0;
+          const fP = Math.min(P/FRQ/3, 1);
+          const penalty = Math.min(R/Math.max(P,1)*7.5, 7.5);
+          return Math.max(Math.min(35*fP - penalty, 35), 0);
+        }
+      },
+      { code:'QP', name:'Quality of Publications — Citations', pts:35, external:true,
+        formula:'20×f(CC/FRQ) + 15×f(TOP25P/P) — penalised for retracted citations',
+        desc:'CC = total citation count (3 yrs) | TOP25P = top 25 percentile citations | Third-party sourced',
+        tip:'Publish in high-citation journals. Collaborate internationally. Avoid predatory journals.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'CC', label:'Total citation count (last 3 yrs)', type:'number', placeholder:'e.g. 1200', unit:'citations' },
+          { id:'TOP25P', label:'Top 25 percentile citations', type:'number', placeholder:'e.g. 400', unit:'citations' },
+          { id:'FRQ_QP', label:'Faculty required (1:15 ratio) or actual, higher', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+          { id:'PUB_QP', label:'Total publications (same as PU above)', type:'number', placeholder:'e.g. 450', unit:'papers' },
+        ],
+        calc: function(v) {
+          const CC=parseFloat(v.CC)||0, TOP=parseFloat(v.TOP25P)||0;
+          const FRQ=parseFloat(v.FRQ_QP)||1, P=parseFloat(v.PUB_QP)||1;
+          const a = 20*Math.min(CC/(FRQ*3*10),1);
+          const b = 15*Math.min(TOP/P,1);
+          return Math.min(a+b, 35);
+        }
+      },
+      { code:'IPR', name:'IPR and Patents — Published and Granted', pts:15, external:true,
+        formula:'IPG = 10×f(PG) + IPP = 5×f(PP) — over last 3 years',
+        desc:'PG = patents granted | PP = patents published | Third-party sourced via Indian Patent Office',
+        tip:'File patents with Indian Patent Office. Establish Patent Cell. Support faculty and student inventions.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'PG', label:'Patents granted (last 3 yrs)', type:'number', placeholder:'e.g. 5', unit:'patents' },
+          { id:'PP', label:'Patents published (last 3 yrs)', type:'number', placeholder:'e.g. 12', unit:'patents' },
+          { id:'FACULTY_IPR', label:'Total faculty (for normalisation)', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+        ],
+        calc: function(v) {
+          const PG=parseFloat(v.PG)||0, PP=parseFloat(v.PP)||0, F=parseFloat(v.FACULTY_IPR)||1;
+          const IPG = 10*Math.min(PG/(F*0.1),1);
+          const IPP = 5*Math.min(PP/(F*0.2),1);
+          return Math.min(IPG+IPP, 15);
+        }
+      },
+      { code:'FPPP', name:'Projects, Professional Practice and EDP/MDP', pts:15, external:false,
+        formula:'FPR (research funding/faculty) + FPC (consultancy/faculty) + EDP/MDP earnings',
+        desc:'RF = avg annual research funding per faculty | CF = avg annual consultancy per faculty | EP = EDP/MDP earnings',
+        tip:'Pursue government research grants. Run industry consultancy. Launch Executive Development Programmes.',
+        sdg:'SDG 9, SDG 17',
+        inputs:[
+          { id:'RF', label:'Avg annual research funding received (₹ total)', type:'number', placeholder:'e.g. 5000000', unit:'₹' },
+          { id:'CF', label:'Avg annual consultancy revenue (₹ total)', type:'number', placeholder:'e.g. 1000000', unit:'₹' },
+          { id:'EP', label:'Avg annual EDP/MDP earnings (₹ total)', type:'number', placeholder:'e.g. 500000', unit:'₹' },
+          { id:'FAC_FPPP', label:'Total faculty', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+        ],
+        calc: function(v) {
+          const RF=parseFloat(v.RF)||0, CF=parseFloat(v.CF)||0, EP=parseFloat(v.EP)||0, F=parseFloat(v.FAC_FPPP)||1;
+          const FPR = 5*Math.min(RF/(F*100000),1);
+          const FPC = 5*Math.min(CF/(F*50000),1);
+          const EDP = 5*Math.min(EP/(F*20000),1);
+          return Math.min(FPR+FPC+EDP, 15);
+        }
+      },
+    ]},
+  { code:'GO', name:'Graduation Outcomes', color:'#e65100', maxPts:100,
+    formula:'GPH + GUE + GMS + GPHD (varies by category)',
+    sdgLink:'SDG 8, SDG 4',
+    subs:[
+      { code:'GPH', name:'Placement and Higher Studies', pts:40, external:false,
+        formula:'GPH = 40 × (Np/100 + Nhs/100) — averaged over 3 years',
+        desc:'Np = % graduates placed | Nhs = % graduates pursuing higher studies | Not applicable in Overall ranking',
+        tip:'Strengthen placement cell. Track higher education admissions (GATE, CAT, GRE, UPSC). Publish 3-year data.',
+        sdg:'SDG 8',
+        inputs:[
+          { id:'NP_GPH', label:'% graduates placed (avg 3 yrs)', type:'number', placeholder:'e.g. 65', unit:'%', max:100 },
+          { id:'NHS', label:'% graduates in higher studies (avg 3 yrs)', type:'number', placeholder:'e.g. 20', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const Np=Math.min(parseFloat(v.NP_GPH)||0,100), Nhs=Math.min(parseFloat(v.NHS)||0,100);
+          return Math.min(40*(Np/100 + Nhs/100), 40);
+        }
+      },
+      { code:'GUE', name:'University Examination Pass Rate', pts:15, external:false,
+        formula:'GUE = max_pts × min[(Ng/80), 1] — In Overall: 60 pts',
+        desc:'Ng = % students passing university exams in stipulated time, averaged over 3 years',
+        tip:'Target 80%+ on-time pass rate. Provide remedial classes. Track semester-wise data carefully.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'NG', label:'% students passing exams in time (avg 3 yrs)', type:'number', placeholder:'e.g. 82', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const Ng = Math.min(parseFloat(v.NG)||0, 100);
+          return 15 * Math.min(Ng/80, 1);
+        }
+      },
+      { code:'GMS', name:'Median Salary of Graduates', pts:25, external:false,
+        formula:'GMS = 25 × f(MS) — median CTC of placed UG/PG graduates',
+        desc:'MS = Median annual salary (CTC) of placed graduates, averaged over 3 years',
+        tip:'Target premium recruiters. Track CTC data. Publish in NIRF format. Not applicable in all categories.',
+        sdg:'SDG 8',
+        inputs:[
+          { id:'MS', label:'Median annual CTC of placed graduates (₹)', type:'number', placeholder:'e.g. 450000', unit:'₹/year' },
+        ],
+        calc: function(v) {
+          const MS = parseFloat(v.MS)||0;
+          return Math.min(25*(MS/1000000), 25);
+        }
+      },
+      { code:'GPHD', name:'PhD Students Graduated', pts:20, external:false,
+        formula:'GPHD = max_pts × f(Nphd) — avg PhDs awarded over 3 years',
+        desc:'Nphd = Average number of PhDs awarded per year over last 3 years. In Overall: 40 pts.',
+        tip:'Increase PhD enrolment. Support supervisors. Track completion. Report in Annual Report/Convocation.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'NPHD', label:'Avg PhD students awarded per year (3 yr avg)', type:'number', placeholder:'e.g. 25', unit:'PhDs/year' },
+          { id:'FAC_GPHD', label:'Total faculty (for normalisation)', type:'number', placeholder:'e.g. 300', unit:'faculty' },
+        ],
+        calc: function(v) {
+          const Nphd=parseFloat(v.NPHD)||0, F=parseFloat(v.FAC_GPHD)||1;
+          return Math.min(20*(Nphd/(F*0.2)), 20);
+        }
+      },
+    ]},
+  { code:'OI', name:'Outreach & Inclusivity', color:'#6a1b9a', maxPts:100,
+    formula:'RD + WD + ESCS + PCS',
+    sdgLink:'SDG 10, SDG 5, SDG 1',
+    subs:[
+      { code:'RD', name:'Region Diversity — Students from Other States/Countries', pts:30, external:false,
+        formula:'RD = 25×(other state fraction) + 5×(other country fraction)',
+        desc:'Rewards geographic diversity of student body.',
+        tip:'Recruit actively from other states. Build international student pipeline.',
+        sdg:'SDG 10',
+        inputs:[
+          { id:'OTHER_STATE', label:'% students from other states', type:'number', placeholder:'e.g. 35', unit:'%', max:100 },
+          { id:'OTHER_COUNTRY', label:'% students from other countries', type:'number', placeholder:'e.g. 2', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const os=(parseFloat(v.OTHER_STATE)||0)/100, oc=(parseFloat(v.OTHER_COUNTRY)||0)/100;
+          return Math.min(25*os + 5*oc, 30);
+        }
+      },
+      { code:'WD', name:'Women Diversity — Students and Faculty', pts:30, external:false,
+        formula:'WD = 15×(NWS/50) + 15×(NWF/20) | Target: 50% women students, 20% women faculty',
+        desc:'NWS = % women students | NWF = % women faculty including HoDs and Deans',
+        tip:'Target 50% women enrolment. Appoint women to leadership. Track HoD, Dean, Director gender data.',
+        sdg:'SDG 5',
+        inputs:[
+          { id:'NWS', label:'% women students (NWS)', type:'number', placeholder:'e.g. 45', unit:'%', max:100 },
+          { id:'NWF', label:'% women faculty incl. HoDs, Deans (NWF)', type:'number', placeholder:'e.g. 30', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const NWS=parseFloat(v.NWS)||0, NWF=parseFloat(v.NWF)||0;
+          return Math.min(15*(NWS/50) + 15*(NWF/20), 30);
+        }
+      },
+      { code:'ESCS', name:'Economically and Socially Challenged Students', pts:20, external:false,
+        formula:'ESCS = 20 × f(Nesc) | Nesc = % UG students with full fee reimbursement',
+        desc:'% of UG students receiving full tuition fee reimbursement from the institution (SC/ST/EWS/merit).',
+        tip:'Increase scholarship coverage. Provide full fee waiver to SC/ST/EWS students. Document carefully.',
+        sdg:'SDG 1, SDG 10',
+        inputs:[
+          { id:'NESC', label:'% UG students with full fee reimbursement', type:'number', placeholder:'e.g. 15', unit:'%', max:100 },
+        ],
+        calc: function(v) {
+          const Nesc = Math.min(parseFloat(v.NESC)||0, 100);
+          return Math.min(20*(Nesc/30), 20);
+        }
+      },
+      { code:'PCS', name:'Facilities for Physically Challenged Students', pts:20, external:false,
+        formula:'20 marks if full facilities provided, else proportional',
+        desc:'Ramps, accessible toilets, visual aids, assistive technology, accessible hostel, disability support office.',
+        tip:'Install all disability infrastructure. Audit annually. Publish accessibility report.',
+        sdg:'SDG 10',
+        inputs:[
+          { id:'RAMPS', label:'Ramps / accessible pathways', type:'select', options:['No','Partial','Yes'] },
+          { id:'TOILET', label:'Accessible toilets', type:'select', options:['No','Partial','Yes'] },
+          { id:'VISUAL', label:'Visual aid centre / Braille facility', type:'select', options:['No','Partial','Yes'] },
+          { id:'LIFT', label:'Accessible lift / elevator', type:'select', options:['No','Partial','Yes'] },
+          { id:'HOSTEL_ACC', label:'Accessible hostel accommodation', type:'select', options:['No','Partial','Yes'] },
+        ],
+        calc: function(v) {
+          const score = ['RAMPS','TOILET','VISUAL','LIFT','HOSTEL_ACC'].reduce((s,k)=>{
+            return s + (v[k]==='Yes'?4:v[k]==='Partial'?2:0);
+          }, 0);
+          return Math.min(score, 20);
+        }
+      },
+    ]},
+  { code:'PR', name:'Perception (Externally Assessed)', color:'#37474f', maxPts:100,
+    formula:'Peer survey — employers + academic peers — cannot be self-calculated',
+    sdgLink:'SDG 17',
+    subs:[
+      { code:'PR', name:'Peer Perception — Employers and Academic Peers', pts:100, external:true,
+        formula:'100% externally assessed via NIRF survey',
+        desc:'Survey of employers and academic peers. Cannot be self-scored. Fully externally assessed by NIRF.',
+        tip:'Build employer relationships. Increase research visibility. Engage alumni as advocates. Improve placement outcomes.',
+        sdg:'SDG 17',
+        inputs:[],
+        calc: function(v) { return 0; }
+      },
+    ]},
+];
+
+
+let nirfChecked = {};
+let nirfCategory = 'overall';
+
+function setNIRFCategory(cat) {
+  nirfCategory = cat;
+  document.querySelectorAll('.nirf-cbn').forEach(b => b.classList.toggle('on', b.dataset.cat === cat));
+  const weights = NIRF_CATEGORIES[cat];
+  document.getElementById('nirfTLRw').textContent = 'Weight: ' + Math.round(weights.tlr*100) + '%';
+  document.getElementById('nirfRPw').textContent  = 'Weight: ' + Math.round(weights.rp*100)  + '%';
+  document.getElementById('nirfGOw').textContent  = 'Weight: ' + Math.round(weights.go*100)  + '%';
+  document.getElementById('nirfOIw').textContent  = 'Weight: ' + Math.round(weights.oi*100)  + '%';
+  updateNIRFScores();
+}
+
+function getNIRFParamScore(paramCode) {
+  const param = NIRF_PARAMS.find(p => p.code === paramCode);
+  if (!param) return 0;
+  const total = param.subs.reduce((s, sub) => s + sub.pts, 0);
+  const done = param.subs.reduce((s, sub) => {
+    const v = nirfChecked['nirf_'+sub.code];
+    return s + (typeof v === 'number' ? v : 0);
+  }, 0);
+  return total > 0 ? Math.round(done / total * 100) : 0;
+}
+
+function updateNIRFScores() {
+  const weights = NIRF_CATEGORIES[nirfCategory];
+  const tlr = getNIRFParamScore('TLR');
+  const rp  = getNIRFParamScore('RP');
+  const go  = getNIRFParamScore('GO');
+  const oi  = getNIRFParamScore('OI');
+  const pr  = getNIRFParamScore('PR');
+  const overall = Math.round(tlr*weights.tlr + rp*weights.rp + go*weights.go + oi*weights.oi + pr*weights.pr);
+
+  document.getElementById('nirfTotal').innerHTML = overall + '<sup>/100</sup>';
+  document.getElementById('nirfTLR').innerHTML = tlr + '<sup>/100</sup>';
+  document.getElementById('nirfRP').innerHTML  = rp  + '<sup>/100</sup>';
+  document.getElementById('nirfGO').innerHTML  = go  + '<sup>/100</sup>';
+  document.getElementById('nirfOI').innerHTML  = oi  + '<sup>/100</sup>';
+  document.getElementById('nirfPR').innerHTML  = pr  + '<sup>/100</sup>';
+
+  // Band
+  let bandBg, bandBorder, bandEmoji, bandTitle, bandDesc;
+  if (overall >= 70) { bandBg='#e8f5e9'; bandBorder='#4caf50'; bandEmoji='🏆'; bandTitle='Top tier — likely ranked in top 25 nationally'; bandDesc='Excellent readiness. Strengthen externally sourced metrics (publications, citations, patents) to push into top 10.'; }
+  else if (overall >= 55) { bandBg='#e3f2fd'; bandBorder='#2196f3'; bandEmoji='🥇'; bandTitle='Strong performer — likely ranked 25–100 nationally'; bandDesc='Good institutional performance. Focus on Research & Professional Practice and Faculty-Student Ratio for biggest gains.'; }
+  else if (overall >= 40) { bandBg='#fff9c4'; bandBorder='#ffc107'; bandEmoji='🥈'; bandTitle='Mid-tier — likely ranked 100–200 nationally'; bandDesc='Solid foundation. Prioritise women diversity (WD), economically challenged student support (ESCS) and PhD graduation rates.'; }
+  else if (overall >= 25) { bandBg='#fff3e0'; bandBorder='#ff9800'; bandEmoji='🥉'; bandTitle='Developing — ranked 200–500 nationally'; bandDesc='Key improvements needed: faculty qualifications, financial resources per student, and placement rates.'; }
+  else { bandBg='#ffebee'; bandBorder='#f44336'; bandEmoji='📋'; bandTitle='Foundation stage — below 500 rank territory'; bandDesc='Start with: permanent faculty hiring, student satisfaction infrastructure, disability facilities, and women faculty targets.'; }
+
+  const band = document.getElementById('nirfBandDisplay');
+  band.style.background = bandBg;
+  band.style.borderColor = bandBorder;
+  band.innerHTML = `<div style="font-size:24px">${bandEmoji}</div><div><div style="font-size:15px;font-weight:600;color:#37474f">${bandTitle} — Score: ${overall}/100 (${NIRF_CATEGORIES[nirfCategory].name})</div><div style="font-size:12px;color:var(--ink2);margin-top:3px">${bandDesc}</div></div>`;
+  document.getElementById('nirfRankBand').textContent = overall >= 70 ? 'Top tier' : overall >= 55 ? 'Strong' : overall >= 40 ? 'Mid-tier' : overall >= 25 ? 'Developing' : 'Foundation';
+
+  // Update param bars
+  NIRF_PARAMS.forEach(p => {
+    const sc = getNIRFParamScore(p.code);
+    const bar = document.getElementById('nirfbar_'+p.code);
+    const pts = document.getElementById('nirfpts_'+p.code);
+    if (bar) bar.style.width = sc + '%';
+    if (pts) pts.textContent = sc + ' / 100';
+  });
+}
+
+function buildNIRFGrid() {
+  const opts = document.getElementById('nirfCatOpts');
+  if (opts) {
+    opts.innerHTML = Object.entries(NIRF_CATEGORIES).map(([key,val])=>
+      `<button class="nirf-cbn ${key===nirfCategory?'on':''}" data-cat="${key}" onclick="setNIRFCategory('${key}')">${val.name}</button>`
+    ).join('');
+  }
+  const grid = document.getElementById('nirfGrid');
+  if (!grid) return;
+  let html = '';
+  NIRF_PARAMS.forEach(p => {
+    html += `<div class="nirf-param" id="nirfparam_${p.code}">
+      <div class="nirf-param-header" onclick="toggleNIRFParam('${p.code}')">
+        <div class="nirf-param-stripe" style="background:${p.color}"></div>
+        <div class="nirf-param-info">
+          <div class="nirf-param-name">${p.name}</div>
+          <div class="nirf-param-formula">${p.formula} &nbsp;·&nbsp; ${p.sdgLink}</div>
+        </div>
+        <div class="nirf-param-bar"><div class="nirf-param-bar-fill" id="nirfbar_${p.code}" style="background:${p.color};width:0%"></div></div>
+        <div style="min-width:80px;text-align:right">
+          <div class="nirf-param-score" id="nirfpts_${p.code}" style="color:${p.color}">0 / 100</div>
+        </div>
+        <div class="nirf-param-weight" id="nirfwt_${p.code}">30%</div>
+      </div>
+      <div class="nirf-sub-list">`;
+    p.subs.forEach(sub => {
+      if (sub.external && sub.inputs.length === 0) {
+        html += `<div class="nirf-sub">
+          <div style="width:20px;height:20px;border-radius:5px;background:#f5f5f5;border:1px solid #ddd;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#999">—</div>
+          <div class="nirf-sub-body">
+            <div class="nirf-sub-code">${sub.code} &nbsp;<span class="nirf-sub-external">★ Externally sourced — cannot be self-calculated</span></div>
+            <div class="nirf-sub-name">${sub.name}</div>
+            <div class="nirf-sub-desc">${sub.desc}</div>
+            <div class="nirf-sub-tip">${sub.tip}</div>
+            <div class="nirf-sub-sdg">SDG: ${sub.sdg}</div>
+          </div>
+          <div class="nirf-sub-pts"><div class="nirf-sub-pts-val" style="color:#999">—</div><span class="nirf-sub-pts-lbl">external</span></div>
+        </div>`;
+        return;
+      }
+      html += `<div class="nirf-sub" id="nirfsub_${sub.code}">
+        <div class="nirf-sub-body" style="width:100%">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px">
+            <div>
+              <div class="nirf-sub-code">${sub.code}${sub.external?' <span class="nirf-sub-external">★ Third-party sourced</span>':''}</div>
+              <div class="nirf-sub-name">${sub.name}</div>
+            </div>
+            <div class="nirf-sub-pts">
+              <div class="nirf-sub-pts-val" id="nirfcalc_${sub.code}">0</div>
+              <span class="nirf-sub-pts-lbl">/ ${sub.pts} marks</span>
+            </div>
+          </div>
+          <div class="nirf-sub-desc" style="margin-bottom:6px"><strong>Formula:</strong> ${sub.formula}</div>
+          <div class="nirf-sub-desc" style="margin-bottom:8px">${sub.desc}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:8px">`;
+      sub.inputs.forEach(inp => {
+        const fid = 'nirf_inp_' + sub.code + '_' + inp.id;
+        if (inp.type === 'select') {
+          html += `<div>
+            <label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${inp.label}</label>
+            <select id="${fid}" onchange="calcNIRF('${sub.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+              ${inp.options.map(o=>`<option value="${o}">${o}</option>`).join('')}
+            </select>
+          </div>`;
+        } else {
+          html += `<div>
+            <label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${inp.label} ${inp.unit?'<span style="color:#b71c1c">('+inp.unit+')</span>':''}</label>
+            <input type="number" id="${fid}" placeholder="${inp.placeholder||''}" ${inp.max?'max='+inp.max:''} min="0" oninput="calcNIRF('${sub.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+          </div>`;
+        }
+      });
+      html += `</div>
+          <div class="nirf-sub-tip">${sub.tip}</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+            <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+              <div id="nirfsubbar_${sub.code}" style="height:100%;border-radius:2px;background:#b71c1c;width:0%;transition:width 0.4s"></div>
+            </div>
+            <div style="font-size:11px;color:#b71c1c;font-weight:600" id="nirfsubpct_${sub.code}">0%</div>
+          </div>
+          <div class="nirf-sub-sdg">SDG: ${sub.sdg}</div>
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  grid.innerHTML = html;
+  setNIRFCategory(nirfCategory);
+}
+
+
+
+function toggleNIRFParam(code) {
+  const el = document.getElementById('nirfparam_' + code);
+  if (el) el.classList.toggle('open');
+}
+
+function calcNIRF(subCode) {
+  const sub = NIRF_PARAMS.flatMap(p=>p.subs).find(s=>s.code===subCode);
+  if (!sub) return;
+  const vals = {};
+  sub.inputs.forEach(inp => {
+    const el = document.getElementById('nirf_inp_' + subCode + '_' + inp.id);
+    vals[inp.id] = el ? el.value : '';
+  });
+  const score = Math.round(sub.calc(vals) * 10) / 10;
+  const pct = Math.round(score / sub.pts * 100);
+  const calcEl = document.getElementById('nirfcalc_' + subCode);
+  const barEl = document.getElementById('nirfsubbar_' + subCode);
+  const pctEl = document.getElementById('nirfsubpct_' + subCode);
+  if (calcEl) calcEl.textContent = score.toFixed(1);
+  if (barEl) barEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  nirfChecked['nirf_' + subCode] = score;
+  updateNIRFScores();
+}
+
+function resetNIRF() {
+  nirfChecked = {};
+  buildNIRFGrid();
+  updateNIRFScores();
+}
+
+function getNIRFTotals() {
+  const weights = NIRF_CATEGORIES[nirfCategory];
+  const tlr = getNIRFParamScore('TLR');
+  const rp  = getNIRFParamScore('RP');
+  const go  = getNIRFParamScore('GO');
+  const oi  = getNIRFParamScore('OI');
+  const overall = Math.round(tlr*weights.tlr + rp*weights.rp + go*weights.go + oi*weights.oi);
+  const cat = NIRF_CATEGORIES[nirfCategory].name;
+  const band = overall>=70?'Top tier':overall>=55?'Strong':overall>=40?'Mid-tier':overall>=25?'Developing':'Foundation';
+  return { overall, cat, band, tlr, rp, go, oi };
+}
+
+// ═══════════════════════════════════════════════════════════
+// QS I-GAUGE DATA
+// ═══════════════════════════════════════════════════════════
+
+const IG_CATS = [
+  { code:'TLP', name:'Teaching, Learning & Pedagogy', color:'#1a237e', maxPts:200,
+    sdgLinks:'SDG 4, SDG 5, SDG 8',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'TLP1', name:'Overall Student Satisfaction', pts:30, survey:true,
+        desc:'Student survey — % satisfied (90% threshold scaled to 60% baseline). Score = 0 if ≤60%, full if ≥90%.',
+        tip:'Run structured student satisfaction surveys each semester. Min 30% response rate required.',
+        sdg:'SDG 4',
+        inputs:[{ id:'SS_PCT', label:'Overall student satisfaction %', type:'number', placeholder:'e.g. 78', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.SS_PCT)||0; if(p<=60)return 0; if(p>=90)return 30; return 30*(p-60)/30;}
+      },
+      { code:'TLP2', name:'Overall Faculty Satisfaction', pts:30, survey:true,
+        desc:'Faculty survey — % satisfied (90% threshold scaled to 60% baseline). Min 60% response rate.',
+        tip:'Conduct faculty satisfaction survey. Address workload and infrastructure concerns.',
+        sdg:'SDG 8',
+        inputs:[{ id:'FS_PCT', label:'Overall faculty satisfaction %', type:'number', placeholder:'e.g. 72', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.FS_PCT)||0; if(p<=60)return 0; if(p>=90)return 30; return 30*(p-60)/30;}
+      },
+      { code:'TLP3', name:'Student-Faculty Ratio', pts:20, survey:false,
+        desc:'Lower ratio = higher score. Target 1:20 for full marks.',
+        tip:'Hire qualified permanent faculty. Target ratio below 20:1.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'STUDENTS', label:'Total enrolled students', type:'number', placeholder:'e.g. 5000', unit:'students' },
+          { id:'FACULTY', label:'Total faculty', type:'number', placeholder:'e.g. 280', unit:'faculty' },
+        ],
+        calc: function(v){const s=parseFloat(v.STUDENTS)||1,f=parseFloat(v.FACULTY)||0; const r=s/Math.max(f,1); if(r<=15)return 20; if(r>=50)return 0; return 20*(1-(r-15)/35);}
+      },
+      { code:'TLP4', name:'PhD-Qualified Faculty', pts:20, survey:false,
+        desc:'% of faculty holding a PhD or equivalent doctoral qualification.',
+        tip:'Target 50%+ PhD-qualified faculty. Support faculty pursuing PhDs.',
+        sdg:'SDG 4',
+        inputs:[{ id:'PHD_PCT', label:'% faculty with PhD or equivalent', type:'number', placeholder:'e.g. 65', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.PHD_PCT)||0; return Math.min(20*(p/70),20);}
+      },
+      { code:'TLP5', name:'Faculty with Industry Experience', pts:15, survey:false,
+        desc:'% of faculty with documented industry or professional experience.',
+        tip:'Recruit industry practitioners. Encourage industry sabbaticals.',
+        sdg:'SDG 8',
+        inputs:[{ id:'IND_EXP', label:'% faculty with industry experience', type:'number', placeholder:'e.g. 40', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.IND_EXP)||0; return Math.min(15*(p/50),15);}
+      },
+      { code:'TLP6', name:'Faculty Development Programmes', pts:15, survey:false,
+        desc:'Number of Faculty Development Programmes (FDPs) conducted in the last academic year.',
+        tip:'Conduct minimum 4 FDPs per year. Partner with IITs, NITs or industry.',
+        sdg:'SDG 4',
+        inputs:[{ id:'FDP_COUNT', label:'Number of FDPs conducted this year', type:'number', placeholder:'e.g. 6', unit:'FDPs' }],
+        calc: function(v){const n=parseFloat(v.FDP_COUNT)||0; return Math.min(15*(n/8),15);}
+      },
+      { code:'TLP7', name:'ICT-Enabled Teaching', pts:20, survey:false,
+        desc:'% of courses delivered using ICT tools, digital platforms or blended learning.',
+        tip:'Integrate LMS across all courses. Target 80%+ ICT-enabled delivery.',
+        sdg:'SDG 4',
+        inputs:[{ id:'ICT_PCT', label:'% courses using ICT/LMS tools', type:'number', placeholder:'e.g. 70', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.ICT_PCT)||0; return Math.min(20*(p/80),20);}
+      },
+      { code:'TLP8', name:'Curriculum Design and Review', pts:20, survey:false,
+        desc:'Evidence of structured curriculum review process with industry and academic input.',
+        tip:'Conduct formal curriculum review every 2 years with BOS minutes.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'CUR_REV', label:'Curriculum review conducted (last 2 yrs)', type:'select', options:['No','Yes'] },
+          { id:'IND_INPUT', label:'Industry advisory input included', type:'select', options:['No','Yes'] },
+          { id:'CUR_DOCS', label:'Review minutes/documents published', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.CUR_REV==='Yes')s+=8; if(v.IND_INPUT==='Yes')s+=6; if(v.CUR_DOCS==='Yes')s+=6; return Math.min(s,20);}
+      },
+      { code:'TLP9', name:'Mentor-Mentee Programmes', pts:15, survey:false,
+        desc:'Formal faculty-student mentoring system with documented allocation and tracking.',
+        tip:'Assign one mentor per 20 students. Conduct minimum 4 sessions per semester.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'MENTOR', label:'Formal mentor-mentee programme exists', type:'select', options:['No','Yes'] },
+          { id:'MENTOR_RATIO', label:'Avg students per mentor', type:'number', placeholder:'e.g. 18', unit:'students' },
+          { id:'MENTOR_SESS', label:'Avg sessions per semester per student', type:'number', placeholder:'e.g. 4', unit:'sessions' },
+        ],
+        calc: function(v){if(v.MENTOR!=='Yes')return 0; const r=parseFloat(v.MENTOR_RATIO)||30; const s=parseFloat(v.MENTOR_SESS)||1; const rScore=Math.min(7*(1-(r-10)/30),7); const sScore=Math.min(8*(s/4),8); return Math.max(rScore+sScore,0);}
+      },
+      { code:'TLP10', name:'Value-Added / Add-On Courses', pts:15, survey:false,
+        desc:'Number of value-added or add-on courses offered beyond the regular curriculum.',
+        tip:'Offer minimum 5 value-added courses. Partner with NPTEL, Coursera.',
+        sdg:'SDG 4',
+        inputs:[{ id:'VAC_COUNT', label:'Number of value-added courses offered', type:'number', placeholder:'e.g. 8', unit:'courses' }],
+        calc: function(v){const n=parseFloat(v.VAC_COUNT)||0; return Math.min(15*(n/10),15);}
+      },
+    ]},
+  { code:'RI', name:'Research & Innovation', color:'#1b5e20', maxPts:150,
+    sdgLinks:'SDG 9, SDG 17',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'RI1', name:'Research Publications (Scopus/WoS)', pts:30, survey:false,
+        desc:'Publications per faculty in Scopus or WoS indexed journals.',
+        tip:'Target 0.5+ publications per faculty per year.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'PUB_TOTAL', label:'Total Scopus/WoS publications (last 3 yrs)', type:'number', placeholder:'e.g. 300', unit:'papers' },
+          { id:'FAC_RI1', label:'Total faculty', type:'number', placeholder:'e.g. 200', unit:'faculty' },
+        ],
+        calc: function(v){const p=parseFloat(v.PUB_TOTAL)||0,f=parseFloat(v.FAC_RI1)||1; const ppf=p/(f*3); return Math.min(30*(ppf/0.5),30);}
+      },
+      { code:'RI2', name:'External Research Funding', pts:25, survey:false,
+        desc:'Total external research funding from government (DST, DBT, ICMR, CSIR) or industry.',
+        tip:'Apply to DST, DBT, SERB, UGC funding schemes. Build dedicated research grants office.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'FUND_AMT', label:'Total external research funding (₹, last 3 yrs)', type:'number', placeholder:'e.g. 15000000', unit:'₹' },
+          { id:'FAC_RI2', label:'Total faculty', type:'number', placeholder:'e.g. 200', unit:'faculty' },
+        ],
+        calc: function(v){const f=parseFloat(v.FUND_AMT)||0,fac=parseFloat(v.FAC_RI2)||1; const ppf=f/(fac*3); return Math.min(25*(ppf/500000),25);}
+      },
+      { code:'RI3', name:'Patents Filed and Granted', pts:20, survey:false,
+        desc:'Number of patents filed with Indian Patent Office or internationally in last 5 years.',
+        tip:'Establish IP policy. Support faculty and students with patent filing.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'PAT_GRANT', label:'Patents granted (last 5 yrs)', type:'number', placeholder:'e.g. 5', unit:'patents' },
+          { id:'PAT_FILED', label:'Patents filed/published (last 5 yrs)', type:'number', placeholder:'e.g. 12', unit:'patents' },
+        ],
+        calc: function(v){const g=parseFloat(v.PAT_GRANT)||0,f=parseFloat(v.PAT_FILED)||0; return Math.min(20*(g/5)*0.6 + 20*(f/10)*0.4, 20);}
+      },
+      { code:'RI4', name:'PhD Scholars Enrolled', pts:20, survey:false,
+        desc:'Number of PhD scholars currently enrolled and actively pursuing doctoral research.',
+        tip:'Enrol minimum 10 PhD scholars. Offer fellowships to attract quality scholars.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'PHD_ENROL', label:'PhD scholars currently enrolled', type:'number', placeholder:'e.g. 45', unit:'scholars' },
+          { id:'FAC_RI4', label:'Total faculty', type:'number', placeholder:'e.g. 200', unit:'faculty' },
+        ],
+        calc: function(v){const p=parseFloat(v.PHD_ENROL)||0,f=parseFloat(v.FAC_RI4)||1; return Math.min(20*(p/(f*0.3)),20);}
+      },
+      { code:'RI5', name:'Innovation & Incubation Centre', pts:20, survey:false,
+        desc:'Presence of functioning incubation centre with supported start-ups.',
+        tip:'Establish TBI. Apply for NITI Aayog Atal Incubation Centre status.',
+        sdg:'SDG 8',
+        inputs:[
+          { id:'INCUB', label:'Incubation centre established', type:'select', options:['No','Yes'] },
+          { id:'STARTUPS', label:'Active start-ups supported', type:'number', placeholder:'e.g. 8', unit:'start-ups' },
+        ],
+        calc: function(v){if(v.INCUB!=='Yes')return 0; const s=parseFloat(v.STARTUPS)||0; return Math.min(10 + 10*(s/10),20);}
+      },
+      { code:'RI6', name:'Research Collaborations and MoUs', pts:15, survey:false,
+        desc:'Active MoUs with research institutions, universities or industry.',
+        tip:'Sign minimum 5 active research MoUs per year.',
+        sdg:'SDG 17',
+        inputs:[{ id:'MOU_COUNT', label:'Active research MoUs (this year)', type:'number', placeholder:'e.g. 7', unit:'MoUs' }],
+        calc: function(v){const n=parseFloat(v.MOU_COUNT)||0; return Math.min(15*(n/8),15);}
+      },
+      { code:'RI7', name:'Consultancy Revenue', pts:20, survey:false,
+        desc:'Revenue generated from consultancy projects provided to industry or government.',
+        tip:'Establish consultancy policy. Create industry interface cell.',
+        sdg:'SDG 8',
+        inputs:[
+          { id:'CONSULT_AMT', label:'Annual consultancy revenue (₹)', type:'number', placeholder:'e.g. 2000000', unit:'₹' },
+          { id:'FAC_RI7', label:'Total faculty', type:'number', placeholder:'e.g. 200', unit:'faculty' },
+        ],
+        calc: function(v){const c=parseFloat(v.CONSULT_AMT)||0,f=parseFloat(v.FAC_RI7)||1; return Math.min(20*(c/(f*100000)),20);}
+      },
+    ]},
+  { code:'GO', name:'Graduate Outcomes', color:'#e65100', maxPts:150,
+    sdgLinks:'SDG 8, SDG 4',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'GO1', name:'Graduate Employment Rate', pts:40, survey:false,
+        desc:'% of graduates employed within 6 months of graduation.',
+        tip:'Strengthen placement cell. Target 70%+ placement rate.',
+        sdg:'SDG 8',
+        inputs:[{ id:'PLACED_PCT', label:'% graduates employed within 6 months', type:'number', placeholder:'e.g. 72', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.PLACED_PCT)||0; return Math.min(40*(p/75),40);}
+      },
+      { code:'GO2', name:'Average CTC / Graduate Salary', pts:20, survey:false,
+        desc:'Average Cost to Company (CTC) of placed graduates.',
+        tip:'Track and publish average CTC annually. Focus on premium recruiters.',
+        sdg:'SDG 8',
+        inputs:[{ id:'AVG_CTC', label:'Average CTC of placed graduates (₹/year)', type:'number', placeholder:'e.g. 500000', unit:'₹' }],
+        calc: function(v){const c=parseFloat(v.AVG_CTC)||0; return Math.min(20*(c/800000),20);}
+      },
+      { code:'GO3', name:'Higher Education Progression Rate', pts:20, survey:false,
+        desc:'% of graduates who pursue postgraduate or doctoral education.',
+        tip:'Track PG admissions. Publish GATE/CAT/GRE success rates.',
+        sdg:'SDG 4',
+        inputs:[{ id:'PG_PCT', label:'% graduates pursuing postgraduate studies', type:'number', placeholder:'e.g. 25', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.PG_PCT)||0; return Math.min(20*(p/30),20);}
+      },
+      { code:'GO4', name:'Alumni Satisfaction', pts:30, survey:true,
+        desc:'Alumni survey — satisfaction with education — 90% threshold scaled to 60%. Min 10% response rate.',
+        tip:'Build active alumni network. Conduct annual alumni survey.',
+        sdg:'SDG 4',
+        inputs:[{ id:'ALUMNI_SAT', label:'Alumni satisfaction % (survey result)', type:'number', placeholder:'e.g. 75', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.ALUMNI_SAT)||0; if(p<=60)return 0; if(p>=90)return 30; return 30*(p-60)/30;}
+      },
+      { code:'GO5', name:'Graduate Entrepreneurship Rate', pts:20, survey:false,
+        desc:'% of graduates who have started their own ventures within 5 years of graduation.',
+        tip:'Track start-up formation via alumni network. Support student entrepreneurship.',
+        sdg:'SDG 8',
+        inputs:[{ id:'ENTREP_PCT', label:'% graduates who started own ventures', type:'number', placeholder:'e.g. 8', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.ENTREP_PCT)||0; return Math.min(20*(p/10),20);}
+      },
+      { code:'GO6', name:'Professional Certifications', pts:20, survey:false,
+        desc:'% of students with industry-recognised professional certifications.',
+        tip:'Partner with AWS, Microsoft, Google, NASSCOM for on-campus certification.',
+        sdg:'SDG 8',
+        inputs:[{ id:'CERT_PCT', label:'% students with industry certifications', type:'number', placeholder:'e.g. 45', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.CERT_PCT)||0; return Math.min(20*(p/60),20);}
+      },
+    ]},
+  { code:'FC', name:'Facilities', color:'#4a148c', maxPts:150,
+    sdgLinks:'SDG 3, SDG 10, SDG 11',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'FC1', name:'Campus Infrastructure Quality', pts:20, survey:false,
+        desc:'Overall quality of campus infrastructure — buildings, amenities, green spaces.',
+        tip:'Conduct annual infrastructure audit. Publish campus master plan.',
+        sdg:'SDG 11',
+        inputs:[
+          { id:'INFRA', label:'Infrastructure rating (self-assessment)', type:'select', options:['Poor','Basic','Good','Very Good','Excellent'] },
+        ],
+        calc: function(v){const m={'Poor':0,'Basic':5,'Good':10,'Very Good':15,'Excellent':20}; return m[v.INFRA]||0;}
+      },
+      { code:'FC2', name:'Hostel / Student Accommodation', pts:15, survey:false,
+        desc:'Quality, capacity and availability of student residential accommodation.',
+        tip:'Ensure adequate hostel capacity for at least 30% of students.',
+        sdg:'SDG 1',
+        inputs:[
+          { id:'HOSTEL', label:'Hostel available', type:'select', options:['No','Yes'] },
+          { id:'HOSTEL_CAP', label:'% of students with hostel access', type:'number', placeholder:'e.g. 40', unit:'%', max:100 },
+        ],
+        calc: function(v){if(v.HOSTEL!=='Yes')return 0; const p=parseFloat(v.HOSTEL_CAP)||0; return Math.min(15*(p/50),15);}
+      },
+      { code:'FC3', name:'Sports and Physical Education Facilities', pts:15, survey:false,
+        desc:'Availability of indoor and outdoor sports facilities.',
+        tip:'Maintain playground, gym and indoor sports hall. Appoint PE staff.',
+        sdg:'SDG 3',
+        inputs:[
+          { id:'OUTDOOR', label:'Outdoor sports ground', type:'select', options:['No','Yes'] },
+          { id:'INDOOR', label:'Indoor sports/gym facility', type:'select', options:['No','Yes'] },
+          { id:'PE_STAFF', label:'Dedicated PE staff appointed', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.OUTDOOR==='Yes')s+=6; if(v.INDOOR==='Yes')s+=6; if(v.PE_STAFF==='Yes')s+=3; return Math.min(s,15);}
+      },
+      { code:'FC4', name:'Medical / Healthcare Facilities', pts:15, survey:false,
+        desc:'On-campus healthcare services including clinic, first aid and referral support.',
+        tip:'Establish campus health centre with qualified medical staff.',
+        sdg:'SDG 3',
+        inputs:[
+          { id:'CLINIC', label:'Campus clinic / health centre', type:'select', options:['No','Yes'] },
+          { id:'DOC', label:'Qualified doctor or nurse on campus', type:'select', options:['No','Yes'] },
+          { id:'HEALTH_CAMPS', label:'Health camps conducted this year', type:'number', placeholder:'e.g. 3', unit:'camps' },
+        ],
+        calc: function(v){let s=0; if(v.CLINIC==='Yes')s+=6; if(v.DOC==='Yes')s+=5; s+=Math.min(4*(parseFloat(v.HEALTH_CAMPS)||0)/4,4); return Math.min(s,15);}
+      },
+      { code:'FC5', name:'Canteen and Food Services', pts:10, survey:false,
+        desc:'Quality, affordability and hygiene of food services.',
+        tip:'Ensure FSSAI-compliant canteen. Offer vegetarian and healthy options.',
+        sdg:'SDG 2',
+        inputs:[
+          { id:'FSSAI', label:'FSSAI certification obtained', type:'select', options:['No','Yes'] },
+          { id:'VEG_OPT', label:'Vegetarian/healthy options available', type:'select', options:['No','Yes'] },
+          { id:'CANTEEN_SAT', label:'Student canteen satisfaction % (if surveyed)', type:'number', placeholder:'e.g. 70', unit:'%', max:100 },
+        ],
+        calc: function(v){let s=0; if(v.FSSAI==='Yes')s+=4; if(v.VEG_OPT==='Yes')s+=3; s+=Math.min(3*(parseFloat(v.CANTEEN_SAT)||60-60)/30,3); return Math.min(s,10);}
+      },
+      { code:'FC6', name:'IT Infrastructure and Connectivity', pts:20, survey:false,
+        desc:'Internet bandwidth, computer lab availability and campus WiFi.',
+        tip:'Provide minimum 1 Gbps internet. Free WiFi campus-wide. 1:4 computer ratio.',
+        sdg:'SDG 9',
+        inputs:[
+          { id:'BANDWIDTH', label:'Internet bandwidth (Mbps)', type:'number', placeholder:'e.g. 1000', unit:'Mbps' },
+          { id:'WIFI', label:'Campus WiFi coverage %', type:'number', placeholder:'e.g. 85', unit:'%', max:100 },
+          { id:'COMP_RATIO', label:'Students per computer (lower = better)', type:'number', placeholder:'e.g. 4', unit:'students/PC' },
+        ],
+        calc: function(v){const bw=Math.min(20*(parseFloat(v.BANDWIDTH)||0)/1000,7); const wf=7*(parseFloat(v.WIFI)||0)/100; const cr=Math.max(6-parseFloat(v.COMP_RATIO)||0,0); return Math.min(bw+wf+cr,20);}
+      },
+      { code:'FC7', name:'Classrooms and Laboratory Quality', pts:15, survey:false,
+        desc:'Quality of teaching spaces, smart classrooms and subject-specific laboratories.',
+        tip:'Convert 50%+ classrooms to smart classrooms. Ensure labs meet accreditation standards.',
+        sdg:'SDG 4',
+        inputs:[
+          { id:'SMART_PCT', label:'% smart classrooms', type:'number', placeholder:'e.g. 60', unit:'%', max:100 },
+          { id:'LAB_ACCRED', label:'Labs meet accreditation standards', type:'select', options:['No','Partially','Yes'] },
+        ],
+        calc: function(v){const s=8*(parseFloat(v.SMART_PCT)||0)/60; const l={'No':0,'Partially':3,'Yes':7}[v.LAB_ACCRED]||0; return Math.min(s+l,15);}
+      },
+      { code:'FC8', name:'Student Safety Systems', pts:20, survey:false,
+        desc:'Anti-ragging, anti-sexual harassment, CCTV, fire safety systems.',
+        tip:'Constitute all mandatory committees. Install CCTV. Conduct fire drills.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'ANTI_RAG', label:'Anti-ragging committee constituted', type:'select', options:['No','Yes'] },
+          { id:'ANTI_HARASS', label:'Anti-sexual harassment committee', type:'select', options:['No','Yes'] },
+          { id:'CCTV', label:'CCTV cameras installed on campus', type:'select', options:['No','Partial','Yes'] },
+          { id:'FIRE', label:'Fire safety systems and drills', type:'select', options:['No','Partial','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.ANTI_RAG==='Yes')s+=5; if(v.ANTI_HARASS==='Yes')s+=5; const cctv={'No':0,'Partial':4,'Yes':6}[v.CCTV]||0; const fire={'No':0,'Partial':2,'Yes':4}[v.FIRE]||0; return Math.min(s+cctv+fire,20);}
+      },
+      { code:'FC9', name:'Library Facilities', pts:10, survey:true,
+        desc:'Student and faculty satisfaction with library — 90% threshold scaled to 60%.',
+        tip:'Maintain e-library with NPTEL, INFLIBNET access. Survey satisfaction.',
+        sdg:'SDG 4',
+        inputs:[{ id:'LIB_SAT', label:'Library satisfaction % (survey)', type:'number', placeholder:'e.g. 76', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.LIB_SAT)||0; if(p<=60)return 0; if(p>=90)return 10; return 10*(p-60)/30;}
+      },
+      { code:'FC10', name:'Facilities for Differently Abled', pts:20, survey:false,
+        desc:'Ramps, railings, special toilets, visual-aid centre, accessible lift (4 pts each = 20 pts).',
+        tip:'Install all 5 disability infrastructure items for full 20 points.',
+        sdg:'SDG 10',
+        inputs:[
+          { id:'RAMPS_IG', label:'Ramps / accessible pathways', type:'select', options:['No','Yes'] },
+          { id:'RAILINGS', label:'Railings on staircases', type:'select', options:['No','Yes'] },
+          { id:'SP_TOILET', label:'Special accessible toilets', type:'select', options:['No','Yes'] },
+          { id:'VISUAL_CTR', label:'Visual-aid centre', type:'select', options:['No','Yes'] },
+          { id:'LIFT_IG', label:'User-friendly lift for differently abled', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){const keys=['RAMPS_IG','RAILINGS','SP_TOILET','VISUAL_CTR','LIFT_IG']; return keys.reduce((s,k)=>s+(v[k]==='Yes'?4:0),0);}
+      },
+    ]},
+  { code:'SR', name:'Social Responsibility', color:'#1b5e20', maxPts:150,
+    sdgLinks:'SDG 1, 2, 3, 6, 7, 12, 13, 17',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'SR1', name:'Student Social Involvement (NCC/NSS/Red Cross/Eco Club)', pts:30, survey:false,
+        desc:'% students in NCC, NSS, Red Cross, Eco Club. Score = 0 if ≤0%, scales up to 10%+.',
+        tip:'Target 20%+ student participation. Register NSS/NCC units if not present.',
+        sdg:'SDG 17',
+        inputs:[{ id:'SOCIAL_PCT', label:'% students in social programmes', type:'number', placeholder:'e.g. 22', unit:'%', max:100 }],
+        calc: function(v){const p=parseFloat(v.SOCIAL_PCT)||0; return Math.min(30*(p/20),30);}
+      },
+      { code:'SR2', name:'Community Outreach Activity Hours', pts:30, survey:false,
+        desc:'Hours per student per year in community enrichment activities. 10 hrs/student threshold.',
+        tip:'Organise structured community outreach. Target 15+ hours per student per year.',
+        sdg:'SDG 11',
+        inputs:[
+          { id:'TOTAL_HRS', label:'Total community outreach hours (this year)', type:'number', placeholder:'e.g. 50000', unit:'hours' },
+          { id:'TOTAL_STUD', label:'Total enrolled students', type:'number', placeholder:'e.g. 4000', unit:'students' },
+        ],
+        calc: function(v){const h=parseFloat(v.TOTAL_HRS)||0,s=parseFloat(v.TOTAL_STUD)||1; const hps=h/s; return Math.min(30*(hps/15),30);}
+      },
+      { code:'SR3', name:'Recognition for Social Development', pts:30, survey:false,
+        desc:'Awards from non-affiliating organisations for social development — 2 points each.',
+        tip:'Apply for social development awards. Document all recognition.',
+        sdg:'SDG 17',
+        inputs:[{ id:'AWARDS', label:'Awards/recognitions received (last 5 yrs)', type:'number', placeholder:'e.g. 6', unit:'awards' }],
+        calc: function(v){const a=parseFloat(v.AWARDS)||0; return Math.min(a*2,30);}
+      },
+      { code:'SR4', name:'Environmental Impact Policies', pts:50, survey:false,
+        desc:'10 points each: green audit certificate, energy conservation, water conservation, transportation, recycling/waste.',
+        tip:'Implement all 5 environmental policies for full 50 points. Start with Green Audit Certificate.',
+        sdg:'SDG 7, 13, 6, 12',
+        inputs:[
+          { id:'GREEN_AUDIT', label:'Green audit certificate obtained', type:'select', options:['No','Yes'] },
+          { id:'ENERGY_POL', label:'Energy conservation policy in place', type:'select', options:['No','Yes'] },
+          { id:'WATER_POL', label:'Water conservation policy in place', type:'select', options:['No','Yes'] },
+          { id:'TRANSPORT_POL', label:'Sustainable transportation policy', type:'select', options:['No','Yes'] },
+          { id:'RECYCLE_POL', label:'Recycling / waste management policy', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){const keys=['GREEN_AUDIT','ENERGY_POL','WATER_POL','TRANSPORT_POL','RECYCLE_POL']; return keys.reduce((s,k)=>s+(v[k]==='Yes'?10:0),0);}
+      },
+      { code:'SR5', name:'Funding for Social Outreach / CSR', pts:10, survey:false,
+        desc:'Grants on community/charity work. 1% of turnover up to 10 crores; 50 lacs above.',
+        tip:'Allocate 1% of annual budget to CSR. Document all community spending.',
+        sdg:'SDG 1, SDG 3',
+        inputs:[
+          { id:'CSR_AMT', label:'Annual CSR / community spending (₹)', type:'number', placeholder:'e.g. 500000', unit:'₹' },
+          { id:'TURNOVER', label:'Annual institutional turnover (₹)', type:'number', placeholder:'e.g. 50000000', unit:'₹' },
+        ],
+        calc: function(v){const c=parseFloat(v.CSR_AMT)||0,t=parseFloat(v.TURNOVER)||1; const pct=c/t*100; return pct>=1?10:Math.min(10*(pct/1),10);}
+      },
+    ]},
+  { code:'GM', name:'Governance & Management', color:'#b71c1c', maxPts:100,
+    sdgLinks:'SDG 16, SDG 17',
+    bronze:40, silver:60, gold:85, diamond:115, platinum:135,
+    indicators:[
+      { code:'GM1', name:'Institutional Vision and Strategic Leadership', pts:20, survey:false,
+        desc:'Published institutional vision, mission and strategic plan with measurable goals.',
+        tip:'Publish a 5-year strategic plan. Define measurable KPIs. Review annually.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'VISION_PUB', label:'Vision/mission published on website', type:'select', options:['No','Yes'] },
+          { id:'STRAT_PLAN', label:'Strategic plan with KPIs published', type:'select', options:['No','Yes'] },
+          { id:'ANN_REVIEW', label:'Annual review conducted and documented', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.VISION_PUB==='Yes')s+=6; if(v.STRAT_PLAN==='Yes')s+=8; if(v.ANN_REVIEW==='Yes')s+=6; return Math.min(s,20);}
+      },
+      { code:'GM2', name:'Financial Management and Transparency', pts:20, survey:false,
+        desc:'Audited accounts published. Transparent financial reporting.',
+        tip:'Publish annual audited accounts on website.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'AUDIT_PUB', label:'Audited accounts published on website', type:'select', options:['No','Yes'] },
+          { id:'FIN_DETAIL', label:'Detailed income/expenditure breakdown included', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.AUDIT_PUB==='Yes')s+=12; if(v.FIN_DETAIL==='Yes')s+=8; return Math.min(s,20);}
+      },
+      { code:'GM3', name:'Anti-Corruption and Grievance Mechanisms', pts:15, survey:false,
+        desc:'Formal anti-corruption policy and accessible grievance redressal mechanism.',
+        tip:'Publish anti-corruption policy. Establish online grievance portal.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'ANTICORR', label:'Anti-corruption policy published', type:'select', options:['No','Yes'] },
+          { id:'GRIEVANCE', label:'Grievance portal / mechanism operational', type:'select', options:['No','Yes'] },
+          { id:'GRIEV_TIME', label:'Avg resolution time (days)', type:'number', placeholder:'e.g. 21', unit:'days' },
+        ],
+        calc: function(v){let s=0; if(v.ANTICORR==='Yes')s+=6; if(v.GRIEVANCE==='Yes')s+=6; const t=parseFloat(v.GRIEV_TIME)||60; s+=Math.max(3*(1-(t-7)/53),0); return Math.min(s,15);}
+      },
+      { code:'GM4', name:'Student Council and Governance', pts:15, survey:false,
+        desc:'Formally constituted student council with elected representatives.',
+        tip:'Constitute student council through democratic elections.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'STU_COUNCIL', label:'Student council constituted', type:'select', options:['No','Yes'] },
+          { id:'STU_GOV', label:'Students on governance committees', type:'select', options:['No','Yes'] },
+        ],
+        calc: function(v){let s=0; if(v.STU_COUNCIL==='Yes')s+=8; if(v.STU_GOV==='Yes')s+=7; return Math.min(s,15);}
+      },
+      { code:'GM5', name:'Faculty Senate and Governance', pts:15, survey:false,
+        desc:'Faculty senate or academic council with elected faculty in governance.',
+        tip:'Establish Academic Council/Senate. Hold regular meetings. Publish minutes.',
+        sdg:'SDG 16',
+        inputs:[
+          { id:'FAC_SEN', label:'Faculty senate / academic council established', type:'select', options:['No','Yes'] },
+          { id:'MINUTES_PUB', label:'Meeting minutes published', type:'select', options:['No','Yes'] },
+          { id:'MEETINGS_YR', label:'Meetings held per year', type:'number', placeholder:'e.g. 4', unit:'meetings' },
+        ],
+        calc: function(v){let s=0; if(v.FAC_SEN==='Yes')s+=7; if(v.MINUTES_PUB==='Yes')s+=5; s+=Math.min(3*(parseFloat(v.MEETINGS_YR)||0)/4,3); return Math.min(s,15);}
+      },
+      { code:'GM6', name:'External Advisory Board', pts:15, survey:false,
+        desc:'Active external advisory board with industry experts, alumni and academic leaders.',
+        tip:'Constitute advisory board with minimum 5 external members. Hold 2 meetings/year.',
+        sdg:'SDG 17',
+        inputs:[
+          { id:'ADV_BOARD', label:'External advisory board constituted', type:'select', options:['No','Yes'] },
+          { id:'ADV_MEMBERS', label:'Number of external members', type:'number', placeholder:'e.g. 7', unit:'members' },
+          { id:'ADV_MEETS', label:'Meetings held this year', type:'number', placeholder:'e.g. 2', unit:'meetings' },
+        ],
+        calc: function(v){if(v.ADV_BOARD!=='Yes')return 0; const m=Math.min(5*(parseFloat(v.ADV_MEMBERS)||0)/5,5); const mt=Math.min(5*(parseFloat(v.ADV_MEETS)||0)/2,5); return Math.min(5+m+mt,15);}
+      },
+    ]},
+];
+
+
+let igChecked = {};
+let igRegion = 'india';
+let igType = 'stem';
+
+function setIGRegion(r) {
+  igRegion = r;
+  document.getElementById('igRegIndia').classList.toggle('on', r==='india');
+  document.getElementById('igRegGlobal').classList.toggle('on', r==='global');
+}
+
+function setIGType(t) {
+  igType = t;
+  ['stem','mixed','nonstem'].forEach(x => document.getElementById('igType'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('on', x===t));
+}
+
+function getIGCatScore(code) {
+  const cat = IG_CATS.find(c => c.code === code);
+  if (!cat) return 0;
+  return Math.round(cat.indicators.reduce((sum, ind) => {
+    const v = igChecked['ig_'+ind.code];
+    return sum + (typeof v === 'number' ? v : 0);
+  }, 0) * 10) / 10;
+}
+
+function getIGMedal(score, bronze, silver, gold, diamond, platinum) {
+  if (score >= platinum) return { cls:'platinum', label:'Platinum', emoji:'🏆' };
+  if (score >= diamond)  return { cls:'diamond',  label:'Diamond',  emoji:'💎' };
+  if (score >= gold)     return { cls:'gold',     label:'Gold',     emoji:'🥇' };
+  if (score >= silver)   return { cls:'silver',   label:'Silver',   emoji:'🥈' };
+  if (score >= bronze)   return { cls:'bronze',   label:'Bronze',   emoji:'🥉' };
+  return { cls:'none', label:'Below Bronze', emoji:'—' };
+}
+
+function updateIGScores() {
+  const cats = {TLP:200, RI:150, GO:150, FC:150, SR:150, GM:100};
+  let total = 0;
+  Object.entries(cats).forEach(([code, max]) => {
+    const sc = getIGCatScore(code);
+    total += sc;
+    const el = document.getElementById('ig'+code);
+    const med = document.getElementById('ig'+code+'med');
+    if (el) el.innerHTML = sc + '<sup>/'+max+'</sup>';
+    const cat = IG_CATS.find(c=>c.code===code);
+    const m = getIGMedal(sc, cat.bronze, cat.silver, cat.gold, cat.diamond, cat.platinum);
+    if (med) med.textContent = m.label;
+  });
+
+  document.getElementById('igTotalScore').innerHTML = total + '<sup>/900</sup>';
+
+  // Overall band
+  let bandCls, bandTitle, bandDesc, bandEmoji;
+  if (total >= 810) { bandCls='platinum'; bandEmoji='🏆'; bandTitle='Platinum Rating'; bandDesc='Outstanding performance across all categories. Your institution is among the top performers nationally. Focus on research output and international collaborations to maintain this rating.'; }
+  else if (total >= 690) { bandCls='diamond'; bandEmoji='💎'; bandTitle='Diamond Rating'; bandDesc='Excellent institutional performance. You are a high-performing university with strong outcomes. Push Facilities and Social Responsibility to reach Platinum.'; }
+  else if (total >= 510) { bandCls='gold'; bandEmoji='🥇'; bandTitle='Gold Rating'; bandDesc='Strong institutional performance. You are well above average nationally. Strengthen Research & Innovation and Graduate Outcomes to push toward Diamond.'; }
+  else if (total >= 360) { bandCls='silver'; bandEmoji='🥈'; bandTitle='Silver Rating'; bandDesc='Good institutional foundation. You have basic systems in place. Focus on Research Publications, Graduate Employment and Social Responsibility to reach Gold.'; }
+  else if (total >= 240) { bandCls='bronze'; bandEmoji='🥉'; bandTitle='Bronze Rating'; bandDesc='Entry-level rating achieved. You meet minimum standards. Priority actions: strengthen faculty qualifications, student satisfaction surveys and environmental policies.'; }
+  else { bandCls='none'; bandEmoji='—'; bandTitle='Below Bronze — Foundation Stage'; bandDesc='Your institution is building its foundation. Start with: student surveys, faculty PhD qualifications, environmental policies (SR4) and financial transparency (GM2) for quickest gains.'; }
+
+  document.getElementById('igRatingLabel').textContent = bandTitle;
+  const band = document.getElementById('igRatingBand');
+  band.className = 'ig-rating-band ig-rating-' + bandCls;
+  band.innerHTML = '<div class="ig-medal ig-medal-'+bandCls+'" style="font-size:24px">'+bandEmoji+'</div><div><div class="ig-rating-title" style="margin-bottom:6px">'+bandTitle+' — '+total+' / 900 points</div><div class="ig-rating-desc">'+bandDesc+'</div></div>';
+
+  // Update progress bars in grid
+  IG_CATS.forEach(cat => {
+    const sc = getIGCatScore(cat.code);
+    const pct = Math.round(sc / cat.maxPts * 100);
+    const bar = document.getElementById('igbar_'+cat.code);
+    const pts = document.getElementById('igpts_'+cat.code);
+    if (bar) bar.style.width = pct + '%';
+    if (pts) pts.textContent = sc + ' / ' + cat.maxPts;
+  });
+}
+
+function buildIGGrid() {
+  const grid = document.getElementById('igGrid');
+  if (!grid) return;
+  let html = '';
+  IG_CATS.forEach(cat => {
+    html += `<div class="ig-cat" id="igcat_${cat.code}">
+      <div class="ig-cat-header" onclick="toggleIGCat('${cat.code}')">
+        <div class="ig-cat-stripe" style="background:${cat.color}"></div>
+        <div>
+          <div class="ig-cat-name">${cat.name}</div>
+          <div class="ig-cat-code">${cat.code} &nbsp;·&nbsp; SDG: ${cat.sdgLinks}</div>
+        </div>
+        <div class="ig-cat-bar"><div class="ig-cat-bar-fill" id="igbar_${cat.code}" style="background:${cat.color};width:0%"></div></div>
+        <div style="min-width:90px;text-align:right">
+          <div class="ig-cat-pts" id="igpts_${cat.code}" style="color:${cat.color}">0 / ${cat.maxPts}</div>
+          <div class="ig-cat-max">pts · Bronze≥${cat.bronze}</div>
+        </div>
+      </div>
+      <div class="ig-indicators">`;
+    cat.indicators.forEach(ind => {
+      html += `<div class="ig-ind" id="igsub_${ind.code}">
+        <div class="ig-ind-body" style="width:100%">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px">
+            <div>
+              <div class="ig-ind-code">${ind.code}${ind.survey?' <span style="color:#e65100;font-size:9px">★ Survey-based</span>':''}</div>
+              <div class="ig-ind-name">${ind.name}</div>
+            </div>
+            <div class="ig-ind-pts">
+              <div class="ig-ind-pts-val" id="igcalc_${ind.code}" style="color:${cat.color}">0</div>
+              <span class="ig-ind-pts-lbl">/ ${ind.pts} pts</span>
+            </div>
+          </div>
+          <div class="ig-ind-desc" style="margin-bottom:6px">${ind.desc}</div>
+          <div class="calc-field-grid">`;
+      ind.inputs.forEach(inp => {
+        const fid = 'ig_inp_' + ind.code + '_' + inp.id;
+        if (inp.type === 'select') {
+          html += `<div class="calc-field"><label>${inp.label}</label>
+            <select id="${fid}" onchange="calcIG('${ind.code}','${cat.code}')">
+              ${inp.options.map(o=>`<option value="${o}">${o}</option>`).join('')}
+            </select></div>`;
+        } else {
+          html += `<div class="calc-field"><label>${inp.label}${inp.unit?' <span style="color:#1a237e;font-size:10px">('+inp.unit+')</span>':''}</label>
+            <input type="number" id="${fid}" placeholder="${inp.placeholder||''}" ${inp.max?'max='+inp.max:''} min="0" oninput="calcIG('${ind.code}','${cat.code}')">
+            </div>`;
+        }
+      });
+      html += `</div>
+          <div class="calc-result" style="margin-top:6px">
+            <div class="calc-result-bar"><div class="calc-result-fill" id="igsubbar_${ind.code}" style="background:${cat.color};width:0%"></div></div>
+            <div class="calc-result-val" id="igsubpct_${ind.code}" style="color:${cat.color}">0%</div>
+            <div class="calc-result-label">of ${ind.pts} pts</div>
+          </div>
+          <div class="ig-ind-tip" style="margin-top:6px">${ind.tip}</div>
+          <div class="ig-sdg-link">SDG: ${ind.sdg}</div>
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  grid.innerHTML = html;
+  updateIGScores();
+}
+
+function calcIG(indCode, catCode) {
+  const cat = IG_CATS.find(c => c.code === catCode);
+  if (!cat) return;
+  const ind = cat.indicators.find(i => i.code === indCode);
+  if (!ind) return;
+  const vals = {};
+  ind.inputs.forEach(inp => {
+    const el = document.getElementById('ig_inp_' + indCode + '_' + inp.id);
+    vals[inp.id] = el ? el.value : (inp.type === 'select' ? inp.options[0] : '');
+  });
+  const score = Math.round(ind.calc(vals) * 10) / 10;
+  const pct = Math.round(score / ind.pts * 100);
+  const calcEl = document.getElementById('igcalc_' + indCode);
+  const barEl = document.getElementById('igsubbar_' + indCode);
+  const pctEl = document.getElementById('igsubpct_' + indCode);
+  if (calcEl) calcEl.textContent = score.toFixed(1);
+  if (barEl) barEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  igChecked['ig_' + indCode] = score;
+  updateIGScores();
+}
+
+function toggleIGCat(code) {
+  const el = document.getElementById('igcat_' + code);
+  if (el) el.classList.toggle('open');
+}
+
+function toggleIGCheck(key) {
+  igChecked[key] = !igChecked[key];
+  const chk = document.getElementById('igchk_' + key);
+  if (chk) chk.classList.toggle('done', igChecked[key]);
+  updateIGScores();
+}
+
+function resetIG() {
+  igChecked = {};
+  buildIGGrid();
+  updateIGScores();
+}
+
+function getIGTotals() {
+  const total = IG_CATS.reduce((s,c) => s + getIGCatScore(c.code), 0);
+  const m = getIGMedal(total, 240, 360, 510, 690, 810);
+  return { total, rating: m.label, pct: Math.round(total/900*100) };
+}
+
+// ═══════════════════════════════════════════════════════════
+// QS SUSTAINABILITY DATA
+// ═══════════════════════════════════════════════════════════
+
+const QS_DATA = [
+  { cat:'Environmental Impact', catKey:'env', catWeight:0.45, catColor:'#1b5e20', catBg:'#e8f5e9', catBorder:'#a5d6a7',
+    lenses:[
+      { code:'EE', name:'Environmental Education', weight:'17%', color:'#2e7d32',
+        indicators:[
+          { code:'EE1', name:'Academic Reputation — Earth & Environmental Sciences', weight:0.10, external:true,
+            desc:'Based on QS subject rankings in Earth & Marine Sciences and Environmental Sciences.',
+            tip:'Ensure your faculty publish in top Earth/Environmental Science journals. Submit to QS subject rankings annually.' },
+          { code:'EE2', name:'Alumni Impact — Environmental Public & Third Sector', weight:0.04, external:true,
+            desc:'Graduates recognised via UN Champions of the Earth, Blue Planet Prize, UNESCO Prizes.',
+            tip:'Track and celebrate alumni in environmental NGOs and policy roles. Submit nominations to relevant award bodies.' },
+          { code:'EE3', name:'Climate Science / Sustainability Courses', weight:0.03, external:false,
+            desc:'Availability of credited climate/sustainability courses leading to qualifications.',
+            tip:'Offer at minimum one credited sustainability course. Bonus points for full degree programmes in climate/environmental science.' },
+        ]},
+      { code:'ER', name:'Environmental Research', weight:'13%', color:'#1565c0',
+        indicators:[
+          { code:'ER1', name:'Research Impact on SDGs 7, 11–15', weight:0.09, external:true,
+            desc:'Research output classified by Elsevier across SDGs 7, 11, 12, 13, 14, 15. Min. 3 non-zero SDG scores required.',
+            tip:'Publish research aligned to SDGs 7, 11–15. Need non-zero output in at least 3 of these 6 SDGs to score.' },
+          { code:'ER2', name:'Sustainable Research National Statistics (R&D % of GDP)', weight:0.01, external:true,
+            desc:'Country-level R&D spending as proportion of GDP from UIS Data Browser.',
+            tip:'Nationally benchmarked — advocate for increased national R&D spending. Track your country score annually.' },
+          { code:'ER3', name:'Environmental Sustainability Research Centre', weight:0.02, external:false,
+            desc:'Dedicated research centre with environmental sustainability focus, FTE staff and teaching integration.',
+            tip:'Establish a named Environmental Sustainability Research Centre. Assign dedicated FTE staff and integrate into teaching.' },
+          { code:'ER4', name:'Policy Citations — Environmental SDGs', weight:0.01, external:true,
+            desc:'Research cited in policy documents across SDGs 7, 11–15.',
+            tip:'Engage with government and NGO policy processes. Submit research evidence to consultations.' },
+        ]},
+      { code:'ES', name:'Environmental Sustainability', weight:'15%', color:'#00695c',
+        indicators:[
+          { code:'ES1', name:'Alumni Impact — Environmental Private Sector', weight:0.05, external:true,
+            desc:'Graduates recognised via FT Climate Leaders, Stockholm Water Prize, Forbes 30 Under 30 Social Entrepreneurs.',
+            tip:'Track alumni in corporate sustainability roles. Nominate graduates for relevant awards.' },
+          { code:'ES2', name:'Membership in Climate Alliances', weight:0.01, external:false,
+            desc:'Binary check — member of ISCN, HESI, U7+ Alliance, IARU, CANIE or equivalent.',
+            tip:'Join at least one: ISCN, HESI, U7+ Alliance, International Universities Climate Alliance, IARU or CANIE. Free to join most.' },
+          { code:'ES3', name:'Climate Change Commitment (Staff Perception)', weight:0.02, external:false,
+            desc:'Internal staff survey on whether operations prioritise climate impact mitigation.',
+            tip:'Conduct annual staff climate perception survey. Share results and improvement actions publicly.' },
+          { code:'ES4', name:'Sustainable Procurement and Investment Strategy', weight:0.01, external:false,
+            desc:'Publicly available strategy or policy on sustainable procurement and financial decisions.',
+            tip:'Publish a Sustainable Procurement Policy and ESG investment strategy on your website.' },
+          { code:'ES5', name:'Student Society — Environmental Sustainability', weight:0.01, external:false,
+            desc:'Active student-led society focused on environmental or climate issues.',
+            tip:'Support and formally recognise a student environmental society. Provide funding and institutional backing.' },
+          { code:'ES6', name:'Net-Zero Target Commitment', weight:0.01, external:false,
+            desc:'Publicly committed target year for net-zero operations. Race to Zero framework.',
+            tip:'Declare a net-zero target year publicly. Sign up to Race to Zero. Publish on website and in annual report.' },
+          { code:'ES7', name:'Emissions Efficiency (Scope 1+2 per sqm)', weight:0.01, external:false,
+            desc:'Scope 1 and Scope 2 GHG emissions in tCO2e relative to Gross Internal Area in m2.',
+            tip:'Measure and publish Scope 1+2 emissions annually. Reduce energy intensity per square metre year-on-year.' },
+          { code:'ES8', name:'Renewable Energy Generated Onsite', weight:0.01, external:false,
+            desc:'Annual kWh generated onsite from solar, wind, geothermal or other renewable sources.',
+            tip:'Install rooftop solar minimum. Track and publish annual kWh generated onsite.' },
+          { code:'ES9', name:'Progress Toward Net-Zero Target', weight:0.01, external:false,
+            desc:'Interpolated score based on expected vs. actual emissions reduction progress against baseline.',
+            tip:'Track emissions annually against your net-zero trajectory. Publish progress report each year.' },
+          { code:'ES10', name:'Climate Strategy Policy Document', weight:0.01, external:false,
+            desc:'Published comprehensive Climate Action Plan covering mitigation, environmental considerations and future targets.',
+            tip:'Publish a Climate Action Plan covering emission reduction targets, renewable energy strategy and adaptation measures.' },
+        ]},
+    ]},
+  { cat:'Social Impact', catKey:'soc', catWeight:0.45, catColor:'#0d47a1', catBg:'#e3f2fd', catBorder:'#90caf9',
+    lenses:[
+      { code:'EO', name:'Employability and Opportunities', weight:'11%', color:'#1565c0',
+        indicators:[
+          { code:'EO1', name:'Employer Reputation', weight:0.03, external:true,
+            desc:'Institution perceived value among global employers via QS Employer Reputation Survey.',
+            tip:'Engage with QS employer survey. Build industry partnerships. Track and improve graduate employment outcomes.' },
+          { code:'EO2', name:'Research Impact — SDGs 8, 9, 16', weight:0.04, external:true,
+            desc:'Research output in SDG 8 (Decent Work), SDG 9 (Industry & Innovation), SDG 16 (Peace & Justice).',
+            tip:'Publish research aligned to SDGs 8, 9 and 16. Required for QS eligibility — must be non-zero in at least 2 social SDG research metrics.' },
+          { code:'EO4', name:'Employment and Opportunities National Statistics', weight:0.01, external:true,
+            desc:'Country-level employment rate from World Bank unemployment figures.',
+            tip:'Nationally benchmarked. Complement with strong institutional placement rates and industry partnership data.' },
+          { code:'EO5', name:'Research Partnerships with Industry', weight:0.02, external:false,
+            desc:'Active research partnerships with Forbes 2000 companies.',
+            tip:'Document and publish active research collaborations with major corporations. Track Forbes 2000 partnerships specifically.' },
+          { code:'EO6', name:'Skills Satisfaction (Employer Survey)', weight:0.01, external:true,
+            desc:'Employers rate alumni on leadership, communication, creativity and sustainability mindset.',
+            tip:'Embed sustainability, leadership and communication skills across all programmes. Engage with QS employer survey.' },
+        ]},
+      { code:'EQ', name:'Equality', weight:'12%', color:'#6a1b9a',
+        indicators:[
+          { code:'EQ1', name:'Research Impact — SDGs 5 and 10', weight:0.04, external:true,
+            desc:'Research output in SDG 5 (Gender Equality) and SDG 10 (Reduced Inequalities).',
+            tip:'Publish research on gender equality and reduced inequalities. Required for eligibility — must be non-zero.' },
+          { code:'EQ2', name:'Student Gender Ratio (40–59% non-male = full score)', weight:0.01, external:false,
+            desc:'Percentage of non-male students; ideal range 40–59% for full score.',
+            tip:'Track and publish student gender ratio annually. Target 40–59% non-male for full score.' },
+          { code:'EQ3', name:'Faculty Gender Ratio (40–59% non-male = full score)', weight:0.01, external:false,
+            desc:'Percentage of non-male academic staff; same bracket logic as EQ2.',
+            tip:'Track faculty gender ratio. Target 40–59% non-male. Publish in annual equity report.' },
+          { code:'EQ4', name:'Women in Leadership Ratio (40–59% = full score)', weight:0.01, external:false,
+            desc:'Proportion of non-male individuals in governance positions; ideal 40–59%.',
+            tip:'Track women in senior leadership and governance. Set targets. Publish data annually.' },
+          { code:'EQ5', name:'EDI Policy covering 5+ protected groups', weight:0.01, external:false,
+            desc:'Formal EDI policy covering age, gender, disability, race, religion, sexual orientation, marriage, refugee status, pregnancy.',
+            tip:'Publish EDI policy covering at least 5 protected characteristics. Review annually.' },
+          { code:'EQ6', name:'Academic Equality — Staff Perception Survey', weight:0.02, external:false,
+            desc:'Staff perception of disability support, LGBT+ equality and gender equality commitment.',
+            tip:'Conduct annual staff equality perception survey. Act on results. Share improvement plans publicly.' },
+          { code:'EQ7', name:'Disability Support (5 areas)', weight:0.01, external:false,
+            desc:'Disability Support Office (mandatory) + campus accessibility + access schemes + accommodation + reasonable adjustment policy.',
+            tip:'Establish a Disability Support Office. Audit campus accessibility. Publish reasonable accommodation policy.' },
+          { code:'EQ8', name:'Equality National Statistics', weight:0.01, external:true,
+            desc:'Country-level data: gender pay gap, education equality, LGBT rights, women in parliament.',
+            tip:'Nationally benchmarked. Complement with strong institutional equality data and published reports.' },
+        ]},
+      { code:'HW', name:'Health and Wellbeing', weight:'5%', color:'#c62828',
+        indicators:[
+          { code:'HW1', name:'Research Impact — SDGs 1, 2, 3, 6', weight:0.03, external:true,
+            desc:'Research output in SDG 1 (No Poverty), SDG 2 (Zero Hunger), SDG 3 (Good Health), SDG 6 (Clean Water).',
+            tip:'Publish research aligned to SDGs 1, 2, 3 and 6. Required for QS eligibility.' },
+          { code:'HW2', name:'Health Provision on Campus', weight:0.01, external:false,
+            desc:'Affordable healthy food, physical healthcare, sexual & reproductive health, and mental health support.',
+            tip:'Provide all four: affordable healthy food, physical healthcare, sexual health services, mental health counselling.' },
+          { code:'HW3', name:'Health and Wellbeing National Statistics', weight:0.01, external:true,
+            desc:'Subjective Wellbeing Score (SDR) and Yale Environmental Performance Index.',
+            tip:'Nationally benchmarked. Complement with strong campus health programme evidence.' },
+        ]},
+      { code:'IE', name:'Impact of Education', weight:'7%', color:'#e65100',
+        indicators:[
+          { code:'IE1', name:'Research Impact — SDG 4', weight:0.03, external:true,
+            desc:'Research output in SDG 4 (Quality Education) classified by Elsevier.',
+            tip:'Publish research on quality education. Required for eligibility — must be non-zero.' },
+          { code:'IE2', name:'Academic Reputation — Education Subject Areas', weight:0.01, external:true,
+            desc:'Reputation in Education, Politics, Social Policy, Law and Art & Design via QS subject rankings.',
+            tip:'Submit to QS subject rankings in relevant education-adjacent disciplines.' },
+          { code:'IE3', name:'Alumni Impact for Education', weight:0.01, external:true,
+            desc:'Graduates shaping global education outcomes via awards, publications or leadership roles.',
+            tip:'Track alumni in education sector leadership. Celebrate and document their impact.' },
+          { code:'IE4', name:'Academic Freedom Index (National)', weight:0.01, external:true,
+            desc:'National-level academic freedom score from FAU Erlangen-Nürnberg and V-Dem Sweden.',
+            tip:'Nationally benchmarked. Complement with published institutional academic freedom policy.' },
+          { code:'IE5', name:'Education National Statistics', weight:0.01, external:true,
+            desc:'Inbound mobility rate, graduation ratio, education expenditure from UNESCO and World Bank.',
+            tip:'Nationally benchmarked. Strengthen with strong institutional enrolment and completion rate data.' },
+        ]},
+      { code:'KE', name:'Knowledge Exchange', weight:'10%', color:'#558b2f',
+        indicators:[
+          { code:'KE1', name:'Knowledge Exchange — Global North/South Collaboration', weight:0.06, external:true,
+            desc:'Collaborative research between Global North and Global South institutions using OECD ODA classifications.',
+            tip:'Build research partnerships with universities in ODA-recipient countries. Document and publish collaborations.' },
+          { code:'KE2', name:'Outreach and Community Engagement', weight:0.01, external:false,
+            desc:'Active community engagement in education, health, information services, reading programmes, tutorials.',
+            tip:'Run community outreach programmes in at least 2 areas: education, health or community services. Publish evidence.' },
+          { code:'KE3', name:'Staff Perception — Societal Impact Commitment', weight:0.02, external:false,
+            desc:'Staff survey: "My university is committed to making a positive impact on society" — 5-point Likert scale.',
+            tip:'Conduct regular staff perception surveys on societal impact. Act on results and publish improvement actions.' },
+          { code:'KE4', name:'Policy Citations — Social SDGs (1–6, 8–10)', weight:0.01, external:true,
+            desc:'Research cited in policy documents for SDGs 1, 2, 3, 4, 5, 6, 8, 9, 10.',
+            tip:'Engage with policy processes. Submit research evidence to government consultations across social SDGs.' },
+        ]},
+    ]},
+  { cat:'Governance', catKey:'gov', catWeight:0.10, catColor:'#4a148c', catBg:'#f3e5f5', catBorder:'#ce93d8',
+    lenses:[
+      { code:'GG', name:'Good Governance', weight:'10%', color:'#4a148c',
+        indicators:[
+          { code:'GG1', name:'Ethics Culture — Policies, Training and Oversight', weight:0.01, external:false,
+            desc:'Active ethics policies covering governance, research and employment with training and oversight.',
+            tip:'Publish ethics code, research integrity policy and conflict of interest policy. Run annual ethics training.' },
+          { code:'GG2', name:'Open-Access Publishing', weight:0.01, external:true,
+            desc:'Share of research output freely available online via Gold or Hybrid open access (Unpaywall/Scopus data).',
+            tip:'Adopt open access publishing policy. Increase Gold and Hybrid OA publications. Use institutional repository.' },
+          { code:'GG3', name:'Dedicated Staff for Sustainable Development', weight:0.01, external:false,
+            desc:'Full-time staff member or team solely responsible for sustainability initiatives.',
+            tip:'Appoint a dedicated Sustainability Officer or Director. Publish role on website with contact details.' },
+          { code:'GG4', name:'Transparent Financial Reporting', weight:0.01, external:false,
+            desc:'Publicly available comprehensive financial data — income, expenditure, borrowing and surplus.',
+            tip:'Publish annual audited accounts on website. Include full income, expenditure, borrowing and surplus data.' },
+          { code:'GG5', name:'Students Union — Formally Recognised', weight:0.01, external:false,
+            desc:'Formally recognised student union facilitating student-led representation.',
+            tip:'Formally recognise student union in institutional constitution. Provide funding and governance role.' },
+          { code:'GG6', name:'Student Representation on Governing Body', weight:0.01, external:false,
+            desc:'Student member formally included in university senate or highest decision-making body.',
+            tip:'Ensure at least one elected student representative has full voting rights on the highest governing body.' },
+          { code:'GG7', name:'Published Governance Minutes', weight:0.01, external:false,
+            desc:'Annual or equivalent governance meeting summaries published publicly.',
+            tip:'Publish governance meeting minutes or summaries on website annually. Include senate/board meetings.' },
+          { code:'GG8', name:'National Signatory — UN Torture and Racism Conventions', weight:0.01, external:true,
+            desc:'Home country signatory to UN Convention against Torture and Convention on Elimination of Racial Discrimination.',
+            tip:'Nationally determined. Complement with strong institutional anti-discrimination policies.' },
+          { code:'GG9', name:'Staff Perception — Institutional Ethics', weight:0.01, external:false,
+            desc:'Academic staff rate university as ethical in teaching, research and societal contributions.',
+            tip:'Conduct annual ethics perception survey with staff. Publish results and action plan.' },
+          { code:'GG10', name:'Policy Citations — SDG 16 Governance', weight:0.01, external:true,
+            desc:'Research cited in policy documents related to SDG 16 (Peace, Justice & Strong Institutions).',
+            tip:'Publish governance and justice research. Engage with public policy processes related to SDG 16.' },
+        ]},
+    ]},
+];
+
+let qsChecked = {};
+
+function buildQSGrid() {
+  const grid = document.getElementById('qsGrid');
+  if (!grid) return;
+  let html = '';
+  QS_DATA.forEach(cat => {
+    html += `<div class="qs-cat-section">
+      <div class="qs-cat-header qs-cat-${cat.catKey}">
+        <span class="qs-cat-title">${cat.cat}</span>
+        <div class="qs-cat-prog"><div class="qs-cat-prog-fill" id="qsCatProg_${cat.catKey}" style="background:${cat.catColor};width:0%"></div></div>
+        <span id="qsCatPct_${cat.catKey}" style="font-size:12px;font-weight:600;color:${cat.catColor};min-width:36px;text-align:right">0%</span>
+        <span class="qs-cat-weight" style="background:${cat.catColor}">${Math.round(cat.catWeight*100)}%</span>
+      </div>`;
+    cat.lenses.forEach(lens => {
+      html += `<div class="qs-lens" id="qslens_${lens.code}">
+        <div class="qs-lens-header" onclick="toggleQSLens('${lens.code}')">
+          <span class="qs-lens-name">${lens.name}</span>
+          <span class="qs-lens-weight">${lens.weight} of ranking</span>
+          <div class="qs-lens-bar"><div class="qs-lens-bar-fill" id="qsLensProg_${lens.code}" style="background:${lens.color};width:0%"></div></div>
+          <span class="qs-lens-pct" id="qsLensPct_${lens.code}">0%</span>
+        </div>
+        <div class="qs-indicators">`;
+      lens.indicators.forEach(ind => {
+        if (ind.external) {
+          html += `<div class="qs-ind">
+            <div style="width:20px;height:20px;border-radius:5px;background:var(--surface);border:1px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--ink3)">EXT</div>
+            <div class="qs-ind-body">
+              <div class="qs-ind-code">${ind.code} <span style="color:#e57373;font-size:9px">★ Externally sourced by QS</span></div>
+              <div class="qs-ind-name">${ind.name}</div>
+              <div class="qs-ind-desc">${ind.desc}</div>
+              <div class="qs-ind-tip">${ind.tip}</div>
+            </div>
+            <div class="qs-ind-pts"><div class="qs-ind-pts-val" style="color:var(--ink3)">—</div><span class="qs-ind-pts-lbl">external</span></div>
+          </div>`;
+        } else {
+          const inputs = getQSInputs(ind.code);
+          html += `<div class="qs-ind" id="qssub_${ind.code}">
+            <div class="qs-ind-body" style="width:100%">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px">
+                <div>
+                  <div class="qs-ind-code">${ind.code}</div>
+                  <div class="qs-ind-name">${ind.name}</div>
+                </div>
+                <div class="qs-ind-pts">
+                  <div class="qs-ind-pts-val" id="qscalc_${ind.code}" style="color:${lens.color}">0%</div>
+                  <span class="qs-ind-pts-lbl">readiness</span>
+                </div>
+              </div>
+              <div class="qs-ind-desc" style="margin-bottom:6px">${ind.desc}</div>
+              ${inputs}
+              <div class="calc-result" style="margin-top:6px">
+                <div class="calc-result-bar"><div class="calc-result-fill" id="qssubbar_${ind.code}" style="background:${lens.color};width:0%"></div></div>
+                <div class="calc-result-val" id="qssubpct_${ind.code}" style="color:${lens.color}">0%</div>
+                <div class="calc-result-label">readiness</div>
+              </div>
+              <div class="qs-ind-tip" style="margin-top:5px">${ind.tip}</div>
+            </div>
+          </div>`;
+        }
+      });
+      html += `</div></div>`;
+    });
+    html += `</div>`;
+  });
+  grid.innerHTML = html;
+}
+
+function getQSInputs(code) {
+  const inputMap = {
+    'EE3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Credited sustainability/climate courses offered</label><select id="qs_inp_EE3_courses" onchange="calcQS('EE3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Courses lead to recognised credits</label><select id="qs_inp_EE3_credits" onchange="calcQS('EE3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Lead to a recognised qualification/degree</label><select id="qs_inp_EE3_degree" onchange="calcQS('EE3')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'ER3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Environmental sustainability research centre exists</label><select id="qs_inp_ER3_centre" onchange="calcQS('ER3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Dedicated FTE staff assigned</label><select id="qs_inp_ER3_staff" onchange="calcQS('ER3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Integrated into teaching programmes</label><select id="qs_inp_ER3_teaching" onchange="calcQS('ER3')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'ES2': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Member of ISCN, HESI, U7+, IARU or CANIE</label><select id="qs_inp_ES2_member" onchange="calcQS('ES2')"><option>No</option><option>Yes — one alliance</option><option>Yes — two or more</option></select></div>
+    </div>`,
+    'ES3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Annual staff climate perception survey conducted</label><select id="qs_inp_ES3_survey" onchange="calcQS('ES3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>% staff agreeing institution prioritises climate</label><input type="number" id="qs_inp_ES3_pct" placeholder="e.g. 72" max="100" min="0" oninput="calcQS('ES3')"></div>
+    </div>`,
+    'ES4': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Sustainable procurement strategy published</label><select id="qs_inp_ES4_proc" onchange="calcQS('ES4')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>ESG / sustainable investment policy published</label><select id="qs_inp_ES4_invest" onchange="calcQS('ES4')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'ES5': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Active student environmental society exists</label><select id="qs_inp_ES5_society" onchange="calcQS('ES5')"><option>No</option><option>Yes — informal</option><option>Yes — formally recognised</option></select></div>
+    </div>`,
+    'ES6': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Net-zero target year publicly committed</label><select id="qs_inp_ES6_commit" onchange="calcQS('ES6')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Target year</label><input type="number" id="qs_inp_ES6_year" placeholder="e.g. 2040" min="2025" max="2070" oninput="calcQS('ES6')"></div>
+    </div>`,
+    'ES7': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Scope 1+2 emissions measured (tCO2e/year)</label><input type="number" id="qs_inp_ES7_emiss" placeholder="e.g. 5000" min="0" oninput="calcQS('ES7')"></div>
+      <div class="calc-field"><label>Gross Internal Area of campus (m²)</label><input type="number" id="qs_inp_ES7_area" placeholder="e.g. 50000" min="0" oninput="calcQS('ES7')"></div>
+    </div>`,
+    'ES8': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Annual renewable energy generated onsite (kWh)</label><input type="number" id="qs_inp_ES8_kwh" placeholder="e.g. 500000" min="0" oninput="calcQS('ES8')"></div>
+      <div class="calc-field"><label>Total annual energy consumption (kWh)</label><input type="number" id="qs_inp_ES8_total" placeholder="e.g. 5000000" min="0" oninput="calcQS('ES8')"></div>
+    </div>`,
+    'ES9': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Baseline emissions year</label><input type="number" id="qs_inp_ES9_base_yr" placeholder="e.g. 2018" oninput="calcQS('ES9')"></div>
+      <div class="calc-field"><label>Baseline emissions (tCO2e)</label><input type="number" id="qs_inp_ES9_base_em" placeholder="e.g. 8000" oninput="calcQS('ES9')"></div>
+      <div class="calc-field"><label>Current emissions (tCO2e)</label><input type="number" id="qs_inp_ES9_curr" placeholder="e.g. 6000" oninput="calcQS('ES9')"></div>
+      <div class="calc-field"><label>Target net-zero year</label><input type="number" id="qs_inp_ES9_target_yr" placeholder="e.g. 2040" oninput="calcQS('ES9')"></div>
+    </div>`,
+    'ES10': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Published Climate Action Plan / strategy document</label><select id="qs_inp_ES10_plan" onchange="calcQS('ES10')"><option>No</option><option>Yes — basic</option><option>Yes — comprehensive with targets</option></select></div>
+    </div>`,
+    'EO5': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Active research partnerships with major corporations</label><input type="number" id="qs_inp_EO5_partners" placeholder="e.g. 5" min="0" oninput="calcQS('EO5')"></div>
+    </div>`,
+    'EQ2': `<div class="calc-field-grid">
+      <div class="calc-field"><label>% non-male (women+) students</label><input type="number" id="qs_inp_EQ2_pct" placeholder="e.g. 48" max="100" min="0" oninput="calcQS('EQ2')"></div>
+    </div>`,
+    'EQ3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>% non-male academic faculty</label><input type="number" id="qs_inp_EQ3_pct" placeholder="e.g. 42" max="100" min="0" oninput="calcQS('EQ3')"></div>
+    </div>`,
+    'EQ4': `<div class="calc-field-grid">
+      <div class="calc-field"><label>% non-male in governance / leadership positions</label><input type="number" id="qs_inp_EQ4_pct" placeholder="e.g. 35" max="100" min="0" oninput="calcQS('EQ4')"></div>
+    </div>`,
+    'EQ5': `<div class="calc-field-grid">
+      <div class="calc-field"><label>EDI policy published</label><select id="qs_inp_EQ5_policy" onchange="calcQS('EQ5')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Number of protected characteristics covered (max 9)</label><input type="number" id="qs_inp_EQ5_groups" placeholder="e.g. 7" max="9" min="0" oninput="calcQS('EQ5')"></div>
+    </div>`,
+    'EQ6': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Disability support commitment (staff survey)</label><select id="qs_inp_EQ6_disab" onchange="calcQS('EQ6')"><option>No / Not surveyed</option><option>Weak</option><option>Moderate</option><option>Strong</option></select></div>
+      <div class="calc-field"><label>LGBT+ equality commitment</label><select id="qs_inp_EQ6_lgbt" onchange="calcQS('EQ6')"><option>No / Not surveyed</option><option>Weak</option><option>Moderate</option><option>Strong</option></select></div>
+      <div class="calc-field"><label>Gender equality commitment</label><select id="qs_inp_EQ6_gender" onchange="calcQS('EQ6')"><option>No / Not surveyed</option><option>Weak</option><option>Moderate</option><option>Strong</option></select></div>
+    </div>`,
+    'EQ7': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Disability Support Office (mandatory)</label><select id="qs_inp_EQ7_office" onchange="calcQS('EQ7')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Campus accessibility audit done</label><select id="qs_inp_EQ7_access" onchange="calcQS('EQ7')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Disability access schemes available</label><select id="qs_inp_EQ7_schemes" onchange="calcQS('EQ7')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Accessible on-campus accommodation</label><select id="qs_inp_EQ7_accom" onchange="calcQS('EQ7')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Reasonable accommodation policy with funding</label><select id="qs_inp_EQ7_policy" onchange="calcQS('EQ7')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'HW2': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Affordable healthy food on campus</label><select id="qs_inp_HW2_food" onchange="calcQS('HW2')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Physical healthcare services on campus</label><select id="qs_inp_HW2_health" onchange="calcQS('HW2')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Sexual and reproductive health access</label><select id="qs_inp_HW2_repro" onchange="calcQS('HW2')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Mental health support services</label><select id="qs_inp_HW2_mental" onchange="calcQS('HW2')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'KE2': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Community outreach programmes active</label><select id="qs_inp_KE2_outreach" onchange="calcQS('KE2')"><option>No</option><option>Yes — 1 area</option><option>Yes — 2 or more areas</option></select></div>
+    </div>`,
+    'KE3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Staff survey on societal impact conducted</label><select id="qs_inp_KE3_survey" onchange="calcQS('KE3')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>% staff agreeing institution makes positive societal impact</label><input type="number" id="qs_inp_KE3_pct" placeholder="e.g. 78" max="100" min="0" oninput="calcQS('KE3')"></div>
+    </div>`,
+    'GG1': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Ethics policy published</label><select id="qs_inp_GG1_ethics" onchange="calcQS('GG1')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Annual ethics training conducted</label><select id="qs_inp_GG1_training" onchange="calcQS('GG1')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>Ethics oversight committee established</label><select id="qs_inp_GG1_committee" onchange="calcQS('GG1')"><option>No</option><option>Yes</option></select></div>
+    </div>`,
+    'GG3': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Dedicated sustainability officer / team</label><select id="qs_inp_GG3_officer" onchange="calcQS('GG3')"><option>No</option><option>Part-time / shared role</option><option>Full-time dedicated staff</option></select></div>
+    </div>`,
+    'GG4': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Annual audited accounts published on website</label><select id="qs_inp_GG4_accounts" onchange="calcQS('GG4')"><option>No</option><option>Yes — partial</option><option>Yes — full (income, expenditure, surplus, borrowing)</option></select></div>
+    </div>`,
+    'GG5': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Formally recognised students union</label><select id="qs_inp_GG5_union" onchange="calcQS('GG5')"><option>No</option><option>Yes — informal</option><option>Yes — formally recognised with constitution</option></select></div>
+    </div>`,
+    'GG6': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Student member on highest governing body (senate/board)</label><select id="qs_inp_GG6_student" onchange="calcQS('GG6')"><option>No</option><option>Observer only</option><option>Yes — full voting member</option></select></div>
+    </div>`,
+    'GG7': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Governance meeting minutes published annually</label><select id="qs_inp_GG7_minutes" onchange="calcQS('GG7')"><option>No</option><option>Yes — summaries only</option><option>Yes — full minutes published</option></select></div>
+    </div>`,
+    'GG9': `<div class="calc-field-grid">
+      <div class="calc-field"><label>Staff ethics perception survey conducted</label><select id="qs_inp_GG9_survey" onchange="calcQS('GG9')"><option>No</option><option>Yes</option></select></div>
+      <div class="calc-field"><label>% staff rating institution as ethical</label><input type="number" id="qs_inp_GG9_pct" placeholder="e.g. 75" max="100" min="0" oninput="calcQS('GG9')"></div>
+    </div>`,
+  };
+  return inputMap[code] || `<div class="calc-field-grid"><div class="calc-field"><label>Implemented</label><select id="qs_inp_${code}_yn" onchange="calcQS('${code}')"><option value="No">No</option><option value="Yes">Yes</option></select></div></div>`;
+}
+
+function calcQS(code) {
+  const calcFns = {
+    'EE3': v => { const c=v('courses'),cr=v('credits'),d=v('degree'); if(c!=='Yes')return 0; return 33+(cr==='Yes'?33:0)+(d==='Yes'?34:0); },
+    'ER3': v => { const c=v('centre'),s=v('staff'),t=v('teaching'); if(c!=='Yes')return 0; return 33+(s==='Yes'?33:0)+(t==='Yes'?34:0); },
+    'ES2': v => { const m=v('member'); return m==='Yes — two or more'?100:m.includes('Yes')?60:0; },
+    'ES3': v => { if(v('survey')!=='Yes')return 0; return Math.min(100*(parseFloat(v('pct'))||0)/80,100); },
+    'ES4': v => { return (v('proc')==='Yes'?50:0)+(v('invest')==='Yes'?50:0); },
+    'ES5': v => { const s=v('society'); return s.includes('formally')?100:s.includes('informal')?50:0; },
+    'ES6': v => { if(v('commit')!=='Yes')return 0; const yr=parseFloat(v('year'))||2050; return yr<=2035?100:yr<=2045?75:yr<=2060?50:25; },
+    'ES7': v => { const e=parseFloat(v('emiss'))||0,a=parseFloat(v('area'))||1; const int=e/a; return int<=0.05?100:int>=0.5?0:Math.round(100*(1-int/0.5)); },
+    'ES8': v => { const k=parseFloat(v('kwh'))||0,t=parseFloat(v('total'))||1; return Math.min(100*k/t/0.3,100); },
+    'ES9': v => { const by=parseFloat(v('base_yr'))||2010,be=parseFloat(v('base_em'))||1,ce=parseFloat(v('curr'))||be,ty=parseFloat(v('target_yr'))||2050; const yr=new Date().getFullYear(); const expected=be*(1-(yr-by)/(ty-by)); return Math.max(0,Math.round(100*(1-Math.abs(ce-expected)/be))); },
+    'ES10': v => { const p=v('plan'); return p.includes('comprehensive')?100:p.includes('basic')?50:0; },
+    'EO5': v => { return Math.min(100*(parseFloat(v('partners'))||0)/5,100); },
+    'EQ2': v => { const p=parseFloat(v('pct'))||0; return p>=40&&p<=59?100:p<40?Math.round(100*p/40):Math.round(100*(100-p)/41); },
+    'EQ3': v => { const p=parseFloat(v('pct'))||0; return p>=40&&p<=59?100:p<40?Math.round(100*p/40):Math.round(100*(100-p)/41); },
+    'EQ4': v => { const p=parseFloat(v('pct'))||0; return p>=40&&p<=59?100:p<40?Math.round(100*p/40):Math.round(100*(100-p)/41); },
+    'EQ5': v => { if(v('policy')!=='Yes')return 0; return Math.min(100*(parseFloat(v('groups'))||0)/5,100); },
+    'EQ6': v => { const m={'No / Not surveyed':0,'Weak':1,'Moderate':2,'Strong':3}; return Math.round(100*(m[v('disab')]+m[v('lgbt')]+m[v('gender')])/(9)); },
+    'EQ7': v => { const keys=['office','access','schemes','accom','policy']; const done=keys.filter(k=>v(k)==='Yes').length; if(v('office')!=='Yes')return 0; return Math.round(100*done/5); },
+    'HW2': v => { const keys=['food','health','repro','mental']; return Math.round(100*keys.filter(k=>v(k)==='Yes').length/4); },
+    'KE2': v => { const o=v('outreach'); return o.includes('2 or more')?100:o.includes('1')?50:0; },
+    'KE3': v => { if(v('survey')!=='Yes')return 0; return Math.min(100*(parseFloat(v('pct'))||0)/80,100); },
+    'GG1': v => { let s=0; if(v('ethics')==='Yes')s+=40; if(v('training')==='Yes')s+=30; if(v('committee')==='Yes')s+=30; return s; },
+    'GG3': v => { const o=v('officer'); return o.includes('Full-time')?100:o.includes('Part-time')?50:0; },
+    'GG4': v => { const a=v('accounts'); return a.includes('full')?100:a.includes('partial')?50:0; },
+    'GG5': v => { const u=v('union'); return u.includes('formally')?100:u.includes('informal')?50:0; },
+    'GG6': v => { const s=v('student'); return s.includes('full voting')?100:s.includes('Observer')?40:0; },
+    'GG7': v => { const m=v('minutes'); return m.includes('full')?100:m.includes('summaries')?50:0; },
+    'GG9': v => { if(v('survey')!=='Yes')return 0; return Math.min(100*(parseFloat(v('pct'))||0)/80,100); },
+  };
+
+  const fn = calcFns[code];
+  const getVal = (field) => {
+    const el = document.getElementById('qs_inp_' + code + '_' + field);
+    return el ? el.value : '';
+  };
+
+  let pct = 0;
+  if (fn) {
+    pct = Math.round(Math.min(fn(getVal), 100));
+  } else {
+    const el = document.getElementById('qs_inp_' + code + '_yn');
+    pct = el && el.value === 'Yes' ? 100 : 0;
+  }
+
+  const calcEl = document.getElementById('qscalc_' + code);
+  const barEl = document.getElementById('qssubbar_' + code);
+  const pctEl = document.getElementById('qssubpct_' + code);
+  if (calcEl) calcEl.textContent = pct + '%';
+  if (barEl) barEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  qsChecked['qs_' + code] = pct / 100;
+  updateQSScores();
+}
+
+function toggleQSLens(code) {
+  const el = document.getElementById('qslens_' + code);
+  if (el) el.classList.toggle('open');
+}
+
+// toggleQSCheck replaced by calcQS
+
+function getQSCatScore(catKey) {
+  const cat = QS_DATA.find(c => c.catKey === catKey);
+  if (!cat) return 0;
+  let done = 0, total = 0;
+  cat.lenses.forEach(lens => lens.indicators.forEach(ind => {
+    if (!ind.external) {
+      total++;
+      const v = qsChecked['qs_' + ind.code];
+      done += typeof v === 'number' ? v : (v ? 1 : 0);
+    }
+  }));
+  return total > 0 ? Math.round(done/total*100) : 0;
+}
+
+function updateQSScores() {
+  let totalChecked = 0, totalSelf = 0;
+  QS_DATA.forEach(cat => {
+    let catDone = 0, catTotal = 0;
+    cat.lenses.forEach(lens => {
+      let lensDone = 0, lensTotal = 0;
+      lens.indicators.forEach(ind => {
+        if (!ind.external) {
+          lensTotal++; totalSelf++;
+          const v = qsChecked['qs_' + ind.code];
+          const score = typeof v === 'number' ? v : (v ? 1 : 0);
+          lensDone += score; catDone += score;
+          if (score > 0) totalChecked++;
+        }
+      });
+      const lensPct = lensTotal > 0 ? Math.round(lensDone/lensTotal*100) : 0;
+      const lp = document.getElementById('qsLensProg_' + lens.code);
+      const lt = document.getElementById('qsLensPct_' + lens.code);
+      if (lp) lp.style.width = lensPct + '%';
+      if (lt) lt.textContent = lensPct + '%';
+    });
+    const catPct = catTotal > 0 ? Math.round(catDone/catTotal*100) : 0;
+    const actualCatPct = getQSCatScore(cat.catKey);
+    const cp = document.getElementById('qsCatProg_' + cat.catKey);
+    const ct = document.getElementById('qsCatPct_' + cat.catKey);
+    if (cp) cp.style.width = actualCatPct + '%';
+    if (ct) ct.textContent = actualCatPct + '%';
+    const scoreEl = document.getElementById('qsScore_' + cat.catKey);
+    if (scoreEl) scoreEl.textContent = actualCatPct + '%';
+  });
+
+  const envPct = getQSCatScore('env');
+  const socPct = getQSCatScore('soc');
+  const govPct = getQSCatScore('gov');
+  const overall = Math.round(envPct*0.45 + socPct*0.45 + govPct*0.10);
+
+  const ts = document.getElementById('qsTotalScore');
+  const tsub = document.getElementById('qsTotalSub');
+  const es = document.getElementById('qsEnvScore');
+  const ss = document.getElementById('qsSocScore');
+  const gs = document.getElementById('qsGovScore');
+  const ch = document.getElementById('qsChecked');
+  if (ts) ts.innerHTML = overall + '<sup>%</sup>';
+  if (tsub) tsub.textContent = overall < 30 ? 'Foundation stage' : overall < 55 ? 'Developing' : overall < 75 ? 'Competitive' : 'Strong';
+  if (es) es.innerHTML = envPct + '<sup>%</sup>';
+  if (ss) ss.innerHTML = socPct + '<sup>%<
