@@ -287,18 +287,124 @@ nav {
   .dashboard, .section-wrap, .report-wrap { padding: 0 14px; }
   .acc-grid { grid-template-columns: 1fr; }
 }
+
+/* ── RANKING BANDS ── */
+.rank-band {
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  transition: all 0.4s;
+}
+.rank-band-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.rank-badge {
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  flex-shrink: 0;
+}
+.rank-title { font-family: 'DM Serif Display', serif; font-size: 20px; }
+.rank-desc { font-size: 13px; line-height: 1.7; }
+.rank-band.band-start  { background: #fef2f2; border-color: #fca5a5; }
+.rank-band.band-start .rank-badge { background: #ef4444; color: #fff; }
+.rank-band.band-start .rank-title { color: #991b1b; }
+.rank-band.band-start .rank-desc { color: #7f1d1d; }
+.rank-band.band-developing { background: #fff7ed; border-color: #fdba74; }
+.rank-band.band-developing .rank-badge { background: #f97316; color: #fff; }
+.rank-band.band-developing .rank-title { color: #9a3412; }
+.rank-band.band-developing .rank-desc { color: #7c2d12; }
+.rank-band.band-established { background: #fefce8; border-color: #fde047; }
+.rank-band.band-established .rank-badge { background: #eab308; color: #fff; }
+.rank-band.band-established .rank-title { color: #713f12; }
+.rank-band.band-established .rank-desc { color: #78350f; }
+.rank-band.band-competitive { background: #f0fdf4; border-color: #86efac; }
+.rank-band.band-competitive .rank-badge { background: #22c55e; color: #fff; }
+.rank-band.band-competitive .rank-title { color: #14532d; }
+.rank-band.band-competitive .rank-desc { color: #166534; }
+.rank-band.band-elite { background: #eff6ff; border-color: #93c5fd; }
+.rank-band.band-elite .rank-badge { background: #3b82f6; color: #fff; }
+.rank-band.band-elite .rank-title { color: #1e3a8a; }
+.rank-band.band-elite .rank-desc { color: #1e40af; }
+
+/* ── ENHANCED REPORT ── */
+.rep-section { margin-bottom: 28px; }
+.rep-section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px; color: var(--ink);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+.insight-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.insight-card-head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.insight-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.insight-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+.insight-body { font-size: 13px; color: var(--ink2); line-height: 1.75; }
+.insight-body strong { color: var(--ink); font-weight: 600; }
+.insight-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.insight-tag { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: var(--surface); color: var(--ink3); border: 1px solid var(--border); }
+
+.acc-readiness-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.acc-readiness-card { border-radius: var(--radius); padding: 16px 18px; }
+.acc-readiness-card.aacsb { background: #e8ebf5; border-left: 4px solid #00205b; }
+.acc-readiness-card.bga   { background: #f4ecf7; border-left: 4px solid #7b2d8b; }
+.acc-readiness-card.equis { background: #e6f5f0; border-left: 4px solid #006e51; }
+.acc-readiness-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.acc-readiness-score { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 4px; }
+.acc-readiness-verdict { font-size: 12px; line-height: 1.6; }
+.acc-readiness-card.aacsb .acc-readiness-title,
+.acc-readiness-card.aacsb .acc-readiness-score { color: #00205b; }
+.acc-readiness-card.aacsb .acc-readiness-verdict { color: #1a3a6b; }
+.acc-readiness-card.bga .acc-readiness-title,
+.acc-readiness-card.bga .acc-readiness-score { color: #7b2d8b; }
+.acc-readiness-card.bga .acc-readiness-verdict { color: #5a2070; }
+.acc-readiness-card.equis .acc-readiness-title,
+.acc-readiness-card.equis .acc-readiness-score { color: #006e51; }
+.acc-readiness-card.equis .acc-readiness-verdict { color: #005040; }
+
+.sdg-quick-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 0; border-top: 1px solid var(--border);
+}
+.sdg-quick-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.sdg-quick-name { font-size: 13px; color: var(--ink); flex: 1; font-weight: 500; }
+.sdg-quick-pct { font-size: 12px; font-weight: 600; color: var(--ink2); min-width: 36px; text-align: right; }
+.sdg-quick-bar { width: 80px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.sdg-quick-fill { height: 100%; border-radius: 3px; }
+.sdg-quick-status { font-size: 11px; min-width: 70px; text-align: right; }
+
+.roadmap-phase { margin-bottom: 16px; }
+.roadmap-phase-title {
+  font-size: 13px; font-weight: 700; color: var(--ink);
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.phase-num { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--ink); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.roadmap-items { display: flex; flex-direction: column; gap: 6px; padding-left: 32px; }
+.roadmap-item { font-size: 12px; color: var(--ink2); line-height: 1.6; padding: 7px 12px; background: var(--surface); border-radius: 6px; border-left: 3px solid var(--gold); }
+.roadmap-item strong { color: var(--ink); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">SDG <span>Impact</span> Scorer</div>
+  <div class="nav-logo">SDG <span>Impact</span> Scorer <span style="font-size:10px;opacity:0.4;font-family:var(--font-sans);font-weight:400;letter-spacing:0.04em">v2025.1</span></div>
   <div class="nav-pills">
     <button class="nav-pill active" onclick="showSection('score')">Self-Assess</button>
     <button class="nav-pill" onclick="showSection('report')">My Report</button>
   </div>
-  <div class="nav-score">Total Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span></div>
+  <div class="nav-score" id="navScoreWrap">THE Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span> &nbsp;<span id="navBand" style="font-size:11px;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.1);color:#fff"></span></div>
 </nav>
 
 <!-- HERO -->
@@ -312,7 +418,7 @@ nav {
     <button class="mode-btn" id="modeBoth" onclick="setMode('both')">Blended / Both</button>
   </div>
   <div class="acc-badges">
-    <span class="acc-badge badge-the">THE Impact Rankings 2024</span>
+    <span class="acc-badge badge-the">THE Impact Rankings 2024/25</span>
     <span class="acc-badge badge-aacsb">AACSB Standard 9</span>
     <span class="acc-badge badge-bga">BGA / CIM</span>
     <span class="acc-badge badge-equis">EQUIS ERS</span>
@@ -367,6 +473,7 @@ nav {
       </div>
     </div>
 
+    <div id="rankBandDisplay" style="margin-bottom:20px"></div>
     <div class="btn-row">
       <button class="btn btn-primary" onclick="showSection('report')">Generate my readiness report →</button>
       <button class="btn btn-outline" onclick="resetAll()">Reset scores</button>
@@ -1046,6 +1153,7 @@ function updateDashboard() {
   document.getElementById('dcSDGs').innerHTML = sdgs + '<sup>/17</sup>';
   document.getElementById('dcActions').textContent = acts;
   document.getElementById('dcActTotal').textContent = countTotal();
+  updateRankBand();
 
   // Update tile progress bars
   SDG_META.forEach(sdg => {
@@ -1226,6 +1334,70 @@ function toggleCheck(key, sdgN) {
 // ═══════════════════════════════════════════════════════════
 // REPORT
 // ═══════════════════════════════════════════════════════════
+function getRankBand(score) {
+  if (score === 0) return { cls:'band-start', label:'Not started', title:'No data submitted yet', shortLabel:'Not started',
+    desc:'Your university has not yet submitted any SDG data. Start with SDG 17 (Partnerships) — it is mandatory for THE Impact Rankings and the single highest-weighted SDG at 22% of your total score.',
+    color:'#ef4444' };
+  if (score <= 25) return { cls:'band-start', label:'0–25: Foundation stage', title:'Foundation Stage', shortLabel:'Foundation',
+    desc:'Your university is in the foundation stage of its SDG journey. Universities in this band are typically not yet visible in the THE Impact Rankings overall table. Focus on SDG 17 first, then select 3 SDGs where you already have existing policies or data to build on quickly.',
+    color:'#ef4444' };
+  if (score <= 40) return { cls:'band-developing', label:'26–40: Developing', title:'Developing Stage', shortLabel:'Developing',
+    desc:'Your university is developing its SDG portfolio. You may begin appearing in subject-level THE Impact Rankings. Strengthening SDG 17 reporting and adding one strong SDG above 60% will significantly improve your position.',
+    color:'#f97316' };
+  if (score <= 55) return { cls:'band-established', label:'41–55: Established', title:'Established Stage', shortLabel:'Established',
+    desc:'Your university has an established SDG presence and is likely visible in the THE Impact Rankings. This is the median band for universities that appear in the ranking. To move up, focus on your weakest of your top 3 SDGs and push it above 70%.',
+    color:'#eab308' };
+  if (score <= 70) return { cls:'band-competitive', label:'56–70: Competitive', title:'Competitive Stage', shortLabel:'Competitive',
+    desc:'Your university is performing competitively and is likely ranked in the top half of the THE Impact Rankings. Universities in this band are strong candidates for AACSB, BGA and EQUIS accreditation evidence. Target your Biosphere SDGs (6, 7, 13, 14, 15) — these are the biggest evidence gap globally.',
+    color:'#22c55e' };
+  if (score <= 85) return { cls:'band-elite', label:'71–85: High performer', title:'High Performer', shortLabel:'High performer',
+    desc:'Your university is a high performer and is likely ranked in the top 200 of THE Impact Rankings. You have strong accreditation evidence across all three frameworks. Focus on open data publishing, international SDG co-authorship and carbon neutrality commitment to push into the elite tier.',
+    color:'#3b82f6' };
+  return { cls:'band-elite', label:'86–100: Elite', title:'Elite Tier', shortLabel:'Elite',
+    desc:'Your university is performing at elite level — comparable to the top 50 globally in THE Impact Rankings. Your SDG evidence is comprehensive across all frameworks. Focus on SDG 17 open data, international co-authorship and becoming a sector leader by publishing your methodology.',
+    color:'#8b5cf6' };
+}
+
+function updateRankBand() {
+  const the = getTHEScore();
+  const band = getRankBand(the.score);
+  const el = document.getElementById('rankBandDisplay');
+  if (!el) return;
+  el.innerHTML = `<div class="rank-band ${band.cls}">
+    <div class="rank-band-header">
+      <span class="rank-badge">${band.label}</span>
+      <span class="rank-title">${band.title}</span>
+    </div>
+    <div class="rank-desc">${band.desc}</div>
+  </div>`;
+  const navBand = document.getElementById('navBand');
+  if (navBand) { navBand.textContent = band.shortLabel; navBand.style.background = band.color + '33'; navBand.style.color = band.color; }
+}
+
+function getAACSSBVerdict(pct) {
+  if (pct === 0) return 'No evidence collected yet. AACSB Standard 9 requires a documented Societal Impact plan with measurable outcomes. Start by identifying 3 SDGs as your focus areas.';
+  if (pct < 25) return 'Early-stage evidence. You need a formal Societal Impact Plan approved by your dean. Identify your SDG focus areas and begin documenting baselines. AACSB peer reviewers look for intentionality — even small programmes count if they are measured.';
+  if (pct < 50) return 'Developing evidence portfolio. You have some programmes in place but need stronger measurement and published outcomes. Focus on data — AACSB rewards schools that can demonstrate impact with numbers, not just activities.';
+  if (pct < 75) return 'Strong evidence portfolio. You are well-positioned for AACSB Standard 9. Ensure all initiatives have published outcome data and are linked to your school mission. Consider an annual Societal Impact Report.';
+  return 'Comprehensive evidence. Your AACSB Standard 9 portfolio is strong. Focus on longitudinal data — showing improvement over 5+ years — and cross-SDG integration to demonstrate systemic impact.';
+}
+
+function getBGAVerdict(score) {
+  if (score === 0) return 'No CIM metrics collected. BGA requires schools to choose a minimum of 3 SDGs as commitment areas and report on at least 10 measurable impact metrics. Start by choosing your 3 SDGs and defining one metric per indicator.';
+  if (score < 3) return 'Early CIM stage. You need to choose 3 SDGs and define measurable metrics for each. BGA awards Bronze, Silver and Gold impact ratings — Bronze is achievable quickly with basic data on 3 SDGs.';
+  if (score < 6) return 'Developing CIM portfolio. You are on track for BGA Bronze or Silver impact rating. Focus on publishing annual data for your chosen SDGs and engaging your student community in SDG projects.';
+  if (score < 9) return 'Strong CIM portfolio. You are well-positioned for BGA Silver or Gold impact rating. Ensure your metrics are externally verified and your SDG commitment is embedded in your institutional strategy.';
+  return 'Comprehensive CIM portfolio. You are positioned for BGA Gold impact rating. Your SDG commitment is systemic and measurable. Consider becoming a BGA SDG Champion School.';
+}
+
+function getEQUISVerdict(pct) {
+  if (pct === 0) return 'No ERS evidence collected. EQUIS Chapter 9 (Ethics, Responsibility & Sustainability) has been mandatory since 2013. Start with publishing an ethics policy, a gender equity statement and a sustainability report.';
+  if (pct < 25) return 'Early ERS stage. EQUIS peer reviewers will look for evidence that ERS is embedded in your institutional strategy — not just a standalone activity. Publish an ethics policy and a sustainability report as immediate priorities.';
+  if (pct < 50) return 'Developing ERS evidence. You have some ERS foundations. EQUIS requires ERS to be visible across ALL 10 assessment chapters — not just Chapter 9. Ensure gender equity, governance and environmental practices are documented across your submission.';
+  if (pct < 75) return 'Strong ERS evidence. You are well-positioned for EQUIS. Ensure your ERS evidence is cross-referenced throughout your submission document — governance, faculty, programmes, research and corporate connections should all reflect ERS values.';
+  return 'Comprehensive ERS evidence. Your EQUIS ERS portfolio is strong. Focus on international ERS benchmarking and publishing your sustainability methodology as sector best practice.';
+}
+
 function buildReport() {
   const the = getTHEScore();
   const aacsb = getAACSSBScore();
@@ -1235,89 +1407,231 @@ function buildReport() {
   const acts = countChecked();
   const matLabel = MATURITY_LABELS[maturity];
   const modeLabel = mode === 'online' ? 'Online / Distance' : mode === 'campus' ? 'Campus / Regular' : 'Blended / Both';
+  const band = getRankBand(the.score);
+  const now = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
 
-  // Gaps: find indicators not checked sorted by impact
+  // Gaps sorted by impact
   let gaps = [];
   SDG_META.forEach(sdg => {
     sdg.indicators.forEach(ind => {
       const key = sdg.n + '_' + ind.ref;
-      if (!checked[key]) {
-        gaps.push({ sdgN: sdg.n, sdgName: sdg.name, hex: sdg.hex, ...ind, key });
-      }
+      if (!checked[key]) gaps.push({ sdgN:sdg.n, sdgName:sdg.name, hex:sdg.hex, ...ind, key,
+        totalImpact: ind.pts + ind.aacsb*4 + ind.bga*4 + ind.equis*4,
+        tip: mode==='campus' ? ind.campus : (mode==='online' ? ind.online : ind.action)
+      });
     });
   });
-  gaps.sort((a,b) => (b.pts + b.aacsb*3 + b.bga*3 + b.equis*3) - (a.pts + a.aacsb*3 + a.bga*3 + a.equis*3));
-  const top10 = gaps.slice(0, 10);
+  gaps.sort((a,b) => b.totalImpact - a.totalImpact);
+
+  // Strongest SDGs
+  const sdgScores = SDG_META.map(s => ({ ...s, sc: getSDGScore(s.n) })).sort((a,b) => b.sc.pct - a.sc.pct);
+  const strongest = sdgScores.filter(s => s.sc.pct > 0).slice(0,3);
+  const weakest = sdgScores.filter(s => s.sc.pct < 100).slice(-5).reverse();
+  const notStarted = sdgScores.filter(s => s.sc.pct === 0);
+
+  // Biosphere gap check
+  const biosphereSDGs = [6,7,13,14,15];
+  const biosphereDone = biosphereSDGs.filter(n => getSDGScore(n).pct > 0).length;
+
+  // THE formula explanation
+  const sdg17sc = getSDGScore(17);
+  const top3 = sdgScores.filter(s => !s.mandatory && s.sc.pct > 0).slice(0,3);
 
   let html = `
-    <div class="report-header">
-      <div>
-        <div class="report-title">SDG Readiness Report — <span>${modeLabel}</span></div>
-        <div class="report-meta">Stage: ${matLabel} · Generated: ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div>
-      </div>
-      <div class="report-scores">
-        <div class="rep-score"><span class="rep-score-val">${the.score}</span><span class="rep-score-lbl">THE score</span></div>
-        <div class="rep-score"><span class="rep-score-val">${aacsb}%</span><span class="rep-score-lbl">AACSB Std 9</span></div>
-        <div class="rep-score"><span class="rep-score-val">${bga}/10</span><span class="rep-score-lbl">BGA CIM</span></div>
-        <div class="rep-score"><span class="rep-score-val">${equis}%</span><span class="rep-score-lbl">EQUIS ERS</span></div>
-      </div>
-    </div>`;
+  <!-- REPORT HEADER -->
+  <div class="report-header">
+    <div>
+      <div class="report-title">SDG Readiness Report — <span>${modeLabel}</span></div>
+      <div class="report-meta">Stage: ${matLabel} &nbsp;·&nbsp; Generated: ${now} &nbsp;·&nbsp; ${acts} actions checked across ${sdgs} SDGs</div>
+    </div>
+    <div class="report-scores">
+      <div class="rep-score"><span class="rep-score-val">${the.score}</span><span class="rep-score-lbl">THE score /100</span></div>
+      <div class="rep-score"><span class="rep-score-val">${aacsb}%</span><span class="rep-score-lbl">AACSB Std 9</span></div>
+      <div class="rep-score"><span class="rep-score-val">${bga}/10</span><span class="rep-score-lbl">BGA CIM</span></div>
+      <div class="rep-score"><span class="rep-score-val">${equis}%</span><span class="rep-score-lbl">EQUIS ERS</span></div>
+    </div>
+  </div>
 
-  // Priority actions
-  html += `<div class="priority-section">
-    <div class="priority-title">Top 10 highest-impact actions you haven’t taken yet</div>
-    <div class="priority-list">`;
-  top10.forEach((gap, i) => {
-    const totalVal = gap.pts + gap.aacsb * 3 + gap.bga * 3 + gap.equis * 3;
-    const tip = mode === 'campus' ? gap.campus : (mode === 'online' ? gap.online : gap.action);
-    html += `
+  <!-- THE OFFICIAL LINK -->
+  <div style="background:var(--blue-lt);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <div style="font-size:13px;color:var(--blue);flex:1;line-height:1.6">
+      <strong>This tool measures readiness against the methodology — not against other universities.</strong>
+      Once you have submitted to THE Impact Rankings, compare your official global score and rank position at the official portal.
+    </div>
+    <a href="https://www.timeshighereducation.com/rankings/impact" target="_blank"
+       style="padding:7px 16px;background:var(--blue);color:#fff;border-radius:var(--radius-sm);font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0">
+      THE official rankings →
+    </a>
+  </div>
+
+  <!-- RANKING BAND -->
+  <div class="rep-section">
+    <div class="rep-section-title">Where you stand globally</div>
+    <div class="rank-band ${band.cls}">
+      <div class="rank-band-header">
+        <span class="rank-badge">${band.label}</span>
+        <span class="rank-title">${band.title}</span>
+      </div>
+      <div class="rank-desc">${band.desc}</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-head" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="insight-icon" style="background:#fef3c7">📊</div>
+        <div class="insight-title">How your THE score is calculated</div>
+      </div>
+      <div class="insight-body">
+        Your THE Impact Ranking score is built from <strong>SDG 17 (mandatory, 22% weight)</strong> plus your <strong>best 3 other SDGs (26% each)</strong>.
+        Currently: SDG 17 = <strong>${sdg17sc.pct}%</strong>${top3.length > 0 ? ' · Best 3: ' + top3.map(s=>'SDG '+s.n+' ('+s.sc.pct+'%)').join(', ') : ' · No other SDGs assessed yet'}.
+        ${sdg17sc.pct === 0 ? '<br><br><strong style="color:var(--coral)">⚑ Critical: SDG 17 is mandatory. Without SDG 17 data you cannot appear in the THE Impact Rankings overall table.</strong>' : ''}
+        ${sdgs < 4 ? '<br><br><strong style="color:var(--coral)">⚑ You need data on at least 4 SDGs (SDG 17 + 3 others) to appear in the overall ranking.</strong>' : ''}
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCREDITATION READINESS -->
+  <div class="rep-section">
+    <div class="rep-section-title">Accreditation readiness</div>
+    <div class="acc-readiness-grid">
+      <div class="acc-readiness-card aacsb">
+        <div class="acc-readiness-title">AACSB Standard 9</div>
+        <div class="acc-readiness-score">${aacsb}%</div>
+        <div class="acc-readiness-verdict">${getAACSSBVerdict(aacsb)}</div>
+      </div>
+      <div class="acc-readiness-card bga">
+        <div class="acc-readiness-title">BGA / CIM metrics</div>
+        <div class="acc-readiness-score">${bga} / 10</div>
+        <div class="acc-readiness-verdict">${getBGAVerdict(bga)}</div>
+      </div>
+      <div class="acc-readiness-card equis">
+        <div class="acc-readiness-title">EQUIS ERS Chapter 9</div>
+        <div class="acc-readiness-score">${equis}%</div>
+        <div class="acc-readiness-verdict">${getEQUISVerdict(equis)}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY INSIGHTS -->
+  <div class="rep-section">
+    <div class="rep-section-title">Key insights for your institution</div>
+    ${biosphereDone < 3 ? `<div class="insight-card">
+      <div class="insight-head" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="insight-icon" style="background:#dcfce7">🌿</div>
+        <div class="insight-title">Biosphere SDG gap — your biggest opportunity</div>
+      </div>
+      <div class="insight-body">
+        Only <strong>${biosphereDone} of 5 Biosphere SDGs</strong> (SDGs 6, 7, 13, 14, 15) have any data. Global research shows these are the most under-reported SDGs across all universities — meaning <strong>even basic action here will differentiate your institution significantly</strong> in both THE rankings and accreditation evidence. Start with SDG 13 (Climate Action) — a published Climate Action Plan and a declared carbon neutrality target year costs nothing and immediately signals leadership.
+      </div>
+      <div class="insight-tags"><span class="insight-tag">SDG 6</span><span class="insight-tag">SDG 7</span><span class="insight-tag">SDG 13</span><span class="insight-tag">SDG 14</span><span class="insight-tag">SDG 15</span><span class="insight-tag">High opportunity</span></div>
+    </div>` : ''}
+    ${strongest.length > 0 ? `<div class="insight-card">
+      <div class="insight-head" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="insight-icon" style="background:#dbeafe">💪</div>
+        <div class="insight-title">Your strongest SDGs — build on these first</div>
+      </div>
+      <div class="insight-body">
+        Your highest-scoring SDGs are <strong>${strongest.map(s=>'SDG '+s.n+' '+s.name+' ('+s.sc.pct+'%)').join(', ')}</strong>. These are the SDGs that will count most in your THE ranking calculation. Push each one above <strong>80%</strong> to maximise their 26% weighting in your overall score. Even a 10% improvement in each of your top 3 SDGs adds approximately <strong>${Math.round(10*0.26*3)} points</strong> to your THE total score.
+      </div>
+    </div>` : ''}
+    ${notStarted.length > 0 && notStarted.length <= 10 ? `<div class="insight-card">
+      <div class="insight-head" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="insight-icon" style="background:#fee2e2">⚑</div>
+        <div class="insight-title">${notStarted.length} SDGs with zero data — quick wins available</div>
+      </div>
+      <div class="insight-body">
+        <strong>${notStarted.map(s=>'SDG '+s.n).join(', ')}</strong> have no data yet. Many indicators in these SDGs require only a <strong>published policy document</strong> — not a physical programme. For example, publishing an academic freedom policy (SDG 16), a water reuse policy (SDG 6), or a gender pay gap statement (SDG 5) each scores points immediately with zero budget required.
+      </div>
+      <div class="insight-tags"><span class="insight-tag">Quick wins</span><span class="insight-tag">Policy-based</span><span class="insight-tag">Zero budget</span></div>
+    </div>` : ''}
+    <div class="insight-card">
+      <div class="insight-head" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="insight-icon" style="background:#f3e8ff">📋</div>
+        <div class="insight-title">The single most valuable action you can take right now</div>
+      </div>
+      <div class="insight-body">
+        Publish an <strong>Annual SDG Progress Report covering all 17 goals</strong>. This single action scores <strong>36.2 points</strong> in SDG 17 (your mandatory SDG), satisfies AACSB Standard 9 evidence requirements, counts as a BGA CIM metric, and directly evidences EQUIS ERS Chapter 9. It is the highest-value, lowest-cost action available to any university regardless of stage or mode of delivery.
+      </div>
+      <div class="insight-tags"><span class="insight-tag">SDG 17.5.1</span><span class="insight-tag">+36.2 THE pts</span><span class="insight-tag">AACSB ★★★</span><span class="insight-tag">BGA ★★★</span><span class="insight-tag">EQUIS ★★★</span></div>
+    </div>
+  </div>
+
+  <!-- PRIORITY ACTION ROADMAP -->
+  <div class="rep-section">
+    <div class="rep-section-title">Your personalised action roadmap</div>
+    <div class="insight-card">
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-title"><span class="phase-num">1</span>Immediate (Month 1–3) — Policy actions, zero budget</div>
+        <div class="roadmap-items">
+          ${gaps.filter(g => g.pts >= 9 && (g.action.toLowerCase().includes('policy') || g.action.toLowerCase().includes('publish') || g.action.toLowerCase().includes('develop'))).slice(0,4).map(g =>
+            `<div class="roadmap-item"><strong>SDG ${g.sdgN} · ${g.name}</strong> — ${g.tip} <span style="color:var(--teal);font-weight:600">+${g.pts} THE pts</span></div>`
+          ).join('') || '<div class="roadmap-item">All high-priority policy actions are complete. Move to Phase 2.</div>'}
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-title"><span class="phase-num">2</span>Short-term (Month 3–12) — Programme and data collection</div>
+        <div class="roadmap-items">
+          ${gaps.filter(g => g.pts >= 9 && !g.action.toLowerCase().includes('policy')).slice(0,4).map(g =>
+            `<div class="roadmap-item"><strong>SDG ${g.sdgN} · ${g.name}</strong> — ${g.tip} <span style="color:var(--teal);font-weight:600">+${g.pts} THE pts</span></div>`
+          ).join('') || '<div class="roadmap-item">All short-term programme actions are complete. Move to Phase 3.</div>'}
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-phase-title"><span class="phase-num">3</span>Medium-term (Year 1–2) — Infrastructure and systems</div>
+        <div class="roadmap-items">
+          ${gaps.filter(g => g.pts < 9).slice(0,4).map(g =>
+            `<div class="roadmap-item"><strong>SDG ${g.sdgN} · ${g.name}</strong> — ${g.tip} <span style="color:var(--teal);font-weight:600">+${g.pts} THE pts</span></div>`
+          ).join('') || '<div class="roadmap-item">All infrastructure actions are complete. Focus on deepening existing programmes.</div>'}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP 10 GAPS -->
+  <div class="rep-section">
+    <div class="rep-section-title">Top 10 highest-impact unchecked actions</div>
+    <div class="priority-list">
+      ${gaps.slice(0,10).map((gap,i) => `
       <div class="priority-item">
         <div class="priority-rank">${i+1}</div>
         <div class="priority-body">
           <div class="priority-name" style="display:flex;align-items:center;gap:8px">
             <span style="width:10px;height:10px;border-radius:50%;background:${gap.hex};display:inline-block;flex-shrink:0"></span>
-            SDG ${gap.sdgN} · ${gap.name}
+            SDG ${gap.sdgN} — ${gap.sdgName} &nbsp;<span style="font-size:10px;color:var(--ink3);font-weight:400">Indicator ${gap.ref}</span>
           </div>
-          <div class="priority-reason">${tip}</div>
-          <div class="priority-gain">+${gap.pts} THE pts · AACSB ${'★'.repeat(gap.aacsb)} · BGA ${'★'.repeat(gap.bga)} · EQUIS ${'★'.repeat(gap.equis)}</div>
+          <div class="priority-reason" style="font-weight:600;color:var(--ink);margin:3px 0">${gap.name}</div>
+          <div class="priority-reason">${gap.tip}</div>
+          <div class="priority-gain">+${gap.pts} THE pts &nbsp;·&nbsp; AACSB ${'★'.repeat(gap.aacsb)}${'☆'.repeat(3-gap.aacsb)} &nbsp;·&nbsp; BGA ${'★'.repeat(gap.bga)}${'☆'.repeat(3-gap.bga)} &nbsp;·&nbsp; EQUIS ${'★'.repeat(gap.equis)}${'☆'.repeat(3-gap.equis)}</div>
         </div>
-      </div>`;
-  });
-  html += '</div></div>';
+      </div>`).join('')}
+    </div>
+  </div>
 
-  // Per-SDG breakdown
-  html += '<div class="report-grid">';
-  SDG_META.forEach(sdg => {
-    const sc = getSDGScore(sdg.n);
-    const unchecked = sdg.indicators.filter(ind => !checked[sdg.n + '_' + ind.ref]);
-    const aMax = sdg.indicators.reduce((a,i)=>a+i.aacsb,0);
-    const aDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.aacsb,0);
-    const bMax = sdg.indicators.length * 2;
-    const bDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.bga,0);
-    const eMax = sdg.indicators.reduce((a,i)=>a+i.equis,0);
-    const eDone = sdg.indicators.filter(i=>checked[sdg.n+'_'+i.ref]).reduce((a,i)=>a+i.equis,0);
+  <!-- SDG SNAPSHOT -->
+  <div class="rep-section">
+    <div class="rep-section-title">SDG progress snapshot</div>
+    <div class="insight-card">
+      ${SDG_META.map(sdg => {
+        const sc = getSDGScore(sdg.n);
+        const statusTxt = sc.pct===100 ? '<span style="color:var(--green);font-weight:600">Complete</span>' : sc.pct>0 ? `<span style="color:#d97706;font-weight:600">${sc.pct}%</span>` : '<span style="color:var(--ink3)">Not started</span>';
+        return `<div class="sdg-quick-row">
+          <div class="sdg-quick-dot" style="background:${sdg.hex}"></div>
+          <div class="sdg-quick-name">SDG ${sdg.n} — ${sdg.name}${sdg.mandatory?' <span style="font-size:10px;color:'+sdg.hex+'">★ Mandatory</span>':''}</div>
+          <div class="sdg-quick-bar"><div class="sdg-quick-fill" style="width:${sc.pct}%;background:${sdg.hex}"></div></div>
+          <div class="sdg-quick-pct">${sc.pct}%</div>
+          <div class="sdg-quick-status">${statusTxt}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
 
-    html += `
-      <div class="rep-card">
-        <div class="rep-card-head">
-          <div class="rep-sdg-dot" style="background:${sdg.hex}"></div>
-          <div class="rep-card-title">SDG ${sdg.n} — ${sdg.name} ${sdg.mandatory?'<span style="color:'+sdg.hex+';font-size:10px">★ Mandatory</span>':''}</div>
-        </div>
-        <div class="rep-bar-row"><span class="rep-bar-label">THE</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${sc.pct}%;background:${sdg.hex}"></div></div><span class="rep-bar-val">${sc.pct}%</span></div>
-        <div class="rep-bar-row"><span class="rep-bar-label">AACSB</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${aMax?Math.round(aDone/aMax*100):0}%;background:#00205b"></div></div><span class="rep-bar-val">${aMax?Math.round(aDone/aMax*100):0}%</span></div>
-        <div class="rep-bar-row"><span class="rep-bar-label">BGA</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${bMax?Math.round(bDone/bMax*100):0}%;background:#7b2d8b"></div></div><span class="rep-bar-val">${bMax?Math.round(bDone/bMax*100):0}%</span></div>
-        <div class="rep-bar-row"><span class="rep-bar-label">EQUIS</span><div class="rep-bar-track"><div class="rep-bar-fill" style="width:${eMax?Math.round(eDone/eMax*100):0}%;background:#006e51"></div></div><span class="rep-bar-val">${eMax?Math.round(eDone/eMax*100):0}%</span></div>
-        ${unchecked.length > 0 ? '<div class="gap-list">' + unchecked.slice(0,3).map(i=>'<div class="gap-item">'+i.name+'</div>').join('') + (unchecked.length>3?'<div class="gap-item" style="color:var(--ink3)">+'+(unchecked.length-3)+' more</div>':'') + '</div>' : '<div style="font-size:11px;color:var(--green);margin-top:8px;font-weight:600">✓ All indicators checked</div>'}
-      </div>`;
-  });
-  html += '</div>';
-
-  html += `<div class="footnote">
-    Scores are estimates based on the THE Impact Rankings 2024 published methodology, AACSB 2020 Business Accreditation Standards, BGA Continuous Impact Model criteria, and EQUIS published accreditation criteria. This tool is for self-assessment and planning purposes. It does not constitute official ranking or accreditation scores. All content is original and copyright-free for educational use. Created using publicly available information from THE, AACSB, AMBA-BGA and EFMD.
+  <div class="footnote">
+    <strong style="color:var(--ink2)">Methodology version:</strong> This tool is calibrated to THE Impact Rankings 2024/25 published methodology, AACSB 2020 Business Accreditation Standards, BGA Continuous Impact Model, and EQUIS published accreditation criteria. Indicator weightings are reviewed annually — this version was last updated March 2026.<br><br>
+    <strong style="color:var(--ink2)">Important:</strong> This tool measures your readiness against the <em>methodology</em> — not against other universities. Your score here reflects how well your institution addresses each indicator, not your final global rank position. Once you have submitted to THE Impact Rankings, compare your official score and global position at <strong>timeshighereducation.com/rankings/impact</strong><br><br>
+    This tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores. All content is original and copyright-free for educational use.
   </div>`;
 
   document.getElementById('reportContent').innerHTML = html;
 }
+
 
 // ═══════════════════════════════════════════════════════════
 // INIT
