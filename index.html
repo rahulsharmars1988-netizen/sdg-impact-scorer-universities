@@ -405,12 +405,31 @@ nav {
     <button class="nav-pill" onclick="showSection('report')">My Report</button>
   </div>
   <div class="nav-score" id="navScoreWrap">THE Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span> &nbsp;<span id="navBand" style="font-size:11px;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.1);color:#fff"></span></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:16px">
+    <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" title="LinkedIn" style="display:flex;align-items:center;gap:5px;text-decoration:none;color:rgba(255,255,255,0.6);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#c9922a'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      <span style="display:none" class="nav-link-label">LinkedIn</span>
+    </a>
+    <a href="mailto:rahulsharma.rs1988@gmail.com" title="Email" style="display:flex;align-items:center;gap:5px;text-decoration:none;color:rgba(255,255,255,0.6);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#c9922a'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+    </a>
+  </div>
+</div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">World-first SDG scoring tool for universities</div>
   <h1>Your SDG Journey.<br><em>Scored. Ranked. Actionable.</em></h1>
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+    <span style="font-size:12px;color:rgba(255,255,255,0.4)">Created by</span>
+    <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="font-size:13px;font-weight:600;color:#c9922a;text-decoration:none;display:flex;align-items:center;gap:5px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      Rahul Sharma
+    </a>
+    <span style="color:rgba(255,255,255,0.2)">|</span>
+    <a href="mailto:rahulsharma.rs1988@gmail.com" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">rahulsharma.rs1988@gmail.com</a>
+  </div>
   <div class="hero-sub">Self-assess each of the 17 UN SDGs individually. Instantly see your THE Impact Ranking score potential, AACSB Standard 9 evidence strength, BGA CIM metrics, and EQUIS ERS readiness — for online or campus education.</div>
   <div class="mode-toggle">
     <button class="mode-btn on" id="modeOnline" onclick="setMode('online')">Online / Distance</button>
@@ -488,7 +507,8 @@ nav {
     </div>
     <div class="sdg-grid" id="sdgGrid"></div>
     <div class="footnote">
-      THE Impact Rankings scores are estimates based on publicly available 2024 methodology. AACSB / BGA / EQUIS indicators are derived from published accreditation criteria. This tool is for self-assessment and planning purposes only — it does not constitute official scores. All content is original and copyright-free for educational use.
+      THE Impact Rankings scores are estimates based on publicly available 2024/25 methodology. AACSB / BGA / EQUIS indicators are derived from published accreditation criteria. This tool is for self-assessment and planning purposes only — it does not constitute official scores.<br>
+      &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 &mdash; free for educational use with attribution.<br><a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:rahulsharma.rs1988@gmail.com" style="color:var(--blue);text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
     </div>
   </div>
 </div>
@@ -1626,7 +1646,10 @@ function buildReport() {
   <div class="footnote">
     <strong style="color:var(--ink2)">Methodology version:</strong> This tool is calibrated to THE Impact Rankings 2024/25 published methodology, AACSB 2020 Business Accreditation Standards, BGA Continuous Impact Model, and EQUIS published accreditation criteria. Indicator weightings are reviewed annually — this version was last updated March 2026.<br><br>
     <strong style="color:var(--ink2)">Important:</strong> This tool measures your readiness against the <em>methodology</em> — not against other universities. Your score here reflects how well your institution addresses each indicator, not your final global rank position. Once you have submitted to THE Impact Rankings, compare your official score and global position at <strong>timeshighereducation.com/rankings/impact</strong><br><br>
-    This tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores. All content is original and copyright-free for educational use.
+    This tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores. &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 &mdash; free for educational use with attribution.
+  
+    &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 &mdash; free for educational use with attribution.<br>
+    <strong style="color:var(--ink2)">Contact:</strong>&nbsp;<a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500">LinkedIn &mdash; Rahul Sharma</a>&nbsp;|&nbsp;<a href="mailto:rahulsharma.rs1988@gmail.com" style="color:var(--blue);text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
   </div>`;
 
   document.getElementById('reportContent').innerHTML = html;
