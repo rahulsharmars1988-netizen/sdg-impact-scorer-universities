@@ -1,44 +1,66 @@
-# sdg-impact-scorer-universities
-Interactive SDG Impact Scorer for universities — self-assess all 17 UN Sustainable Development Goals individually, mapped to THE Impact Rankings, AACSB Standard 9, BGA CIM &amp; EQUIS ERS accreditation criteria. Covers online &amp; campus education. Real-time scoring, gap analysis &amp; readiness report.
+# UniRank360 — University Rankings & Accreditation Intelligence Platform
 
-## 🌍 Live Tool
+> **The world's only free tool** covering 8 major ranking and accreditation frameworks simultaneously — with live scoring, AI-generated analysis and branded PDF reports.
 
-👉 [Open the SDG Impact Scorer](https://rahulsharmars1988-netizen.github.io/sdg-impact-scorer-universities)
-
----
-
-## What This Tool Does
-
-An interactive, free self-assessment tool for universities worldwide to:
-
-- Self-assess all 17 UN Sustainable Development Goals individually
-- See real-time THE Impact Ranking score potential
-- Track AACSB Standard 9 evidence strength
-- Monitor BGA Continuous Impact Model (CIM) metrics
-- Measure EQUIS Ethics, Responsibility & Sustainability (ERS) readiness
-- Get a personalised gap analysis and priority action roadmap
-- Works for both **online/distance** and **campus/regular** universities
-- Supports universities at every stage — from just starting to Top 200
+🌐 **Live Tool:** https://rahulsharmars1988-netizen.github.io/unirank360
 
 ---
 
-## About the Creator
+## What is UniRank360?
 
-Created by **Rahul Sharma** — March 2026
-
-Original work. Released to the public domain under CC0 1.0 license.
-
-Built to bridge the gap between UN SDG implementation and university 
-ranking/accreditation frameworks worldwide.
-
-Proof of creation: GitHub commit history dated March 2026.
+UniRank360 is a free self-assessment platform that allows universities, colleges and higher education institutions to measure their readiness across 8 international ranking and accreditation frameworks in one place — with real input fields, exact formulas, and live calculated scores.
 
 ---
 
-## Data Sources
+## Frameworks Covered
 
-- THE Impact Rankings 2024 published methodology
-- AACSB 2020 Business Accreditation Standards
-- BGA/AMBA Continuous Impact Model criteria
-- EQUIS published accreditation criteria
-- UN Sustainable Development Goals (sdgs.un.org)
+| Framework | Coverage | Score |
+|---|---|---|
+| **THE Impact Rankings** | All 17 UN SDGs, 100+ indicators | /100 |
+| **QS Sustainability Rankings** | 52 indicators across 9 lenses | % readiness |
+| **QS I-GAUGE** | 6 categories, Bronze → Platinum | /900 |
+| **NIRF India Rankings 2025** | 14 categories, 5 parameters | /100 |
+| **NBA Accreditation** | GAPC V4.0, 9 criteria | /1000 |
+| **AACSB Standard 9** | Societal Impact & Engagement | % portfolio |
+| **BGA / AMBA CIM** | Continuous Impact Model | /10 metrics |
+| **EQUIS / EFMD ERS** | Ethics, Responsibility & Sustainability | % readiness |
+
+---
+
+## Key Features
+
+- **Real calculators** — not tick boxes. Enter actual data (SFR, PhD %, publications, funding) and get exact scores using the official published formulas
+- **AI-generated analysis** — powered by Claude, generates a 7-section institutional report including Executive Summary, Critical Gaps, Quick Wins and 12-month Strategic Roadmap
+- **PDF download** — branded multi-page PDF report with all scores, SDG performance bars, AI analysis and full disclaimer/attribution
+- **Online & campus modes** — guidance tailored to your delivery model
+- **Combined report** — all 8 frameworks on one page for comparison and planning
+
+---
+
+## How to Use
+
+1. Open the [Live Tool](https://rahulsharmars1988-netizen.github.io/unirank360)
+2. Select your tab (THE / SDGs, QS Sustainability, QS I-GAUGE, NIRF, NBA)
+3. Enter your institutional data in the input fields
+4. Watch scores calculate live
+5. Click **My Report** → **Generate AI Analysis** → **Download PDF Report**
+
+---
+
+## Creator
+
+**Rahul Sharma**
+- 🔗 [LinkedIn](https://www.linkedin.com/in/rahul-sharma-7b119a33/)
+- 📧 rahulsharma.rs1988@gmail.com
+
+---
+
+## License
+
+**CC BY-NC 4.0** — Free for educational use with attribution. Not for commercial redistribution.
+
+Scores are self-assessed readiness estimates. This tool does not constitute official ranking or accreditation scores. For official rankings, institutions must submit directly to THE, QS, NIRF, NBA, AACSB, BGA or EQUIS through their respective portals.
+
+---
+
+*Calibrated to THE Impact Rankings 2024/25 · QS Sustainability 2024 · QS I-GAUGE v2.1 · NIRF 2025 · NBA GAPC V4.0 (July 2024) · AACSB 2020 Standards · BGA CIM · EQUIS published criteria. Last updated March 2026.*
