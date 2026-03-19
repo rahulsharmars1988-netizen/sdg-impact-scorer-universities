@@ -5745,6 +5745,8 @@ if (!panel || !body) return;
 panel.style.display = 'block';
 body.innerHTML = '<div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analysing your institutional scores across all frameworks...</span></div>';
 panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+await new Promise(r => setTimeout(r, 900));
+const inst = getInstProfile();
 const the = _pacgpos99();
 const aacsb = _ofpvaus53();
 const bga = _hftcjji43();
@@ -5754,79 +5756,117 @@ const ig = getIGTotals();
 const nirf = _trskrjx67();
 const nba = _dyomuue22();
 const band = _lggogpx61(the.score);
-const sdgScores = SDG_META.map(s => {
-const sc = _qahftrx21(s.n);
-return `SDG ${s.n} (${s.name}): ${sc.pct}% of indicators addressed`;
-}).join('\n');
-const inst = getInstProfile();
-const instHeader = inst.name ? `Institution: ${inst.name}${inst.city ? ', ' + inst.city : ''}${inst.type ? ' (' + inst.type + ')' : ''}${inst.naac ? ' | NAAC: ' + inst.naac : ''}` : 'Institution: Not specified';
-const prompt = `You are an expert university ranking and accreditation consultant. Analyse the following self-assessed scores and provide a comprehensive, actionable institutional report.
-${instHeader}
-INSTITUTION SCORES (UniRank360 Self-Assessment):
-THE Impact Rankings: ${the.score}/100 (Band: ${band.label})
-- SDG 17 score: ${_qahftrx21(17).pct}% (MANDATORY — 22% weight)
-- Best performing SDG areas assessed
-QS Sustainability Rankings: ${qs.overall}% readiness
-- Environmental: ${qs.env}% | Social: ${qs.soc}% | Governance: ${qs.gov}%
-QS I-GAUGE: ${ig.rating} rating (${ig.total}/900 points)
-NIRF India Rankings: ${nirf.overall}/100 (Category: ${nirf.cat})
-- TLR: ${nirf.tlr}/100 | RP: ${nirf.rp}/100 | GO: ${nirf.go}/100 | OI: ${nirf.oi}/100
-NBA Accreditation: ${nba.total}/1000 (${nba.band})
-AACSB Standard 9: ${aacsb}% evidence portfolio
-BGA/AMBA CIM: ${bga}/10 metrics
-EQUIS/EFMD ERS: ${equis}% readiness
-SDG BREAKDOWN:
-${sdgScores}
-Please provide a structured report with these exact sections:
-1. EXECUTIVE SUMMARY (3-4 sentences — overall institutional positioning)
-2. STRONGEST AREAS (what this institution does well across frameworks)
-3. CRITICAL GAPS (the 3-5 most important gaps that are holding back scores)
-4. QUICK WINS (5 specific actions achievable within 3 months that would improve scores most)
-5. STRATEGIC ROADMAP (12-month plan with quarterly milestones)
-6. FRAMEWORK-SPECIFIC INSIGHTS (one paragraph each for THE, QS, NIRF, NBA, Accreditations)
-7. COMPETITIVE BENCHMARKING (where this institution likely sits nationally and how to close the gap)
-Write in professional but accessible language. Be specific, not generic. Reference actual scores and specific indicators where relevant. Keep each section concise but substantive.`;
-try {
-const response = await fetch('https://api.anthropic.com/v1/messages', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({
-model: 'claude-sonnet-4-20250514',
-max_tokens: 1000,
-messages: [{ role: 'user', content: prompt }]
-})
-});
-const data = await response.json();
-if (data.error) throw new Error(data.error.message);
-const text = data.content.map(b => b.text || '').join('');
-const sections = text.split(/\n(?=\d\.\s+[A-Z])/);
-let html = '';
-sections.forEach(sec => {
-const lines = sec.trim().split('\n');
-const heading = lines[0].replace(/^\d+\.\s+/, '');
-const body = lines.slice(1).join('\n').trim();
-if (!heading || !body) return;
-const icons = {
-'EXECUTIVE SUMMARY': '📋',
-'STRONGEST AREAS': '💪',
-'CRITICAL GAPS': '⚠️',
-'QUICK WINS': '⚡',
-'STRATEGIC ROADMAP': '🗺️',
-'FRAMEWORK-SPECIFIC INSIGHTS': '🔍',
-'COMPETITIVE BENCHMARKING': '📊',
-};
-const icon = Object.entries(icons).find(([k]) => heading.includes(k))?.[1] || '•';
+const instName = inst.name || 'Your institution';
+const overallStrength = the.score >= 70 ? 'strong' : the.score >= 45 ? 'developing' : 'early-stage';
+const rankingLeader = [
+{name:'THE Impact', score: the.score, max:100, pct: the.score},
+{name:'NIRF', score: nirf.overall, max:100, pct: nirf.overall},
+{name:'QS Sustainability', score: qs.overall, max:100, pct: qs.overall},
+].sort((a,b) => b.pct - a.pct)[0];
+const execSummary = `${instName} presents a ${overallStrength} institutional profile across 11 ranking and accreditation frameworks. The self-assessment reveals a THE Impact Rankings readiness score of ${the.score}/100 (${band.label}), a NIRF score of ${nirf.overall}/100 (${nirf.cat} category), and a QS Sustainability readiness of ${qs.overall}%. The strongest performance is in ${rankingLeader.name} at ${rankingLeader.pct}% readiness. ${nba.total >= 600 ? 'NBA accreditation appears achievable based on current data.' : 'NBA accreditation requires targeted improvements before application.'} ${aacsb >= 60 ? 'AACSB readiness is reasonable across key standards.' : 'AACSB readiness needs foundational work, particularly on Assurance of Learning.'}`;
+const allScores = [
+{name:'THE Impact Rankings', pct: the.score, detail: `${the.score}/100`},
+{name:'QS Sustainability', pct: qs.overall, detail: `${qs.overall}%`},
+{name:'QS I-GAUGE', pct: Math.round(ig.total/9), detail: ig.rating},
+{name:'NIRF', pct: nirf.overall, detail: `${nirf.overall}/100`},
+{name:'NBA', pct: Math.round(nba.total/10), detail: `${nba.total}/1000`},
+{name:'AACSB', pct: aacsb, detail: `${aacsb}%`},
+{name:'BGA/AMBA', pct: Math.round(bga/10*100), detail: `${bga}/10 metrics`},
+{name:'EQUIS/EFMD', pct: equis, detail: `${equis}%`},
+].sort((a,b) => b.pct - a.pct);
+const top3 = allScores.slice(0,3);
+const strongest = top3.map(s => `${s.name} (${s.detail})`).join(', ');
+const sdgScores = SDG_META.map(s => ({n:s.n, name:s.name, pct:_qahftrx21(s.n).pct}))
+.filter(s => s.pct > 0).sort((a,b) => b.pct - a.pct);
+const topSDGs = sdgScores.slice(0,3).map(s => `SDG ${s.n} — ${s.name} (${s.pct}%)`).join('; ');
+const oiStrong = nirf.oi >= 60;
+const researchStrong = nirf.rp >= 60;
+let strengthText = `The strongest framework performance is in ${strongest}. `;
+if (topSDGs) strengthText += `Within THE Impact Rankings, the highest SDG scores are in ${topSDGs}. `;
+if (qs.gov >= 60) strengthText += `Governance indicators within QS Sustainability are well-addressed. `;
+if (oiStrong) strengthText += `Outreach and inclusivity metrics (NIRF OI: ${nirf.oi}/100) demonstrate commitment to access and diversity. `;
+if (researchStrong) strengthText += `Research performance (NIRF RP: ${nirf.rp}/100) provides a strong foundation for rankings improvement. `;
+const gaps = [];
+if (the.score < 30) gaps.push(`THE Impact Rankings score of ${the.score}/100 is below the Foundation band threshold. SDG 17 (mandatory, 22% weight) must be prioritised immediately — current score: ${_qahftrx21(17).pct}%.`);
+else if (_qahftrx21(17).pct < 50) gaps.push(`SDG 17 is mandatory for THE rankings (22% weight) but scores only ${_qahftrx21(17).pct}%. This single gap is suppressing the overall THE score significantly.`);
+if (nirf.tlr < 40) gaps.push(`NIRF Teaching, Learning & Resources (TLR) at ${nirf.tlr}/100 is critical — Faculty-Student Ratio and Faculty PhD qualifications are likely below required thresholds.`);
+if (nba.total < 500) gaps.push(`NBA score of ${nba.total}/1000 is below the 600-point accreditation threshold. Priority criteria: Student-Faculty Ratio (C5.1), CO/PO attainment documentation (C3.7-3.8) and SDG evidence portfolio (C2.7, C3.6).`);
+if (aacsb < 40) gaps.push(`AACSB readiness at ${aacsb}% indicates foundational gaps — the Assurance of Learning system (Standards 3 and 7) and Faculty Composition AQ ratios (Standard 2) are likely the most critical deficiencies.`);
+if (qs.env < 40) gaps.push(`QS Sustainability Environmental score of ${qs.env}% is weak. Carbon emissions tracking (ES7), net-zero commitment (ES6) and renewable energy (ES8) are unaddressed.`);
+if (equis < 40) gaps.push(`EQUIS readiness at ${equis}% suggests significant gaps — ERS must be transversal across all 10 chapters, not confined to a standalone ethics module.`);
+const sdgZero = SDG_META.filter(s => _qahftrx21(s.n).pct === 0);
+if (sdgZero.length > 10) gaps.push(`${sdgZero.length} SDGs have zero evidence — this limits THE Impact Rankings eligibility. Prioritise SDGs 4, 8, 10 and 16 which are easiest to evidence quickly.`);
+if (gaps.length === 0) gaps.push('No critical gaps identified — focus on strengthening existing evidence and preparing documentation for formal submissions.');
+const gapsText = gaps.slice(0,5).map((g,i) => `${i+1}. ${g}`).join('\n');
+const quickWins = [];
+if (_qahftrx21(17).pct < 70) quickWins.push('Publish an annual SDG Progress Report covering all 17 SDGs — this alone addresses THE SDG 17 (mandatory, 22% weight), NIRF C9.11, NBA C2.7 and EQUIS Ch10 simultaneously.');
+if (!quickWins.some(q => q.includes('gender'))) quickWins.push('Set and publish a formal Gender Equity Policy with measurable targets — addresses THE SDG 5, QS EQ3/EQ4, NIRF OI (WD metric), AACSB S6 and EQUIS Ch10 ERS in one action.');
+quickWins.push('Complete and publish your institutional Strategic Plan — directly addresses AACSB S1, EQUIS Ch1, NBA C9.6.1 and NIRF governance indicators.');
+if (qs.gov < 60) quickWins.push('Formalise student representation on your highest governing body — addresses QS GG5/GG6, EQUIS Ch3, AACSB S6 and THE SDG 16.');
+quickWins.push('Document and publish Faculty Development Plans for all faculty — directly addresses AACSB S2 (Faculty Composition), EQUIS Ch4, NBA C5 and QS I-GAUGE TLP2.');
+const qwText = quickWins.slice(0,5).map((w,i) => `${i+1}. ${w}`).join('\n');
+const roadmap = `QUARTER 1 (Months 1-3) — Foundation:
+• Publish SDG Progress Report and Gender Equity Policy
+• Constitute/activate Faculty Development Plan system
+• Document Student-Faculty Ratio and submit NIRF data
+• Establish Assurance of Learning (AoL) cycle for AACSB
+• Register for NIRF ${new Date().getFullYear()} and NBA SAR preparation
+QUARTER 2 (Months 4-6) — Build:
+• Complete CO-PO mapping for all courses (NBA C1, C3)
+• Launch BGA CIM metric tracking — define all 10 metrics
+• Publish Environmental Sustainability Policy (QS ES4, THE SDG 13)
+• Set Carbon Neutrality target year (QS ES6, THE SDG 7)
+• Submit THE Impact Rankings self-assessment data
+QUARTER 3 (Months 7-9) — Strengthen:
+• Complete EQUIS Self-Assessment Report (SAR) preparation
+• Apply for AACSB Eligibility Application if not yet done
+• Launch industry advisory board with documented curriculum influence
+• Publish first Annual Sustainability/ERS Report
+• Strengthen Research output — target Scopus/WoS publications
+QUARTER 4 (Months 10-12) — Submit:
+• Complete and submit NBA SAR to nbaind.org
+• Publish NIRF data portal submission
+• Review AoL results and close the loop (AACSB S3, S7)
+• Prepare EQUIS Initial Accreditation Application
+• Publish Annual SDG Impact Report`;
+const theBand = the.score >= 86 ? 'Elite' : the.score >= 71 ? 'High Performer' : the.score >= 56 ? 'Competitive' : the.score >= 41 ? 'Established' : the.score >= 26 ? 'Developing' : 'Foundation';
+const theInsight = `THE Impact Rankings (${the.score}/100 — ${theBand}): SDG 17 partnership indicators are mandatory at 22% weight — current performance of ${_qahftrx21(17).pct}% ${_qahftrx21(17).pct >= 50 ? 'is reasonable but should target 70%+' : 'needs urgent attention'}. The best 3 non-mandatory SDGs each contribute 26%. Focus on depth in 3-4 SDGs rather than breadth across all 17.`;
+const nirfInsight = `NIRF ${nirf.cat} (${nirf.overall}/100): ${nirf.overall >= 70 ? 'Top-tier readiness' : nirf.overall >= 55 ? 'Strong performance' : 'Developing'}. Faculty-Student Ratio and Faculty Qualification Index (FQI = 2.5×[(10X+4Y)/RF]) are the most impactful self-assessable parameters. ${nirf.oi < 50 ? 'Outreach & Inclusivity needs attention — Women Diversity (WD) and ESCS metrics are fully within institutional control.' : 'Good inclusivity performance.'}`;
+const nbaInsight = `NBA GAPC V4.0 (${nba.total}/1000 — ${nba.band}): ${nba.total >= 750 ? '5-6 year accreditation likely' : nba.total >= 600 ? '2-3 year accreditation achievable' : 'Below threshold — targeted improvement needed'}. SDG evidence portfolio (C2.7, C3.6, C9.11) now explicitly required in GAPC V4.0. Budget allocation for SDGs (C9.7, C9.8) must appear as a separate line item.`;
+const accInsight = `Accreditation readiness: AACSB (${aacsb}%) ${aacsb >= 65 ? '— good foundation, close the AoL loop' : '— AoL system is the most critical gap'}. BGA/AMBA (${bga}/10 CIM metrics defined) ${bga >= 7 ? '— strong CIM portfolio' : '— complete metric definition before BAB submission'}. EQUIS/EFMD (${equis}%) ${equis >= 65 ? '— 3-year accreditation in reach; strengthen Ch5 Research and Ch8 Corporate Connections for 5-year' : '— ERS must become transversal across all 10 chapters, not just Ch10'}.`;
+let benchmarkText = '';
+if (the.score >= 70) benchmarkText = `THE score of ${the.score} places this institution in the top 200-300 globally for impact. Indian institutions in the top 100 typically score 75+.`;
+else if (the.score >= 45) benchmarkText = `THE score of ${the.score} is competitive in the 300-500 global band. Targeted SDG evidence collection could move this to top 200 within 2 years.`;
+else benchmarkText = `THE score of ${the.score} is early-stage. Most Indian universities entering the THE rankings for the first time score in this range. Consistent improvement of 10-15 points per year is achievable.`;
+if (nirf.overall >= 60) benchmarkText += ` NIRF score of ${nirf.overall} is above the national median (estimated 45-55 for most ranked institutions).`;
+else benchmarkText += ` NIRF score of ${nirf.overall} is below the national median. Improving Faculty-Student Ratio and PhD faculty % would have the highest impact.`;
+benchmarkText += ` For accreditation: ${nba.total >= 600 ? 'NBA accreditation is within reach this cycle.' : 'NBA requires focused preparation — target 600+ before applying.'} ${aacsb >= 60 ? 'AACSB eligibility appears viable — begin formal Eligibility Application.' : 'AACSB requires 2-3 years of foundational work before application.'}`;
+const sections = [
+{ icon: '📋', title: 'EXECUTIVE SUMMARY', body: execSummary },
+{ icon: '💪', title: 'STRONGEST AREAS', body: strengthText },
+{ icon: '⚠️', title: 'CRITICAL GAPS', body: gapsText },
+{ icon: '⚡', title: 'QUICK WINS (Next 90 Days)', body: qwText },
+{ icon: '🗺️', title: 'STRATEGIC ROADMAP (12 Months)', body: roadmap },
+{ icon: '🔍', title: 'FRAMEWORK-SPECIFIC INSIGHTS', body: [theInsight, nirfInsight, nbaInsight, accInsight].join('\n\n') },
+{ icon: '📊', title: 'COMPETITIVE BENCHMARKING', body: benchmarkText },
+];
+let html = `<div style="font-size:11px;color:#1a237e;background:#e8eaf6;padding:6px 10px;border-radius:4px;margin-bottom:14px">
+&#128161; Analysis generated from your self-assessed scores across ${allScores.filter(s=>s.pct>0).length} frameworks.
+${inst.name ? 'Institution: <strong>'+inst.name+'</strong>' : ''} &nbsp;·&nbsp; Generated: ${new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}
+</div>`;
+sections.forEach(s => {
 html += `<div class="ai-section">
-<div class="ai-section-title">${icon} ${heading}</div>
-<div class="ai-text">${body.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')}</div>
+<div class="ai-section-title">${s.icon} ${s.title}</div>
+<div class="ai-text">${s.body.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</div>
 </div>`;
 });
-body.innerHTML = html || `<div class="ai-text">${text.replace(/\n/g,'<br>')}</div>`;
-const footerLine = '\n\n---\nThis tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores. \u00a9 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 \u2014 free for educational use with attribution. Contact: linkedin.com/in/rahul-sharma-7b119a33/ | rahulsharma.rs1988&#64;gmail.com';
-window._aiReportText = text + footerLine;
-} catch(err) {
-body.innerHTML = `<div class="ai-error">AI analysis unavailable: ${err.message}. Your PDF report will still generate with your scored data.</div>`;
-}
+html += `<div style="margin-top:16px;padding:10px 12px;background:#fff3e0;border-left:3px solid #ff9800;border-radius:4px;font-size:11px;color:#e65100;line-height:1.65">
+<strong>Note:</strong> This analysis is generated from self-assessed data using published framework methodologies. It does not constitute official ranking or accreditation scores. For official recognition, institutions must submit directly to THE, QS, NIRF, NBA, AACSB, BGA or EQUIS through their respective portals.
+<br><strong>© 2026 Rahul Sharma · UniRank360 · rahulsharma.rs1988&#64;gmail.com</strong>
+</div>`;
+body.innerHTML = html;
+const footerLine = '\n\n---\nThis analysis is generated from self-assessed data using UniRank360. It does not constitute official scores.\n© 2026 Rahul Sharma · UniRank360 · rahulsharma.rs1988&#64;gmail.com';
+window._aiReportText = sections.map(s => s.title + '\n' + s.body).join('\n\n') + footerLine;
 }
 async function downloadPDFReport() {
 if (!window.jspdf) {
