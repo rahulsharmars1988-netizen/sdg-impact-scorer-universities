@@ -1229,7 +1229,7 @@ nav {
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* UniRank360 v3.0 | (c) 2026 Rahul Sharma | CC BY-NC 4.0 | Unauthorised commercial use prohibited | rahulsharma.rs1988&#64;gmail.com */
 var _wwjevsp93='UniRank360',_nroycwg23='RahulSharma2026',_tehfirw74='©2026';
 const SDG_META = [
@@ -1781,6 +1781,7 @@ const tabs = ['score','qs','igauge','nirf','nba','aacsb','bga','equis','report']
 p.classList.toggle('active', tabs[i]===s);
 });
 if (s==='report') buildReport();
+if (s==='score' && !document.getElementById('sdgGrid').innerHTML) { buildGrid(); _rfitbvu61(); }
 if (s==='qs' && !document.getElementById('qsGrid').innerHTML) { buildQSGrid(); _rcxttih30(); }
 if (s==='igauge' && !document.getElementById('igGrid').innerHTML) { buildIGGrid(); _xpmcjzu40(); }
 if (s==='nirf' && !document.getElementById('nirfGrid').innerHTML) { buildNIRFGrid(); _dmogwlf79(); }
@@ -6578,6 +6579,9 @@ const ch10 = equisVals['Ch10']||0;
 const band = avg>=80?'5-year likely':avg>=65?'3-year likely':avg>=45?'Developing':'Early stage';
 return { avg, ch10, band };
 }
+document.addEventListener('DOMContentLoaded', function() {
+showSection('score');
+});
 </script>
 </body>
 </html>
