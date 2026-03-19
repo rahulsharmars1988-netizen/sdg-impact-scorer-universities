@@ -705,6 +705,49 @@ nav {
 .ai-dot:nth-child(3) { animation-delay:0.4s; }
 @keyframes aiPulse { 0%,80%,100%{opacity:0.2;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
 .ai-error { color:#b71c1c; font-size:13px; padding:12px; background:#ffebee; border-radius:6px; }
+
+/* ── SHARED ACCREDITATION TAB STYLES ── */
+.acc-tab-wrap { padding:0 24px 48px; max-width:1100px; margin:0 auto; }
+.acc-tab-hero { border-radius:var(--radius); padding:28px 32px; margin-bottom:20px; }
+.acc-tab-hero-title { font-family:'DM Serif Display',serif; font-size:26px; color:#fff; margin-bottom:6px; }
+.acc-tab-hero-title span { color:#FFD54F; }
+.acc-tab-hero-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; max-width:720px; }
+.acc-std { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; }
+.acc-std-header { padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; }
+.acc-std-header:hover { background:var(--surface); }
+.acc-std-stripe { width:6px; height:36px; border-radius:3px; flex-shrink:0; }
+.acc-std-info { flex:1; }
+.acc-std-name { font-size:14px; font-weight:600; color:var(--ink); }
+.acc-std-sub { font-size:11px; color:var(--ink3); margin-top:2px; }
+.acc-std-bar { width:80px; height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+.acc-std-bar-fill { height:100%; border-radius:3px; transition:width 0.4s; }
+.acc-std-score { font-family:'DM Serif Display',serif; font-size:18px; min-width:80px; text-align:right; }
+.acc-std-badge { font-size:11px; font-weight:700; padding:3px 8px; border-radius:10px; color:#fff; flex-shrink:0; }
+.acc-std-body { display:none; padding:6px 18px 14px; background:var(--surface); }
+.acc-std.open .acc-std-body { display:block; }
+.acc-inp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; margin:8px 0; }
+.acc-inp-row { display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-top:1px solid var(--border); }
+.acc-inp-body { flex:1; }
+.acc-inp-label { font-size:12px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+.acc-inp-desc { font-size:11px; color:var(--ink2); line-height:1.6; margin-bottom:6px; }
+.acc-inp-formula { font-size:10px; font-family:var(--font-mono); padding:3px 7px; border-radius:4px; margin-bottom:6px; display:inline-block; }
+.acc-inp-tip { font-size:11px; padding:5px 8px; line-height:1.5; margin-top:4px; border-left:2px solid; border-radius:0; }
+.acc-inp-score { flex-shrink:0; text-align:right; }
+.acc-inp-score-val { font-family:'DM Serif Display',serif; font-size:18px; }
+.acc-score-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-bottom:16px; }
+.acc-score-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.acc-score-card.main { color:#fff; border:none; }
+.acc-score-card.main .dash-card-label { color:rgba(255,255,255,0.5); }
+.acc-score-card.main .dash-card-val { color:#FFD54F; font-size:26px; }
+.acc-score-card.main .dash-card-sub { color:rgba(255,255,255,0.5); }
+.acc-band { border-radius:var(--radius); padding:14px 18px; margin-bottom:16px; border:2px solid; display:flex; align-items:center; gap:14px; }
+
+/* BGA metric builder */
+.bga-metric-builder { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; margin-bottom:16px; }
+.bga-metric-row { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 40px; gap:8px; align-items:center; padding:6px 0; border-top:1px solid var(--border); }
+.bga-metric-row:first-child { border-top:none; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink3); }
+.bga-metric-inp { width:100%; padding:5px 7px; border-radius:5px; border:1px solid var(--border); font-size:11px; background:var(--card); color:var(--ink); }
+.bga-sdg-tag { display:inline-block; padding:2px 7px; border-radius:10px; font-size:9px; font-weight:700; background:#e8f5e9; color:#1b5e20; margin:2px; }
 </style>
 </head>
 <body>
@@ -718,6 +761,9 @@ nav {
     <button class="nav-pill" onclick="showSection('igauge')">QS I-GAUGE</button>
     <button class="nav-pill" onclick="showSection('nirf')">NIRF</button>
     <button class="nav-pill" onclick="showSection('nba')">NBA</button>
+    <button class="nav-pill" onclick="showSection('aacsb')">AACSB</button>
+    <button class="nav-pill" onclick="showSection('bga')">BGA / AMBA</button>
+    <button class="nav-pill" onclick="showSection('equis')">EQUIS / EFMD</button>
     <button class="nav-pill" onclick="showSection('report')">My Report</button>
   </div>
   <div class="nav-score" id="navScoreWrap">THE Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span> &nbsp;<span id="navBand" style="font-size:11px;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.1);color:#fff"></span></div>
@@ -883,6 +929,73 @@ nav {
       <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#880e4f;text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a> &nbsp;|&nbsp;
       <a href="mailto:rahulsharma.rs1988@gmail.com" style="color:#880e4f;text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
     </div>
+  </div>
+</div>
+
+
+<!-- AACSB SECTION -->
+<div id="aacsbSection" style="display:none">
+  <div class="acc-tab-wrap">
+    <div class="acc-tab-hero" style="background:linear-gradient(135deg,#00205b,#1a4a8a,#003087)">
+      <div class="acc-tab-hero-title">AACSB <span>Accreditation</span> — All 10 Standards</div>
+      <div class="acc-tab-hero-sub">Association to Advance Collegiate Schools of Business · 2020 Standards · Principles-based · 6-year accreditation cycle · Business schools globally. Select your scores — SDGs are optional, schools choose their own focus areas.</div>
+    </div>
+    <div class="acc-score-grid" id="aacsbScoreGrid"></div>
+    <div id="aacsbBand" class="acc-band" style="background:#e8eef8;border-color:#00205b">
+      <div style="font-size:24px">📋</div>
+      <div><div style="font-size:15px;font-weight:600;color:#00205b">Enter data across all 10 standards to see your AACSB readiness</div>
+      <div style="font-size:12px;color:#1a4a8a;margin-top:3px">AACSB is principles-based — there is no single score threshold. Peer review teams assess quality, innovation and continuous improvement.</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetAACSB()">Reset AACSB</button>
+    </div>
+    <div id="aacsbGrid"></div>
+    <div class="footnote" style="margin-top:24px">AACSB 2020 Standards. Self-assessment readiness estimates only — not official AACSB scores. Official accreditation requires AACSB membership, Eligibility Application and Peer Review Team visit. © 2026 Rahul Sharma · CC BY-NC 4.0 · <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#00205b">LinkedIn</a></div>
+  </div>
+</div>
+
+<!-- BGA / AMBA SECTION -->
+<div id="bgaSection" style="display:none">
+  <div class="acc-tab-wrap">
+    <div class="acc-tab-hero" style="background:linear-gradient(135deg,#4a0072,#7b1fa2,#9c27b0)">
+      <div class="acc-tab-hero-title">BGA / AMBA <span>Accreditation</span> — All 3 Pillars</div>
+      <div class="acc-tab-hero-sub">Business Graduates Association · Continuous Impact Model (CIM) · Positive Impact + Responsible Management + Lifelong Learning · Business schools globally. Build your 10 CIM metrics below.</div>
+    </div>
+    <div class="acc-score-grid" id="bgaScoreGrid"></div>
+    <div id="bgaBand" class="acc-band" style="background:#f3e5f5;border-color:#7b1fa2">
+      <div style="font-size:24px">📋</div>
+      <div><div style="font-size:15px;font-weight:600;color:#4a0072">Enter data across all 3 pillars to see your BGA readiness</div>
+      <div style="font-size:12px;color:#7b1fa2;margin-top:3px">BGA requires 10 measurable CIM metrics with 3 years of longitudinal data. At least 1 metric must reference SDGs; 3 of 10 recommended.</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetBGA()">Reset BGA</button>
+    </div>
+    <div id="bgaGrid"></div>
+    <div class="footnote" style="margin-top:24px">BGA/AMBA Accreditation. Self-assessment readiness estimates only — not official BGA scores. Official accreditation requires formal BGA application and SAR submission. © 2026 Rahul Sharma · CC BY-NC 4.0 · <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#7b1fa2">LinkedIn</a></div>
+  </div>
+</div>
+
+<!-- EQUIS / EFMD SECTION -->
+<div id="equisSection" style="display:none">
+  <div class="acc-tab-wrap">
+    <div class="acc-tab-hero" style="background:linear-gradient(135deg,#004d40,#00695c,#00897b)">
+      <div class="acc-tab-hero-title">EQUIS / EFMD <span>Accreditation</span> — All 10 Chapters</div>
+      <div class="acc-tab-hero-sub">European Foundation for Management Development · ERS is transversal across all 10 chapters · Business and management schools globally · 3-year or 5-year accreditation. Strong ERS integration typically earns 5-year accreditation.</div>
+    </div>
+    <div class="acc-score-grid" id="equisScoreGrid"></div>
+    <div id="equisBand" class="acc-band" style="background:#e0f2f1;border-color:#00695c">
+      <div style="font-size:24px">📋</div>
+      <div><div style="font-size:15px;font-weight:600;color:#004d40">Enter data across all 10 chapters to see your EQUIS readiness</div>
+      <div style="font-size:12px;color:#00695c;margin-top:3px">EQUIS awards 3-year or 5-year accreditation. Schools with strong ERS integration across all chapters typically receive 5-year accreditation.</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetEQUIS()">Reset EQUIS</button>
+    </div>
+    <div id="equisGrid"></div>
+    <div class="footnote" style="margin-top:24px">EQUIS/EFMD Accreditation. Self-assessment readiness estimates only — not official EQUIS scores. Official accreditation requires EFMD membership and formal EQUIS application. © 2026 Rahul Sharma · CC BY-NC 4.0 · <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#004d40">LinkedIn</a></div>
   </div>
 </div>
 
@@ -1613,19 +1726,22 @@ function setMaturity(m) {
 }
 
 function showSection(s) {
-  document.getElementById('scoreSection').style.display = s==='score' ? 'block' : 'none';
-  document.getElementById('qsSection').style.display = s==='qs' ? 'block' : 'none';
-  document.getElementById('igaugeSection').style.display = s==='igauge' ? 'block' : 'none';
-  document.getElementById('nirfSection').style.display = s==='nirf' ? 'block' : 'none';
-  document.getElementById('nbaSection').style.display = s==='nba' ? 'block' : 'none';
-  document.getElementById('reportSection').style.display = s==='report' ? 'block' : 'none';
-  document.querySelectorAll('.nav-pill').forEach((p,i) => p.classList.toggle('active',
-    (i===0&&s==='score')||(i===1&&s==='qs')||(i===2&&s==='igauge')||(i===3&&s==='nirf')||(i===4&&s==='nba')||(i===5&&s==='report')));
+  ['score','qs','igauge','nirf','nba','aacsb','bga','equis','report'].forEach(id => {
+    const el = document.getElementById(id+'Section');
+    if (el) el.style.display = s===id ? 'block' : 'none';
+  });
+  document.querySelectorAll('.nav-pill').forEach((p,i) => {
+    const tabs = ['score','qs','igauge','nirf','nba','aacsb','bga','equis','report'];
+    p.classList.toggle('active', tabs[i]===s);
+  });
   if (s==='report') buildReport();
   if (s==='qs' && !document.getElementById('qsGrid').innerHTML) { buildQSGrid(); updateQSScores(); }
   if (s==='igauge' && !document.getElementById('igGrid').innerHTML) { buildIGGrid(); updateIGScores(); }
   if (s==='nirf' && !document.getElementById('nirfGrid').innerHTML) { buildNIRFGrid(); updateNIRFScores(); }
   if (s==='nba' && !document.getElementById('nbaGrid').innerHTML) { buildNBAGrid(); updateNBAScores(); }
+  if (s==='aacsb' && !document.getElementById('aacsbGrid').innerHTML) { buildAACSSBTab(); }
+  if (s==='bga' && !document.getElementById('bgaGrid').innerHTML) { buildBGATab(); }
+  if (s==='equis' && !document.getElementById('equisGrid').innerHTML) { buildEQUISTab(); }
 }
 
 function resetAll() {
@@ -4252,6 +4368,316 @@ function getNBATotals() {
   return { total, band, pct, prog: NBA_PROGRAM_TYPES[nbaProgType] || nbaProgType };
 }
 
+
+// ═══════════════════════════════════════════════════════════
+// AACSB — ALL 10 STANDARDS
+// ═══════════════════════════════════════════════════════════
+const AACSB_COLOR = '#00205b';
+
+const AACSB_STANDARDS = [
+  { code:'S1', name:'Mission, Impact and Innovation', weight:'Foundation',
+    desc:'The school demonstrates a clear mission that emphasises innovation and impact on individuals, organisations, and society. It uses its mission to guide strategic priorities, resource allocation and evaluation of outcomes.',
+    criteria:[
+      { id:'mission_pub', label:'Mission statement published and reviewed regularly', type:'select', options:['No','Yes — static','Yes — reviewed and updated'] },
+      { id:'mission_impact', label:'Mission explicitly references societal impact', type:'select', options:['No','Indirectly','Yes — explicitly'] },
+      { id:'innovation', label:'Innovation strategy documented with measurable outcomes', type:'select', options:['No','Partial','Yes'] },
+      { id:'mission_align', label:'Resource allocation demonstrably aligned to mission', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const m = {'No':0,'Yes — static':1,'Yes — reviewed and updated':2}[v.mission_pub]||0;
+      const i = {'No':0,'Indirectly':1,'Yes — explicitly':2}[v.mission_impact]||0;
+      const inn = {'No':0,'Partial':1,'Yes':2}[v.innovation]||0;
+      const a = {'No':0,'Partial':1,'Yes':2}[v.mission_align]||0;
+      return Math.round((m+i+inn+a)/8*100);
+    },
+    tip:'Mission must drive everything. Peer reviewers check whether stated mission is genuinely reflected in curriculum, faculty recruitment and resource use — not just printed in brochures.'
+  },
+  { code:'S2', name:'Faculty Composition and Management', weight:'Critical',
+    desc:'The school maintains a faculty sufficient in quantity and quality to cover all curricular areas. Includes Scholarly Academic (SA), Practice Academic (PA), Scholarly Practitioner (SP) and Instructional Practitioner (IP) categories.',
+    criteria:[
+      { id:'sa_pct', label:'Scholarly Academic (SA) faculty % of total', type:'number', placeholder:'e.g. 45', unit:'%' },
+      { id:'pa_pct', label:'Practice Academic (PA) faculty %', type:'number', placeholder:'e.g. 20', unit:'%' },
+      { id:'sp_pct', label:'Scholarly Practitioner (SP) faculty %', type:'number', placeholder:'e.g. 15', unit:'%' },
+      { id:'ip_pct', label:'Instructional Practitioner (IP) faculty %', type:'number', placeholder:'e.g. 20', unit:'%' },
+      { id:'faculty_dev', label:'Faculty development plan maintained for all faculty', type:'select', options:['No','Partial','Yes'] },
+      { id:'fte_coverage', label:'Sufficient FTE faculty to cover all curricular areas', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const sa=parseFloat(v.sa_pct)||0, pa=parseFloat(v.pa_pct)||0;
+      const sp=parseFloat(v.sp_pct)||0, ip=parseFloat(v.ip_pct)||0;
+      const aqScore = (sa+pa+sp) >= 60 ? 40 : Math.round((sa+pa+sp)/60*40);
+      const dev = {'No':0,'Partial':20,'Yes':40}[v.faculty_dev]||0;
+      const fte = {'No':0,'Partial':10,'Yes':20}[v.fte_coverage]||0;
+      return Math.min(Math.round((aqScore+dev+fte)/100*100), 100);
+    },
+    tip:'AACSB requires a minimum 60% AQ (SA+PA+SP) faculty. Faculty development plans must be documented for every faculty member — including part-time and adjunct. Gaps trigger immediate peer reviewer scrutiny.'
+  },
+  { code:'S3', name:'Curriculum', weight:'Critical',
+    desc:'Curricula reflect the school\'s mission and prepare students with knowledge and skills needed for successful careers. Includes assurance of learning, currency, relevance and continuous improvement.',
+    criteria:[
+      { id:'cur_review', label:'Curriculum reviewed at least every 3 years with external input', type:'select', options:['No','Partial','Yes'] },
+      { id:'aol_system', label:'Assurance of Learning (AoL) system operational', type:'select', options:['No','Partial','Yes — with closing the loop'] },
+      { id:'business_core', label:'Business core covers all AACSB required content areas', type:'select', options:['No','Partial','Yes'] },
+      { id:'experiential', label:'Experiential and active learning embedded in programmes', type:'select', options:['No','Some','Significant'] },
+      { id:'ethics_embed', label:'Ethics, sustainability and global perspective embedded in curriculum', type:'select', options:['No','Standalone course only','Embedded throughout'] },
+    ],
+    calc: v => {
+      const cr = {'No':0,'Partial':15,'Yes':25}[v.cur_review]||0;
+      const aol = {'No':0,'Partial':20,'Yes — with closing the loop':30}[v.aol_system]||0;
+      const bc = {'No':0,'Partial':15,'Yes':20}[v.business_core]||0;
+      const exp = {'No':0,'Some':10,'Significant':15}[v.experiential]||0;
+      const eth = {'No':0,'Standalone course only':5,'Embedded throughout':10}[v.ethics_embed]||0;
+      return Math.min(cr+aol+bc+exp+eth, 100);
+    },
+    tip:'AoL (Assurance of Learning) is the most scrutinised area. The complete cycle — define learning goals, measure them, use results to improve — must be documented and the loop must demonstrably close.'
+  },
+  { code:'S4', name:'Learning and Teaching', weight:'Important',
+    desc:'The school supports learning and teaching excellence through pedagogy, technology, co-curricular activities and a positive learning environment.',
+    criteria:[
+      { id:'pedagogy', label:'Innovative pedagogical approaches documented (case, PBL, simulation)', type:'select', options:['No','Some','Systematic'] },
+      { id:'tech_integ', label:'Technology integration in teaching and learning', type:'select', options:['No','Basic','Advanced — LMS + AI tools'] },
+      { id:'cocurr', label:'Co-curricular activities supporting learning outcomes', type:'select', options:['No','Some','Comprehensive'] },
+      { id:'feedback_loop', label:'Student feedback drives teaching improvement — documented', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const p = {'No':0,'Some':20,'Systematic':30}[v.pedagogy]||0;
+      const t = {'No':0,'Basic':15,'Advanced — LMS + AI tools':25}[v.tech_integ]||0;
+      const c = {'No':0,'Some':15,'Comprehensive':25}[v.cocurr]||0;
+      const f = {'No':0,'Partial':10,'Yes':20}[v.feedback_loop]||0;
+      return Math.min(p+t+c+f, 100);
+    },
+    tip:'AACSB expects evidence that teaching practices are intentionally designed to achieve learning outcomes — not just tradition. Document the link between pedagogy choices and AoL results.'
+  },
+  { code:'S5', name:'Academic and Professional Engagement', weight:'Important',
+    desc:'Faculty maintain academic and professional engagement through research, consulting, professional activities and connections with the business community.',
+    criteria:[
+      { id:'research_output', label:'Faculty research output (publications, grants) documented', type:'select', options:['No','Partial','Yes — systematic tracking'] },
+      { id:'industry_connect', label:'Active industry advisory board with documented influence', type:'select', options:['No','Exists but inactive','Active — drives curriculum'] },
+      { id:'consulting', label:'Faculty consulting and professional practice documented', type:'select', options:['No','Informal','Formally tracked'] },
+      { id:'conf_present', label:'Faculty present at academic/professional conferences regularly', type:'select', options:['No','Some','Most faculty'] },
+    ],
+    calc: v => {
+      const r = {'No':0,'Partial':20,'Yes — systematic tracking':30}[v.research_output]||0;
+      const i = {'No':0,'Exists but inactive':10,'Active — drives curriculum':30}[v.industry_connect]||0;
+      const c = {'No':0,'Informal':15,'Formally tracked':20}[v.consulting]||0;
+      const p = {'No':0,'Some':10,'Most faculty':20}[v.conf_present]||0;
+      return Math.min(r+i+c+p, 100);
+    },
+    tip:'Industry Advisory Board must demonstrably influence curriculum — not just meet annually. Show specific curriculum changes that resulted from board recommendations. This is a common gap.'
+  },
+  { code:'S6', name:'Student Admissions and Progression', weight:'Important',
+    desc:'The school\'s student admissions policies and student support services are consistent with its mission and enable student success.',
+    criteria:[
+      { id:'admissions_policy', label:'Published admissions criteria aligned to mission', type:'select', options:['No','Partial','Yes'] },
+      { id:'student_support', label:'Comprehensive student support services (academic, career, wellbeing)', type:'select', options:['No','Basic','Comprehensive'] },
+      { id:'diversity_adm', label:'Diversity and inclusion in admissions — targets published', type:'select', options:['No','Informal','Formal targets published'] },
+      { id:'progression', label:'Student progression and completion tracked and published', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const a = {'No':0,'Partial':20,'Yes':25}[v.admissions_policy]||0;
+      const s = {'No':0,'Basic':15,'Comprehensive':30}[v.student_support]||0;
+      const d = {'No':0,'Informal':15,'Formal targets published':25}[v.diversity_adm]||0;
+      const p = {'No':0,'Partial':10,'Yes':20}[v.progression]||0;
+      return Math.min(a+s+d+p, 100);
+    },
+    tip:'Diversity targets must be specific and measurable — not aspirational statements. Track and publish year-on-year progression data. Student wellbeing support is increasingly examined.'
+  },
+  { code:'S7', name:'Student Learning, Competency Development and Assessment', weight:'Critical',
+    desc:'The school develops student competencies aligned with its mission. Learning goals are clearly stated, assessed and used to drive improvement.',
+    criteria:[
+      { id:'learning_goals', label:'Learning goals defined for every programme', type:'select', options:['No','Partial','Yes'] },
+      { id:'aol_direct', label:'Direct assessment of learning goals conducted systematically', type:'select', options:['No','Partial','Yes'] },
+      { id:'aol_indirect', label:'Indirect assessment (surveys, employer feedback) conducted', type:'select', options:['No','Partial','Yes'] },
+      { id:'close_loop', label:'Closing the loop — documented improvements from AoL results', type:'number', placeholder:'Curriculum changes made in last 3 yrs', unit:'changes' },
+      { id:'competency_map', label:'Competency maps linking courses to learning goals', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const lg = {'No':0,'Partial':15,'Yes':25}[v.learning_goals]||0;
+      const d = {'No':0,'Partial':20,'Yes':30}[v.aol_direct]||0;
+      const ind = {'No':0,'Partial':10,'Yes':15}[v.aol_indirect]||0;
+      const cl = Math.min(15*(parseFloat(v.close_loop)||0)/5, 15);
+      const cm = {'No':0,'Partial':7,'Yes':15}[v.competency_map]||0;
+      return Math.min(lg+d+ind+cl+cm, 100);
+    },
+    tip:'Closing the loop is the most critical part. AACSB peer reviewers demand evidence that AoL results have actually changed something — syllabus, pedagogy, admissions. Document every improvement with dates.'
+  },
+  { code:'S8', name:'Doctoral Degree Programmes', weight:'Conditional',
+    desc:'Where doctoral programmes exist, the school ensures rigour, appropriate faculty qualifications, research output and student support. Skip if no doctoral programmes.',
+    criteria:[
+      { id:'phd_exists', label:'Doctoral programmes offered', type:'select', options:['No — not applicable','Yes'] },
+      { id:'phd_faculty', label:'Doctoral programme faculty are Scholarly Academic (SA)', type:'select', options:['N/A','Partial','All SA'] },
+      { id:'phd_output', label:'PhD student research output (publications, conferences)', type:'select', options:['N/A','Some','Strong'] },
+      { id:'phd_completion', label:'PhD completion rates tracked and published', type:'select', options:['N/A','No','Yes'] },
+    ],
+    calc: v => {
+      if (v.phd_exists === 'No — not applicable') return 100;
+      const f = {'N/A':0,'Partial':30,'All SA':40}[v.phd_faculty]||0;
+      const o = {'N/A':0,'Some':30,'Strong':40}[v.phd_output]||0;
+      const c = {'N/A':0,'No':0,'Yes':20}[v.phd_completion]||0;
+      return Math.min(f+o+c, 100);
+    },
+    tip:'If no doctoral programmes, this standard is not applicable and counts as satisfied. If doctoral programmes exist, ALL faculty teaching at doctoral level must be SA-qualified with recent peer-reviewed publications.'
+  },
+  { code:'S9', name:'Engagement and Societal Impact', weight:'Critical',
+    desc:'The school demonstrates positive societal impact through its activities in curriculum, scholarship and engagement. SDGs are optional — schools choose their own focus areas.',
+    criteria:[
+      { id:'siplan', label:'Societal Impact Plan documented and published', type:'select', options:['No','Draft','Approved and active'] },
+      { id:'si_curriculum', label:'Societal impact embedded in curriculum (documented outcomes)', type:'select', options:['No','Some','Systematic'] },
+      { id:'si_scholarship', label:'Faculty scholarship addressing societal challenges', type:'select', options:['No','Some','Significant — tracked'] },
+      { id:'si_engagement', label:'Community and industry engagement with measurable impact', type:'select', options:['No','Some','Significant — measured'] },
+      { id:'si_sdg', label:'SDG or equivalent framework used to organise impact', type:'select', options:['No','Partial','Yes — 1-3 SDGs as focus'] },
+      { id:'si_report', label:'Annual Societal Impact Report published', type:'select', options:['No','Informal','Formal published report'] },
+    ],
+    calc: v => {
+      const sp = {'No':0,'Draft':10,'Approved and active':20}[v.siplan]||0;
+      const cur = {'No':0,'Some':15,'Systematic':20}[v.si_curriculum]||0;
+      const sch = {'No':0,'Some':15,'Significant — tracked':20}[v.si_scholarship]||0;
+      const eng = {'No':0,'Some':15,'Significant — measured':20}[v.si_engagement]||0;
+      const sdg = {'No':0,'Partial':5,'Yes — 1-3 SDGs as focus':10}[v.si_sdg]||0;
+      const rep = {'No':0,'Informal':5,'Formal published report':10}[v.si_report]||0;
+      return Math.min(sp+cur+sch+eng+sdg+rep, 100);
+    },
+    tip:'Standard 9 is principles-based — no single SDG list is mandated. Choose 1-3 focus areas where your school has genuine impact. Measurable outcomes across all three pillars (curriculum, scholarship, engagement) are essential.'
+  },
+  { code:'S10', name:'Financial Strategies and Allocation', weight:'Foundation',
+    desc:'The school\'s financial strategies support its mission and enable continuous improvement. Resources are allocated to achieve strategic priorities.',
+    criteria:[
+      { id:'budget_align', label:'Budget demonstrably aligned to strategic priorities', type:'select', options:['No','Partial','Yes — documented'] },
+      { id:'financial_sustainability', label:'Financial sustainability — adequate reserves and income diversity', type:'select', options:['No','At risk','Sustainable'] },
+      { id:'faculty_investment', label:'Investment in faculty development and research support', type:'select', options:['No','Minimal','Significant'] },
+      { id:'financial_trans', label:'Financial transparency — audited accounts published', type:'select', options:['No','Internal only','Publicly published'] },
+    ],
+    calc: v => {
+      const b = {'No':0,'Partial':20,'Yes — documented':30}[v.budget_align]||0;
+      const s = {'No':0,'At risk':10,'Sustainable':25}[v.financial_sustainability]||0;
+      const f = {'No':0,'Minimal':15,'Significant':25}[v.faculty_investment]||0;
+      const t = {'No':0,'Internal only':10,'Publicly published':20}[v.financial_trans]||0;
+      return Math.min(b+s+f+t, 100);
+    },
+    tip:'Financial sustainability is existential for AACSB. Schools with declining enrolment, over-reliance on one income source, or inadequate faculty investment will face challenges during peer review.'
+  },
+];
+
+let aacsbVals = {};
+
+function buildAACSSBTab() {
+  // Score grid
+  const sg = document.getElementById('aacsbScoreGrid');
+  if (sg) {
+    let html = `<div class="acc-score-card main" style="background:#00205b">
+      <div class="dash-card-label">Overall readiness</div>
+      <div class="dash-card-val" id="aacsbTotal">0<sup>%</sup></div>
+      <div class="dash-card-sub" id="aacsbBandLabel">Enter data to score</div>
+    </div>`;
+    AACSB_STANDARDS.forEach(s => {
+      html += `<div class="acc-score-card"><div class="dash-card-label">${s.code} ${s.name.split(' ').slice(0,3).join(' ')}</div>
+        <div class="dash-card-val" id="aacsbS_${s.code}">0<sup>%</sup></div>
+        <div class="dash-card-sub">${s.weight}</div></div>`;
+    });
+    sg.innerHTML = html;
+  }
+
+  const grid = document.getElementById('aacsbGrid');
+  if (!grid) return;
+  let html = '';
+  AACSB_STANDARDS.forEach(s => {
+    html += `<div class="acc-std" id="aacsbstd_${s.code}">
+      <div class="acc-std-header" onclick="toggleAccStd('aacsb','${s.code}')">
+        <div class="acc-std-stripe" style="background:#00205b"></div>
+        <div class="acc-std-info">
+          <div class="acc-std-name">${s.code} — ${s.name}</div>
+          <div class="acc-std-sub">${s.weight} standard · ${s.criteria.length} assessment areas</div>
+        </div>
+        <div class="acc-std-bar"><div class="acc-std-bar-fill" id="aacsbbar_${s.code}" style="background:#00205b;width:0%"></div></div>
+        <div style="min-width:70px;text-align:right">
+          <div class="acc-std-score" id="aacsbpts_${s.code}" style="color:#00205b">0%</div>
+        </div>
+        <div class="acc-std-badge" style="background:#00205b">${s.weight}</div>
+      </div>
+      <div class="acc-std-body">
+        <div style="font-size:12px;color:var(--ink2);line-height:1.65;margin-bottom:10px">${s.desc}</div>
+        <div class="acc-inp-grid">`;
+    s.criteria.forEach(c => {
+      const fid = 'aacsb_' + s.code + '_' + c.id;
+      const onev = `calcAACSSB('${s.code}')`;
+      if (c.type === 'select') {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}</label>
+          <select id="${fid}" onchange="${onev}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+          ${c.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select></div>`;
+      } else {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}${c.unit?' <span style="color:#00205b;font-size:10px">('+c.unit+')</span>':''}</label>
+          <input type="number" id="${fid}" placeholder="${c.placeholder||''}" min="0" oninput="${onev}" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)"></div>`;
+      }
+    });
+    html += `</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+            <div id="aacsbsubbar_${s.code}" style="height:100%;border-radius:2px;background:#00205b;width:0%;transition:width 0.4s"></div>
+          </div>
+          <div style="font-size:11px;font-weight:600;color:#00205b" id="aacsbsubpct_${s.code}">0%</div>
+        </div>
+        <div style="font-size:11px;padding:6px 9px;background:#e8eef8;border-left:2px solid #00205b;color:#00205b;margin-top:8px;line-height:1.55">${s.tip}</div>
+      </div></div>`;
+  });
+  grid.innerHTML = html;
+  updateAACSSBScores();
+}
+
+function calcAACSSB(code) {
+  const std = AACSB_STANDARDS.find(s => s.code === code);
+  if (!std) return;
+  const vals = {};
+  std.criteria.forEach(c => {
+    const el = document.getElementById('aacsb_' + code + '_' + c.id);
+    vals[c.id] = el ? el.value : (c.type==='select' ? c.options[0] : '');
+  });
+  const score = Math.min(Math.round(std.calc(vals)), 100);
+  aacsbVals[code] = score;
+  const bar = document.getElementById('aacsbbar_' + code);
+  const pts = document.getElementById('aacsbpts_' + code);
+  const sub = document.getElementById('aacsbsubbar_' + code);
+  const pct = document.getElementById('aacsbsubpct_' + code);
+  const sc = document.getElementById('aacsbS_' + code);
+  if (bar) bar.style.width = score + '%';
+  if (pts) pts.textContent = score + '%';
+  if (sub) sub.style.width = score + '%';
+  if (pct) pct.textContent = score + '%';
+  if (sc) sc.innerHTML = score + '<sup>%</sup>';
+  updateAACSSBScores();
+}
+
+function updateAACSSBScores() {
+  const scores = Object.values(aacsbVals);
+  const avg = scores.length > 0 ? Math.round(scores.reduce((a,b)=>a+b,0)/AACSB_STANDARDS.length) : 0;
+  const tot = document.getElementById('aacsbTotal');
+  if (tot) tot.innerHTML = avg + '<sup>%</sup>';
+  const lbl = document.getElementById('aacsbBandLabel');
+  const band = document.getElementById('aacsbBand');
+  let emoji, title, desc, bg, bc;
+  if (avg >= 80) { emoji='🏆'; title='Strong readiness — likely to achieve accreditation'; bg='#e8f5e9'; bc='#4caf50'; desc='Excellent across most standards. Focus on closing-the-loop evidence in S3 and S7, and ensure AoL cycle is fully documented.'; }
+  else if (avg >= 65) { emoji='✅'; title='Good readiness — accreditation achievable with targeted effort'; bg='#e3f2fd'; bc='#2196f3'; desc='Solid foundation. Strengthen Faculty Composition (S2) AQ ratios and Industry Engagement (S5) documentation.'; }
+  else if (avg >= 45) { emoji='⚠️'; title='Developing — significant gaps need addressing before application'; bg='#fff9c4'; bc='#ffc107'; desc='Core gaps in curriculum AoL (S3, S7) and/or faculty qualification (S2). These are non-negotiable for AACSB.'; }
+  else { emoji='❌'; title='Early stage — foundational work required'; bg='#ffebee'; bc='#f44336'; desc='Fundamental gaps across multiple standards. Prioritise: AoL system (S7), faculty development plan (S2), Societal Impact Plan (S9).'; }
+  if (lbl) lbl.textContent = title;
+  if (band) { band.style.background=bg; band.style.borderColor=bc; band.innerHTML=`<div style="font-size:24px">${emoji}</div><div><div style="font-size:15px;font-weight:600;color:#00205b">${title} — ${avg}% average readiness</div><div style="font-size:12px;color:var(--ink2);margin-top:3px">${desc}</div></div>`; }
+}
+
+function toggleAccStd(prefix, code) {
+  const el = document.getElementById(prefix + 'std_' + code);
+  if (el) el.classList.toggle('open');
+}
+
+function resetAACSB() { aacsbVals = {}; buildAACSSBTab(); }
+
+function getAACSSBTabTotals() {
+  const scores = AACSB_STANDARDS.map(s => aacsbVals[s.code] || 0);
+  const avg = Math.round(scores.reduce((a,b)=>a+b,0)/AACSB_STANDARDS.length);
+  const critical = ['S2','S3','S7','S9'].map(c => aacsbVals[c] || 0);
+  const critAvg = Math.round(critical.reduce((a,b)=>a+b,0)/4);
+  return { avg, critAvg, s9: aacsbVals['S9'] || 0 };
+}
+
+
 // ═══════════════════════════════════════════════════════════
 // QS I-GAUGE DATA
 // ═══════════════════════════════════════════════════════════
@@ -5824,6 +6250,540 @@ async function downloadPDFReport() {
   }
 
   doc.save('UniRank360_Report_' + today.replace(/ /g,'_') + '.pdf');
+}
+
+
+
+// ═══════════════════════════════════════════════════════════
+// BGA / AMBA — ALL 3 PILLARS + CIM METRIC BUILDER
+// ═══════════════════════════════════════════════════════════
+
+const BGA_PILLARS = [
+  { code:'P1', name:'Positive Impact — Continuous Impact Model (CIM)', color:'#7b1fa2',
+    desc:'10 measurable impact metrics with 3 years of longitudinal data. At least 1 must reference SDGs; 3 of 10 recommended. Narrative explaining trends is mandatory.',
+    tip:'Build your 10 metrics below. Each metric needs a baseline, 3 years of data, and a narrative explaining what changed and why. BAB approval required before measurement cycle begins.',
+  },
+  { code:'P2', name:'Responsible Management', color:'#9c27b0',
+    desc:'SDG commitment through teaching and curriculum, faculty research on sustainability, institutional policies on responsible management.',
+    tip:'Responsible Management must be embedded in curriculum — not just extracurricular. Show specific courses, modules or assessments that address SDGs or responsible business practice.',
+    criteria:[
+      { id:'sdg_curriculum', label:'SDGs or responsible management embedded in curriculum', type:'select', options:['No','One course','Multiple courses','Embedded throughout'] },
+      { id:'rm_faculty', label:'Faculty research addressing responsible management / SDGs', type:'select', options:['No','Some','Significant — tracked'] },
+      { id:'rm_policy', label:'Institutional responsible management policy published', type:'select', options:['No','Draft','Published and reviewed'] },
+      { id:'rm_partnerships', label:'Partnerships with NGOs, government or social enterprises', type:'number', placeholder:'e.g. 3', unit:'active partnerships' },
+      { id:'prme', label:'PRME (Principles for Responsible Management Education) signatory', type:'select', options:['No','Yes'] },
+    ],
+    calc: v => {
+      const cur = {'No':0,'One course':15,'Multiple courses':25,'Embedded throughout':35}[v.sdg_curriculum]||0;
+      const fac = {'No':0,'Some':15,'Significant — tracked':25}[v.rm_faculty]||0;
+      const pol = {'No':0,'Draft':10,'Published and reviewed':20}[v.rm_policy]||0;
+      const par = Math.min(10*(parseFloat(v.rm_partnerships)||0)/3, 10);
+      const prme = v.prme==='Yes' ? 10 : 0;
+      return Math.min(cur+fac+pol+par+prme, 100);
+    }
+  },
+  { code:'P3', name:'Lifelong Learning', color:'#ab47bc',
+    desc:'Upskilling and reskilling opportunities beyond traditional degree programmes. Executive education, alumni continuous learning pathways, corporate training.',
+    tip:'Lifelong Learning is about demonstrating that your school serves professionals throughout their careers — not just at initial degree stage. Executive education and alumni CPD programmes are key evidence.',
+    criteria:[
+      { id:'exec_ed', label:'Executive education programmes offered', type:'select', options:['No','Yes — limited','Yes — substantial portfolio'] },
+      { id:'alumni_cpd', label:'Alumni continuous professional development (CPD) programmes', type:'select', options:['No','Informal','Structured and published'] },
+      { id:'online_lll', label:'Online/flexible programmes enabling working professionals to upskill', type:'select', options:['No','Some','Comprehensive'] },
+      { id:'corp_training', label:'Corporate training and customised programmes', type:'select', options:['No','Some','Regular — tracked revenue'] },
+      { id:'micro_cred', label:'Micro-credentials, certificates or short courses offered', type:'number', placeholder:'e.g. 5', unit:'programmes' },
+    ],
+    calc: v => {
+      const ee = {'No':0,'Yes — limited':20,'Yes — substantial portfolio':35}[v.exec_ed]||0;
+      const al = {'No':0,'Informal':10,'Structured and published':20}[v.alumni_cpd]||0;
+      const on = {'No':0,'Some':10,'Comprehensive':20}[v.online_lll]||0;
+      const ct = {'No':0,'Some':10,'Regular — tracked revenue':15}[v.corp_training]||0;
+      const mc = Math.min(10*(parseFloat(v.micro_cred)||0)/5, 10);
+      return Math.min(ee+al+on+ct+mc, 100);
+    }
+  },
+];
+
+// BGA CIM 10 metrics — user-defined
+let bgaMetrics = Array.from({length:10}, (_,i) => ({
+  name: '', sdgLinked: 'No', yr1: '', yr2: '', yr3: '', trend: 'Stable', narrative: ''
+}));
+let bgaP2Score = 0, bgaP3Score = 0;
+
+function buildBGATab() {
+  const sg = document.getElementById('bgaScoreGrid');
+  if (sg) {
+    sg.innerHTML = `
+      <div class="acc-score-card main" style="background:#7b1fa2">
+        <div class="dash-card-label">Overall BGA readiness</div>
+        <div class="dash-card-val" id="bgaTotal">0<sup>%</sup></div>
+        <div class="dash-card-sub" id="bgaBandLabel">Define your CIM metrics</div>
+      </div>
+      <div class="acc-score-card"><div class="dash-card-label">P1 CIM Metrics</div><div class="dash-card-val" id="bgaP1Score">0<sup>/10</sup></div><div class="dash-card-sub">metrics defined</div></div>
+      <div class="acc-score-card"><div class="dash-card-label">P1 SDG-linked</div><div class="dash-card-val" id="bgaSDGCount">0<sup>/10</sup></div><div class="dash-card-sub">min 1 required, 3 recommended</div></div>
+      <div class="acc-score-card"><div class="dash-card-label">P2 Responsible Mgmt</div><div class="dash-card-val" id="bgaP2Disp">0<sup>%</sup></div><div class="dash-card-sub">readiness</div></div>
+      <div class="acc-score-card"><div class="dash-card-label">P3 Lifelong Learning</div><div class="dash-card-val" id="bgaP3Disp">0<sup>%</sup></div><div class="dash-card-sub">readiness</div></div>`;
+  }
+
+  const grid = document.getElementById('bgaGrid');
+  if (!grid) return;
+
+  // P1 CIM Metric Builder
+  let html = `<div class="acc-std" id="bgastd_P1">
+    <div class="acc-std-header" onclick="toggleAccStd('bga','P1')">
+      <div class="acc-std-stripe" style="background:#7b1fa2"></div>
+      <div class="acc-std-info">
+        <div class="acc-std-name">P1 — Positive Impact: CIM Metric Builder</div>
+        <div class="acc-std-sub">Define your 10 impact metrics · At least 1 must reference SDGs · 3 recommended · 3 years data required</div>
+      </div>
+      <div class="acc-std-bar"><div class="acc-std-bar-fill" id="bgabar_P1" style="background:#7b1fa2;width:0%"></div></div>
+      <div style="min-width:80px;text-align:right"><div class="acc-std-score" id="bgapts_P1" style="color:#7b1fa2">0/10</div></div>
+      <div class="acc-std-badge" style="background:#7b1fa2">Critical</div>
+    </div>
+    <div class="acc-std-body">
+      <div style="font-size:12px;color:var(--ink2);line-height:1.65;margin-bottom:12px">${BGA_PILLARS[0].desc}</div>
+      <div class="bga-metric-builder">
+        <div class="bga-metric-row">
+          <div>Metric name / description</div><div>SDG-linked?</div><div>Year 1 value</div><div>Year 2 value</div><div>Year 3 value</div>
+        </div>`;
+  for (let i = 0; i < 10; i++) {
+    html += `<div class="bga-metric-row">
+      <input class="bga-metric-inp" placeholder="e.g. % students in community projects" id="bgaM${i}_name" oninput="calcBGA()">
+      <select class="bga-metric-inp" id="bgaM${i}_sdg" onchange="calcBGA()">
+        <option value="No">No</option><option value="Yes">Yes — SDG linked</option>
+      </select>
+      <input class="bga-metric-inp" type="number" placeholder="Year 1" id="bgaM${i}_y1" oninput="calcBGA()">
+      <input class="bga-metric-inp" type="number" placeholder="Year 2" id="bgaM${i}_y2" oninput="calcBGA()">
+      <input class="bga-metric-inp" type="number" placeholder="Year 3" id="bgaM${i}_y3" oninput="calcBGA()">
+    </div>`;
+  }
+  html += `</div>
+      <div style="font-size:11px;padding:6px 9px;background:#f3e5f5;border-left:2px solid #7b1fa2;color:#4a0072;margin-top:8px;line-height:1.55">${BGA_PILLARS[0].tip}</div>
+    </div></div>`;
+
+  // P2 and P3
+  [BGA_PILLARS[1], BGA_PILLARS[2]].forEach(p => {
+    html += `<div class="acc-std" id="bgastd_${p.code}">
+      <div class="acc-std-header" onclick="toggleAccStd('bga','${p.code}')">
+        <div class="acc-std-stripe" style="background:${p.color}"></div>
+        <div class="acc-std-info">
+          <div class="acc-std-name">${p.code} — ${p.name}</div>
+          <div class="acc-std-sub">${p.criteria.length} assessment areas</div>
+        </div>
+        <div class="acc-std-bar"><div class="acc-std-bar-fill" id="bgabar_${p.code}" style="background:${p.color};width:0%"></div></div>
+        <div style="min-width:70px;text-align:right"><div class="acc-std-score" id="bgapts_${p.code}" style="color:${p.color}">0%</div></div>
+        <div class="acc-std-badge" style="background:${p.code}">Pillar</div>
+      </div>
+      <div class="acc-std-body">
+        <div style="font-size:12px;color:var(--ink2);line-height:1.65;margin-bottom:10px">${p.desc}</div>
+        <div class="acc-inp-grid">`;
+    p.criteria.forEach(c => {
+      const fid = 'bga_' + p.code + '_' + c.id;
+      if (c.type === 'select') {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}</label>
+          <select id="${fid}" onchange="calcBGAPillar('${p.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+          ${c.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select></div>`;
+      } else {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}${c.unit?' <span style="color:#7b1fa2;font-size:10px">('+c.unit+')</span>':''}</label>
+          <input type="number" id="${fid}" placeholder="${c.placeholder||''}" min="0" oninput="calcBGAPillar('${p.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)"></div>`;
+      }
+    });
+    html += `</div>
+        <div style="font-size:11px;padding:6px 9px;background:#f3e5f5;border-left:2px solid ${p.color};color:#4a0072;margin-top:8px;line-height:1.55">${p.tip}</div>
+      </div></div>`;
+  });
+
+  grid.innerHTML = html;
+  updateBGAScores();
+}
+
+function calcBGA() {
+  let defined = 0, sdgLinked = 0;
+  for (let i = 0; i < 10; i++) {
+    const name = document.getElementById('bgaM'+i+'_name');
+    const sdg = document.getElementById('bgaM'+i+'_sdg');
+    const y1 = document.getElementById('bgaM'+i+'_y1');
+    const y3 = document.getElementById('bgaM'+i+'_y3');
+    if (name && name.value.trim()) {
+      defined++;
+      if (sdg && sdg.value === 'Yes — SDG linked') sdgLinked++;
+    }
+  }
+  const p1Score = defined;
+  const bar = document.getElementById('bgabar_P1');
+  const pts = document.getElementById('bgapts_P1');
+  const sdgC = document.getElementById('bgaSDGCount');
+  const p1d = document.getElementById('bgaP1Score');
+  if (bar) bar.style.width = (defined/10*100) + '%';
+  if (pts) pts.textContent = defined + '/10';
+  if (sdgC) sdgC.innerHTML = sdgLinked + '<sup>/10</sup>';
+  if (p1d) p1d.innerHTML = defined + '<sup>/10</sup>';
+  updateBGAScores();
+}
+
+function calcBGAPillar(code) {
+  const pillar = BGA_PILLARS.find(p => p.code === code);
+  if (!pillar || !pillar.criteria) return;
+  const vals = {};
+  pillar.criteria.forEach(c => {
+    const el = document.getElementById('bga_' + code + '_' + c.id);
+    vals[c.id] = el ? el.value : (c.type==='select' ? c.options[0] : '');
+  });
+  const score = Math.min(Math.round(pillar.calc(vals)), 100);
+  if (code === 'P2') bgaP2Score = score;
+  if (code === 'P3') bgaP3Score = score;
+  const bar = document.getElementById('bgabar_' + code);
+  const pts = document.getElementById('bgapts_' + code);
+  const disp = document.getElementById('bgaP' + code.slice(1) + 'Disp');
+  if (bar) bar.style.width = score + '%';
+  if (pts) pts.textContent = score + '%';
+  if (disp) disp.innerHTML = score + '<sup>%</sup>';
+  updateBGAScores();
+}
+
+function updateBGAScores() {
+  let defined = 0;
+  for (let i = 0; i < 10; i++) {
+    const name = document.getElementById('bgaM'+i+'_name');
+    if (name && name.value.trim()) defined++;
+  }
+  const p1Pct = Math.round(defined/10*100);
+  const overall = Math.round((p1Pct + bgaP2Score + bgaP3Score) / 3);
+  const tot = document.getElementById('bgaTotal');
+  if (tot) tot.innerHTML = overall + '<sup>%</sup>';
+  const lbl = document.getElementById('bgaBandLabel');
+  const band = document.getElementById('bgaBand');
+  let emoji, title, desc, bg, bc;
+  if (overall >= 80 && defined >= 8) { emoji='🏆'; title='Strong BGA readiness — accreditation likely achievable'; bg='#e8f5e9'; bc='#4caf50'; desc='Strong across all 3 pillars. Ensure 3 years of CIM metric data is documented with narrative trends. Submit SAR to BGA.'; }
+  else if (overall >= 60 && defined >= 6) { emoji='✅'; title='Good readiness — targeted improvements needed'; bg='#e3f2fd'; bc='#2196f3'; desc='Good foundation. Complete remaining CIM metrics and strengthen Lifelong Learning portfolio.'; }
+  else if (defined >= 3) { emoji='⚠️'; title='Developing — CIM metrics being built'; bg='#fff9c4'; bc='#ffc107'; desc='Focus on completing all 10 CIM metrics with 3 years of data first. BAB approval is required before measurement begins.'; }
+  else { emoji='📋'; title='Early stage — start with CIM metric definition'; bg='#f3e5f5'; bc='#9c27b0'; desc='Define your 10 impact metrics first. BGA recommends schools work with their assigned Accreditation Director to get CIM approved before collecting data.'; }
+  if (lbl) lbl.textContent = title;
+  if (band) { band.style.background=bg; band.style.borderColor=bc; band.innerHTML=`<div style="font-size:24px">${emoji}</div><div><div style="font-size:15px;font-weight:600;color:#4a0072">${title}</div><div style="font-size:12px;color:var(--ink2);margin-top:3px">${desc}</div></div>`; }
+}
+
+function resetBGA() {
+  bgaP2Score = 0; bgaP3Score = 0;
+  bgaMetrics = Array.from({length:10}, () => ({name:'',sdgLinked:'No',yr1:'',yr2:'',yr3:'',trend:'Stable',narrative:''}));
+  buildBGATab();
+}
+
+function getBGATabTotals() {
+  let defined = 0, sdgLinked = 0;
+  for (let i = 0; i < 10; i++) {
+    const name = document.getElementById('bgaM'+i+'_name');
+    const sdg = document.getElementById('bgaM'+i+'_sdg');
+    if (name && name.value.trim()) { defined++; if (sdg && sdg.value==='Yes — SDG linked') sdgLinked++; }
+  }
+  const overall = Math.round((Math.round(defined/10*100) + bgaP2Score + bgaP3Score)/3);
+  return { defined, sdgLinked, p2: bgaP2Score, p3: bgaP3Score, overall };
+}
+
+// ═══════════════════════════════════════════════════════════
+// EQUIS / EFMD — ALL 10 CHAPTERS
+// ═══════════════════════════════════════════════════════════
+
+const EQUIS_CHAPTERS = [
+  { code:'Ch1', name:'Context, Governance and Strategy', color:'#004d40', weight:'Foundation',
+    desc:'The school has a clearly articulated strategy aligned to its context. Governance structures are appropriate and transparent. Strategy drives resource allocation and performance review.',
+    tip:'EFMD peer reviewers scrutinise whether strategy is genuinely followed or just documented. Show minutes of governance meetings where strategy was debated and decisions were made based on strategic priorities.',
+    criteria:[
+      { id:'strategy_doc', label:'Formal strategy document approved by governing body', type:'select', options:['No','Draft','Approved and published'] },
+      { id:'gov_structure', label:'Governance structure appropriate and documented', type:'select', options:['No','Partial','Yes — transparent'] },
+      { id:'context_analysis', label:'Environmental/stakeholder analysis informing strategy', type:'select', options:['No','Informal','Formal SWOT/PESTLE analysis'] },
+      { id:'kpi_tracking', label:'KPIs defined and tracked against strategic goals', type:'select', options:['No','Some','Comprehensive — annual review'] },
+    ],
+    calc: v => {
+      const s={'No':0,'Draft':15,'Approved and published':25}[v.strategy_doc]||0;
+      const g={'No':0,'Partial':15,'Yes — transparent':25}[v.gov_structure]||0;
+      const c={'No':0,'Informal':15,'Formal SWOT/PESTLE analysis':25}[v.context_analysis]||0;
+      const k={'No':0,'Some':15,'Comprehensive — annual review':25}[v.kpi_tracking]||0;
+      return Math.min(s+g+c+k, 100);
+    }
+  },
+  { code:'Ch2', name:'Programmes and Accreditations', color:'#00695c', weight:'Critical',
+    desc:'The school offers high-quality, relevant programmes across degree levels. Programme design reflects mission, stakeholder needs and quality assurance processes. Other accreditations support quality claims.',
+    tip:'Portfolio diversity (UG, PG, Executive, PhD) strengthens EQUIS position. National accreditations (NBA, NAAC) and AACSB alongside EQUIS create a compelling quality narrative.',
+    criteria:[
+      { id:'prog_portfolio', label:'Programme portfolio breadth (UG + PG + Executive + PhD)', type:'select', options:['UG only','UG + PG','UG + PG + Executive','Full portfolio including PhD'] },
+      { id:'prog_review', label:'Structured programme review process with external input', type:'select', options:['No','Partial','Yes — periodic'] },
+      { id:'other_accred', label:'Other international/national accreditations held', type:'number', placeholder:'e.g. 2', unit:'accreditations' },
+      { id:'aol_equis', label:'Assurance of Learning system operational', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const pp={'UG only':10,'UG + PG':20,'UG + PG + Executive':30,'Full portfolio including PhD':40}[v.prog_portfolio]||0;
+      const pr={'No':0,'Partial':20,'Yes — periodic':30}[v.prog_review]||0;
+      const oa=Math.min(15*(parseFloat(v.other_accred)||0)/2,15);
+      const aol={'No':0,'Partial':8,'Yes':15}[v.aol_equis]||0;
+      return Math.min(pp+pr+oa+aol, 100);
+    }
+  },
+  { code:'Ch3', name:'Students', color:'#00796b', weight:'Important',
+    desc:'Student profile, diversity, support services and outcomes are consistent with the school\'s mission. Student voice is present in governance.',
+    tip:'International student diversity is particularly valued by EFMD. Student representation on governance bodies and active student associations strengthen this chapter significantly.',
+    criteria:[
+      { id:'intl_students', label:'% international students', type:'number', placeholder:'e.g. 25', unit:'%' },
+      { id:'student_diversity', label:'Geographic and demographic diversity documented', type:'select', options:['No','Some','Strong — published'] },
+      { id:'student_gov', label:'Student representation in school governance', type:'select', options:['No','Observer','Full member'] },
+      { id:'student_support', label:'Comprehensive student services (career, wellbeing, academic)', type:'select', options:['No','Basic','Comprehensive'] },
+      { id:'employability', label:'Graduate employment outcomes tracked and published', type:'select', options:['No','Partial','Yes — annual data'] },
+    ],
+    calc: v => {
+      const is=Math.min(25*(parseFloat(v.intl_students)||0)/20,25);
+      const sd={'No':0,'Some':15,'Strong — published':20}[v.student_diversity]||0;
+      const sg={'No':0,'Observer':10,'Full member':20}[v.student_gov]||0;
+      const ss={'No':0,'Basic':10,'Comprehensive':20}[v.student_support]||0;
+      const emp={'No':0,'Partial':10,'Yes — annual data':15}[v.employability]||0;
+      return Math.min(is+sd+sg+ss+emp, 100);
+    }
+  },
+  { code:'Ch4', name:'Faculty', color:'#00897b', weight:'Critical',
+    desc:'The school has a sufficient, qualified and active faculty. Faculty composition, development, research activity and management are aligned to the school\'s mission.',
+    tip:'EQUIS expects a mix of academic and professional faculty. Faculty research activity must be demonstrably current. Faculty development plans and sabbatical policies are examined carefully.',
+    criteria:[
+      { id:'phd_pct', label:'% faculty with doctoral qualification', type:'number', placeholder:'e.g. 70', unit:'%' },
+      { id:'fac_research', label:'Faculty publishing in peer-reviewed journals (% active researchers)', type:'number', placeholder:'e.g. 60', unit:'%' },
+      { id:'fac_dev', label:'Faculty development plan operational for all faculty', type:'select', options:['No','Partial','Yes'] },
+      { id:'prof_faculty', label:'Professional/practitioner faculty integrated in teaching', type:'select', options:['No','Some','Significant'] },
+      { id:'fac_intl', label:'International faculty composition', type:'number', placeholder:'e.g. 20', unit:'%' },
+    ],
+    calc: v => {
+      const phd=Math.min(25*(parseFloat(v.phd_pct)||0)/70,25);
+      const res=Math.min(25*(parseFloat(v.fac_research)||0)/60,25);
+      const dev={'No':0,'Partial':15,'Yes':20}[v.fac_dev]||0;
+      const pf={'No':0,'Some':10,'Significant':15}[v.prof_faculty]||0;
+      const intl=Math.min(15*(parseFloat(v.fac_intl)||0)/20,15);
+      return Math.min(phd+res+dev+pf+intl, 100);
+    }
+  },
+  { code:'Ch5', name:'Research and Development', color:'#26a69a', weight:'Critical',
+    desc:'The school has a clear research strategy and demonstrates research output, impact and quality. Research contributes to the international knowledge base and informs teaching.',
+    tip:'Research strategy must explicitly connect to teaching — peer reviewers look for evidence that faculty research enriches student learning. Research centres and PhD programmes strengthen this chapter.',
+    criteria:[
+      { id:'res_strategy', label:'Research strategy documented with priorities', type:'select', options:['No','Draft','Published and active'] },
+      { id:'pub_output', label:'Annual peer-reviewed publications per faculty', type:'number', placeholder:'e.g. 0.8', unit:'per faculty/year' },
+      { id:'res_funding', label:'External research funding secured', type:'select', options:['No','Minimal','Significant — tracked'] },
+      { id:'res_centres', label:'Research centres or institutes established', type:'number', placeholder:'e.g. 2', unit:'centres' },
+      { id:'phd_programme', label:'PhD programme with active enrolment', type:'select', options:['No','Yes — small','Yes — established'] },
+    ],
+    calc: v => {
+      const rs={'No':0,'Draft':15,'Published and active':20}[v.res_strategy]||0;
+      const po=Math.min(30*(parseFloat(v.pub_output)||0)/0.8,30);
+      const rf={'No':0,'Minimal':10,'Significant — tracked':20}[v.res_funding]||0;
+      const rc=Math.min(15*(parseFloat(v.res_centres)||0)/2,15);
+      const phd={'No':0,'Yes — small':8,'Yes — established':15}[v.phd_programme]||0;
+      return Math.min(rs+po+rf+rc+phd, 100);
+    }
+  },
+  { code:'Ch6', name:'Executive Education', color:'#4db6ac', weight:'Important',
+    desc:'Where executive education exists, it is of high quality, relevant to business needs and contributes to the school\'s mission. Schools without executive education should explain this position.',
+    tip:'If the school has no executive education, EFMD expects a clear explanation of why this is consistent with mission. Schools with strong executive education portfolios gain significant competitive advantage in EQUIS.',
+    criteria:[
+      { id:'exec_exists', label:'Executive education programmes offered', type:'select', options:['No — mission-consistent','Yes — limited','Yes — substantial portfolio'] },
+      { id:'exec_custom', label:'Customised in-company programmes offered', type:'select', options:['No','Some','Significant'] },
+      { id:'exec_intl', label:'International executive education delivery', type:'select', options:['No','Some','Yes — multiple markets'] },
+      { id:'exec_quality', label:'Executive education quality assurance processes', type:'select', options:['N/A','Informal','Formal — documented'] },
+    ],
+    calc: v => {
+      if(v.exec_exists==='No — mission-consistent') return 80;
+      const ee={'Yes — limited':30,'Yes — substantial portfolio':50}[v.exec_exists]||0;
+      const ec={'No':0,'Some':15,'Significant':20}[v.exec_custom]||0;
+      const ei={'No':0,'Some':10,'Yes — multiple markets':15}[v.exec_intl]||0;
+      const eq={'N/A':0,'Informal':10,'Formal — documented':15}[v.exec_quality]||0;
+      return Math.min(ee+ec+ei+eq, 100);
+    }
+  },
+  { code:'Ch7', name:'Resources and Administration', color:'#00695c', weight:'Foundation',
+    desc:'The school has adequate physical, financial and human resources. Administrative processes support academic mission. Financial sustainability is demonstrated.',
+    tip:'Resource adequacy is assessed relative to mission — not absolute size. A small school with focused resources can score well. Financial sustainability over a 5-year horizon is particularly examined.',
+    criteria:[
+      { id:'financial_sust', label:'Financial sustainability demonstrated (5-year horizon)', type:'select', options:['No','At risk','Stable','Strong and growing'] },
+      { id:'facilities', label:'Physical facilities adequate for mission delivery', type:'select', options:['No','Adequate','Excellent'] },
+      { id:'digital_infra', label:'Digital infrastructure (LMS, research databases, IT)', type:'select', options:['No','Basic','Advanced'] },
+      { id:'admin_quality', label:'Administrative processes support academic excellence', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const fs={'No':0,'At risk':10,'Stable':30,'Strong and growing':40}[v.financial_sust]||0;
+      const fac={'No':0,'Adequate':20,'Excellent':30}[v.facilities]||0;
+      const di={'No':0,'Basic':15,'Advanced':20}[v.digital_infra]||0;
+      const aq={'No':0,'Partial':5,'Yes':10}[v.admin_quality]||0;
+      return Math.min(fs+fac+di+aq, 100);
+    }
+  },
+  { code:'Ch8', name:'Corporate Connections', color:'#004d40', weight:'Important',
+    desc:'The school has strong connections with the corporate and wider business world. These connections enrich education, provide resources and create pathways for graduates.',
+    tip:'Corporate connections must be two-way — not just companies hiring graduates. Show companies co-designing curriculum, funding research, providing guest faculty and co-creating case studies.',
+    criteria:[
+      { id:'advisory_board', label:'Corporate advisory board with active influence', type:'select', options:['No','Exists — inactive','Active — drives curriculum'] },
+      { id:'industry_projects', label:'Industry-linked projects or competitions for students', type:'select', options:['No','Some','Regular — embedded in curriculum'] },
+      { id:'guest_faculty', label:'Senior practitioners as guest faculty or professors of practice', type:'number', placeholder:'e.g. 10', unit:'per year' },
+      { id:'career_outcomes', label:'Strong graduate placement outcomes with major employers', type:'select', options:['No','Partial','Yes — documented'] },
+      { id:'alumni_engage', label:'Active alumni engagement programme with corporate connections', type:'select', options:['No','Partial','Yes'] },
+    ],
+    calc: v => {
+      const ab={'No':0,'Exists — inactive':10,'Active — drives curriculum':25}[v.advisory_board]||0;
+      const ip={'No':0,'Some':15,'Regular — embedded in curriculum':25}[v.industry_projects]||0;
+      const gf=Math.min(20*(parseFloat(v.guest_faculty)||0)/10,20);
+      const co={'No':0,'Partial':15,'Yes — documented':20}[v.career_outcomes]||0;
+      const ae={'No':0,'Partial':5,'Yes':10}[v.alumni_engage]||0;
+      return Math.min(ab+ip+gf+co+ae, 100);
+    }
+  },
+  { code:'Ch9', name:'Internationalisation', color:'#00796b', weight:'Important',
+    desc:'The school has a coherent internationalisation strategy. International dimension is present in programmes, faculty, students and partnerships.',
+    tip:'EQUIS was created by EFMD as a globally-focused accreditation. International ambition must be genuine and demonstrable — not just having international students. Double degrees and exchange partnerships carry significant weight.',
+    criteria:[
+      { id:'intl_strategy', label:'Internationalisation strategy documented and active', type:'select', options:['No','Draft','Active — reviewed annually'] },
+      { id:'exchange_partners', label:'Student exchange partnerships (universities)', type:'number', placeholder:'e.g. 25', unit:'partners' },
+      { id:'double_degree', label:'Double or joint degree programmes', type:'number', placeholder:'e.g. 3', unit:'programmes' },
+      { id:'intl_curriculum', label:'International perspective embedded in curriculum', type:'select', options:['No','Some','Systematic'] },
+      { id:'rankings_intl', label:'Listed in major international rankings', type:'select', options:['No','Regional','Global rankings'] },
+    ],
+    calc: v => {
+      const is={'No':0,'Draft':10,'Active — reviewed annually':20}[v.intl_strategy]||0;
+      const ep=Math.min(25*(parseFloat(v.exchange_partners)||0)/25,25);
+      const dd=Math.min(20*(parseFloat(v.double_degree)||0)/3,20);
+      const ic={'No':0,'Some':15,'Systematic':20}[v.intl_curriculum]||0;
+      const rk={'No':0,'Regional':8,'Global rankings':15}[v.rankings_intl]||0;
+      return Math.min(is+ep+dd+ic+rk, 100);
+    }
+  },
+  { code:'Ch10', name:'Ethics, Responsibility and Sustainability (ERS)', color:'#1b5e20', weight:'Transversal',
+    desc:'ERS is transversal across all 10 chapters. Ch.10 assesses the school\'s overall ERS commitment — ethics policy, sustainability strategy, gender equity, SDG integration and responsible business education.',
+    tip:'Strong ERS is the primary differentiator for 5-year vs 3-year EQUIS accreditation. ERS must appear in mission, programmes, faculty research, operations AND corporate connections — not just in a standalone ethics module.',
+    criteria:[
+      { id:'ers_strategy', label:'ERS strategy integrated into overall school strategy', type:'select', options:['No','Standalone','Integrated into main strategy'] },
+      { id:'ethics_policy', label:'Ethics and integrity policy published', type:'select', options:['No','Yes — basic','Yes — comprehensive'] },
+      { id:'sustainability', label:'Environmental sustainability strategy and targets', type:'select', options:['No','Partial','Yes — with targets'] },
+      { id:'gender_equity', label:'Gender equity policy with measurable targets', type:'select', options:['No','Policy only','Policy + measurable targets'] },
+      { id:'ers_curriculum', label:'ERS embedded in curriculum across multiple programmes', type:'select', options:['No','One standalone course','Multiple courses','Embedded throughout'] },
+      { id:'sdg_commitment', label:'SDG commitment documented and publicly stated', type:'select', options:['No','Partial','Yes — specific SDGs named'] },
+      { id:'ers_report', label:'Annual sustainability/ERS report published', type:'select', options:['No','Informal','Formal published report'] },
+      { id:'prme_equis', label:'PRME signatory', type:'select', options:['No','Yes'] },
+    ],
+    calc: v => {
+      const es={'No':0,'Standalone':8,'Integrated into main strategy':15}[v.ers_strategy]||0;
+      const ep={'No':0,'Yes — basic':8,'Yes — comprehensive':15}[v.ethics_policy]||0;
+      const sus={'No':0,'Partial':8,'Yes — with targets':15}[v.sustainability]||0;
+      const ge={'No':0,'Policy only':5,'Policy + measurable targets':10}[v.gender_equity]||0;
+      const cur={'No':0,'One standalone course':5,'Multiple courses':10,'Embedded throughout':15}[v.ers_curriculum]||0;
+      const sdg={'No':0,'Partial':5,'Yes — specific SDGs named':10}[v.sdg_commitment]||0;
+      const rep={'No':0,'Informal':5,'Formal published report':10}[v.ers_report]||0;
+      const prme=v.prme_equis==='Yes'?10:0;
+      return Math.min(es+ep+sus+ge+cur+sdg+rep+prme, 100);
+    }
+  },
+];
+
+let equisVals = {};
+
+function buildEQUISTab() {
+  const sg = document.getElementById('equisScoreGrid');
+  if (sg) {
+    let html = `<div class="acc-score-card main" style="background:#004d40">
+      <div class="dash-card-label">Overall EQUIS readiness</div>
+      <div class="dash-card-val" id="equisTotal">0<sup>%</sup></div>
+      <div class="dash-card-sub" id="equisBandLabel">Enter data across all chapters</div>
+    </div>`;
+    EQUIS_CHAPTERS.forEach(c => {
+      html += `<div class="acc-score-card"><div class="dash-card-label">${c.code}</div>
+        <div class="dash-card-val" id="equisS_${c.code}">0<sup>%</sup></div>
+        <div class="dash-card-sub">${c.weight}</div></div>`;
+    });
+    sg.innerHTML = html;
+  }
+
+  const grid = document.getElementById('equisGrid');
+  if (!grid) return;
+  let html = '';
+  EQUIS_CHAPTERS.forEach(ch => {
+    html += `<div class="acc-std" id="equisstd_${ch.code}">
+      <div class="acc-std-header" onclick="toggleAccStd('equis','${ch.code}')">
+        <div class="acc-std-stripe" style="background:${ch.color}"></div>
+        <div class="acc-std-info">
+          <div class="acc-std-name">${ch.code} — ${ch.name}</div>
+          <div class="acc-std-sub">${ch.weight} · ${ch.criteria.length} assessment areas</div>
+        </div>
+        <div class="acc-std-bar"><div class="acc-std-bar-fill" id="equisbar_${ch.code}" style="background:${ch.color};width:0%"></div></div>
+        <div style="min-width:70px;text-align:right"><div class="acc-std-score" id="equispts_${ch.code}" style="color:${ch.color}">0%</div></div>
+        <div class="acc-std-badge" style="background:${ch.color}">${ch.weight}</div>
+      </div>
+      <div class="acc-std-body">
+        <div style="font-size:12px;color:var(--ink2);line-height:1.65;margin-bottom:10px">${ch.desc}</div>
+        <div class="acc-inp-grid">`;
+    ch.criteria.forEach(c => {
+      const fid = 'equis_' + ch.code + '_' + c.id;
+      if (c.type === 'select') {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}</label>
+          <select id="${fid}" onchange="calcEQUIS('${ch.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+          ${c.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select></div>`;
+      } else {
+        html += `<div class="calc-field"><label style="font-size:11px;color:var(--ink3);display:block;margin-bottom:3px">${c.label}${c.unit?' <span style="color:#004d40;font-size:10px">('+c.unit+')</span>':''}</label>
+          <input type="number" id="${fid}" placeholder="${c.placeholder||''}" min="0" oninput="calcEQUIS('${ch.code}')" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)"></div>`;
+      }
+    });
+    html += `</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+            <div id="equissubbar_${ch.code}" style="height:100%;border-radius:2px;background:${ch.color};width:0%;transition:width 0.4s"></div>
+          </div>
+          <div style="font-size:11px;font-weight:600;color:${ch.color}" id="equissubpct_${ch.code}">0%</div>
+        </div>
+        <div style="font-size:11px;padding:6px 9px;background:#e0f2f1;border-left:2px solid ${ch.color};color:#004d40;margin-top:8px;line-height:1.55">${ch.tip}</div>
+      </div></div>`;
+  });
+  grid.innerHTML = html;
+  updateEQUISScores();
+}
+
+function calcEQUIS(code) {
+  const ch = EQUIS_CHAPTERS.find(c => c.code === code);
+  if (!ch) return;
+  const vals = {};
+  ch.criteria.forEach(c => {
+    const el = document.getElementById('equis_' + code + '_' + c.id);
+    vals[c.id] = el ? el.value : (c.type==='select' ? c.options[0] : '');
+  });
+  const score = Math.min(Math.round(ch.calc(vals)), 100);
+  equisVals[code] = score;
+  const bar = document.getElementById('equisbar_' + code);
+  const pts = document.getElementById('equispts_' + code);
+  const sub = document.getElementById('equissubbar_' + code);
+  const pct = document.getElementById('equissubpct_' + code);
+  const sc = document.getElementById('equisS_' + code);
+  if (bar) bar.style.width = score + '%';
+  if (pts) pts.textContent = score + '%';
+  if (sub) sub.style.width = score + '%';
+  if (pct) pct.textContent = score + '%';
+  if (sc) sc.innerHTML = score + '<sup>%</sup>';
+  updateEQUISScores();
+}
+
+function updateEQUISScores() {
+  const scores = EQUIS_CHAPTERS.map(c => equisVals[c.code] || 0);
+  const avg = Math.round(scores.reduce((a,b)=>a+b,0)/EQUIS_CHAPTERS.length);
+  const critical = ['Ch2','Ch4','Ch5','Ch10'].map(c => equisVals[c]||0);
+  const critAvg = Math.round(critical.reduce((a,b)=>a+b,0)/4);
+  const tot = document.getElementById('equisTotal');
+  if (tot) tot.innerHTML = avg + '<sup>%</sup>';
+  const lbl = document.getElementById('equisBandLabel');
+  const band = document.getElementById('equisBand');
+  let emoji, title, desc, bg, bc;
+  if (avg >= 80 && critAvg >= 75) { emoji='🏆'; title='Strong — 5-year EQUIS accreditation likely'; bg='#e8f5e9'; bc='#4caf50'; desc='Excellent across critical chapters. ERS (Ch10) strong — key differentiator for 5-year award. Submit SAR to EFMD.'; }
+  else if (avg >= 65) { emoji='✅'; title='Good — 3-year EQUIS accreditation likely achievable'; bg='#e3f2fd'; bc='#2196f3'; desc='Good foundation. Strengthen Research (Ch5) and Corporate Connections (Ch8) for 5-year upgrade path.'; }
+  else if (avg >= 45) { emoji='⚠️'; title='Developing — targeted improvements needed'; bg='#fff9c4'; bc='#ffc107'; desc='Core gaps in Faculty (Ch4) and/or Research (Ch5). These are non-negotiable for EQUIS peer reviewers.'; }
+  else { emoji='❌'; title='Early stage — foundational work required'; bg='#e0f2f1'; bc='#004d40'; desc='Start with: strategy document (Ch1), faculty research activity (Ch4/5), and ERS integration (Ch10).'; }
+  if (lbl) lbl.textContent = title;
+  if (band) { band.style.background=bg; band.style.borderColor=bc; band.innerHTML=`<div style="font-size:24px">${emoji}</div><div><div style="font-size:15px;font-weight:600;color:#004d40">${title} — ${avg}% average readiness</div><div style="font-size:12px;color:var(--ink2);margin-top:3px">${desc}</div></div>`; }
+}
+
+function resetEQUIS() { equisVals = {}; buildEQUISTab(); }
+
+function getEQUISTabTotals() {
+  const scores = EQUIS_CHAPTERS.map(c => equisVals[c.code]||0);
+  const avg = Math.round(scores.reduce((a,b)=>a+b,0)/EQUIS_CHAPTERS.length);
+  const ch10 = equisVals['Ch10']||0;
+  const band = avg>=80?'5-year likely':avg>=65?'3-year likely':avg>=45?'Developing':'Early stage';
+  return { avg, ch10, band };
 }
 
 
