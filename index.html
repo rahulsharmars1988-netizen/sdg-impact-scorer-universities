@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SDG University Impact Scorer — THE Rankings × AACSB × BGA × EQUIS</title>
+<title>UniRank360 — THE Rankings × AACSB × BGA × EQUIS</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -622,18 +622,102 @@ nav {
 .yn-btn.sel-yes { background:#e8f5e9; border-color:#4caf50; color:#1b5e20; }
 .yn-btn.sel-partial { background:#fff9c4; border-color:#ffc107; color:#f57f17; }
 .yn-btn.sel-no { background:#ffebee; border-color:#ef9a9a; color:#b71c1c; }
+
+/* ── NBA ── */
+.nba-wrap { padding:0 24px 48px; max-width:1100px; margin:0 auto; }
+.nba-hero { background:linear-gradient(135deg,#880e4f 0%,#c2185b 60%,#e91e63 100%); border-radius:var(--radius); padding:28px 32px; margin-bottom:20px; }
+.nba-hero-title { font-family:'DM Serif Display',serif; font-size:26px; color:#fff; margin-bottom:6px; }
+.nba-hero-title span { color:#FFD54F; }
+.nba-hero-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; max-width:720px; }
+.nba-prog-bar { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px 20px; margin-bottom:16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.nba-prog-label { font-size:13px; font-weight:600; color:var(--ink2); }
+.nba-prog-opts { display:flex; gap:6px; flex-wrap:wrap; }
+.nba-pbn { padding:5px 12px; border-radius:16px; font-size:11px; font-weight:600; border:1.5px solid var(--border); background:transparent; cursor:pointer; color:var(--ink2); transition:all 0.2s; }
+.nba-pbn:hover { border-color:#880e4f; color:#880e4f; }
+.nba-pbn.on { background:#880e4f; border-color:#880e4f; color:#fff; }
+.nba-score-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-bottom:16px; }
+.nba-score-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.nba-score-card.main { background:#880e4f; border-color:#880e4f; }
+.nba-score-card.main .dash-card-label { color:rgba(255,255,255,0.5); }
+.nba-score-card.main .dash-card-val { color:#FFD54F; font-size:28px; }
+.nba-score-card.main .dash-card-sub { color:rgba(255,255,255,0.5); }
+.nba-band { border-radius:var(--radius); padding:14px 18px; margin-bottom:16px; border:2px solid; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.nba-crit { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; }
+.nba-crit-header { padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; }
+.nba-crit-header:hover { background:var(--surface); }
+.nba-crit-stripe { width:6px; height:36px; border-radius:3px; flex-shrink:0; }
+.nba-crit-info { flex:1; }
+.nba-crit-name { font-size:14px; font-weight:600; color:var(--ink); }
+.nba-crit-sub { font-size:11px; color:var(--ink3); margin-top:2px; }
+.nba-crit-bar { width:80px; height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+.nba-crit-bar-fill { height:100%; border-radius:3px; transition:width 0.4s; }
+.nba-crit-score { font-family:'DM Serif Display',serif; font-size:20px; min-width:80px; text-align:right; }
+.nba-crit-max { font-size:9px; color:var(--ink3); display:block; }
+.nba-crit-weight { font-size:11px; font-weight:700; padding:3px 8px; border-radius:10px; background:#880e4f; color:#fff; flex-shrink:0; }
+.nba-sub-list { display:none; padding:6px 18px 14px; background:var(--surface); }
+.nba-crit.open .nba-sub-list { display:block; }
+.nba-sub { padding:10px 0; border-top:1px solid var(--border); }
+.nba-sub-code { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink3); margin-bottom:3px; }
+.nba-sub-name { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.nba-sub-formula { font-size:11px; color:#880e4f; margin-bottom:6px; font-family:var(--font-mono); background:#fce4ec; padding:4px 8px; border-radius:4px; }
+.nba-sub-desc { font-size:12px; color:var(--ink2); line-height:1.6; margin-bottom:6px; }
+.nba-sub-tip { font-size:11px; padding:5px 8px; border-left:2px solid #880e4f; background:#fce4ec; color:#880e4f; line-height:1.5; margin-top:4px; }
+.nba-sub-sdg { font-size:10px; color:#880e4f; margin-top:4px; font-style:italic; }
+
+/* ── AI REPORT + PDF ── */
+.ai-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:var(--radius);
+  background:linear-gradient(135deg,#1a237e,#0f7c6e);
+  color:#fff; font-size:13px; font-weight:600; cursor:pointer;
+  border:none; transition:opacity 0.2s; letter-spacing:0.02em;
+}
+.ai-btn:hover { opacity:0.88; }
+.ai-btn svg { width:16px; height:16px; fill:currentColor; }
+.pdf-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:var(--radius);
+  background:#c9922a; color:#fff; font-size:13px; font-weight:600;
+  cursor:pointer; border:none; transition:opacity 0.2s;
+}
+.pdf-btn:hover { opacity:0.88; }
+
+.ai-panel {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); margin-top:16px; overflow:hidden;
+}
+.ai-panel-header {
+  background:linear-gradient(135deg,#1a237e,#0f7c6e);
+  padding:12px 18px; display:flex; align-items:center; gap:10px;
+}
+.ai-panel-title { color:#fff; font-size:14px; font-weight:600; flex:1; }
+.ai-panel-badge { font-size:10px; background:rgba(255,255,255,0.2); color:#fff; padding:2px 8px; border-radius:10px; }
+.ai-panel-body { padding:18px; }
+.ai-section { margin-bottom:16px; }
+.ai-section-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink3); margin-bottom:6px; }
+.ai-text { font-size:13px; color:var(--ink2); line-height:1.75; }
+.ai-loading {
+  display:flex; align-items:center; gap:10px; padding:20px;
+  color:var(--ink3); font-size:13px;
+}
+.ai-dot { width:8px; height:8px; border-radius:50%; background:#1a237e; animation:aiPulse 1.2s infinite; }
+.ai-dot:nth-child(2) { animation-delay:0.2s; }
+.ai-dot:nth-child(3) { animation-delay:0.4s; }
+@keyframes aiPulse { 0%,80%,100%{opacity:0.2;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
+.ai-error { color:#b71c1c; font-size:13px; padding:12px; background:#ffebee; border-radius:6px; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">SDG <span>Impact</span> Scorer <span style="font-size:10px;opacity:0.4;font-family:var(--font-sans);font-weight:400;letter-spacing:0.04em">v2025.1</span></div>
+  <div class="nav-logo">SDG <span>Impact</span> Scorer <span style="font-size:10px;opacity:0.4;font-family:var(--font-sans);font-weight:400;letter-spacing:0.04em">v3.0</span></div>
   <div class="nav-pills">
     <button class="nav-pill active" onclick="showSection('score')">THE / SDGs</button>
     <button class="nav-pill" onclick="showSection('qs')">QS Sustainability</button>
     <button class="nav-pill" onclick="showSection('igauge')">QS I-GAUGE</button>
     <button class="nav-pill" onclick="showSection('nirf')">NIRF</button>
+    <button class="nav-pill" onclick="showSection('nba')">NBA</button>
     <button class="nav-pill" onclick="showSection('report')">My Report</button>
   </div>
   <div class="nav-score" id="navScoreWrap">THE Score: <strong id="navScore">0</strong><span style="font-size:12px;opacity:0.5"> / 100</span> &nbsp;<span id="navBand" style="font-size:11px;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.1);color:#fff"></span></div>
@@ -747,6 +831,60 @@ nav {
 
 
 
+
+
+<!-- NBA SECTION -->
+<div id="nbaSection" style="display:none">
+  <div class="nba-wrap">
+    <div class="nba-hero">
+      <div class="nba-hero-title">NBA <span>Accreditation</span> — GAPC V4.0 (July 2024)</div>
+      <div class="nba-hero-sub">National Board of Accreditation · Self-Assessment Report · 9 Criteria · 1000 marks total · Program Level (Criteria 1–8) + Institution Level (Criterion 9) · Select program type below.</div>
+    </div>
+
+    <div class="nba-prog-bar">
+      <span class="nba-prog-label">Program type:</span>
+      <div class="nba-prog-opts" id="nbaProgOpts"></div>
+    </div>
+
+    <div class="nba-score-grid">
+      <div class="nba-score-card main">
+        <div class="dash-card-label">NBA total score</div>
+        <div class="dash-card-val" id="nbaTotalScore">0<sup>/1000</sup></div>
+        <div class="dash-card-sub" id="nbaBandLabel">Enter data to score</div>
+      </div>
+      <div class="nba-score-card"><div class="dash-card-label">C1 Curriculum</div><div class="dash-card-val" id="nbaC1">0<sup>/120</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C2 Teaching</div><div class="dash-card-val" id="nbaC2">0<sup>/120</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C3 Assessment</div><div class="dash-card-val" id="nbaC3">0<sup>/120</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C4 Students</div><div class="dash-card-val" id="nbaC4">0<sup>/120</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C5 Faculty Info</div><div class="dash-card-val" id="nbaC5">0<sup>/100</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C6 Faculty Contrib</div><div class="dash-card-val" id="nbaC6">0<sup>/120</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C7 Facilities</div><div class="dash-card-val" id="nbaC7">0<sup>/100</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C8 Improvement</div><div class="dash-card-val" id="nbaC8">0<sup>/80</sup></div></div>
+      <div class="nba-score-card"><div class="dash-card-label">C9 Governance</div><div class="dash-card-val" id="nbaC9">0<sup>/120</sup></div></div>
+    </div>
+
+    <div id="nbaBandDisplay" class="nba-band" style="background:#fce4ec;border-color:#e91e63">
+      <div style="font-size:24px">📋</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#880e4f">Select program type and enter data to calculate your NBA readiness score</div>
+        <div style="font-size:12px;color:#c2185b;margin-top:3px">NBA accredits: 750+ = Accredited for 5–6 years | 600–749 = Accredited for 2–3 years | Below 600 = Not accredited</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showSection('report')">View combined report →</button>
+      <button class="btn btn-outline" onclick="resetNBA()">Reset NBA</button>
+    </div>
+
+    <div id="nbaGrid"></div>
+
+    <div class="footnote" style="margin-top:28px">
+      NBA GAPC V4.0 (July 2024) — National Board of Accreditation, Ministry of Education, Government of India. Scores are self-assessed readiness estimates — not official NBA scores. Official accreditation requires formal NBA application, SAR submission and expert visit. Apply at nbaind.org. &copy; 2026 Rahul Sharma. Licensed under CC BY-NC 4.0.<br>
+      <a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:#880e4f;text-decoration:none;font-weight:500">LinkedIn: Rahul Sharma</a> &nbsp;|&nbsp;
+      <a href="mailto:rahulsharma.rs1988@gmail.com" style="color:#880e4f;text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
+    </div>
+  </div>
+</div>
 
 <!-- NIRF SECTION -->
 <div id="nirfSection" style="display:none">
@@ -1479,13 +1617,15 @@ function showSection(s) {
   document.getElementById('qsSection').style.display = s==='qs' ? 'block' : 'none';
   document.getElementById('igaugeSection').style.display = s==='igauge' ? 'block' : 'none';
   document.getElementById('nirfSection').style.display = s==='nirf' ? 'block' : 'none';
+  document.getElementById('nbaSection').style.display = s==='nba' ? 'block' : 'none';
   document.getElementById('reportSection').style.display = s==='report' ? 'block' : 'none';
   document.querySelectorAll('.nav-pill').forEach((p,i) => p.classList.toggle('active',
-    (i===0&&s==='score')||(i===1&&s==='qs')||(i===2&&s==='igauge')||(i===3&&s==='nirf')||(i===4&&s==='report')));
+    (i===0&&s==='score')||(i===1&&s==='qs')||(i===2&&s==='igauge')||(i===3&&s==='nirf')||(i===4&&s==='nba')||(i===5&&s==='report')));
   if (s==='report') buildReport();
   if (s==='qs' && !document.getElementById('qsGrid').innerHTML) { buildQSGrid(); updateQSScores(); }
   if (s==='igauge' && !document.getElementById('igGrid').innerHTML) { buildIGGrid(); updateIGScores(); }
   if (s==='nirf' && !document.getElementById('nirfGrid').innerHTML) { buildNIRFGrid(); updateNIRFScores(); }
+  if (s==='nba' && !document.getElementById('nbaGrid').innerHTML) { buildNBAGrid(); updateNBAScores(); }
 }
 
 function resetAll() {
@@ -2032,6 +2172,7 @@ function buildReport() {
   const qsTotals = getQSTotals();
   const igTotals = getIGTotals();
   const nirfTotals = getNIRFTotals();
+  const nbaTotals = getNBATotals();
   const sdgs = countSDGsWithData();
   const acts = countChecked();
   const matLabel = MATURITY_LABELS[maturity];
@@ -2078,6 +2219,7 @@ function buildReport() {
       <div class="rep-score"><span class="rep-score-val">${qsTotals.overall}%</span><span class="rep-score-lbl">QS Sustainability</span></div>
       <div class="rep-score"><span class="rep-score-val">${igTotals.rating}</span><span class="rep-score-lbl">QS I-GAUGE</span></div>
       <div class="rep-score"><span class="rep-score-val">${nirfTotals.overall}</span><span class="rep-score-lbl">NIRF /100</span></div>
+      <div class="rep-score"><span class="rep-score-val">${nbaTotals.total}</span><span class="rep-score-lbl">NBA /1000</span></div>
       <div class="rep-score"><span class="rep-score-val">${aacsb}%</span><span class="rep-score-lbl">AACSB Std 9</span></div>
       <div class="rep-score"><span class="rep-score-val">${bga}/10</span><span class="rep-score-lbl">BGA CIM</span></div>
       <div class="rep-score"><span class="rep-score-val">${equis}%</span><span class="rep-score-lbl">EQUIS ERS</span></div>
@@ -2185,6 +2327,39 @@ function buildReport() {
     <div class="insight-card" style="margin-top:12px">
       <div style="font-size:13px;color:var(--ink2);line-height:1.75">
         <strong>NIRF eligibility reminder:</strong> Minimum 1,000 total sanctioned/enrolled students required for Overall ranking. Minimum 3 batches of graduates in full-time UG/PG programmes (min. 3 years UG, 2 years PG). Data must be published on institutional website. Registration at <strong>nirfindia.org</strong> required by announced deadline each year.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- NBA IN REPORT -->
+  <div class="rep-section">
+    <div class="rep-section-title">NBA Accreditation readiness (GAPC V4.0)</div>
+    <div class="acc-readiness-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div class="acc-readiness-card" style="background:#fce4ec;border-left:4px solid #880e4f">
+        <div class="acc-readiness-title" style="color:#880e4f">Overall NBA Score</div>
+        <div class="acc-readiness-score" style="color:#880e4f">${nbaTotals.total} / 1000</div>
+        <div class="acc-readiness-verdict" style="color:#c2185b">Program: ${nbaTotals.prog} · ${nbaTotals.band}. Threshold: 600+ = Accredited (2–3 yrs) | 750+ = Accredited (5–6 yrs).</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e3f2fd;border-left:4px solid #1565c0">
+        <div class="acc-readiness-title" style="color:#1565c0">C5 Faculty (100 marks)</div>
+        <div class="acc-readiness-score" style="color:#1565c0">${getNBACritScore('C5').toFixed(1)} / 100</div>
+        <div class="acc-readiness-verdict" style="color:#0d47a1">SFR below 15:1 = full 30 marks. Faculty Qualification Index (FQI) requires PhD + MTech faculty normalised against required faculty (RF=S/20).</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#e8f5e9;border-left:4px solid #1b5e20">
+        <div class="acc-readiness-title" style="color:#1b5e20">C6 Faculty Contributions (120 marks)</div>
+        <div class="acc-readiness-score" style="color:#1b5e20">${getNBACritScore('C6').toFixed(1)} / 120</div>
+        <div class="acc-readiness-verdict" style="color:#1b5e20">Sponsored research (20+ lakhs = 15 marks) and consultancy (20+ lakhs = 15 marks) are highest-value sub-criteria. NPTEL certification and FDP participation are quick wins.</div>
+      </div>
+      <div class="acc-readiness-card" style="background:#fce4ec;border-left:4px solid #e91e63">
+        <div class="acc-readiness-title" style="color:#880e4f">C9 Governance (120 marks)</div>
+        <div class="acc-readiness-score" style="color:#880e4f">${getNBACritScore('C9').toFixed(1)} / 120</div>
+        <div class="acc-readiness-verdict" style="color:#c2185b">SDG initiatives (C9.11, 10 marks) directly link to THE Impact Rankings. Unnat Bharat Abhiyan registration and SDG budget line are critical NBA-specific requirements.</div>
+      </div>
+    </div>
+    <div class="insight-card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--ink2);line-height:1.75">
+        <strong>NBA eligibility note:</strong> NBA accredits programs (not institutions). Each UG/PG program applies separately. AICTE approval is mandatory. Minimum 2 graduating batches required. Institution must be at least 3 years old. Tier-I requires full academic autonomy. Apply at <strong>nbaind.org</strong> — SAR submission deadline announced annually.
       </div>
     </div>
   </div>
@@ -2357,7 +2532,27 @@ function buildReport() {
     <strong style="color:var(--ink2)">Contact:</strong>&nbsp;<a href="https://www.linkedin.com/in/rahul-sharma-7b119a33/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500">LinkedIn &mdash; Rahul Sharma</a>&nbsp;|&nbsp;<a href="mailto:rahulsharma.rs1988@gmail.com" style="color:var(--blue);text-decoration:none;font-weight:500">rahulsharma.rs1988@gmail.com</a>
   </div>`;
 
-  document.getElementById('reportContent').innerHTML = html;
+  html += `
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding:0 24px">
+    <button class="ai-btn" onclick="generateAIReport()">
+      &#10024; Generate AI Analysis
+    </button>
+    <button class="pdf-btn" onclick="downloadPDFReport()">
+      &#8595; Download PDF Report
+    </button>
+    <button class="btn btn-outline" onclick="resetAll()">Reset all scores</button>
+  </div>
+  <div id="aiReportPanel" style="display:none;margin:16px 24px" class="ai-panel">
+    <div class="ai-panel-header">
+      <div class="ai-panel-title">&#10024; AI-Generated Institutional Analysis</div>
+      <div class="ai-panel-badge">Powered by Claude</div>
+    </div>
+    <div class="ai-panel-body" id="aiReportBody">
+      <div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analysing your institutional scores...</span></div>
+    </div>
+  </div>
+`;
+document.getElementById('reportContent').innerHTML = html;
 }
 
 
@@ -2904,6 +3099,1157 @@ function getNIRFTotals() {
   const cat = NIRF_CATEGORIES[nirfCategory].name;
   const band = overall>=70?'Top tier':overall>=55?'Strong':overall>=40?'Mid-tier':overall>=25?'Developing':'Foundation';
   return { overall, cat, band, tlr, rp, go, oi };
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// NBA DATA — GAPC V4.0 July 2024
+// ═══════════════════════════════════════════════════════════
+
+const NBA_PROGRAM_TYPES = {
+  ug_eng:   'UG Engineering (Tier-I)',
+  ug_pharm: 'UG Pharmacy',
+  ug_arch:  'UG Architecture',
+  pg_eng:   'PG Engineering',
+  mba:      'MBA / PGDM',
+  mca:      'MCA',
+};
+
+const NBA_CRITERIA = [
+  {
+    code:'C1', name:'Outcome-Based Curriculum', max:120, color:'#1565c0',
+    sdg:'SDG 4 — Quality Education',
+    subs:[
+      { code:'1.1', name:'Vision, Mission and PEOs', max:35,
+        formula:'Qualitative — assessed by peer visit team',
+        desc:'Vision/Mission of institute and department, PEOs (3–5), process of defining, dissemination and mapping with mission.',
+        tip:'Publish Vision, Mission and PEOs on website, curricula and posters. Map PEOs to mission elements in a matrix.',
+        inputs:[
+          {id:'vm_pub', label:'Vision/Mission published on website and curricula', type:'select', options:['No','Yes']},
+          {id:'peo_count', label:'Number of PEOs defined (target 3–5)', type:'number', placeholder:'e.g. 4', unit:'PEOs'},
+          {id:'peo_map', label:'PEO-Mission mapping matrix documented', type:'select', options:['No','Partial','Yes']},
+          {id:'vm_dissem', label:'Stakeholder awareness programme conducted', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          if(v.vm_pub==='Yes')s+=8;
+          const pc=parseFloat(v.peo_count)||0; if(pc>=3&&pc<=5)s+=7; else if(pc>0)s+=3;
+          s+={'No':0,'Partial':10,'Yes':20}[v.peo_map]||0;
+          return Math.min(s,35);
+        }
+      },
+      { code:'1.2', name:'Curriculum Structure and Features', max:30,
+        formula:'Periodic curriculum revision + stakeholder involvement + NEP implementation',
+        desc:'Process for developing/revising curriculum, curriculum structure (CI/LI/TW/SL), components % and NEP 2020 reforms.',
+        tip:'Document curriculum revision process with BOS minutes. Include external stakeholders. Implement Multiple Entry/Exit.',
+        inputs:[
+          {id:'cur_rev_yr', label:'Years since last curriculum revision', type:'number', placeholder:'e.g. 1', unit:'years'},
+          {id:'ext_stake', label:'External stakeholders included in revision', type:'select', options:['No','Yes']},
+          {id:'mee_impl', label:'Multiple Entry/Exit (NEP 2020) implemented', type:'select', options:['No','Partial','Yes']},
+          {id:'abc_impl', label:'Academic Bank of Credits (ABC/APAAR) implemented', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          const yr=parseFloat(v.cur_rev_yr)||5; s+=yr<=2?12:yr<=3?8:yr<=5?4:0;
+          if(v.ext_stake==='Yes')s+=8;
+          s+={'No':0,'Partial':5,'Yes':10}[v.mee_impl]||0;
+          return Math.min(s,30);
+        }
+      },
+      { code:'1.3', name:'PO, PSO and Course Mapping', max:20,
+        formula:'Qualitative — CO-PO-PSO mapping matrix completeness',
+        desc:'Program Outcomes (11 POs as per NBA Annexure-II), Program Specific Outcomes (up to 3 PSOs), course-PO/PSO mapping.',
+        tip:'Map every course to POs using 1/2/3 correlation levels. Define 2–3 meaningful PSOs aligned to program specialisation.',
+        inputs:[
+          {id:'pos_defined', label:'All 11 POs adopted from NBA Annexure-II', type:'select', options:['No','Partial','Yes']},
+          {id:'pso_count', label:'Number of PSOs defined (up to 3)', type:'number', placeholder:'e.g. 2', unit:'PSOs'},
+          {id:'po_map', label:'CO-PO-PSO mapping matrix completed for all courses', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          s+={'No':0,'Partial':5,'Yes':10}[v.pos_defined]||0;
+          const pc=parseFloat(v.pso_count)||0; s+=pc>=2?4:pc===1?2:0;
+          s+={'No':0,'Partial':3,'Yes':6}[v.po_map]||0;
+          return Math.min(s,20);
+        }
+      },
+      { code:'1.4', name:'Course Outcomes and Articulation Matrix', max:30,
+        formula:'CO defined for all courses + CAM documented',
+        desc:'Course Outcomes (max 6 per course) for all courses, Course Articulation Matrix mapping COs to POs/PSOs.',
+        tip:'Define 4–6 measurable COs per course at Bloom\'s higher levels. Complete CAM for all courses not just samples.',
+        inputs:[
+          {id:'co_all', label:'COs defined for all courses (not just samples)', type:'select', options:['No','Partial','Yes']},
+          {id:'cam_done', label:'Course Articulation Matrix completed for all courses', type:'select', options:['No','Partial','Yes']},
+          {id:'bloom_level', label:'COs mapped to Bloom\'s taxonomy levels', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          s+={'No':0,'Partial':8,'Yes':15}[v.co_all]||0;
+          s+={'No':0,'Partial':8,'Yes':15}[v.cam_done]||0;
+          return Math.min(s,30);
+        }
+      },
+      { code:'1.5', name:'Program Articulation Matrix', max:5,
+        formula:'PAM completed — all courses mapped to all POs',
+        desc:'Program Articulation Matrix showing correlation of all courses with PO1–PO11.',
+        tip:'Complete PAM for all courses. Use 1/2/3 for low/medium/high correlation.',
+        inputs:[
+          {id:'pam_done', label:'Program Articulation Matrix completed', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){ return {'No':0,'Partial':3,'Yes':5}[v.pam_done]||0; }
+      },
+    ]
+  },
+  {
+    code:'C2', name:'Outcome-Based Teaching Learning', max:120, color:'#1b5e20',
+    sdg:'SDG 4 — Quality Education, SDG 9 — Innovation',
+    subs:[
+      { code:'2.1', name:'Quality of Teaching and Learning Processes', max:20,
+        formula:'Adherence to academic calendar + pedagogical initiatives + impact documented',
+        desc:'Academic calendar adherence, pedagogical initiatives (real-world examples, collaborative learning, fast/slow learner support).',
+        tip:'Document all pedagogical innovations. Conduct impact analysis. Track fast and slow learner interventions.',
+        inputs:[
+          {id:'cal_adhere', label:'Academic calendar adherence documented', type:'select', options:['No','Partial','Yes']},
+          {id:'ped_init', label:'Number of pedagogical initiatives per year', type:'number', placeholder:'e.g. 5', unit:'initiatives'},
+          {id:'impact_doc', label:'Impact analysis of teaching methods documented', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          s+={'No':0,'Partial':4,'Yes':8}[v.cal_adhere]||0;
+          const pi=parseFloat(v.ped_init)||0; s+=Math.min(6*(pi/5),6);
+          s+={'No':0,'Partial':3,'Yes':6}[v.impact_doc]||0;
+          return Math.min(s,20);
+        }
+      },
+      { code:'2.2', name:'Quality of Student Capstone Project', max:25,
+        formula:'Projects addressing environment, sustainability, safety, ethics, cost and standards',
+        desc:'Capstone project quality measured on environment/sustainability/safety/ethics/cost/standards. Working prototypes preferred.',
+        tip:'Ensure all capstone projects address at least 3 of: environment, sustainability, safety, ethics, cost, standards.',
+        inputs:[
+          {id:'cap_sdg', label:'% capstone projects addressing sustainability/SDGs', type:'number', placeholder:'e.g. 60', unit:'%', max:100},
+          {id:'cap_proto', label:'Working prototypes demonstrated at evaluation', type:'select', options:['No','Some','Most','All']},
+          {id:'cap_po', label:'PO/PSO addressed through projects — documented', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          let s=0;
+          const pct=parseFloat(v.cap_sdg)||0; s+=Math.min(10*(pct/70),10);
+          s+={'No':0,'Some':3,'Most':7,'All':10}[v.cap_proto]||0;
+          s+={'No':0,'Partial':3,'Yes':5}[v.cap_po]||0;
+          return Math.min(s,25);
+        }
+      },
+      { code:'2.3', name:'Internship / Industrial Training', max:10,
+        formula:'Structured internship with PO/PSO mapping and evaluation',
+        desc:'Process, duration, POs/PSOs addressed. Industrial training with rubric-based assessment.',
+        tip:'Mandate minimum 4-week internship. Map to POs (especially PO6, PO8, PO10). Document evaluation rubrics.',
+        inputs:[
+          {id:'intern_weeks', label:'Minimum internship duration (weeks)', type:'number', placeholder:'e.g. 6', unit:'weeks'},
+          {id:'intern_po', label:'PO/PSO mapping for internship documented', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const w=parseFloat(v.intern_weeks)||0;
+          const wScore=w>=8?5:w>=4?3:w>=2?1:0;
+          const poScore={'No':0,'Partial':2,'Yes':5}[v.intern_po]||0;
+          return Math.min(wScore+poScore,10);
+        }
+      },
+      { code:'2.4', name:'Seminar and Mini/Micro Projects', max:10,
+        formula:'Structured seminars and mini projects with PO/PSO mapping',
+        desc:'Process for seminars and mini/micro projects, POs/PSOs addressed.',
+        tip:'Organise minimum 2 seminars and 2 mini projects per semester. Map to PO2, PO3, PO9.',
+        inputs:[
+          {id:'sem_count', label:'Seminars organised per student per year', type:'number', placeholder:'e.g. 2', unit:'seminars'},
+          {id:'mini_proj', label:'Mini/micro projects per student per semester', type:'number', placeholder:'e.g. 2', unit:'projects'},
+        ],
+        calc: function(v){
+          const s=parseFloat(v.sem_count)||0, m=parseFloat(v.mini_proj)||0;
+          return Math.min(5*(s/2)+5*(m/2),10);
+        }
+      },
+      { code:'2.5', name:'Case Studies and Real-Life Examples', max:10,
+        formula:'Complexity and relevance of case studies — POs addressed',
+        desc:'Type and complexity of case studies and real-life examples used in teaching.',
+        tip:'Use complex industry case studies (not textbook examples). Map to PO1-PO6. Document in course files.',
+        inputs:[
+          {id:'case_count', label:'Real-life case studies per course per semester', type:'number', placeholder:'e.g. 3', unit:'cases'},
+          {id:'case_complex', label:'Cases address complex engineering problems', type:'select', options:['No','Some','Most']},
+        ],
+        calc: function(v){
+          const c=parseFloat(v.case_count)||0;
+          const cs={'No':0,'Some':4,'Most':6}[v.case_complex]||0;
+          return Math.min(4*(c/3)+cs,10);
+        }
+      },
+      { code:'2.6', name:'SWAYAM / NPTEL / MOOC / Self Learning', max:10,
+        formula:'No. of students registered + certified + POs addressed',
+        desc:'Number of students registered for MOOCs, certification obtained, POs/PSOs addressed.',
+        tip:'Target 30%+ students registering for NPTEL/SWAYAM courses. Integrate MOOC credits into curriculum.',
+        inputs:[
+          {id:'mooc_pct', label:'% students registered for NPTEL/SWAYAM MOOCs', type:'number', placeholder:'e.g. 35', unit:'%', max:100},
+          {id:'mooc_cert', label:'% of registered students obtaining certification', type:'number', placeholder:'e.g. 60', unit:'%', max:100},
+        ],
+        calc: function(v){
+          const r=parseFloat(v.mooc_pct)||0, c=parseFloat(v.mooc_cert)||0;
+          return Math.min(5*(r/30)+5*(c/60),10);
+        }
+      },
+      { code:'2.7', name:'Solving Complex Engineering Problems + SDGs', max:20,
+        formula:'PBL/project activities targeting relevant SDGs — documented evidence',
+        desc:'Project-based learning, problem-based learning, capstone, hackathons targeting relevant SDGs.',
+        tip:'Assign SDG-linked engineering problems. Document which SDGs each project addresses. Evidence portfolio required for NBA visit.',
+        inputs:[
+          {id:'sdg_proj_pct', label:'% engineering projects with explicit SDG linkage', type:'number', placeholder:'e.g. 50', unit:'%', max:100},
+          {id:'hackathon', label:'SDG-themed hackathons/ideathons organised', type:'number', placeholder:'e.g. 2', unit:'per year'},
+          {id:'sdg_evidence', label:'SDG evidence portfolio maintained for NBA visit', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const sp=parseFloat(v.sdg_proj_pct)||0;
+          const hk=Math.min(4*(parseFloat(v.hackathon)||0)/2,4);
+          const ev={'No':0,'Partial':5,'Yes':8}[v.sdg_evidence]||0;
+          return Math.min(8*(sp/50)+hk+ev,20);
+        }
+      },
+      { code:'2.8', name:'Industry-Institute Partnerships', max:15,
+        formula:'MoUs active + industry-delivered courses + industry-supported labs',
+        desc:'Partial delivery of courses by industry, industry-supported labs, industry short-term programmes.',
+        tip:'Target 2+ active MoUs per year with industry delivery component. Industry-supported lab carries significant weight.',
+        inputs:[
+          {id:'mou_active', label:'Active MoUs with industry delivery component', type:'number', placeholder:'e.g. 3', unit:'MoUs'},
+          {id:'ind_lab', label:'Industry-supported laboratory established', type:'select', options:['No','Yes']},
+          {id:'ind_courses', label:'Courses partially delivered by industry experts', type:'number', placeholder:'e.g. 2', unit:'courses'},
+        ],
+        calc: function(v){
+          const m=Math.min(5*(parseFloat(v.mou_active)||0)/3,5);
+          const l=v.ind_lab==='Yes'?5:0;
+          const c=Math.min(5*(parseFloat(v.ind_courses)||0)/2,5);
+          return Math.min(m+l+c,15);
+        }
+      },
+    ]
+  },
+  {
+    code:'C3', name:'Outcome-Based Assessment', max:120, color:'#e65100',
+    sdg:'SDG 4 — Quality Education',
+    subs:[
+      { code:'3.1', name:'Continuous Assessment Quality', max:10,
+        formula:'Constructive alignment of CIE questions with COs and POs',
+        desc:'Continuous Internal Evaluation (CIE) process — constructive alignment with COs/POs/PSOs. Course files maintained.',
+        tip:'Ensure every CIE question maps to a specific CO. Document alignment in course files. NBA visit team will check.',
+        inputs:[{id:'cie_align', label:'CIE questions mapped to COs in course files', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':0,'Partial':5,'Yes':10}[v.cie_align]||0; }
+      },
+      { code:'3.2', name:'Semester End Exam Quality', max:10,
+        formula:'SEE question paper aligned with COs and POs — moderation process documented',
+        desc:'SEE paper setting and evaluation — constructive alignment with COs and POs/PSOs.',
+        tip:'Implement question paper moderation process. Map all SEE questions to COs. Document in course files.',
+        inputs:[{id:'see_align', label:'SEE papers moderated and mapped to COs', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':0,'Partial':5,'Yes':10}[v.see_align]||0; }
+      },
+      { code:'3.3', name:'Laboratory and Workshop Assessment', max:10,
+        formula:'Rubrics used for lab assessment — linked to COs and POs',
+        desc:'Rubrics for lab/workshop assessment linked to COs and POs/PSOs. Evidence in course files.',
+        tip:'Design rubrics for every lab experiment. Map to CO/PO. Keep student assessment evidence in course files.',
+        inputs:[{id:'lab_rubric', label:'Lab rubrics designed and used for all labs', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':0,'Partial':5,'Yes':10}[v.lab_rubric]||0; }
+      },
+      { code:'3.4', name:'Internship Assessment', max:10,
+        formula:'Rubrics for internship assessment — POs targeted documented',
+        desc:'Rubrics for internship/industrial training assessment linking to POs/PSOs.',
+        tip:'Create structured internship evaluation rubric. Include employer assessment component.',
+        inputs:[{id:'int_rubric', label:'Internship assessment rubrics in use', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':0,'Partial':5,'Yes':10}[v.int_rubric]||0; }
+      },
+      { code:'3.5', name:'Project Assessment', max:20,
+        formula:'Rubrics for capstone and mini projects — evidence maintained',
+        desc:'Project assessment rubrics linked to POs/PSOs. Working prototype evaluation. Evidence in course files.',
+        tip:'Design multi-stage project rubrics (proposal, mid-review, final). Map to PO3, PO4, PO5, PO9.',
+        inputs:[
+          {id:'proj_rubric', label:'Project rubrics designed for all stages', type:'select', options:['No','Partial','Yes']},
+          {id:'proto_eval', label:'Prototype demonstration included in evaluation', type:'select', options:['No','Some','All']},
+        ],
+        calc: function(v){
+          const r={'No':0,'Partial':10,'Yes':15}[v.proj_rubric]||0;
+          const p={'No':0,'Some':2,'All':5}[v.proto_eval]||0;
+          return Math.min(r+p,20);
+        }
+      },
+      { code:'3.6', name:'Evidence of Addressing SDGs', max:10,
+        formula:'Student SDG work portfolio — research, projects, activities — available at NBA visit',
+        desc:'Portfolio of student work meeting SDGs — research, project work, student activities. Must be available during visit.',
+        tip:'Maintain structured SDG portfolio per student cohort. Include research papers, project reports and outreach activities.',
+        inputs:[
+          {id:'sdg_portfolio', label:'SDG evidence portfolio maintained and ready for visit', type:'select', options:['No','Partial','Yes']},
+          {id:'sdg_coverage', label:'Number of SDGs addressed in student work', type:'number', placeholder:'e.g. 5', unit:'SDGs'},
+        ],
+        calc: function(v){
+          const p={'No':0,'Partial':4,'Yes':7}[v.sdg_portfolio]||0;
+          const c=Math.min(3*(parseFloat(v.sdg_coverage)||0)/5,3);
+          return Math.min(p+c,10);
+        }
+      },
+      { code:'3.7', name:'CO Attainment', max:25,
+        formula:'Direct attainment (CIE+SEE) + target setting + attainment tracking per CO',
+        desc:'CO attainment measured through CIE and SEE. Targets set (e.g. % students above class average). Tracked per course.',
+        tip:'Set CO attainment target (e.g. 60% students achieve 60% marks). Calculate CO attainment for all courses annually.',
+        inputs:[
+          {id:'co_target', label:'CO attainment targets set for all courses', type:'select', options:['No','Partial','Yes']},
+          {id:'co_calc', label:'CO attainment calculated and documented', type:'select', options:['No','Partial','Yes']},
+          {id:'co_avg_att', label:'Average CO attainment level across all courses (%)', type:'number', placeholder:'e.g. 65', unit:'%', max:100},
+        ],
+        calc: function(v){
+          let s=0;
+          s+={'No':0,'Partial':5,'Yes':10}[v.co_target]||0;
+          s+={'No':0,'Partial':5,'Yes':10}[v.co_calc]||0;
+          const a=parseFloat(v.co_avg_att)||0; s+=Math.min(5*(a/60),5);
+          return Math.min(s,25);
+        }
+      },
+      { code:'3.8', name:'PO and PSO Attainment', max:25,
+        formula:'Direct attainment (course performance) + indirect attainment (surveys) documented',
+        desc:'PO/PSO attainment by direct assessment (student performance) and indirect assessment (exit surveys, employer surveys).',
+        tip:'Calculate direct PO attainment from CO-PO matrix. Conduct annual exit survey and employer survey for indirect attainment.',
+        inputs:[
+          {id:'po_direct', label:'Direct PO attainment calculated from course data', type:'select', options:['No','Partial','Yes']},
+          {id:'po_indirect', label:'Indirect PO attainment from surveys (exit + employer)', type:'select', options:['No','Partial','Yes']},
+          {id:'po_avg', label:'Average PO attainment level (%)', type:'number', placeholder:'e.g. 60', unit:'%', max:100},
+        ],
+        calc: function(v){
+          let s=0;
+          s+={'No':0,'Partial':8,'Yes':15}[v.po_direct]||0;
+          s+={'No':0,'Partial':5,'Yes':7}[v.po_indirect]||0;
+          const a=parseFloat(v.po_avg)||0; s+=Math.min(3*(a/60),3);
+          return Math.min(s,25);
+        }
+      },
+    ]
+  },
+  {
+    code:'C4', name:'Students\u2019 Performance', max:120, color:'#4a148c',
+    sdg:'SDG 4 — Quality Education, SDG 8 — Decent Work',
+    subs:[
+      { code:'4.1', name:'Enrolment Ratio — First Year', max:20,
+        formula:'ER = (N1+N4)/N | Avg ER over 3 years | \u226590%=20, \u226580%=17, \u226570%=14, \u226560%=11, \u226550%=8, \u226540%=5',
+        desc:'ER = (N1+N4)/N averaged over CAY, CAYm1, CAYm2. N=sanctioned intake, N1=admitted, N4=supernumerary.',
+        tip:'Target 90%+ enrolment ratio. Strong JEE/state-CET rank demand builds ER. Active marketing and placement branding helps.',
+        inputs:[
+          {id:'n_intake', label:'Sanctioned intake (N)', type:'number', placeholder:'e.g. 120', unit:'students'},
+          {id:'n1_cay', label:'Students admitted 1st year CAY (N1)', type:'number', placeholder:'e.g. 118', unit:'students'},
+          {id:'n1_m1', label:'Students admitted 1st year CAYm1 (N1)', type:'number', placeholder:'e.g. 116', unit:'students'},
+          {id:'n1_m2', label:'Students admitted 1st year CAYm2 (N1)', type:'number', placeholder:'e.g. 112', unit:'students'},
+        ],
+        calc: function(v){
+          const N=parseFloat(v.n_intake)||1;
+          const er1=(parseFloat(v.n1_cay)||0)/N*100;
+          const er2=(parseFloat(v.n1_m1)||0)/N*100;
+          const er3=(parseFloat(v.n1_m2)||0)/N*100;
+          const avg=(er1+er2+er3)/3;
+          if(avg>=90)return 20; if(avg>=80)return 17; if(avg>=70)return 14;
+          if(avg>=60)return 11; if(avg>=50)return 8; if(avg>=40)return 5;
+          return Math.round(20*avg/100);
+        }
+      },
+      { code:'4.2', name:'Success Rate in Stipulated Period', max:15,
+        formula:'SR = (Graduated in time) / (Admitted) \u00d7 100 | SR Points = 1.5 \u00d7 AvgSR / 10',
+        desc:'% of students graduating within stipulated program duration (4 years for BE/BTech). Average of last 3 batches.',
+        tip:'Target 90%+ success rate. Address backlogs through remedial coaching, counselling and early identification of at-risk students.',
+        inputs:[
+          {id:'sr_lyg', label:'Success rate LYG batch (%)', type:'number', placeholder:'e.g. 91', unit:'%', max:100},
+          {id:'sr_m1', label:'Success rate LYGm1 batch (%)', type:'number', placeholder:'e.g. 88', unit:'%', max:100},
+          {id:'sr_m2', label:'Success rate LYGm2 batch (%)', type:'number', placeholder:'e.g. 87', unit:'%', max:100},
+        ],
+        calc: function(v){
+          const sr1=parseFloat(v.sr_lyg)||0, sr2=parseFloat(v.sr_m1)||0, sr3=parseFloat(v.sr_m2)||0;
+          const avg=(sr1+sr2+sr3)/3;
+          return Math.min(Math.round(1.5*avg/10*10)/10,15);
+        }
+      },
+      { code:'4.3-4.5', name:'Academic Performance Index (API) — Years 1–3', max:30,
+        formula:'API = (Mean GPA/10) \u00d7 (Successful/Appeared) | Avg of CAYm1, CAYm2, CAYm3 for each year',
+        desc:'Academic Performance Index for 1st, 2nd and 3rd year students. Each year carries 10 marks.',
+        tip:'API = mean CGPA/10 multiplied by pass ratio. Improve both mean grades and pass rates. Remedial classes for borderline students.',
+        inputs:[
+          {id:'api_y1', label:'Average API — 1st year (0–10 scale)', type:'number', placeholder:'e.g. 6.5', unit:'/10', max:10},
+          {id:'api_y2', label:'Average API — 2nd year (0–10 scale)', type:'number', placeholder:'e.g. 6.8', unit:'/10', max:10},
+          {id:'api_y3', label:'Average API — 3rd year (0–10 scale)', type:'number', placeholder:'e.g. 7.0', unit:'/10', max:10},
+        ],
+        calc: function(v){
+          const y1=parseFloat(v.api_y1)||0, y2=parseFloat(v.api_y2)||0, y3=parseFloat(v.api_y3)||0;
+          return Math.min(10*(y1/7)+10*(y2/7)+10*(y3/7),30);
+        }
+      },
+      { code:'4.6', name:'Placement, Higher Studies and Entrepreneurship', max:30,
+        formula:'P = ((Placed + Higher Studies + Entrepreneurs) / Final Year) \u00d7 100 | Points = 0.3 \u00d7 AvgP',
+        desc:'Placement Index P averaged over last 3 batches. Includes placed, higher studies, entrepreneurship.',
+        tip:'Target 80%+ placement index. Include higher studies (GATE, GRE, CAT) and entrepreneurship. Document all three carefully.',
+        inputs:[
+          {id:'place_lyg', label:'Placement index P — LYG batch (%)', type:'number', placeholder:'e.g. 85', unit:'%', max:200},
+          {id:'place_m1', label:'Placement index P — LYGm1 batch (%)', type:'number', placeholder:'e.g. 80', unit:'%', max:200},
+          {id:'place_m2', label:'Placement index P — LYGm2 batch (%)', type:'number', placeholder:'e.g. 78', unit:'%', max:200},
+        ],
+        calc: function(v){
+          const p1=parseFloat(v.place_lyg)||0, p2=parseFloat(v.place_m1)||0, p3=parseFloat(v.place_m2)||0;
+          const avg=(p1+p2+p3)/3;
+          return Math.min(0.3*avg,30);
+        }
+      },
+      { code:'4.7', name:'Professional Activities', max:25,
+        formula:'Professional societies (5) + student event participation (10) + journals/publications (10)',
+        desc:'Active professional societies/clubs, student participation in hackathons/codeathons, department journals, student publications.',
+        tip:'Register IEEE, IETE, SAE student chapters. Send students to national competitions. Encourage student publications in conferences.',
+        inputs:[
+          {id:'soc_count', label:'Active professional society chapters in department', type:'number', placeholder:'e.g. 3', unit:'chapters'},
+          {id:'event_part', label:'Students participated in external professional events (last 3 yrs)', type:'number', placeholder:'e.g. 45', unit:'students'},
+          {id:'stu_pub', label:'Student publications in journals/conferences (last 3 yrs)', type:'number', placeholder:'e.g. 8', unit:'papers'},
+        ],
+        calc: function(v){
+          const s=Math.min(5*(parseFloat(v.soc_count)||0)/3,5);
+          const e=Math.min(10*(parseFloat(v.event_part)||0)/30,10);
+          const p=Math.min(10*(parseFloat(v.stu_pub)||0)/5,10);
+          return Math.min(s+e+p,25);
+        }
+      },
+    ]
+  },
+  {
+    code:'C5', name:'Faculty Information', max:100, color:'#b71c1c',
+    sdg:'SDG 4 — Quality Education, SDG 8 — Decent Work',
+    subs:[
+      { code:'5.1', name:'Student-Faculty Ratio (SFR)', max:30,
+        formula:'SFR = S/(F-FF) | <15=30pts | <17=26 | <19=22 | <21=18 | <23=14 | <25=10 | >25=0',
+        desc:'SFR calculated at department level including allied departments. S = total students (excl. supernumerary). F = full-time faculty (excl. first-year-only faculty).',
+        tip:'Target SFR below 15:1 for full 30 marks. Hire permanent faculty. Allied department students and faculty all count.',
+        inputs:[
+          {id:'sfr_val', label:'Average SFR over 3 years (CAY, CAYm1, CAYm2)', type:'number', placeholder:'e.g. 17.5', unit:':1 ratio'},
+        ],
+        calc: function(v){
+          const sfr=parseFloat(v.sfr_val)||30;
+          if(sfr<15)return 30; if(sfr<17)return 26; if(sfr<19)return 22;
+          if(sfr<21)return 18; if(sfr<23)return 14; if(sfr<25)return 10; return 0;
+        }
+      },
+      { code:'5.2', name:'Faculty Qualification Index (FQI)', max:25,
+        formula:'FQI = 2.5 \u00d7 [(10X + 4Y) / RF] where RF = S/20 | X=PhD faculty | Y=MTech faculty',
+        desc:'X = PhD faculty, Y = MTech/ME faculty, RF = required faculty at 20:1 ratio. Max FQI = 25.',
+        tip:'Target 50%+ PhD faculty for strong FQI. Support MTech faculty to pursue PhD through study leave and fee reimbursement.',
+        inputs:[
+          {id:'x_phd', label:'Faculty with PhD (X)', type:'number', placeholder:'e.g. 18', unit:'faculty'},
+          {id:'y_mtech', label:'Faculty with MTech/ME only (Y)', type:'number', placeholder:'e.g. 12', unit:'faculty'},
+          {id:'rf_fqi', label:'Required faculty RF = Total students / 20', type:'number', placeholder:'e.g. 25', unit:'required'},
+        ],
+        calc: function(v){
+          const X=parseFloat(v.x_phd)||0, Y=parseFloat(v.y_mtech)||0, RF=parseFloat(v.rf_fqi)||1;
+          const fqi=2.5*((10*X+4*Y)/RF);
+          return Math.min(Math.round(fqi*10)/10,25);
+        }
+      },
+      { code:'5.3', name:'Faculty Cadre Proportion', max:25,
+        formula:'Marks = (AF1/RF1 + 0.6\u00d7AF2/RF2 + 0.4\u00d7AF3/RF3) \u00d7 12.5 | Ideal cadre 1:2:6',
+        desc:'Required cadre: Professor (1/9), Assoc. Prof (2/9), Asst. Prof (6/9) of RF. Marks capped at 25.',
+        tip:'Fill Professor and Associate Professor positions first — they carry higher weight. If both zero, score is zero regardless.',
+        inputs:[
+          {id:'prof_avail', label:'Professors available (AF1)', type:'number', placeholder:'e.g. 3', unit:'professors'},
+          {id:'assoc_avail', label:'Associate Professors available (AF2)', type:'number', placeholder:'e.g. 6', unit:'assoc. profs'},
+          {id:'asst_avail', label:'Assistant Professors available (AF3)', type:'number', placeholder:'e.g. 21', unit:'asst. profs'},
+          {id:'rf_cadre', label:'Required faculty RF = Total students / 20', type:'number', placeholder:'e.g. 25', unit:'required'},
+        ],
+        calc: function(v){
+          const AF1=parseFloat(v.prof_avail)||0, AF2=parseFloat(v.assoc_avail)||0;
+          const AF3=parseFloat(v.asst_avail)||0, RF=parseFloat(v.rf_cadre)||1;
+          if(AF1===0&&AF2===0)return 0;
+          const RF1=RF/9, RF2=2*RF/9, RF3=6*RF/9;
+          const marks=(AF1/RF1 + 0.6*(AF2/RF2) + 0.4*(AF3/RF3))*12.5;
+          return Math.min(Math.round(marks*10)/10,25);
+        }
+      },
+      { code:'5.4', name:'Visiting / Adjunct Faculty / Professor of Practice', max:10,
+        formula:'1 pt for provision + 3 pts/year for \u226550 hrs interaction (3 yrs = 9 pts max)',
+        desc:'Visiting/adjunct/emeritus/Professor of Practice from industry or research. Min 50 hours/year.',
+        tip:'Invite industry practitioners for 50+ hours/year. Document all interactions. Professor of Practice (PoP) status is now AICTE-approved.',
+        inputs:[
+          {id:'adj_prov', label:'Visiting/adjunct faculty provision in place', type:'select', options:['No','Yes']},
+          {id:'adj_hrs_y1', label:'Total hours with adjunct/industry faculty — Year 1', type:'number', placeholder:'e.g. 60', unit:'hours'},
+          {id:'adj_hrs_y2', label:'Total hours — Year 2', type:'number', placeholder:'e.g. 55', unit:'hours'},
+          {id:'adj_hrs_y3', label:'Total hours — Year 3', type:'number', placeholder:'e.g. 65', unit:'hours'},
+        ],
+        calc: function(v){
+          const prov=v.adj_prov==='Yes'?1:0;
+          const y1=parseFloat(v.adj_hrs_y1)||0>=50?3:0;
+          const y2=parseFloat(v.adj_hrs_y2)||0>=50?3:0;
+          const y3=parseFloat(v.adj_hrs_y3)||0>=50?3:0;
+          return Math.min(prov+y1+y2+y3,10);
+        }
+      },
+      { code:'5.5', name:'Faculty Retention', max:10,
+        formula:'FR = [(\u03a3A\u00d70+B\u00d71+C\u00d72+D\u00d73+E\u00d74)/RF] \u00d7 2.5 | A=<1yr, B=1-2yr, C=2-3yr, D=3-4yr, E=>4yr',
+        desc:'Faculty retention weighted by years of service at institution. Long-serving faculty score highest.',
+        tip:'Reduce faculty turnover. Provide competitive salaries, research support and growth opportunities. E (>4 years) carries highest weight.',
+        inputs:[
+          {id:'fr_a', label:'Faculty with <1 yr experience here (A)', type:'number', placeholder:'e.g. 2', unit:'faculty'},
+          {id:'fr_b', label:'Faculty with 1–2 yrs here (B)', type:'number', placeholder:'e.g. 3', unit:'faculty'},
+          {id:'fr_c', label:'Faculty with 2–3 yrs here (C)', type:'number', placeholder:'e.g. 4', unit:'faculty'},
+          {id:'fr_d', label:'Faculty with 3–4 yrs here (D)', type:'number', placeholder:'e.g. 2', unit:'faculty'},
+          {id:'fr_e', label:'Faculty with >4 yrs here (E)', type:'number', placeholder:'e.g. 14', unit:'faculty'},
+          {id:'rf_ret', label:'Required faculty RF = Total students / 20', type:'number', placeholder:'e.g. 25', unit:'required'},
+        ],
+        calc: function(v){
+          const A=parseFloat(v.fr_a)||0,B=parseFloat(v.fr_b)||0,C=parseFloat(v.fr_c)||0;
+          const D=parseFloat(v.fr_d)||0,E=parseFloat(v.fr_e)||0,RF=parseFloat(v.rf_ret)||1;
+          const fr=((A*0+B*1+C*2+D*3+E*4)/RF)*2.5;
+          return Math.min(Math.round(fr*10)/10,10);
+        }
+      },
+    ]
+  },
+  {
+    code:'C6', name:'Faculty Contributions', max:120, color:'#1a237e',
+    sdg:'SDG 9 — Innovation, SDG 17 — Partnerships',
+    subs:[
+      { code:'6.1.1', name:'Professional Society Memberships', max:5,
+        formula:'Active recognised memberships at national/international level',
+        desc:'Faculty with active memberships in professional bodies (IEEE, IETE, ISTE, IEI, etc.) at national/international level.',
+        tip:'Encourage all faculty to join at least one professional society. Senior faculty should hold Fellow or Senior Member grade.',
+        inputs:[{id:'mem_count', label:'Faculty with active professional memberships', type:'number', placeholder:'e.g. 12', unit:'faculty'}],
+        calc: function(v){ const m=parseFloat(v.mem_count)||0; return Math.min(5*(m/10),5); }
+      },
+      { code:'6.1.2', name:'Faculty as Resource Persons + FDP Participation', max:10,
+        formula:'Resource persons in STTPs (5 pts) + FDP participation — external only (5 pts)',
+        desc:'Faculty as resource persons in STTPs/FDPs + faculty attending external FDPs (2–5 days=3pts, >5 days=5pts).',
+        tip:'Send faculty to external FDPs — internal FDPs do NOT count. Aim for 0.5 FDP per faculty per year minimum.',
+        inputs:[
+          {id:'res_person', label:'Faculty who served as resource persons (last 3 yrs)', type:'number', placeholder:'e.g. 5', unit:'faculty'},
+          {id:'fdp_part', label:'Faculty attending external FDPs (last 3 yrs)', type:'number', placeholder:'e.g. 18', unit:'faculty'},
+        ],
+        calc: function(v){
+          const rp=Math.min(5*(parseFloat(v.res_person)||0)/5,5);
+          const fp=Math.min(5*(parseFloat(v.fdp_part)||0)/10,5);
+          return Math.min(rp+fp,10);
+        }
+      },
+      { code:'6.1.3', name:'SWAYAM MOOC Development by Faculty', max:5,
+        formula:'Courses developed and available on SWAYAM/NPTEL platform',
+        desc:'Faculty who have developed courses on SWAYAM/NPTEL/e-PG Pathshala or equivalent.',
+        tip:'At least 1 SWAYAM/NPTEL course developed by department faculty is strong evidence. Apply through NPTEL Faculty Coordinator.',
+        inputs:[{id:'mooc_dev', label:'Faculty-developed MOOC courses on SWAYAM/NPTEL', type:'number', placeholder:'e.g. 2', unit:'courses'}],
+        calc: function(v){ const m=parseFloat(v.mooc_dev)||0; return Math.min(5*(m/2),5); }
+      },
+      { code:'6.1.4', name:'Faculty MOOC Certification (SWAYAM/NPTEL)', max:10,
+        formula:'Faculty certified in NPTEL/SWAYAM courses — documented',
+        desc:'Faculty who completed and obtained certification in MOOCs through SWAYAM/NPTEL/approved platforms.',
+        tip:'Incentivise faculty to complete 1 NPTEL course/year. Minimum Elite grade acceptable. Share certification costs.',
+        inputs:[{id:'mooc_cert_fac', label:'Faculty with NPTEL/SWAYAM certifications (last 3 yrs)', type:'number', placeholder:'e.g. 15', unit:'certifications'}],
+        calc: function(v){ const m=parseFloat(v.mooc_cert_fac)||0; return Math.min(10*(m/10),10); }
+      },
+      { code:'6.1.5', name:'FDPs/STTPs Organised by Department', max:10,
+        formula:'2 pts per FDP/STTP (\u22655 days) | max 4 pts/year | max 10 pts total',
+        desc:'FDPs and STTPs organised by the department, minimum 5 days duration.',
+        tip:'Organise 2 FDPs per year for full marks. Partner with other departments or DST/TEQIP for funding.',
+        inputs:[
+          {id:'fdp_org_y1', label:'FDPs/STTPs organised — Year 1 (CAYm1)', type:'number', placeholder:'e.g. 2', unit:'events'},
+          {id:'fdp_org_y2', label:'FDPs/STTPs organised — Year 2 (CAYm2)', type:'number', placeholder:'e.g. 2', unit:'events'},
+          {id:'fdp_org_y3', label:'FDPs/STTPs organised — Year 3 (CAYm3)', type:'number', placeholder:'e.g. 2', unit:'events'},
+        ],
+        calc: function(v){
+          const y1=Math.min(2*(parseFloat(v.fdp_org_y1)||0),4);
+          const y2=Math.min(2*(parseFloat(v.fdp_org_y2)||0),4);
+          const y3=Math.min(2*(parseFloat(v.fdp_org_y3)||0),4);
+          return Math.min(y1+y2+y3,10);
+        }
+      },
+      { code:'6.1.6', name:'Faculty Support in Student Innovation', max:10,
+        formula:'Faculty mentoring hackathons, codeathons, ideathons, open research projects',
+        desc:'Faculty involvement as mentor/facilitator in student innovation events.',
+        tip:'Document faculty mentoring in at least 2 hackathons/innovation events per year. NBA visit team will check records.',
+        inputs:[{id:'innov_mentor', label:'Faculty mentor engagements in innovation events (3 yrs)', type:'number', placeholder:'e.g. 15', unit:'engagements'}],
+        calc: function(v){ const m=parseFloat(v.innov_mentor)||0; return Math.min(10*(m/10),10); }
+      },
+      { code:'6.1.7', name:'Faculty Industry Internship/Collaboration', max:10,
+        formula:'Faculty internships + active industry collaborations — outcomes documented',
+        desc:'Faculty internships/training in industry, active industry research collaborations with outcomes.',
+        tip:'Send 2+ faculty per year for industry internship. Document joint papers, funded projects and student outcomes from collaboration.',
+        inputs:[
+          {id:'fac_intern', label:'Faculty who completed industry internship (last 3 yrs)', type:'number', placeholder:'e.g. 4', unit:'faculty'},
+          {id:'ind_collab', label:'Active industry research collaborations', type:'number', placeholder:'e.g. 3', unit:'collaborations'},
+        ],
+        calc: function(v){
+          const fi=Math.min(5*(parseFloat(v.fac_intern)||0)/3,5);
+          const ic=Math.min(5*(parseFloat(v.ind_collab)||0)/3,5);
+          return Math.min(fi+ic,10);
+        }
+      },
+      { code:'6.2.1', name:'Academic Research — Scopus/WoS Publications', max:10,
+        formula:'Peer-reviewed Scopus/WoS journal papers + conference papers + books (last 3 yrs)',
+        desc:'Research papers in Scopus/WoS indexed journals with affiliation to current institution.',
+        tip:'Focus on Scopus-indexed journals (Q1/Q2). Affiliation must be current institution. Avoid predatory journals.',
+        inputs:[
+          {id:'jour_pub', label:'Scopus/WoS journal papers (last 3 yrs)', type:'number', placeholder:'e.g. 25', unit:'papers'},
+          {id:'conf_pub', label:'Peer-reviewed conference papers (last 3 yrs)', type:'number', placeholder:'e.g. 15', unit:'papers'},
+          {id:'rf_pub', label:'Required faculty RF = students/20', type:'number', placeholder:'e.g. 25', unit:'required'},
+        ],
+        calc: function(v){
+          const j=parseFloat(v.jour_pub)||0,c=parseFloat(v.conf_pub)||0,rf=parseFloat(v.rf_pub)||1;
+          const ppu=(j+c*0.5)/rf/3;
+          return Math.min(10*(ppu/0.5),10);
+        }
+      },
+      { code:'6.2.2', name:'PhD Students', max:5,
+        formula:'No. of PhD scholars enrolled + graduated in department',
+        desc:'PhD student enrolment and graduations in the department during assessment period.',
+        tip:'Enrol minimum 5 PhD students per year. Guide them actively. PhD graduation directly impacts NBA score.',
+        inputs:[
+          {id:'phd_enrol', label:'PhD scholars currently enrolled', type:'number', placeholder:'e.g. 8', unit:'scholars'},
+          {id:'phd_grad', label:'PhD scholars graduated (last 3 yrs)', type:'number', placeholder:'e.g. 3', unit:'graduated'},
+        ],
+        calc: function(v){
+          const e=parseFloat(v.phd_enrol)||0, g=parseFloat(v.phd_grad)||0;
+          return Math.min(3*(e/5)+2*(g/3),5);
+        }
+      },
+      { code:'6.2.3', name:'Patents and Development Activities', max:10,
+        formula:'Patents granted + published + working models/prototypes (last 3 yrs)',
+        desc:'Patents granted/published, working models, prototypes developed by faculty.',
+        tip:'File patents with Indian Patent Office. Develop at least 2 working prototypes per year. Display in departmental lab.',
+        inputs:[
+          {id:'pat_grant', label:'Patents granted (last 3 yrs)', type:'number', placeholder:'e.g. 2', unit:'patents'},
+          {id:'pat_pub', label:'Patents published/filed (last 3 yrs)', type:'number', placeholder:'e.g. 5', unit:'patents'},
+          {id:'prototypes', label:'Working models/prototypes developed (last 3 yrs)', type:'number', placeholder:'e.g. 4', unit:'prototypes'},
+        ],
+        calc: function(v){
+          const g=Math.min(6*(parseFloat(v.pat_grant)||0)/2,6);
+          const p=Math.min(2*(parseFloat(v.pat_pub)||0)/3,2);
+          const pr=Math.min(2*(parseFloat(v.prototypes)||0)/3,2);
+          return Math.min(g+p+pr,10);
+        }
+      },
+      { code:'6.2.4', name:'Sponsored Research Projects', max:15,
+        formula:'Total funding received (3 yrs): >20L=15 | >16L=12 | >12L=9 | >8L=6 | >4L=3 | >1L=1 | <1L=0',
+        desc:'External funded research projects (DST, DBT, SERB, AICTE, industry CSR etc.). Not infrastructure projects.',
+        tip:'Apply to DST-SERB, DBT, AICTE Research Promotion Scheme. Target Rs 20+ lakhs over 3 years for full marks.',
+        inputs:[{id:'res_fund', label:'Total external research funding received (3 yrs, in Lakhs)', type:'number', placeholder:'e.g. 15', unit:'Lakhs'}],
+        calc: function(v){
+          const f=parseFloat(v.res_fund)||0;
+          if(f>20)return 15; if(f>16)return 12; if(f>12)return 9;
+          if(f>8)return 6; if(f>4)return 3; if(f>1)return 1; return 0;
+        }
+      },
+      { code:'6.2.5', name:'Consultancy Projects', max:15,
+        formula:'Total consultancy received (3 yrs): >20L=15 | >16L=12 | >12L=9 | >8L=6 | >4L=3 | >1L=1 | <1L=0',
+        desc:'External consultancy projects from industry/government. Not infrastructure projects.',
+        tip:'Develop consultancy culture. Establish consultancy policy and revenue-sharing model. Track all consultancy projects.',
+        inputs:[{id:'consult_fund', label:'Total consultancy revenue received (3 yrs, in Lakhs)', type:'number', placeholder:'e.g. 8', unit:'Lakhs'}],
+        calc: function(v){
+          const f=parseFloat(v.consult_fund)||0;
+          if(f>20)return 15; if(f>16)return 12; if(f>12)return 9;
+          if(f>8)return 6; if(f>4)return 3; if(f>1)return 1; return 0;
+        }
+      },
+      { code:'6.2.6', name:'Institution Seed Money / Internal Research Grant', max:5,
+        formula:'Amount received: >6L=3 | >4L=2 | >2L=1 | <1L=0 | Amount utilised: 2 pts',
+        desc:'Institutional seed money to faculty for research. Not to be double-counted with sponsored or consultancy.',
+        tip:'Establish institutional research fund. Allocate minimum Rs 2 lakhs per year. Track utilisation carefully.',
+        inputs:[
+          {id:'seed_recv', label:'Total seed money received (3 yrs, in Lakhs)', type:'number', placeholder:'e.g. 4', unit:'Lakhs'},
+          {id:'seed_util', label:'% of seed money actually utilised', type:'number', placeholder:'e.g. 80', unit:'%', max:100},
+        ],
+        calc: function(v){
+          const r=parseFloat(v.seed_recv)||0, u=parseFloat(v.seed_util)||0;
+          const rScore=r>6?3:r>4?2:r>2?1:0;
+          const uScore=u>=80?2:u>=50?1:0;
+          return Math.min(rScore+uScore,5);
+        }
+      },
+    ]
+  },
+  {
+    code:'C7', name:'Facilities and Technical Support', max:100, color:'#37474f',
+    sdg:'SDG 4 — Quality Education, SDG 9 — Innovation',
+    subs:[
+      { code:'7.1', name:'Laboratories and Technical Manpower', max:40,
+        formula:'Lab adequacy + equipment + technical staff qualifications',
+        desc:'Labs adequate for all courses, major equipment, weekly utilisation, qualified technical support staff.',
+        tip:'Maintain minimum 1 technical staff per lab. Lab utilisation should be 70%+ of working hours. Equipment must be functional.',
+        inputs:[
+          {id:'lab_coverage', label:'% of curriculum labs fully equipped and functional', type:'number', placeholder:'e.g. 90', unit:'%', max:100},
+          {id:'tech_staff', label:'Qualified technical staff per lab (avg)', type:'number', placeholder:'e.g. 1.2', unit:'staff/lab'},
+          {id:'lab_util', label:'Average lab utilisation rate (%)', type:'number', placeholder:'e.g. 75', unit:'%', max:100},
+        ],
+        calc: function(v){
+          const lc=Math.min(20*(parseFloat(v.lab_coverage)||0)/90,20);
+          const ts=Math.min(10*(parseFloat(v.tech_staff)||0)/1,10);
+          const lu=Math.min(10*(parseFloat(v.lab_util)||0)/75,10);
+          return Math.min(lc+ts+lu,40);
+        }
+      },
+      { code:'7.2', name:'Additional Learning Facilities in Labs', max:20,
+        formula:'Additional facilities beyond minimum — purpose, utilisation, PO relevance',
+        desc:'Additional facilities beyond standard curriculum requirements to enhance learning quality.',
+        tip:'Add simulation software, virtual labs, advanced instruments beyond standard requirements. Document PO relevance.',
+        inputs:[
+          {id:'add_fac', label:'Additional learning facilities beyond standard labs', type:'number', placeholder:'e.g. 4', unit:'facilities'},
+          {id:'virt_lab', label:'Virtual labs or simulation software available', type:'select', options:['No','Yes']},
+        ],
+        calc: function(v){
+          const af=Math.min(15*(parseFloat(v.add_fac)||0)/5,15);
+          const vl=v.virt_lab==='Yes'?5:0;
+          return Math.min(af+vl,20);
+        }
+      },
+      { code:'7.3', name:'Maintenance and Ambiance', max:10,
+        formula:'Qualitative — lab maintenance system + overall ambiance',
+        desc:'Lab maintenance schedule, AMC contracts, cleanliness, overall departmental ambiance.',
+        tip:'Document Annual Maintenance Contract (AMC) for all major equipment. Show maintenance register during visit.',
+        inputs:[{id:'maint_sys', label:'Lab maintenance system (AMC + register) in place', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':2,'Partial':6,'Yes':10}[v.maint_sys]||0; }
+      },
+      { code:'7.4', name:'Safety Measures in Laboratories', max:10,
+        formula:'Safety equipment + emergency procedures + safety training documented',
+        desc:'Safety measures in each lab: fire extinguishers, first aid, safety signage, emergency procedures.',
+        tip:'Install fire extinguisher, first aid kit and safety signage in every lab. Conduct annual safety drill. Document all.',
+        inputs:[
+          {id:'fire_ext', label:'Fire extinguishers in all labs', type:'select', options:['No','Some','All']},
+          {id:'safety_train', label:'Annual safety training conducted', type:'select', options:['No','Yes']},
+          {id:'first_aid', label:'First aid kits in all labs', type:'select', options:['No','Some','All']},
+        ],
+        calc: function(v){
+          const fe={'No':0,'Some':2,'All':4}[v.fire_ext]||0;
+          const st=v.safety_train==='Yes'?3:0;
+          const fa={'No':0,'Some':1,'All':3}[v.first_aid]||0;
+          return Math.min(fe+st+fa,10);
+        }
+      },
+      { code:'7.5', name:'Project/Research Lab / Centre of Excellence', max:20,
+        formula:'Dedicated project lab + research lab + incubation/CoE support',
+        desc:'Project laboratory, research laboratory, Centre of Excellence, innovation and startup support.',
+        tip:'Establish dedicated project lab separate from curriculum labs. CoE with industry or DST support carries maximum weight.',
+        inputs:[
+          {id:'proj_lab', label:'Dedicated project laboratory established', type:'select', options:['No','Yes']},
+          {id:'res_lab', label:'Research laboratory with advanced equipment', type:'select', options:['No','Yes']},
+          {id:'coe', label:'Centre of Excellence or Incubation Centre', type:'select', options:['No','Informal','Formal — funded']},
+        ],
+        calc: function(v){
+          const pl=v.proj_lab==='Yes'?7:0;
+          const rl=v.res_lab==='Yes'?7:0;
+          const coe={'No':0,'Informal':3,'Formal — funded':6}[v.coe]||0;
+          return Math.min(pl+rl+coe,20);
+        }
+      },
+    ]
+  },
+  {
+    code:'C8', name:'Continuous Improvement', max:80, color:'#2e7d32',
+    sdg:'SDG 4 — Quality Education',
+    subs:[
+      { code:'8.1', name:'Actions Based on CO/PO/PSO Evaluation', max:40,
+        formula:'CO-based actions (20 pts) + PO/PSO-based actions (20 pts) — documented improvements',
+        desc:'Actions taken based on CO attainment (weaknesses identified and curriculum/pedagogy improved) and PO/PSO attainment.',
+        tip:'Document specific curriculum changes, pedagogical improvements and support systems added based on CO/PO attainment gaps.',
+        inputs:[
+          {id:'co_actions', label:'Specific actions taken based on CO attainment gaps (last year)', type:'number', placeholder:'e.g. 4', unit:'actions'},
+          {id:'po_actions', label:'Actions based on PO/PSO attainment gaps (last 2 yrs)', type:'number', placeholder:'e.g. 3', unit:'actions'},
+          {id:'action_doc', label:'All actions documented with evidence', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const ca=Math.min(20*(parseFloat(v.co_actions)||0)/4,20);
+          const pa=Math.min(20*(parseFloat(v.po_actions)||0)/3,20);
+          const doc={'No':0,'Partial':0,'Yes':0}[v.action_doc]||0;
+          return Math.min(ca+pa,40);
+        }
+      },
+      { code:'8.2', name:'Academic Audit and Actions', max:15,
+        formula:'Academic audit system implemented + actions taken documented',
+        desc:'Academic audit process, its implementation and action taken for continuous improvement.',
+        tip:'Conduct biannual academic audit with external auditors. Document all recommendations and action taken reports.',
+        inputs:[{id:'acad_audit', label:'Academic audit system operational and actions documented', type:'select', options:['No','Partial','Yes']}],
+        calc: function(v){ return {'No':0,'Partial':8,'Yes':15}[v.acad_audit]||0; }
+      },
+      { code:'8.3', name:'Improvement in Faculty Qualification', max:15,
+        formula:'Improvement in PhD count + publications over assessment period',
+        desc:'Improvement in faculty PhD qualifications and research publications over the assessment period.',
+        tip:'Track and publish year-on-year improvement. Even 1 additional PhD per year shows positive trajectory.',
+        inputs:[
+          {id:'phd_growth', label:'Net increase in PhD-qualified faculty (over 3 yrs)', type:'number', placeholder:'e.g. 3', unit:'faculty'},
+          {id:'pub_growth', label:'Year-on-year publication growth (%)', type:'number', placeholder:'e.g. 15', unit:'%'},
+        ],
+        calc: function(v){
+          const pg=Math.min(8*(parseFloat(v.phd_growth)||0)/3,8);
+          const pub=Math.min(7*(parseFloat(v.pub_growth)||0)/15,7);
+          return Math.min(pg+pub,15);
+        }
+      },
+      { code:'8.4', name:'Improvement in Academic Performance', max:10,
+        formula:'API improvement trend across 1st, 2nd, 3rd year over assessment period',
+        desc:'Improvement in API of 1st, 2nd and 3rd year students over the assessment period.',
+        tip:'Even marginal improvement in API each year demonstrates continuous improvement. Publish API trends visibly.',
+        inputs:[{id:'api_trend', label:'Overall API showing improvement trend', type:'select', options:['Declining','Stable','Improving','Significantly improving']}],
+        calc: function(v){ return {'Declining':0,'Stable':4,'Improving':7,'Significantly improving':10}[v.api_trend]||0; }
+      },
+    ]
+  },
+  {
+    code:'C9', name:'Student Support and Governance', max:120, color:'#880e4f',
+    sdg:'SDG 4, SDG 10, SDG 16 — Peace, Justice & Strong Institutions',
+    subs:[
+      { code:'9.1', name:'First Year Student-Faculty Ratio', max:5,
+        formula:'FYSFR = [(NS1\u00d70.8 + NS2\u00d70.2) / RF4] | RF4 = S4/20 | >90%=5 | >80%=4 | >70%=3 | >60%=2 | >50%=1',
+        desc:'First year faculty adequacy: basic sciences (0.8 weight) and engineering sciences (0.2 weight) vs required faculty.',
+        tip:'Appoint adequate physics, chemistry and maths faculty first. Target 90%+ for full 5 marks.',
+        inputs:[
+          {id:'s4_intake', label:'Total 1st year sanctioned intake all UG programmes (S4)', type:'number', placeholder:'e.g. 300', unit:'students'},
+          {id:'ns1_bsc', label:'Faculty in Basic Science/Humanities/Management (NS1)', type:'number', placeholder:'e.g. 18', unit:'faculty'},
+          {id:'ns2_eng', label:'Faculty in Engineering Science courses (NS2)', type:'number', placeholder:'e.g. 3', unit:'faculty'},
+        ],
+        calc: function(v){
+          const S4=parseFloat(v.s4_intake)||1;
+          const RF4=S4/20;
+          const NS1=parseFloat(v.ns1_bsc)||0, NS2=parseFloat(v.ns2_eng)||0;
+          const pct=((NS1*0.8+NS2*0.2)/RF4)*100;
+          if(pct>=90)return 5; if(pct>=80)return 4; if(pct>=70)return 3; if(pct>=60)return 2; if(pct>=50)return 1; return 0;
+        }
+      },
+      { code:'9.2', name:'Mentoring System', max:5,
+        formula:'Type, coverage, frequency and effectiveness of mentoring',
+        desc:'Formal mentoring system — type, faculty mentor count, students per mentor, frequency of meetings.',
+        tip:'Assign 1 mentor per 15–20 students. Conduct minimum 4 sessions per semester. Document all sessions.',
+        inputs:[
+          {id:'mentor_ratio', label:'Students per faculty mentor', type:'number', placeholder:'e.g. 18', unit:'students/mentor'},
+          {id:'mentor_sess', label:'Mentoring sessions per semester per student', type:'number', placeholder:'e.g. 4', unit:'sessions'},
+        ],
+        calc: function(v){
+          const r=parseFloat(v.mentor_ratio)||30, s=parseFloat(v.mentor_sess)||1;
+          const rScore=r<=15?3:r<=20?2:r<=25?1:0;
+          const sScore=s>=4?2:s>=2?1:0;
+          return Math.min(rScore+sScore,5);
+        }
+      },
+      { code:'9.3', name:'Feedback Analysis', max:10,
+        formula:'TLP feedback (5 pts) + facilities feedback (5 pts) — analysis and corrective action',
+        desc:'Student feedback on teaching-learning and facilities, analysis process and corrective measures taken.',
+        tip:'Collect feedback every semester. Analyse and publish action taken reports. NBA team will check corrective measures.',
+        inputs:[
+          {id:'tlp_fb', label:'TLP feedback collected and corrective action taken', type:'select', options:['No','Partial','Yes']},
+          {id:'fac_fb', label:'Facilities feedback collected and corrective action taken', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const t={'No':0,'Partial':3,'Yes':5}[v.tlp_fb]||0;
+          const f={'No':0,'Partial':3,'Yes':5}[v.fac_fb]||0;
+          return Math.min(t+f,10);
+        }
+      },
+      { code:'9.4', name:'Training and Placement Support', max:10,
+        formula:'Placement cell + training calendar + effectiveness — documented',
+        desc:'Training and placement cell, scheduled training calendar, career guidance, industry interaction for placement.',
+        tip:'Establish dedicated T&P cell. Schedule training from 2nd year. Industry pre-placement talks are mandatory for top score.',
+        inputs:[
+          {id:'tp_cell', label:'Dedicated Training and Placement cell operational', type:'select', options:['No','Yes']},
+          {id:'tp_training', label:'Annual training calendar with industry skills', type:'select', options:['No','Partial','Yes']},
+          {id:'ppo_count', label:'Pre-Placement Offers (PPOs) from internships (last 3 yrs)', type:'number', placeholder:'e.g. 5', unit:'PPOs'},
+        ],
+        calc: function(v){
+          const tc=v.tp_cell==='Yes'?3:0;
+          const tr={'No':0,'Partial':3,'Yes':5}[v.tp_training]||0;
+          const pp=Math.min(2*(parseFloat(v.ppo_count)||0)/5,2);
+          return Math.min(tc+tr+pp,10);
+        }
+      },
+      { code:'9.5', name:'Start-up and Entrepreneurship', max:5,
+        formula:'Incubation + facilities + beneficiaries documented',
+        desc:'Initiatives, facilities and effectiveness of entrepreneurship/incubation/start-up support.',
+        tip:'Register with AIC or MeitY incubation network. Even 2–3 student start-ups with documented support earns marks.',
+        inputs:[
+          {id:'incub_fac', label:'Incubation facility or entrepreneurship cell', type:'select', options:['No','Informal','Formal']},
+          {id:'startup_count', label:'Student start-ups launched (last 3 yrs)', type:'number', placeholder:'e.g. 3', unit:'start-ups'},
+        ],
+        calc: function(v){
+          const ic={'No':0,'Informal':1,'Formal':2}[v.incub_fac]||0;
+          const sc=Math.min(3*(parseFloat(v.startup_count)||0)/3,3);
+          return Math.min(ic+sc,5);
+        }
+      },
+      { code:'9.6', name:'Governance and Transparency', max:25,
+        formula:'Strategic plan (10) + governing bodies (10) + transparency on website (5)',
+        desc:'Strategic plan/IDP, all statutory committees (GB, AC, IQAC, anti-ragging, ICC), service rules, transparency.',
+        tip:'Publish strategic plan, committee compositions, meeting minutes and service rules on website. NBA will check website.',
+        inputs:[
+          {id:'strat_plan', label:'Strategic plan/IDP approved and implemented', type:'select', options:['No','Partial','Yes']},
+          {id:'committees', label:'All statutory committees constituted and active', type:'select', options:['No','Partial','Yes']},
+          {id:'transparency', label:'Minutes, policies and rules published on website', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const sp={'No':0,'Partial':5,'Yes':10}[v.strat_plan]||0;
+          const cm={'No':0,'Partial':5,'Yes':10}[v.committees]||0;
+          const tr={'No':0,'Partial':3,'Yes':5}[v.transparency]||0;
+          return Math.min(sp+cm+tr,25);
+        }
+      },
+      { code:'9.7', name:'Budget Allocation and Public Accounting', max:12,
+        formula:'Audited budget published + SDGs budget line + expenditure per student tracked',
+        desc:'Institute-level budget and actual expenditure for 3 financial years. Audited. Published on website. SDGs budget line included.',
+        tip:'Publish audited accounts on website. Include separate SDG and R&D budget lines. NBA specifically checks SDG budget line.',
+        inputs:[
+          {id:'budget_pub', label:'Audited budget published on website (3 years)', type:'select', options:['No','Partial','Yes']},
+          {id:'sdg_budget', label:'Separate SDG budget line in institutional budget', type:'select', options:['No','Yes']},
+          {id:'exp_student', label:'Annual expenditure per student (Rs.)', type:'number', placeholder:'e.g. 75000', unit:'Rs/student'},
+        ],
+        calc: function(v){
+          const bp={'No':0,'Partial':5,'Yes':8}[v.budget_pub]||0;
+          const sb=v.sdg_budget==='Yes'?3:0;
+          const es=Math.min(1*(parseFloat(v.exp_student)||0)/50000,1);
+          return Math.min(bp+sb+es,12);
+        }
+      },
+      { code:'9.8', name:'Program-Specific Budget', max:8,
+        formula:'Program budget allocated, justified and utilised — with SDGs line item',
+        desc:'Program-level budget allocation and actual expenditure. Includes SDG, R&D, lab equipment, faculty development.',
+        tip:'Maintain program-specific budget separate from institutional budget. SDG line item in program budget is now mandatory.',
+        inputs:[
+          {id:'prog_budget', label:'Program-specific budget maintained and documented', type:'select', options:['No','Partial','Yes']},
+          {id:'prog_sdg_line', label:'SDG line item in program budget', type:'select', options:['No','Yes']},
+        ],
+        calc: function(v){
+          const pb={'No':0,'Partial':4,'Yes':6}[v.prog_budget]||0;
+          const sl=v.prog_sdg_line==='Yes'?2:0;
+          return Math.min(pb+sl,8);
+        }
+      },
+      { code:'9.9', name:'Quality of Learning Resources', max:5,
+        formula:'e-resources (books + journals) + accessibility + self-learning support',
+        desc:'Digital and physical learning resources, NPTEL/INFLIBNET access, availability to students.',
+        tip:'Subscribe to INFLIBNET/N-LIST. Provide access to Scopus, WoS via UGC-CARE. Digital library is mandatory.',
+        inputs:[
+          {id:'inflibnet', label:'INFLIBNET/N-LIST or equivalent subscription', type:'select', options:['No','Yes']},
+          {id:'ebook_count', label:'Number of e-books/e-journals accessible', type:'number', placeholder:'e.g. 5000', unit:'resources'},
+        ],
+        calc: function(v){
+          const inf=v.inflibnet==='Yes'?3:0;
+          const ec=Math.min(2*(parseFloat(v.ebook_count)||0)/3000,2);
+          return Math.min(inf+ec,5);
+        }
+      },
+      { code:'9.10', name:'E-Governance', max:5,
+        formula:'ERP/LMS/digital governance systems operational and accessible',
+        desc:'E-governance initiatives, ERP, LMS, campus computing resources for students and faculty.',
+        tip:'Implement ERP for attendance, marks, grievances. LMS for course delivery. Both required for full 5 marks.',
+        inputs:[
+          {id:'erp', label:'ERP system operational (attendance, marks, HR)', type:'select', options:['No','Partial','Yes']},
+          {id:'lms', label:'LMS for course delivery operational', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const e={'No':0,'Partial':1,'Yes':2}[v.erp]||0;
+          const l={'No':0,'Partial':1,'Yes':3}[v.lms]||0;
+          return Math.min(e+l,5);
+        }
+      },
+      { code:'9.11', name:'SDG Initiatives and Implementation', max:10,
+        formula:'Green energy + waste + water + net zero + quality education + outreach — evidence required',
+        desc:'Specific SDG initiatives: green energy, waste management, water conservation, net zero, quality education, reuse/recycle.',
+        tip:'Implement at least 3 concrete SDG initiatives with documented evidence. R&D activities and entrepreneurial SDG projects carry extra weight.',
+        inputs:[
+          {id:'sdg_green', label:'Green energy/solar installations operational', type:'select', options:['No','Partial','Yes']},
+          {id:'sdg_waste', label:'Waste management/recycling system in place', type:'select', options:['No','Partial','Yes']},
+          {id:'sdg_water', label:'Water conservation/harvesting system operational', type:'select', options:['No','Partial','Yes']},
+          {id:'sdg_outreach', label:'SDG outreach programmes for community', type:'number', placeholder:'e.g. 3', unit:'per year'},
+        ],
+        calc: function(v){
+          const g={'No':0,'Partial':2,'Yes':3}[v.sdg_green]||0;
+          const w={'No':0,'Partial':2,'Yes':3}[v.sdg_waste]||0;
+          const wt={'No':0,'Partial':1,'Yes':2}[v.sdg_water]||0;
+          const ou=Math.min(2*(parseFloat(v.sdg_outreach)||0)/3,2);
+          return Math.min(g+w+wt+ou,10);
+        }
+      },
+      { code:'9.12', name:'Innovative Educational Initiatives', max:5,
+        formula:'NEP 2020 implementation + student mobility + IKS + inclusivity',
+        desc:'Student mobility, ABC, holistic education, IKS, teaching in Indian language, inclusivity and slow learner support.',
+        tip:'Implement ABC (Academic Bank of Credits). Offer courses in regional language. Document slow learner support programme.',
+        inputs:[
+          {id:'abc_nep', label:'Academic Bank of Credits (ABC) implemented', type:'select', options:['No','Partial','Yes']},
+          {id:'iks', label:'Indian Knowledge System integrated in curriculum', type:'select', options:['No','Partial','Yes']},
+          {id:'slow_learner', label:'Slow learner support programme documented', type:'select', options:['No','Partial','Yes']},
+        ],
+        calc: function(v){
+          const abc={'No':0,'Partial':1,'Yes':2}[v.abc_nep]||0;
+          const iks={'No':0,'Partial':1,'Yes':2}[v.iks]||0;
+          const sl={'No':0,'Partial':0,'Yes':1}[v.slow_learner]||0;
+          return Math.min(abc+iks+sl,5);
+        }
+      },
+      { code:'9.13', name:'Faculty Performance Appraisal (FPADS)', max:10,
+        formula:'Well-defined FPADS for all years — implemented and effective',
+        desc:'Faculty Performance Appraisal and Development System (FPADS) — defined, implemented and effective.',
+        tip:'Implement FPADS covering teaching, research and service. Link to increments and promotions for effectiveness.',
+        inputs:[{id:'fpads', label:'FPADS defined, implemented and linked to outcomes', type:'select', options:['No','Defined only','Implemented — not linked','Fully implemented and linked']}],
+        calc: function(v){ return {'No':0,'Defined only':3,'Implemented — not linked':6,'Fully implemented and linked':10}[v.fpads]||0; }
+      },
+      { code:'9.14', name:'Outreach Activities', max:5,
+        formula:'Community service + Unnat Bharat Abhiyan + social internship',
+        desc:'Outreach activities: community service, Unnat Bharat Abhiyan (UBA), social internship, society connect.',
+        tip:'Register under Unnat Bharat Abhiyan. Assign minimum 2 villages. Document all outreach with photographic evidence.',
+        inputs:[
+          {id:'uba', label:'Registered under Unnat Bharat Abhiyan with assigned villages', type:'select', options:['No','Yes']},
+          {id:'outreach_count', label:'Outreach activities conducted (last 3 yrs)', type:'number', placeholder:'e.g. 8', unit:'activities'},
+        ],
+        calc: function(v){
+          const uba=v.uba==='Yes'?2:0;
+          const oc=Math.min(3*(parseFloat(v.outreach_count)||0)/6,3);
+          return Math.min(uba+oc,5);
+        }
+      },
+    ]
+  },
+];
+
+let nbaInputValues = {};
+let nbaProgType = 'ug_eng';
+
+function setNBAProgType(pt) {
+  nbaProgType = pt;
+  document.querySelectorAll('.nba-pbn').forEach(b => b.classList.toggle('on', b.dataset.pt === pt));
+}
+
+function getNBACritScore(code) {
+  const crit = NBA_CRITERIA.find(c => c.code === code);
+  if (!crit) return 0;
+  return Math.round(crit.subs.reduce((s, sub) => {
+    const v = nbaInputValues[sub.code] || 0;
+    return s + (typeof v === 'number' ? v : 0);
+  }, 0) * 10) / 10;
+}
+
+function updateNBAScores() {
+  let total = 0;
+  NBA_CRITERIA.forEach(crit => {
+    const sc = getNBACritScore(crit.code);
+    total += sc;
+    const el = document.getElementById('nba' + crit.code);
+    if (el) el.innerHTML = sc.toFixed(1) + '<sup>/' + crit.max + '</sup>';
+    const bar = document.getElementById('nbabar_' + crit.code);
+    const pts = document.getElementById('nbapts_' + crit.code);
+    if (bar) bar.style.width = Math.round(sc / crit.max * 100) + '%';
+    if (pts) pts.textContent = sc.toFixed(1) + ' / ' + crit.max;
+  });
+  total = Math.round(total * 10) / 10;
+  document.getElementById('nbaTotalScore').innerHTML = total + '<sup>/1000</sup>';
+  let bandBg, bandBorder, bandEmoji, bandTitle, bandDesc;
+  if (total >= 750) { bandBg='#e8f5e9'; bandBorder='#4caf50'; bandEmoji='🏆'; bandTitle='Accredited — 5 to 6 years'; bandDesc='Excellent readiness. Target 850+ for the strongest accreditation outcome. Strengthen Faculty Qualification and Research funding.'; }
+  else if (total >= 600) { bandBg='#e3f2fd'; bandBorder='#2196f3'; bandEmoji='✅'; bandTitle='Accredited — 2 to 3 years'; bandDesc='Good readiness. Accreditation likely for 2–3 years. Push Faculty Retention, PO attainment and Industry partnerships to reach 750+.'; }
+  else if (total >= 500) { bandBg='#fff9c4'; bandBorder='#ffc107'; bandEmoji='⚠️'; bandTitle='Borderline — at risk of non-accreditation'; bandDesc='Risk zone. NBA requires minimum 600 for accreditation. Priority actions: SFR below 20:1, CO/PO attainment documentation, SDG portfolio.'; }
+  else { bandBg='#ffebee'; bandBorder='#f44336'; bandEmoji='❌'; bandTitle='Below threshold — not accreditable at current readiness'; bandDesc='Significant gaps. Focus on: Student-Faculty Ratio (C5.1), CO/PO attainment (C3.7-3.8), Faculty Qualification (C5.2) and SDG evidence portfolio (C2.7, C3.6, C9.11).'; }
+  document.getElementById('nbaBandLabel').textContent = bandTitle;
+  const band = document.getElementById('nbaBandDisplay');
+  band.style.background = bandBg; band.style.borderColor = bandBorder;
+  band.innerHTML = `<div style="font-size:24px">${bandEmoji}</div><div><div style="font-size:15px;font-weight:600;color:#880e4f">${bandTitle} — ${total} / 1000</div><div style="font-size:12px;color:var(--ink2);margin-top:3px">${bandDesc}</div></div>`;
+}
+
+function calcNBA(subCode) {
+  const crit = NBA_CRITERIA.find(c => c.subs.some(s => s.code === subCode));
+  if (!crit) return;
+  const sub = crit.subs.find(s => s.code === subCode);
+  if (!sub) return;
+  const vals = {};
+  sub.inputs.forEach(inp => {
+    const el = document.getElementById('nba_inp_' + subCode.replace(/\./g,'_') + '_' + inp.id);
+    vals[inp.id] = el ? el.value : (inp.type === 'select' ? (inp.options ? inp.options[0] : '') : '');
+  });
+  const score = Math.round(Math.min(sub.calc(vals), sub.max) * 10) / 10;
+  nbaInputValues[subCode] = score;
+  const pct = Math.round(score / sub.max * 100);
+  const calcEl = document.getElementById('nbacalc_' + subCode.replace(/\./g,'_'));
+  const barEl = document.getElementById('nbasubbar_' + subCode.replace(/\./g,'_'));
+  const pctEl = document.getElementById('nbasubpct_' + subCode.replace(/\./g,'_'));
+  if (calcEl) calcEl.textContent = score.toFixed(1);
+  if (barEl) barEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  updateNBAScores();
+}
+
+function toggleNBACrit(code) {
+  const el = document.getElementById('nbacrit_' + code);
+  if (el) el.classList.toggle('open');
+}
+
+function buildNBAGrid() {
+  const opts = document.getElementById('nbaProgOpts');
+  if (opts) {
+    opts.innerHTML = Object.entries(NBA_PROGRAM_TYPES).map(([k,v]) =>
+      `<button class="nba-pbn ${k===nbaProgType?'on':''}" data-pt="${k}" onclick="setNBAProgType('${k}')">${v}</button>`
+    ).join('');
+  }
+  const grid = document.getElementById('nbaGrid');
+  if (!grid) return;
+  let html = '';
+  NBA_CRITERIA.forEach(crit => {
+    html += `<div class="nba-crit" id="nbacrit_${crit.code}">
+      <div class="nba-crit-header" onclick="toggleNBACrit('${crit.code}')">
+        <div class="nba-crit-stripe" style="background:${crit.color}"></div>
+        <div class="nba-crit-info">
+          <div class="nba-crit-name">${crit.code} — ${crit.name}</div>
+          <div class="nba-crit-sub">SDG link: ${crit.sdg}</div>
+        </div>
+        <div class="nba-crit-bar"><div class="nba-crit-bar-fill" id="nbabar_${crit.code}" style="background:${crit.color};width:0%"></div></div>
+        <div style="min-width:90px;text-align:right">
+          <div class="nba-crit-score" id="nbapts_${crit.code}" style="color:${crit.color}">0 / ${crit.max}</div>
+          <span class="nba-crit-max">marks</span>
+        </div>
+        <div class="nba-crit-weight">${crit.max} marks</div>
+      </div>
+      <div class="nba-sub-list">`;
+    crit.subs.forEach(sub => {
+      const sid = sub.code.replace(/\./g,'_');
+      html += `<div class="nba-sub" id="nbasub_${sid}">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px">
+          <div>
+            <div class="nba-sub-code">${sub.code}</div>
+            <div class="nba-sub-name">${sub.name}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-family:'DM Serif Display',serif;font-size:18px;color:${crit.color}" id="nbacalc_${sid}">0</div>
+            <div style="font-size:9px;color:var(--ink3)">/ ${sub.max} marks</div>
+          </div>
+        </div>
+        <div class="nba-sub-formula"><strong>Formula:</strong> ${sub.formula}</div>
+        <div class="nba-sub-desc">${sub.desc}</div>
+        <div class="calc-field-grid" style="margin:8px 0">`;
+      sub.inputs.forEach(inp => {
+        const fid = 'nba_inp_' + sid + '_' + inp.id;
+        const onEvent = inp.type === 'select' ? `onchange="calcNBA('${sub.code}')"` : `oninput="calcNBA('${sub.code}')"`;
+        if (inp.type === 'select') {
+          html += `<div class="calc-field"><label>${inp.label}</label>
+            <select id="${fid}" ${onEvent} style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+              ${(inp.options||[]).map(o=>`<option value="${o}">${o}</option>`).join('')}
+            </select></div>`;
+        } else {
+          html += `<div class="calc-field"><label>${inp.label}${inp.unit?' <span style="color:#880e4f;font-size:10px">('+inp.unit+')</span>':''}</label>
+            <input type="number" id="${fid}" placeholder="${inp.placeholder||''}" ${inp.max?'max='+inp.max:''} min="0" ${onEvent} style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);font-size:12px;background:var(--card);color:var(--ink)">
+            </div>`;
+        }
+      });
+      html += `</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+          <div style="flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+            <div id="nbasubbar_${sid}" style="height:100%;border-radius:2px;background:${crit.color};width:0%;transition:width 0.4s"></div>
+          </div>
+          <div style="font-size:11px;font-weight:600;color:${crit.color}" id="nbasubpct_${sid}">0%</div>
+        </div>
+        <div class="nba-sub-tip"><strong>Action:</strong> ${sub.tip}</div>
+        <div class="nba-sub-sdg">SDG link: ${crit.sdg}</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  grid.innerHTML = html;
+  updateNBAScores();
+}
+
+function resetNBA() {
+  nbaInputValues = {};
+  buildNBAGrid();
+  updateNBAScores();
+}
+
+function getNBATotals() {
+  const total = Math.round(NBA_CRITERIA.reduce((s,c) => s + getNBACritScore(c.code), 0) * 10) / 10;
+  const band = total>=750?'Accredited 5–6 yrs':total>=600?'Accredited 2–3 yrs':total>=500?'Borderline':'Below threshold';
+  const pct = Math.round(total/10);
+  return { total, band, pct, prog: NBA_PROGRAM_TYPES[nbaProgType] || nbaProgType };
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -4039,4 +5385,448 @@ function updateQSScores() {
   if (ts) ts.innerHTML = overall + '<sup>%</sup>';
   if (tsub) tsub.textContent = overall < 30 ? 'Foundation stage' : overall < 55 ? 'Developing' : overall < 75 ? 'Competitive' : 'Strong';
   if (es) es.innerHTML = envPct + '<sup>%</sup>';
-  if (ss) ss.innerHTML = socPct + '<sup>%<
+  if (ss) ss.innerHTML = socPct + '<sup>%</sup>';
+  if (gs) gs.innerHTML = govPct + '<sup>%</sup>';
+  if (ch) ch.textContent = totalChecked + ' / ' + totalSelf;
+
+  // Update lens and category progress bars
+  QS_DATA.forEach(cat => {
+    const catBar = document.getElementById('qsCatProg_' + cat.catKey);
+    const catPct = document.getElementById('qsCatPct_' + cat.catKey);
+    const catScore = getQSCatScore(cat.catKey);
+    if (catBar) catBar.style.width = catScore + '%';
+    if (catPct) catPct.textContent = catScore + '%';
+    cat.lenses.forEach(lens => {
+      const lensBar = document.getElementById('qsLensProg_' + lens.code);
+      const lensPct = document.getElementById('qsLensPct_' + lens.code);
+      let ld = 0, lt = 0;
+      lens.indicators.forEach(ind => {
+        if (!ind.external) {
+          lt++;
+          const v = qsChecked['qs_' + ind.code];
+          ld += typeof v === 'number' ? v : (v ? 1 : 0);
+        }
+      });
+      const lpct = lt > 0 ? Math.round(ld / lt * 100) : 0;
+      if (lensBar) lensBar.style.width = lpct + '%';
+      if (lensPct) lensPct.textContent = lpct + '%';
+    });
+  });
+}
+
+function getQSTotals() {
+  const env = getQSCatScore('env');
+  const soc = getQSCatScore('soc');
+  const gov = getQSCatScore('gov');
+  const overall = Math.round(env * 0.45 + soc * 0.45 + gov * 0.10);
+  return { env, soc, gov, overall };
+}
+
+function resetQS() {
+  qsChecked = {};
+  buildQSGrid();
+  updateQSScores();
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// AI REPORT + PDF GENERATION
+// ═══════════════════════════════════════════════════════════
+
+let sigDataURL = null;
+
+async function generateAIReport() {
+  const panel = document.getElementById('aiReportPanel');
+  const body = document.getElementById('aiReportBody');
+  if (!panel || !body) return;
+  panel.style.display = 'block';
+  body.innerHTML = '<div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analysing your institutional scores across all frameworks...</span></div>';
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Gather all scores
+  const the = getTHEScore();
+  const aacsb = getAACSSBScore();
+  const bga = getBGAScore();
+  const equis = getEQUISScore();
+  const qs = getQSTotals();
+  const ig = getIGTotals();
+  const nirf = getNIRFTotals();
+  const nba = getNBATotals();
+  const band = getRankBand(the.score);
+
+  // Build SDG breakdown
+  const sdgScores = SDG_META.map(s => {
+    const sc = getSDGScore(s.n);
+    return `SDG ${s.n} (${s.name}): ${sc.pct}% of indicators addressed`;
+  }).join('\n');
+
+  const prompt = `You are an expert university ranking and accreditation consultant. Analyse the following self-assessed scores for a university and provide a comprehensive, actionable institutional report.
+
+INSTITUTION SCORES (UniRank360 Self-Assessment):
+
+THE Impact Rankings: ${the.score}/100 (Band: ${band.label})
+- SDG 17 score: ${getSDGScore(17).pct}% (MANDATORY — 22% weight)
+- Best performing SDG areas assessed
+
+QS Sustainability Rankings: ${qs.overall}% readiness
+- Environmental: ${qs.env}% | Social: ${qs.soc}% | Governance: ${qs.gov}%
+
+QS I-GAUGE: ${ig.rating} rating (${ig.total}/900 points)
+
+NIRF India Rankings: ${nirf.overall}/100 (Category: ${nirf.cat})
+- TLR: ${nirf.tlr}/100 | RP: ${nirf.rp}/100 | GO: ${nirf.go}/100 | OI: ${nirf.oi}/100
+
+NBA Accreditation: ${nba.total}/1000 (${nba.band})
+
+AACSB Standard 9: ${aacsb}% evidence portfolio
+BGA/AMBA CIM: ${bga}/10 metrics
+EQUIS/EFMD ERS: ${equis}% readiness
+
+SDG BREAKDOWN:
+${sdgScores}
+
+Please provide a structured report with these exact sections:
+1. EXECUTIVE SUMMARY (3-4 sentences — overall institutional positioning)
+2. STRONGEST AREAS (what this institution does well across frameworks)
+3. CRITICAL GAPS (the 3-5 most important gaps that are holding back scores)
+4. QUICK WINS (5 specific actions achievable within 3 months that would improve scores most)
+5. STRATEGIC ROADMAP (12-month plan with quarterly milestones)
+6. FRAMEWORK-SPECIFIC INSIGHTS (one paragraph each for THE, QS, NIRF, NBA, Accreditations)
+7. COMPETITIVE BENCHMARKING (where this institution likely sits nationally and how to close the gap)
+
+Write in professional but accessible language. Be specific, not generic. Reference actual scores and specific indicators where relevant. Keep each section concise but substantive.`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await response.json();
+    if (data.error) throw new Error(data.error.message);
+    const text = data.content.map(b => b.text || '').join('');
+
+    // Render AI report beautifully
+    const sections = text.split(/\n(?=\d\.\s+[A-Z])/);
+    let html = '';
+    sections.forEach(sec => {
+      const lines = sec.trim().split('\n');
+      const heading = lines[0].replace(/^\d+\.\s+/, '');
+      const body = lines.slice(1).join('\n').trim();
+      if (!heading || !body) return;
+      const icons = {
+        'EXECUTIVE SUMMARY': '📋',
+        'STRONGEST AREAS': '💪',
+        'CRITICAL GAPS': '⚠️',
+        'QUICK WINS': '⚡',
+        'STRATEGIC ROADMAP': '🗺️',
+        'FRAMEWORK-SPECIFIC INSIGHTS': '🔍',
+        'COMPETITIVE BENCHMARKING': '📊',
+      };
+      const icon = Object.entries(icons).find(([k]) => heading.includes(k))?.[1] || '•';
+      html += `<div class="ai-section">
+        <div class="ai-section-title">${icon} ${heading}</div>
+        <div class="ai-text">${body.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')}</div>
+      </div>`;
+    });
+
+    body.innerHTML = html || `<div class="ai-text">${text.replace(/\n/g,'<br>')}</div>`;
+    const footerLine = '\n\n---\nThis tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores. \u00a9 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 \u2014 free for educational use with attribution. Contact: linkedin.com/in/rahul-sharma-7b119a33/ | rahulsharma.rs1988@gmail.com';
+    window._aiReportText = text + footerLine;
+
+  } catch(err) {
+    body.innerHTML = `<div class="ai-error">AI analysis unavailable: ${err.message}. Your PDF report will still generate with your scored data.</div>`;
+  }
+}
+
+async function downloadPDFReport() {
+  // Use jsPDF (loaded from CDN) for client-side PDF generation
+  if (!window.jspdf) {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+    document.head.appendChild(script);
+    await new Promise(r => script.onload = r);
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const W = 210, M = 18;
+  let y = 0;
+
+  const the = getTHEScore();
+  const aacsb = getAACSSBScore();
+  const bga = getBGAScore();
+  const equis = getEQUISScore();
+  const qs = getQSTotals();
+  const ig = getIGTotals();
+  const nirf = getNIRFTotals();
+  const nba = getNBATotals();
+  const band = getRankBand(the.score);
+  const today = new Date().toLocaleDateString('en-IN', {day:'numeric',month:'long',year:'numeric'});
+
+  // ── COVER PAGE ────────────────────────────────────────────────────────────
+  // Header bar
+  doc.setFillColor(26, 35, 126);
+  doc.rect(0, 0, W, 52, 'F');
+
+  // Logo text
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(28);
+  doc.setFont('helvetica','bold');
+  doc.text('UniRank360', M, 24);
+
+  doc.setFontSize(11);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(180, 200, 255);
+  doc.text('University Rankings & Accreditation Intelligence Platform', M, 33);
+
+  doc.setFontSize(9);
+  doc.setTextColor(150, 170, 220);
+  doc.text('THE Impact \u00b7 QS Sustainability \u00b7 QS I-GAUGE \u00b7 NIRF \u00b7 NBA \u00b7 AACSB \u00b7 BGA \u00b7 EQUIS', M, 42);
+
+  // Score badge
+  doc.setFillColor(201, 146, 42);
+  doc.roundedRect(W-58, 12, 44, 28, 4, 4, 'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(22);
+  doc.setFont('helvetica','bold');
+  doc.text(the.score + '/100', W-36, 27, {align:'center'});
+  doc.setFontSize(7);
+  doc.setFont('helvetica','normal');
+  doc.text('THE Score', W-36, 34, {align:'center'});
+
+  y = 64;
+
+  // Report title
+  doc.setTextColor(26, 35, 126);
+  doc.setFontSize(18);
+  doc.setFont('helvetica','bold');
+  doc.text('Institutional Readiness Report', M, y);
+  y += 8;
+
+  doc.setTextColor(100, 120, 140);
+  doc.setFontSize(10);
+  doc.setFont('helvetica','normal');
+  doc.text('Self-Assessment across 8 international ranking and accreditation frameworks', M, y);
+  y += 6;
+  doc.text('Generated: ' + today + '  \u00b7  v3.0', M, y);
+  y += 10;
+
+  // Divider
+  doc.setDrawColor(220, 220, 220);
+  doc.setLineWidth(0.4);
+  doc.line(M, y, W-M, y);
+  y += 8;
+
+  // ── SCORE SUMMARY GRID ────────────────────────────────────────────────────
+  doc.setTextColor(26, 35, 126);
+  doc.setFontSize(12);
+  doc.setFont('helvetica','bold');
+  doc.text('Score Summary', M, y);
+  y += 7;
+
+  const scores = [
+    { label:'THE Impact Rankings', val: the.score+'/100', sub: band.label, color:[26,35,126] },
+    { label:'QS Sustainability', val: qs.overall+'%', sub: 'Env '+qs.env+'% \u00b7 Soc '+qs.soc+'% \u00b7 Gov '+qs.gov+'%', color:[27,94,32] },
+    { label:'QS I-GAUGE', val: ig.rating, sub: ig.total+'/900 points', color:[26,35,126] },
+    { label:'NIRF India Rankings', val: nirf.overall+'/100', sub: 'Category: '+nirf.cat, color:[183,28,28] },
+    { label:'NBA Accreditation', val: nba.total+'/1000', sub: nba.band, color:[136,14,79] },
+    { label:'AACSB Standard 9', val: aacsb+'%', sub: 'Societal impact evidence', color:[0,70,127] },
+    { label:'BGA/AMBA CIM', val: bga+'/10', sub: 'Impact metrics', color:[123,45,139] },
+    { label:'EQUIS/EFMD ERS', val: equis+'%', sub: 'Transversal ERS evidence', color:[0,110,80] },
+  ];
+
+  const col1 = M, col2 = M + 98;
+  scores.forEach((s, i) => {
+    const cx = i % 2 === 0 ? col1 : col2;
+    const cy = y + Math.floor(i/2) * 22;
+    doc.setFillColor(...s.color);
+    doc.roundedRect(cx, cy, 88, 18, 2, 2, 'F');
+    doc.setFillColor(255,255,255);
+    doc.setFillColor(255,255,255,0.12);
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(8);
+    doc.setFont('helvetica','normal');
+    doc.text(s.label, cx+3, cy+6);
+    doc.setFontSize(13);
+    doc.setFont('helvetica','bold');
+    doc.text(s.val, cx+3, cy+13);
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.setTextColor(200,220,255);
+    doc.text(s.sub, cx+3, cy+17);
+  });
+  y += Math.ceil(scores.length/2) * 22 + 8;
+
+  // Divider
+  doc.setDrawColor(220,220,220);
+  doc.line(M, y, W-M, y);
+  y += 8;
+
+  // ── THE RANKING BAND ──────────────────────────────────────────────────────
+  doc.setTextColor(26, 35, 126);
+  doc.setFontSize(12);
+  doc.setFont('helvetica','bold');
+  doc.text('THE Impact Ranking Band', M, y);
+  y += 6;
+  doc.setFontSize(9);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(60, 80, 100);
+  const bandText = doc.splitTextToSize(band.label + ' (' + the.score + '/100) — SDG 17 mandatory (22% weight). Best 3 of remaining 16 SDGs contribute 26% each.', W-M*2);
+  doc.text(bandText, M, y);
+  y += bandText.length * 5 + 6;
+
+  // SDG top performers
+  const sdgRanked = SDG_META.map(s => ({n:s.n, name:s.name, pct:getSDGScore(s.n).pct}))
+    .filter(s => s.pct > 0)
+    .sort((a,b) => b.pct - a.pct);
+
+  if (sdgRanked.length > 0) {
+    doc.setTextColor(26,35,126);
+    doc.setFontSize(10);
+    doc.setFont('helvetica','bold');
+    doc.text('SDG Performance (Top ' + Math.min(sdgRanked.length, 6) + ')', M, y);
+    y += 6;
+    sdgRanked.slice(0,6).forEach((s,i) => {
+      const bx = M, bw = W-M*2;
+      doc.setFillColor(240,242,250);
+      doc.rect(bx, y, bw, 6, 'F');
+      doc.setFillColor(26,35,126);
+      doc.rect(bx, y, bw*(s.pct/100), 6, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(7);
+      doc.setFont('helvetica','bold');
+      doc.text('SDG '+s.n+' '+s.name, bx+2, y+4.2);
+      doc.setTextColor(26,35,126);
+      doc.text(s.pct+'%', bx+bw-8, y+4.2);
+      y += 8;
+    });
+    y += 4;
+  }
+
+  // ── AI ANALYSIS PAGE ─────────────────────────────────────────────────────
+  if (window._aiReportText) {
+    doc.addPage();
+    doc.setFillColor(26, 35, 126);
+    doc.rect(0, 0, W, 18, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(11);
+    doc.setFont('helvetica','bold');
+    doc.text('AI-Generated Institutional Analysis', M, 12);
+    y = 26;
+
+    const aiLines = doc.splitTextToSize(window._aiReportText.replace(/\*\*/g,'').replace(/\*/g,''), W-M*2);
+    doc.setTextColor(40,60,80);
+    doc.setFontSize(8.5);
+    doc.setFont('helvetica','normal');
+    aiLines.forEach(line => {
+      if (y > 272) { doc.addPage(); y = 18; }
+      const isSectionHead = /^\d+\.\s+[A-Z\s]+$/.test(line.trim());
+      if (isSectionHead) {
+        y += 3;
+        doc.setFont('helvetica','bold');
+        doc.setTextColor(26,35,126);
+        doc.setFontSize(9.5);
+      } else {
+        doc.setFont('helvetica','normal');
+        doc.setTextColor(40,60,80);
+        doc.setFontSize(8.5);
+      }
+      doc.text(line, M, y);
+      y += isSectionHead ? 6 : 4.5;
+    });
+  }
+
+  // ── SIGNATURE + FOOTER PAGE ───────────────────────────────────────────────
+  doc.addPage();
+  doc.setFillColor(26, 35, 126);
+  doc.rect(0, 0, W, 18, 'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(11);
+  doc.setFont('helvetica','bold');
+  doc.text('Declaration & Methodology', M, 12);
+
+  y = 28;
+  doc.setTextColor(40,60,80);
+  doc.setFontSize(9);
+  doc.setFont('helvetica','normal');
+  const declaration = 'This report has been generated using the UniRank360 self-assessment platform. All scores are based on institutional self-reported data and represent readiness estimates against published ranking and accreditation methodologies. These are not official scores from THE, QS, NIRF, NBA, AACSB, BGA or EQUIS. Institutions should use this report as a diagnostic and planning tool, and pursue official submissions through the respective organisations.';
+  const declLines = doc.splitTextToSize(declaration, W-M*2);
+  doc.text(declLines, M, y);
+  y += declLines.length * 5 + 10;
+
+  // Methodology box
+  doc.setFillColor(245,247,255);
+  doc.roundedRect(M, y, W-M*2, 48, 3, 3, 'F');
+  doc.setTextColor(26,35,126);
+  doc.setFontSize(9);
+  doc.setFont('helvetica','bold');
+  doc.text('Frameworks and Methodology', M+4, y+8);
+  const methodText = [
+    'THE Impact Rankings 2024/25 — 17 SDGs, 100-point scale',
+    'QS Sustainability Rankings 2024 — Environmental, Social and Governance lenses',
+    'QS I-GAUGE v2.1 — 6 categories, 900-point scale, Bronze to Platinum',
+    'NIRF India Rankings 2025 — Ministry of Education, 5 parameters, 14 categories',
+    'NBA GAPC V4.0 (July 2024) — 9 criteria, 1000-point scale',
+    'AACSB 2020 Standards — Standard 9 Societal Impact and Engagement',
+    'BGA/AMBA Continuous Impact Model — 10 metrics, SDG-linked',
+    'EQUIS/EFMD — Ethics, Responsibility and Sustainability (transversal)',
+  ];
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(60,80,100);
+  doc.setFontSize(8);
+  methodText.forEach((t,i) => doc.text('\u2022 ' + t, M+6, y+16+i*4));
+  y += 58;
+
+  // Signature block
+  doc.setDrawColor(200,200,200);
+  doc.setLineWidth(0.3);
+  doc.line(M, y, M+70, y);
+  y += 5;
+  doc.setTextColor(26,35,126);
+  doc.setFontSize(9);
+  doc.setFont('helvetica','bold');
+  doc.text('Rahul Sharma', M, y);
+  y += 5;
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(8);
+  doc.setTextColor(80,100,120);
+  doc.text('Founder, UniRank360', M, y); y+=4;
+  doc.text('LinkedIn: linkedin.com/in/rahul-sharma-7b119a33/', M, y); y+=4;
+  doc.text('Email: rahulsharma.rs1988@gmail.com', M, y); y+=4;
+  doc.text('Date: ' + today, M, y);
+
+
+  // ── FOOTER ON ALL PAGES ─────────────────────────────────────────────────
+  const footerNote = 'This tool is for self-assessment and planning purposes only. It does not constitute official ranking or accreditation scores.';
+  const footerCopy = '© 2026 Rahul Sharma. Licensed under CC BY-NC 4.0 — free for educational use with attribution.';
+  const footerContact = 'Contact: linkedin.com/in/rahul-sharma-7b119a33/  |  rahulsharma.rs1988@gmail.com';
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let pi = 1; pi <= pageCount; pi++) {
+    doc.setPage(pi);
+    doc.setFillColor(245, 247, 255);
+    doc.rect(0, 279, W, 18, 'F');
+    doc.setDrawColor(200, 210, 230);
+    doc.setLineWidth(0.3);
+    doc.line(M, 280, W-M, 280);
+    doc.setTextColor(100, 120, 140);
+    doc.setFontSize(6);
+    doc.setFont('helvetica','normal');
+    doc.text(footerNote, M, 284);
+    doc.text(footerCopy, M, 288);
+    doc.text(footerContact, M, 292);
+    doc.setTextColor(140, 160, 180);
+    doc.text('UniRank360  ·  Page ' + pi + ' of ' + pageCount, W-M, 292, {align:'right'});
+  }
+
+  doc.save('UniRank360_Report_' + today.replace(/ /g,'_') + '.pdf');
+}
+
+
+</script>
+</body>
+</html>
