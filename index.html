@@ -748,6 +748,26 @@ nav {
 .bga-metric-row:first-child { border-top:none; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink3); }
 .bga-metric-inp { width:100%; padding:5px 7px; border-radius:5px; border:1px solid var(--border); font-size:11px; background:var(--card); color:var(--ink); }
 .bga-sdg-tag { display:inline-block; padding:2px 7px; border-radius:10px; font-size:9px; font-weight:700; background:#e8f5e9; color:#1b5e20; margin:2px; }
+
+/* ── INSTITUTION PROFILE ── */
+.inst-profile-bar {
+  background:var(--card); border-bottom:1px solid var(--border);
+  padding:10px 20px; display:flex; align-items:center; gap:12px;
+  flex-wrap:wrap; position:sticky; top:56px; z-index:90;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+.inst-profile-bar label { font-size:11px; font-weight:600; color:var(--ink3); white-space:nowrap; }
+.inst-profile-inp {
+  padding:5px 10px; border-radius:6px; border:1px solid var(--border);
+  font-size:12px; background:var(--surface); color:var(--ink);
+  outline:none; transition:border-color 0.15s;
+}
+.inst-profile-inp:focus { border-color:var(--blue); }
+.inst-name-inp { min-width:220px; flex:2; }
+.inst-addr-inp { min-width:180px; flex:2; }
+.inst-type-inp { min-width:140px; flex:1; }
+.inst-saved { font-size:10px; color:var(--teal); font-weight:600; opacity:0; transition:opacity 0.3s; }
+.inst-saved.show { opacity:1; }
 </style>
 </head>
 <body>
@@ -808,6 +828,44 @@ nav {
 
 <!-- SCORE SECTION -->
 <div id="scoreSection">
+
+  <!-- INSTITUTION PROFILE BAR -->
+  <div class="inst-profile-bar" id="instProfileBar">
+    <label>&#127979; Institution:</label>
+    <input class="inst-profile-inp inst-name-inp" id="instName"
+      placeholder="University / College name"
+      oninput="saveInstProfile()" autocomplete="organization">
+    <label>&#128205;</label>
+    <input class="inst-profile-inp inst-addr-inp" id="instCity"
+      placeholder="City, State, Country"
+      oninput="saveInstProfile()" autocomplete="address-level2">
+    <label>Type:</label>
+    <select class="inst-profile-inp inst-type-inp" id="instType" onchange="saveInstProfile()">
+      <option value="">Select type</option>
+      <option>University</option>
+      <option>Deemed University</option>
+      <option>Autonomous College</option>
+      <option>Affiliated College</option>
+      <option>Institute of National Importance</option>
+      <option>Private University</option>
+      <option>State University</option>
+      <option>Central University</option>
+      <option>Business School</option>
+      <option>Engineering Institute</option>
+      <option>Medical College</option>
+      <option>Other</option>
+    </select>
+    <label>NAAC Grade:</label>
+    <select class="inst-profile-inp" id="instNAAC" onchange="saveInstProfile()" style="min-width:90px">
+      <option value="">N/A</option>
+      <option>A++</option><option>A+</option><option>A</option>
+      <option>B++</option><option>B+</option><option>B</option>
+      <option>C</option>
+    </select>
+    <span class="inst-saved" id="instSaved">&#10003; Saved</span>
+  </div>
+
+
   <div class="dashboard">
     <!-- Maturity selector -->
     <div class="maturity-bar">
@@ -4678,6 +4736,26 @@ function getAACSSBTabTotals() {
 }
 
 
+
+// ═══════════════════════════════════════════════════════════
+// INSTITUTION PROFILE
+// ═══════════════════════════════════════════════════════════
+function saveInstProfile() {
+  const saved = document.getElementById('instSaved');
+  if (saved) { saved.classList.add('show'); setTimeout(() => saved.classList.remove('show'), 1500); }
+}
+
+function getInstProfile() {
+  const name = (document.getElementById('instName')||{}).value || '';
+  const city = (document.getElementById('instCity')||{}).value || '';
+  const type = (document.getElementById('instType')||{}).value || '';
+  const naac = (document.getElementById('instNAAC')||{}).value || '';
+  return { name, city, type, naac,
+    display: name || 'Institution not specified',
+    fullLine: [name, city, type].filter(Boolean).join(' · ') + (naac ? ' · NAAC: ' + naac : '')
+  };
+}
+
 // ═══════════════════════════════════════════════════════════
 // QS I-GAUGE DATA
 // ═══════════════════════════════════════════════════════════
@@ -5886,7 +5964,11 @@ async function generateAIReport() {
     return `SDG ${s.n} (${s.name}): ${sc.pct}% of indicators addressed`;
   }).join('\n');
 
-  const prompt = `You are an expert university ranking and accreditation consultant. Analyse the following self-assessed scores for a university and provide a comprehensive, actionable institutional report.
+  const inst = getInstProfile();
+  const instHeader = inst.name ? `Institution: ${inst.name}${inst.city ? ', ' + inst.city : ''}${inst.type ? ' (' + inst.type + ')' : ''}${inst.naac ? ' | NAAC: ' + inst.naac : ''}` : 'Institution: Not specified';
+  const prompt = `You are an expert university ranking and accreditation consultant. Analyse the following self-assessed scores and provide a comprehensive, actionable institutional report.
+
+${instHeader}
 
 INSTITUTION SCORES (UniRank360 Self-Assessment):
 
@@ -6180,6 +6262,17 @@ async function downloadPDFReport() {
   doc.setTextColor(40,60,80);
   doc.setFontSize(9);
   doc.setFont('helvetica','normal');
+  const inst2 = getInstProfile();
+  const instStr = inst2.name ? inst2.fullLine : 'Institution not specified';
+  doc.setFontSize(10); doc.setFont('helvetica','bold'); doc.setTextColor(26,35,126);
+  doc.text('Prepared for:', M, y); y += 5;
+  doc.setFontSize(11); doc.setFont('helvetica','bold'); doc.setTextColor(15,30,60);
+  doc.text(inst2.name || 'Institution not specified', M, y); y += 5;
+  if (inst2.city || inst2.type) {
+    doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(100,120,140);
+    doc.text([inst2.city, inst2.type].filter(Boolean).join(' · '), M, y); y += 5;
+  }
+  y += 5;
   const declaration = 'This report has been generated using the UniRank360 self-assessment platform. All scores are based on institutional self-reported data and represent readiness estimates against published ranking and accreditation methodologies. These are not official scores from THE, QS, NIRF, NBA, AACSB, BGA or EQUIS. Institutions should use this report as a diagnostic and planning tool, and pursue official submissions through the respective organisations.';
   const declLines = doc.splitTextToSize(declaration, W-M*2);
   doc.text(declLines, M, y);
